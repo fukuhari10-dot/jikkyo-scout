@@ -2,890 +2,2854 @@
  {
   "id": "UCy9GuRXGTm8TliQ-OJ7KwzA",
   "name": "【V.I.P】",
+  "genre": "game",
   "tags": [],
   "team": "",
-  "streamer": false
+  "streamer": false,
+  "all": false
  },
  {
   "id": "UCfLK2t40XwWNIQtJOtAq_1Q",
   "name": "サトユー",
+  "genre": "game",
   "tags": [],
   "team": "日本ハム",
-  "streamer": false
+  "streamer": false,
+  "all": false
  },
  {
   "id": "UC5wr1qJKJOrHHK-haeZkfbg",
   "name": "アカgames",
+  "genre": "game",
   "tags": [],
   "team": "",
-  "streamer": false
+  "streamer": false,
+  "all": false
  },
  {
   "id": "UCYRWJTfOwwu3uY9A2yjOjaw",
   "name": "ZEE GAMES",
+  "genre": "game",
   "tags": [],
   "team": "日本ハム",
-  "streamer": false
+  "streamer": false,
+  "all": false
  },
  {
   "id": "UCRHxisRts7S9IiNyJ-LRQHg",
   "name": "コマとるチャンネル",
+  "genre": "game",
   "tags": [],
   "team": "中日",
-  "streamer": false
+  "streamer": false,
+  "all": false
  },
  {
   "id": "UCUysTs1JnGqA9H352Q4nxvA",
   "name": "like プロスピ",
+  "genre": "game",
   "tags": [],
   "team": "ロッテ",
-  "streamer": false
+  "streamer": false,
+  "all": false
  },
  {
   "id": "UCgqVs4FwTRhAxlJNcwBGEyA",
   "name": "REIチャンネル【じゅんき】",
+  "genre": "game",
   "tags": [],
   "team": "楽天",
-  "streamer": false
+  "streamer": false,
+  "all": false
  },
  {
   "id": "UC40yPcxslLMnEpeY3iAUdoA",
   "name": "柊",
+  "genre": "game",
   "tags": [],
   "team": "ロッテ",
-  "streamer": false
+  "streamer": false,
+  "all": false
  },
  {
   "id": "UCpW8-00B_yn525p06mKj7iA",
   "name": "かーぴCHANNEL",
+  "genre": "game",
   "tags": [],
   "team": "広島",
-  "streamer": false
+  "streamer": false,
+  "all": false
  },
  {
   "id": "UCDsx7sUmJFqiHxJ-tSraCfw",
   "name": "フォルテ_無課金プロスピA研究家",
+  "genre": "game",
   "tags": [],
   "team": "",
-  "streamer": false
+  "streamer": false,
+  "all": false
  },
  {
   "id": "UCLBhRRPsYQndBlKt31n0GOg",
   "name": "U GAMES",
+  "genre": "game",
   "tags": [],
   "team": "",
-  "streamer": false
+  "streamer": false,
+  "all": false
  },
  {
   "id": "UCDq8_6XrIb_z-WL9S5OXiKA",
   "name": "みやノアの世界",
+  "genre": "game",
   "tags": [],
   "team": "",
-  "streamer": false
+  "streamer": false,
+  "all": false
  },
  {
   "id": "UC6ntP_BmeHWgdXzX0ppLJVA",
   "name": "きわどら",
+  "genre": "game",
   "tags": [],
   "team": "中日",
-  "streamer": false
+  "streamer": false,
+  "all": false
  },
  {
   "id": "UCneElC_-2F7t-BsZg0tdlew",
   "name": "CLAY切り抜き",
+  "genre": "game",
   "tags": [],
   "team": "",
-  "streamer": false
+  "streamer": false,
+  "all": false
  },
  {
   "id": "UCouXthL4zkZTc_K5SGDWHBg",
   "name": "プロスピフォーム名鑑",
+  "genre": "game",
   "tags": [],
   "team": "",
-  "streamer": false
+  "streamer": false,
+  "all": false
  },
  {
   "id": "UCmJHIFGKaDAgaIyieYWUE2A",
   "name": "KURI chan",
+  "genre": "game",
   "tags": [],
   "team": "",
-  "streamer": false
+  "streamer": false,
+  "all": false
  },
  {
   "id": "UCBjGibBGiNwo9fVDn7e_hPA",
   "name": "ぺっチャンネル",
+  "genre": "game",
   "tags": [],
   "team": "西武",
-  "streamer": false
+  "streamer": false,
+  "all": true
  },
  {
   "id": "UCtj9Gig8BJ59A0JcqRhSJPw",
   "name": "メリッサ",
+  "genre": "game",
   "tags": [],
   "team": "オリックス",
-  "streamer": false
+  "streamer": false,
+  "all": true
  },
  {
   "id": "UCLcQ3pK8-1BH0Xdw9M--3kQ",
   "name": "ぴーちゃん",
+  "genre": "game",
   "tags": [],
   "team": "ソフトバンク",
-  "streamer": false
+  "streamer": false,
+  "all": true
  },
  {
   "id": "UCkPuM5YeNDicbOx5-mUsCFA",
   "name": "ごうや王道",
+  "genre": "game",
   "tags": [],
   "team": "巨人",
-  "streamer": false
+  "streamer": false,
+  "all": true
  },
  {
   "id": "UCiJt26KVxZVJKJCD7qRfWaA",
   "name": "さごまん",
+  "genre": "game",
   "tags": [],
   "team": "DeNA",
-  "streamer": false
+  "streamer": false,
+  "all": true
  },
  {
   "id": "UCi4192mGgbwx2Gyxl8e2pyw",
   "name": "黒山羊(くろやぎ)",
+  "genre": "game",
   "tags": [],
   "team": "広島",
-  "streamer": false
+  "streamer": false,
+  "all": true
  },
  {
   "id": "UC-QMyEOqNNNLVXbIljb0bTg",
   "name": "キッサキch",
+  "genre": "game",
   "tags": [],
   "team": "巨人",
-  "streamer": false
+  "streamer": false,
+  "all": true
  },
  {
   "id": "UCZu5LKclBEF4DgOtcK_EAEg",
   "name": "シンドウ君。名も無き#18",
+  "genre": "game",
   "tags": [],
   "team": "DeNA",
-  "streamer": false
+  "streamer": false,
+  "all": true
  },
  {
   "id": "UC48rfSQJtXt-7Q_Q1Tr2qXA",
   "name": "ユーマルch",
+  "genre": "game",
   "tags": [],
   "team": "阪神",
-  "streamer": false
+  "streamer": false,
+  "all": true
  },
  {
   "id": "UCnjVBJvsvHXh6utND0x-L4g",
   "name": "カンタチャンネル",
+  "genre": "game",
   "tags": [],
   "team": "",
-  "streamer": false
+  "streamer": false,
+  "all": true
  },
  {
   "id": "UCGRo3YCwDXUOJEEsy1KNw_A",
   "name": "しらたき白瀧",
+  "genre": "game",
   "tags": [],
   "team": "",
-  "streamer": false
+  "streamer": false,
+  "all": true
  },
  {
   "id": "UC9-yJ9Ntc8aP_NRJvpJgYTA",
   "name": "ロシェル",
+  "genre": "game",
   "tags": [],
   "team": "",
-  "streamer": false
+  "streamer": false,
+  "all": true
  },
  {
   "id": "UCkC4jBm6287T_ZLuyloH_9A",
   "name": "今日のプロスピチャンネル",
+  "genre": "game",
   "tags": [],
   "team": "",
-  "streamer": false
+  "streamer": false,
+  "all": true
  },
  {
   "id": "UCf7RH4kxRSDy1ox_Gjst5HA",
   "name": "ゆっくりプロスピA解説",
+  "genre": "game",
   "tags": [],
   "team": "",
-  "streamer": false
+  "streamer": false,
+  "all": true
  },
  {
   "id": "UCiHNHsxZzsGd9Eh2xhbHM9Q",
   "name": "まいあひCR",
+  "genre": "game",
   "tags": [],
   "team": "ソフトバンク",
-  "streamer": false
+  "streamer": false,
+  "all": true
  },
  {
   "id": "UCGDuLUc_wxt5jLKneGIWpUA",
   "name": "KAƵUKIの獅子活チャンネル",
+  "genre": "game",
   "tags": [],
   "team": "オリックス",
-  "streamer": false
+  "streamer": false,
+  "all": true
  },
  {
   "id": "UCpeMyNMDTlY3H9BKzppjdug",
   "name": "プロスピ王",
+  "genre": "game",
   "tags": [],
   "team": "",
-  "streamer": false
+  "streamer": false,
+  "all": true
  },
  {
   "id": "UCkmUXrbExy7es2o3HJm68Hw",
   "name": "しがない高校生のプロスピ日記",
+  "genre": "game",
   "tags": [],
   "team": "",
-  "streamer": false
+  "streamer": false,
+  "all": true
  },
  {
   "id": "UCkfdA7FrnTh7oYPlPa98J0g",
   "name": "ねこマンちゃんねる",
+  "genre": "game",
   "tags": [],
   "team": "日本ハム",
-  "streamer": false
+  "streamer": false,
+  "all": true
  },
  {
   "id": "UCUQlnT2HHQ75c-nz7yZN-HQ",
   "name": "りすのおうちがすき",
+  "genre": "game",
   "tags": [],
   "team": "",
-  "streamer": false
+  "streamer": false,
+  "all": true
  },
  {
   "id": "UC8apqLMhmls6VWll_O70MFw",
   "name": "プロスピA研究所",
+  "genre": "game",
   "tags": [],
   "team": "",
-  "streamer": false
+  "streamer": false,
+  "all": true
  },
  {
   "id": "UCkiBi9-L4Hqo7HrGOon8OqA",
   "name": "哲のゲームチャンネル",
+  "genre": "game",
   "tags": [],
   "team": "",
-  "streamer": false
+  "streamer": false,
+  "all": true
  },
  {
   "id": "UCbjETXTr7JS-n55FcSLsL3w",
   "name": "Tka games",
+  "genre": "game",
   "tags": [],
   "team": "阪神",
-  "streamer": false
+  "streamer": false,
+  "all": true
  },
  {
   "id": "UCSU9x_0p9Yh4hvUdy4C7P1A",
   "name": "Ken5通信",
+  "genre": "game",
   "tags": [],
   "team": "",
-  "streamer": false
+  "streamer": false,
+  "all": true
  },
  {
   "id": "UCsBPVm9mZh8Fx_Dmrych2rw",
   "name": "はしもり（HASHIMORI）",
+  "genre": "game",
   "tags": [],
   "team": "ヤクルト",
-  "streamer": false
+  "streamer": false,
+  "all": true
  },
  {
   "id": "UC-KyQqCtMYEf5HGy7CaSJPA",
   "name": "ういんぐ【プロスピa】【ゆっくり実況】",
+  "genre": "game",
   "tags": [],
   "team": "西武",
-  "streamer": false
+  "streamer": false,
+  "all": true
  },
  {
   "id": "UCh6wy9x5N9-9HAcetorgzYQ",
   "name": "ガチオリ",
+  "genre": "game",
   "tags": [],
   "team": "オリックス",
-  "streamer": false
+  "streamer": false,
+  "all": true
  },
  {
   "id": "UC_J8pxjwtnGqIKv00fqFj6w",
   "name": "ちゃっつん",
+  "genre": "game",
   "tags": [],
   "team": "",
-  "streamer": false
+  "streamer": false,
+  "all": true
  },
  {
   "id": "UCtSJwQGJAOB5C2Oxls0dVjg",
   "name": "大野放送協会(OHK)",
+  "genre": "game",
   "tags": [],
   "team": "",
-  "streamer": false
+  "streamer": false,
+  "all": true
  },
  {
   "id": "UCgZragRPqsVk8o9nmRH656Q",
   "name": "THE 船長GAMES",
+  "genre": "game",
   "tags": [],
   "team": "",
-  "streamer": false
+  "streamer": false,
+  "all": true
  },
  {
   "id": "UCDkgjRiCvEPn5VUcHaVJTCw",
   "name": "TJ GAMES",
+  "genre": "game",
   "tags": [],
   "team": "",
-  "streamer": false
+  "streamer": false,
+  "all": true
  },
  {
   "id": "UCHPM-P40cbfV1Ux2URtS94w",
   "name": "あべちゃんの野球ゲーム",
+  "genre": "game",
   "tags": [],
   "team": "",
-  "streamer": false
+  "streamer": false,
+  "all": true
  },
  {
   "id": "UCEVX82XVtjWyQLnDgBbSd5A",
   "name": "JapanT主",
+  "genre": "game",
   "tags": [],
   "team": "",
-  "streamer": false
+  "streamer": false,
+  "all": true
  },
  {
   "id": "UCF2vVQZf2mxHDyNPtxTcL-w",
   "name": "ピケ玉",
+  "genre": "game",
   "tags": [],
   "team": "",
-  "streamer": false
+  "streamer": false,
+  "all": true
  },
  {
   "id": "UCphywvxmI41klO52k7n8rdg",
   "name": "なむるゲームちゃんねる",
+  "genre": "game",
   "tags": [],
   "team": "",
-  "streamer": false
+  "streamer": false,
+  "all": true
  },
  {
   "id": "UCj_DDhfSeMxo4EfQ92mi9xw",
   "name": "まっつーch【プロスピにロマンを求める人】",
+  "genre": "game",
   "tags": [],
   "team": "",
-  "streamer": false
+  "streamer": false,
+  "all": true
  },
  {
   "id": "UCxlAb3CBBAgfT4aqDZcnhrA",
   "name": "サンチャンネル【西武純正】",
+  "genre": "game",
   "tags": [],
   "team": "",
-  "streamer": false
+  "streamer": false,
+  "all": true
  },
  {
   "id": "UCJ8yGncb6Z4aKGKXHDwuJkg",
   "name": "JB HYPE",
+  "genre": "game",
   "tags": [],
   "team": "",
-  "streamer": false
+  "streamer": false,
+  "all": true
  },
  {
   "id": "UCYKsqPsGLNNRBpFw26WZxxg",
   "name": "Aちゃん【巨人純正】",
+  "genre": "game",
   "tags": [],
   "team": "",
-  "streamer": false
+  "streamer": false,
+  "all": true
  },
  {
   "id": "UCi_P3iNNt4BbfI-8dGfX6yg",
   "name": "テッツ【鉄造ch】",
+  "genre": "game",
   "tags": [],
   "team": "",
-  "streamer": false
+  "streamer": false,
+  "all": true
  },
  {
   "id": "UCmN6zOS-kJxFeWXB8FExffQ",
   "name": "kekeチャンネル",
+  "genre": "game",
   "tags": [],
   "team": "",
-  "streamer": false
+  "streamer": false,
+  "all": true
  },
  {
   "id": "UCn1IM7FLt3ILogxD56JXNFQ",
   "name": "プロスピ改造チャンネル@魔界塔士",
+  "genre": "game",
   "tags": [],
   "team": "",
-  "streamer": false
+  "streamer": false,
+  "all": true
  },
  {
   "id": "UCUXNFr2oojz2dZy5Cx2Ua_Q",
   "name": "sharp【巨人純正 スマホ勢】",
+  "genre": "game",
   "tags": [],
   "team": "巨人",
-  "streamer": false
+  "streamer": false,
+  "all": true
  },
  {
   "id": "UCFAlGE4vZEw3pB-s1KIZPsQ",
   "name": "naggy",
+  "genre": "game",
   "tags": [],
   "team": "阪神",
-  "streamer": false
+  "streamer": false,
+  "all": true
  },
  {
   "id": "UCkv3-ismFPq1ifpbv6suUgQ",
   "name": "リア球",
+  "genre": "game",
   "tags": [],
   "team": "",
-  "streamer": false
+  "streamer": false,
+  "all": true
  },
  {
   "id": "UCzZPKJpyO3KKM97G71pDz-g",
   "name": "あなまんの人生",
+  "genre": "game",
   "tags": [],
   "team": "",
-  "streamer": false
+  "streamer": false,
+  "all": true
  },
  {
   "id": "UCM5XCfee3W_4hlth8w4TSzw",
   "name": "ゆーりんくん【プロスピa】",
+  "genre": "game",
   "tags": [],
   "team": "",
-  "streamer": false
+  "streamer": false,
+  "all": true
  },
  {
   "id": "UCAvLvj3BJ8lg3Ufi8P1OtzA",
   "name": "ゆうれい",
+  "genre": "game",
   "tags": [],
   "team": "",
-  "streamer": false
+  "streamer": false,
+  "all": true
  },
  {
   "id": "UCnJzyQvdRtpcPmZiXdFzdag",
   "name": "仕事やめたい極(きわみちゃん)",
+  "genre": "game",
   "tags": [],
   "team": "",
-  "streamer": false
+  "streamer": false,
+  "all": true
  },
  {
   "id": "UCIK-VLBt3kcuiByjuDCdEpQ",
   "name": "マサ / Masa",
+  "genre": "game",
   "tags": [],
   "team": "",
-  "streamer": false
+  "streamer": false,
+  "all": true
  },
  {
   "id": "UCtU2UMlHAa-7Z8bCMhgWKaQ",
   "name": "まん中 中日純正",
+  "genre": "game",
   "tags": [],
   "team": "中日",
-  "streamer": false
+  "streamer": false,
+  "all": true
  },
  {
   "id": "UCt9HdnShXkH7FcRbdd-up1g",
   "name": "ぶしけん",
+  "genre": "game",
   "tags": [],
   "team": "ソフトバンク",
-  "streamer": false
+  "streamer": false,
+  "all": true
  },
  {
   "id": "UC0JzZvq15kgfa_0gcg-5OdQ",
   "name": "あゆずの【プロスピA】",
+  "genre": "game",
   "tags": [],
   "team": "日本ハム",
-  "streamer": false
+  "streamer": false,
+  "all": true
  },
  {
   "id": "UCoit4Xa4M-1_VoEg37kZB9g",
   "name": "パタゴニアメタン",
+  "genre": "game",
   "tags": [],
   "team": "",
-  "streamer": false
+  "streamer": false,
+  "all": true
  },
  {
   "id": "UCbkO4er2AzH-9UQxbQ8rHKw",
   "name": "うつつプロスピちゃんねる",
+  "genre": "game",
   "tags": [],
   "team": "",
-  "streamer": false
+  "streamer": false,
+  "all": true
  },
  {
   "id": "UCXjq2f7uhAi_Ne8EFpWgBKA",
   "name": "プロスピ好き",
+  "genre": "game",
   "tags": [],
   "team": "",
-  "streamer": false
+  "streamer": false,
+  "all": true
  },
  {
   "id": "UCQX-F9lhFFPrjYDlhwAOjWQ",
   "name": "アルシーヴ",
+  "genre": "game",
   "tags": [],
   "team": "",
-  "streamer": false
+  "streamer": false,
+  "all": true
  },
  {
   "id": "UC5UrugnslCrF2mUsNq_2Ymw",
   "name": "ふわ虎",
+  "genre": "game",
   "tags": [],
   "team": "阪神",
-  "streamer": false
+  "streamer": false,
+  "all": true
  },
  {
   "id": "UC4HX_-DfDSwQeg_rINgjtCg",
   "name": "せうき",
+  "genre": "game",
   "tags": [],
   "team": "",
-  "streamer": false
+  "streamer": false,
+  "all": true
  },
  {
   "id": "UCfB6iwTXWNtfx2GoukpCQ9A",
   "name": "Aimy【日ハム純正】",
+  "genre": "game",
   "tags": [],
   "team": "日本ハム",
-  "streamer": false
+  "streamer": false,
+  "all": true
  },
  {
   "id": "UC5oavU_I8jCxI-w4eVQ4VAQ",
   "name": "守護神スットコ",
+  "genre": "game",
   "tags": [],
   "team": "",
-  "streamer": false
+  "streamer": false,
+  "all": true
  },
  {
   "id": "UC6fWPho6xtVXl5V1mMJSTiA",
   "name": "ヘソのゴマ",
+  "genre": "game",
   "tags": [],
   "team": "",
-  "streamer": false
+  "streamer": false,
+  "all": true
  },
  {
   "id": "UCVsFZ9Q-hAkshNBXYi_nZlQ",
   "name": "ハムえもん",
+  "genre": "game",
   "tags": [],
   "team": "日本ハム",
-  "streamer": false
+  "streamer": false,
+  "all": true
  },
  {
   "id": "UCg9WOuiypdtDT3oQAtlru4w",
   "name": "広佐古スピリッツS【広スピS】",
+  "genre": "game",
   "tags": [],
   "team": "ソフトバンク",
-  "streamer": false
+  "streamer": false,
+  "all": true
  },
  {
   "id": "UCOL6_MGLmyP-b1WF4rZE6VQ",
   "name": "プロスピ無課金覇王への道☀️",
+  "genre": "game",
   "tags": [],
   "team": "",
-  "streamer": false
+  "streamer": false,
+  "all": true
  },
  {
   "id": "UCw-Y93kJO9knuFPSTS27F3Q",
   "name": "ぽよ@無課金中日純正",
+  "genre": "game",
   "tags": [],
   "team": "中日",
-  "streamer": false
+  "streamer": false,
+  "all": true
  },
  {
   "id": "UC3wmJK9BadietSn-OYe8tjA",
   "name": "そると プロスピ【阪神純正】",
+  "genre": "game",
   "tags": [],
   "team": "阪神",
-  "streamer": false
+  "streamer": false,
+  "all": true
  },
  {
   "id": "UCIKRSqybznoFbwxPP0XfV1g",
   "name": "M.S【プロスピA】",
+  "genre": "game",
   "tags": [],
   "team": "",
-  "streamer": false
+  "streamer": false,
+  "all": true
  },
  {
   "id": "UCKs21r6xITm_s0q712a3YpA",
   "name": "すーいとちゃま",
+  "genre": "game",
   "tags": [],
   "team": "",
-  "streamer": false
+  "streamer": false,
+  "all": true
  },
  {
   "id": "UCdMzecvK7syEpNql1dJJh1A",
   "name": "プロゆくch",
+  "genre": "game",
   "tags": [],
   "team": "",
-  "streamer": false
+  "streamer": false,
+  "all": true
  },
  {
   "id": "UC9MCERWBGyHkA5Umqtfmhgw",
   "name": "プロスピA無課金 藤浪の部屋",
+  "genre": "game",
   "tags": [],
   "team": "阪神",
-  "streamer": false
+  "streamer": false,
+  "all": true
  },
  {
   "id": "UCXz4PZJHFT84b58dDhtlMNw",
   "name": "RINch",
+  "genre": "game",
   "tags": [],
   "team": "",
-  "streamer": false
+  "streamer": false,
+  "all": true
  },
  {
   "id": "UCTE_wz9zQQDRq0PhcO4AJIA",
   "name": "草野球スピリッツA",
+  "genre": "game",
   "tags": [],
   "team": "",
-  "streamer": false
+  "streamer": false,
+  "all": true
  },
  {
   "id": "UCkJD43OgdMzMkj5tRR-VRGg",
   "name": "黄桃の実況",
+  "genre": "game",
   "tags": [],
   "team": "",
-  "streamer": false
+  "streamer": false,
+  "all": true
  },
  {
   "id": "UCUgFL4dbqwVsou6q-ds4-6g",
   "name": "ゆうふぇに",
+  "genre": "game",
   "tags": [],
   "team": "広島",
-  "streamer": false
+  "streamer": false,
+  "all": true
  },
  {
   "id": "UCCKzGsByPu4InXoJiKqnVhg",
   "name": "けーふぃー　",
+  "genre": "game",
   "tags": [],
   "team": "",
-  "streamer": false
+  "streamer": false,
+  "all": true
  },
  {
   "id": "UC7eLCVC8r9UoRlknJVnLFSQ",
   "name": "あおべこgames",
+  "genre": "game",
   "tags": [],
   "team": "",
-  "streamer": false
+  "streamer": false,
+  "all": true
  },
  {
   "id": "UCdeoaMcKuLc5QNa56nOlokw",
   "name": "レオスピ",
+  "genre": "game",
   "tags": [],
   "team": "西武",
-  "streamer": false
+  "streamer": false,
+  "all": true
  },
  {
   "id": "UCtfWM7slXWdmKYBjkgEFmNw",
   "name": "たるたる",
+  "genre": "game",
   "tags": [],
   "team": "",
-  "streamer": false
+  "streamer": false,
+  "all": true
  },
  {
   "id": "UCrOM8QbaSfL2hJNqoP_ty-w",
   "name": "Gwo_あch@日ハム純正",
+  "genre": "game",
   "tags": [],
   "team": "日本ハム",
-  "streamer": false
+  "streamer": false,
+  "all": true
  },
  {
   "id": "UCtANiO-M0Av4rSpJ7bM7IGw",
   "name": "レノヴァチャンネル",
+  "genre": "game",
   "tags": [],
   "team": "",
-  "streamer": false
+  "streamer": false,
+  "all": true
  },
  {
   "id": "UCWzEh28vj3mQKpe0fzVTOUw",
   "name": "パワプロ・プロスピ公式チャンネル",
+  "genre": "game",
   "tags": [],
   "team": "",
-  "streamer": false
+  "streamer": false,
+  "all": false
  },
  {
   "id": "UCOmBFwBtQjkFZ5LtWjHqhmA",
   "name": "さくっとふーど",
+  "genre": "game",
   "tags": [],
   "team": "楽天",
-  "streamer": false
+  "streamer": false,
+  "all": false
  },
  {
   "id": "UCDRyTZm2vj8EnPxPXS3jpkQ",
   "name": "コーミエの部屋",
+  "genre": "game",
   "tags": [],
   "team": "ロッテ",
-  "streamer": false
+  "streamer": false,
+  "all": false
  },
  {
   "id": "UCnnTQ0hMBxhiVDZbnIbYp9w",
   "name": "虎純しょう",
+  "genre": "game",
   "tags": [],
   "team": "阪神",
-  "streamer": false
+  "streamer": false,
+  "all": false
  },
  {
   "id": "UCizgcfvH3EdOt9f_EPhqLrg",
   "name": "ユウチッチ",
+  "genre": "game",
   "tags": [],
   "team": "楽天",
-  "streamer": false
+  "streamer": false,
+  "all": false
  },
  {
   "id": "UCkHT_YPVGOY5ZwmckFOekXA",
   "name": "ニコの実況",
+  "genre": "game",
   "tags": [],
   "team": "",
-  "streamer": false
+  "streamer": false,
+  "all": false
  },
  {
   "id": "UC4rj9tBzuPn1F9tvwjjpyrA",
   "name": "プロスピ投球ラボ",
+  "genre": "game",
   "tags": [],
   "team": "",
-  "streamer": false
+  "streamer": false,
+  "all": false
  },
  {
   "id": "UCQcuHYafZAxW7JrCfAZGIgw",
   "name": "シナノ日常",
+  "genre": "game",
   "tags": [],
   "team": "",
-  "streamer": false
+  "streamer": false,
+  "all": false
  },
  {
   "id": "UCLFFuPkVmF8pRpv1czOWNhQ",
   "name": "SHIROUSAGI 白うさぎ",
+  "genre": "game",
   "tags": [],
   "team": "",
-  "streamer": false
+  "streamer": false,
+  "all": false
  },
  {
   "id": "UCTzK4CLcsIvDvx0rVJSU9cA",
   "name": "はむっちょ",
+  "genre": "game",
   "tags": [],
   "team": "日本ハム",
-  "streamer": false
+  "streamer": false,
+  "all": false
  },
  {
   "id": "UCTCX--lm-te525TO3Xm2OWA",
   "name": "taatan   ",
+  "genre": "game",
   "tags": [],
   "team": "",
-  "streamer": false
+  "streamer": false,
+  "all": false
  },
  {
   "id": "UC8nHFntSHP3yT1g6FwSGUYQ",
   "name": "らくにゃにゃの育成記【G党】",
+  "genre": "game",
   "tags": [],
   "team": "巨人",
-  "streamer": false
+  "streamer": false,
+  "all": false
  },
  {
   "id": "UCQ7Itdx_OWBa6SKkhWtpb9g",
   "name": "ばっつ「ちゃばっつん」",
+  "genre": "game",
   "tags": [],
   "team": "",
-  "streamer": false
+  "streamer": false,
+  "all": false
  },
  {
   "id": "UCjmrGPZmMDbyBZLllXsUTsA",
   "name": "CLAY",
+  "genre": "game",
   "tags": [],
   "team": "",
-  "streamer": false
+  "streamer": false,
+  "all": false
  },
  {
   "id": "UCP3nQFRuN_t7j11tJwJhIEg",
   "name": "カモ井【サポ魂】",
+  "genre": "game",
   "tags": [],
   "team": "",
-  "streamer": false
+  "streamer": false,
+  "all": false
  },
  {
   "id": "UC03IiCBWuYyJzy7e6CSm3gw",
   "name": "でこひろch",
+  "genre": "game",
   "tags": [],
   "team": "",
-  "streamer": false
- },
- {
-  "id": "UCbPCtEKHeb8lFpEa-UCnfTA",
-  "name": "やーまんチャンネル",
-  "tags": [],
-  "team": "",
-  "streamer": false
+  "streamer": false,
+  "all": false
  },
  {
   "id": "UCOIKbbIC7Sty5zpEzv1Y3Bg",
   "name": "放課後プロスピA",
+  "genre": "game",
   "tags": [],
   "team": "",
-  "streamer": false
+  "streamer": false,
+  "all": false
  },
  {
   "id": "UCXEUpKg1fpkKVGr3illIbYw",
   "name": "暇部~先輩と後輩~",
+  "genre": "game",
   "tags": [],
   "team": "",
-  "streamer": false
- },
- {
-  "id": "UCcjwVVsbQmJPb8h-JwQifng",
-  "name": "りょーにい　ryoonii 【プロスピA】",
-  "tags": [],
-  "team": "",
-  "streamer": false
+  "streamer": false,
+  "all": false
  },
  {
   "id": "UCEoxawaiMoSZyb0xJd-5Ggg",
   "name": "なべぶた蝉太郎",
+  "genre": "game",
   "tags": [],
   "team": "",
-  "streamer": false
- },
- {
-  "id": "UCQ78QvoKkA3ThWQ9zrKqQjA",
-  "name": "Night【ナイト】",
-  "tags": [],
-  "team": "",
-  "streamer": false
+  "streamer": false,
+  "all": false
  },
  {
   "id": "UCRgZNgdhOf1lERlKZBBteQg",
   "name": "MellO:",
+  "genre": "game",
   "tags": [],
   "team": "",
-  "streamer": false
- },
- {
-  "id": "UCA9P4sjC5E26u3fkLM-mV5Q",
-  "name": "HG_Hamster",
-  "tags": [],
-  "team": "",
-  "streamer": false
+  "streamer": false,
+  "all": false
  },
  {
   "id": "UCiLIpp8-JCwI2yfUBLOpyEA",
   "name": "あんこ",
+  "genre": "game",
   "tags": [],
   "team": "",
-  "streamer": false
+  "streamer": false,
+  "all": false
  },
  {
   "id": "UCoC-voNVZ3XlRqOmJzOvmbg",
   "name": "《Silva》",
+  "genre": "game",
   "tags": [],
   "team": "",
-  "streamer": false
+  "streamer": false,
+  "all": false
  },
  {
   "id": "UCOHH1mEycp6YFMSoa3NXvXw",
   "name": "たけタクシー【プロスピA】",
+  "genre": "game",
   "tags": [],
   "team": "",
-  "streamer": false
- },
- {
-  "id": "UC8Q9ErQvHpdNBwGSC_2BWcg",
-  "name": "montaプロスピチャンネル",
-  "tags": [],
-  "team": "",
-  "streamer": false
- },
- {
-  "id": "UCcYhLW5BzBVNheqT-9ZVifQ",
-  "name": "しゅんぴーTV",
-  "tags": [],
-  "team": "",
-  "streamer": false
+  "streamer": false,
+  "all": false
  },
  {
   "id": "UC0QFVwULW7QBGpNyGsU1izA",
   "name": "かくお　ジャイアンツチャンネル",
+  "genre": "game",
   "tags": [],
   "team": "",
-  "streamer": false
+  "streamer": false,
+  "all": false
+ },
+ {
+  "id": "UCFCtAX45lgHcf4s0vAgAxww",
+  "name": "Satozaki Channel",
+  "genre": "fan",
+  "tags": [],
+  "team": "",
+  "streamer": false,
+  "all": false
+ },
+ {
+  "id": "UCSDobaWqvIttZUa1xXi4sRQ",
+  "name": "ハムショーのスポーツ実況ch",
+  "genre": "fan",
+  "tags": [],
+  "team": "",
+  "streamer": false,
+  "all": false
+ },
+ {
+  "id": "UCwPaG8zQJvsCwiTstXcx8ng",
+  "name": "B-モレル B桑",
+  "genre": "fan",
+  "tags": [],
+  "team": "",
+  "streamer": false,
+  "all": false
+ },
+ {
+  "id": "UCRGVyiYPE959rsZjiQJpA9w",
+  "name": "ちろる",
+  "genre": "fan",
+  "tags": [],
+  "team": "",
+  "streamer": false,
+  "all": false
+ },
+ {
+  "id": "UC9W9uaWOWFJ_Cdz5KKePfRg",
+  "name": "さばかん",
+  "genre": "fan",
+  "tags": [],
+  "team": "",
+  "streamer": false,
+  "all": false
+ },
+ {
+  "id": "UCwXM4fYG2L9b6bse1E8MC4A",
+  "name": "プロ野球選手の戯れ【雑学・おもしろ】",
+  "genre": "fan",
+  "tags": [],
+  "team": "",
+  "streamer": false,
+  "all": false
+ },
+ {
+  "id": "UCUWExZxJm7vbWuQ_73_XOgA",
+  "name": "掛布雅之の憧球",
+  "genre": "fan",
+  "tags": [],
+  "team": "",
+  "streamer": false,
+  "all": false
+ },
+ {
+  "id": "UCv1xFnc9AMfJwLfLK1MuoFA",
+  "name": "全力スクイズ",
+  "genre": "fan",
+  "tags": [],
+  "team": "",
+  "streamer": false,
+  "all": false
+ },
+ {
+  "id": "UCIgvsl9EWxnXzSm9aoXp-lQ",
+  "name": "ギー太 ホークス応援チャンネル",
+  "genre": "fan",
+  "tags": [],
+  "team": "",
+  "streamer": false,
+  "all": false
+ },
+ {
+  "id": "UC4NmtV1m35DFNxgctaqlmkw",
+  "name": "サイヤング渋谷の100マイル雑学",
+  "genre": "fan",
+  "tags": [],
+  "team": "",
+  "streamer": false,
+  "all": false
+ },
+ {
+  "id": "UC__GjhhFT_uotejS-a7Uibw",
+  "name": "野球人",
+  "genre": "fan",
+  "tags": [],
+  "team": "",
+  "streamer": false,
+  "all": false
+ },
+ {
+  "id": "UCMeoadQ7rYDFKS3ePCLZe9g",
+  "name": "Baseball Edge",
+  "genre": "fan",
+  "tags": [],
+  "team": "",
+  "streamer": false,
+  "all": false
+ },
+ {
+  "id": "UC75o9drNyYRAhu88OAUk_4w",
+  "name": "野球がくれたもの+more sports",
+  "genre": "fan",
+  "tags": [],
+  "team": "",
+  "streamer": false,
+  "all": false
+ },
+ {
+  "id": "UCjXQFx2L758jaWx_pbuD7XQ",
+  "name": "フェードロー野球ちゃんねる",
+  "genre": "fan",
+  "tags": [],
+  "team": "",
+  "streamer": false,
+  "all": false
+ },
+ {
+  "id": "UCSzd2tlFW_DvVPp44JmaUrg",
+  "name": "プロ野球 ドラフトちゃんねる",
+  "genre": "fan",
+  "tags": [],
+  "team": "",
+  "streamer": false,
+  "all": false
+ },
+ {
+  "id": "UCfUb1vADdFh8tF-9pc0ybZw",
+  "name": "野球フリーク",
+  "genre": "fan",
+  "tags": [],
+  "team": "",
+  "streamer": false,
+  "all": false
+ },
+ {
+  "id": "UC0hIoknSoMm5B43qUfL7HlA",
+  "name": "タモさん / プロ野球チャンネル",
+  "genre": "fan",
+  "tags": [],
+  "team": "",
+  "streamer": false,
+  "all": false
+ },
+ {
+  "id": "UCvkN6dZkerE-wcrU7bLxd4Q",
+  "name": "プロ野球大本営",
+  "genre": "fan",
+  "tags": [],
+  "team": "",
+  "streamer": false,
+  "all": false
+ },
+ {
+  "id": "UCHTrnRdrRlf6s7fvut2cBDg",
+  "name": "サラリーマンスカウト ドラフト候補図鑑",
+  "genre": "fan",
+  "tags": [],
+  "team": "",
+  "streamer": false,
+  "all": false
+ },
+ {
+  "id": "UCGfE8C02nYCeC_CBeThXaCA",
+  "name": "毎日ツーストライク犬",
+  "genre": "fan",
+  "tags": [],
+  "team": "",
+  "streamer": false,
+  "all": false
+ },
+ {
+  "id": "UCFl1LMtN0ZAwVzWCCGz1PoQ",
+  "name": "YAKYU Ch.",
+  "genre": "fan",
+  "tags": [],
+  "team": "",
+  "streamer": false,
+  "all": false
+ },
+ {
+  "id": "UCEdm-j9MnboCjWZAye2J8gw",
+  "name": "プロ野球まとめ【最新情報】なんJ【2ch・5ch】",
+  "genre": "fan",
+  "tags": [],
+  "team": "",
+  "streamer": false,
+  "all": false
+ },
+ {
+  "id": "UCf6bTxrxLZtaCdGjsQ4M38A",
+  "name": "がるべすちゃんねる",
+  "genre": "fan",
+  "tags": [],
+  "team": "",
+  "streamer": false,
+  "all": false
+ },
+ {
+  "id": "UC1xTbiFBqBzd1NKRLpx7YaA",
+  "name": "プロ野球侍",
+  "genre": "fan",
+  "tags": [],
+  "team": "",
+  "streamer": false,
+  "all": false
+ },
+ {
+  "id": "UCl0FkutP5CwEBZI-GQqOZbQ",
+  "name": "MKTSports",
+  "genre": "fan",
+  "tags": [],
+  "team": "",
+  "streamer": false,
+  "all": false
+ },
+ {
+  "id": "UCK3U0bFvIGnlTVhvO16OVwA",
+  "name": "なんでやねん佐々木",
+  "genre": "fan",
+  "tags": [],
+  "team": "",
+  "streamer": false,
+  "all": false
+ },
+ {
+  "id": "UCA0kFk5s4YeVNUFOsOtZqmg",
+  "name": "プロ野球イズム",
+  "genre": "fan",
+  "tags": [],
+  "team": "",
+  "streamer": false,
+  "all": false
+ },
+ {
+  "id": "UC51nKdB653aNj6DYnftOmSg",
+  "name": "プロ野球ニュースch",
+  "genre": "fan",
+  "tags": [],
+  "team": "",
+  "streamer": false,
+  "all": false
+ },
+ {
+  "id": "UC311dFTy9dKwF9qG04VlAXw",
+  "name": "阪神考察チャンネル【ぼん太】",
+  "genre": "fan",
+  "tags": [],
+  "team": "",
+  "streamer": false,
+  "all": false
+ },
+ {
+  "id": "UC5r-eSnxQrnO2pJBjS56ZNw",
+  "name": "赤ヘル坊や",
+  "genre": "fan",
+  "tags": [],
+  "team": "",
+  "streamer": false,
+  "all": false
+ },
+ {
+  "id": "UCDKfgn5rtFrSsBTUwWNcGtA",
+  "name": "しくじりプロ野球ニュース【ゆっくり解説】",
+  "genre": "fan",
+  "tags": [],
+  "team": "",
+  "streamer": false,
+  "all": false
+ },
+ {
+  "id": "UC2T0vV9xzZt5u4oUC-tQxSw",
+  "name": "鈴村一発",
+  "genre": "fan",
+  "tags": [],
+  "team": "",
+  "streamer": false,
+  "all": false
+ },
+ {
+  "id": "UCby5dtojX3jg0NR6JJ4sJ7Q",
+  "name": "全力野球雑学ch",
+  "genre": "fan",
+  "tags": [],
+  "team": "",
+  "streamer": false,
+  "all": false
+ },
+ {
+  "id": "UCsVJl8YgVMlZDjwPh3HxPUg",
+  "name": "baseball.worldclub",
+  "genre": "fan",
+  "tags": [],
+  "team": "",
+  "streamer": false,
+  "all": false
+ },
+ {
+  "id": "UCjhUR4JEP3GM550A6kgsWIw",
+  "name": "9回裏の野球雑学",
+  "genre": "fan",
+  "tags": [],
+  "team": "",
+  "streamer": false,
+  "all": false
+ },
+ {
+  "id": "UCRnydni5CyoYYIw6adezS6g",
+  "name": "青海一星@BASEBALL_CH",
+  "genre": "fan",
+  "tags": [],
+  "team": "",
+  "streamer": false,
+  "all": false
+ },
+ {
+  "id": "UCkfIQc2a8iw0gXZLrxEX3XQ",
+  "name": "星野伸之のスローカーブチャンネル",
+  "genre": "fan",
+  "tags": [],
+  "team": "",
+  "streamer": false,
+  "all": false
+ },
+ {
+  "id": "UC2COJ64dKtrAgqhmztyLEWA",
+  "name": "嵐一平[嵐の如く]",
+  "genre": "fan",
+  "tags": [],
+  "team": "",
+  "streamer": false,
+  "all": false
+ },
+ {
+  "id": "UCNxA-fFGKDu3hT3zM4AH7hw",
+  "name": "Schneeしゅにー",
+  "genre": "fan",
+  "tags": [],
+  "team": "",
+  "streamer": false,
+  "all": false
+ },
+ {
+  "id": "UC0GHePKCzKi1a9FxqBLYYxQ",
+  "name": "声優 伊藤聖将(きよまさ)",
+  "genre": "fan",
+  "tags": [],
+  "team": "",
+  "streamer": false,
+  "all": false
+ },
+ {
+  "id": "UCId69Rev-3KGf0Gaqs5FlnA",
+  "name": "なんJ阪神タイガースch【クレイジーベースボール】",
+  "genre": "fan",
+  "tags": [],
+  "team": "",
+  "streamer": false,
+  "all": false
+ },
+ {
+  "id": "UCHs14TkyFm72g2Wk2emHWWg",
+  "name": "朝からウキウキ",
+  "genre": "fan",
+  "tags": [],
+  "team": "",
+  "streamer": false,
+  "all": false
+ },
+ {
+  "id": "UCAaCjI1xKQaifH4HJNNorqQ",
+  "name": "プロ野球ドラマ図鑑",
+  "genre": "fan",
+  "tags": [],
+  "team": "",
+  "streamer": false,
+  "all": false
+ },
+ {
+  "id": "UCuLlRi9yALpljvQDu_gBOqg",
+  "name": "ただの応援好き。",
+  "genre": "fan",
+  "tags": [],
+  "team": "",
+  "streamer": false,
+  "all": false
+ },
+ {
+  "id": "UCG_TkYta-O2VtskB3wwhUIA",
+  "name": "限界中日ファンの優勝道",
+  "genre": "fan",
+  "tags": [],
+  "team": "",
+  "streamer": false,
+  "all": false
+ },
+ {
+  "id": "UCfE7R8udjConh-AffJOzK-Q",
+  "name": "ﾐﾆﾁ",
+  "genre": "fan",
+  "tags": [],
+  "team": "",
+  "streamer": false,
+  "all": false
+ },
+ {
+  "id": "UCyY4LuC1l9z3uxIc0Z70xnQ",
+  "name": "阪神タイガースをたしなむ【考察】",
+  "genre": "fan",
+  "tags": [],
+  "team": "",
+  "streamer": false,
+  "all": false
+ },
+ {
+  "id": "UC-JMWUukIrSq34TBP22owFA",
+  "name": "へいはちろう放送局【埼玉西武ライオンズ応援】",
+  "genre": "fan",
+  "tags": [],
+  "team": "",
+  "streamer": false,
+  "all": false
+ },
+ {
+  "id": "UCh-5cy6fsXBxA242U3LfAcw",
+  "name": "alex10central",
+  "genre": "fan",
+  "tags": [],
+  "team": "",
+  "streamer": false,
+  "all": false
+ },
+ {
+  "id": "UCA4P4QFhfL6vA17ktkE7ZuQ",
+  "name": "黄金バッテリー",
+  "genre": "fan",
+  "tags": [],
+  "team": "",
+  "streamer": false,
+  "all": false
+ },
+ {
+  "id": "UCBxtZUrRj36WTg1Q5K_cRZQ",
+  "name": "大ちゃんママ２",
+  "genre": "fan",
+  "tags": [],
+  "team": "",
+  "streamer": false,
+  "all": false
+ },
+ {
+  "id": "UCXE_RcT9Pth3uP_LEwRYv2g",
+  "name": "アポロの野球・歴史探訪",
+  "genre": "fan",
+  "tags": [],
+  "team": "",
+  "streamer": false,
+  "all": false
+ },
+ {
+  "id": "UCNjk7pioFDdBOrdip8lpYug",
+  "name": "onetaku",
+  "genre": "fan",
+  "tags": [],
+  "team": "",
+  "streamer": false,
+  "all": false
+ },
+ {
+  "id": "UC-Buqg-GoKUHJvUxgSZBbDQ",
+  "name": "alex10pacific",
+  "genre": "fan",
+  "tags": [],
+  "team": "",
+  "streamer": false,
+  "all": false
+ },
+ {
+  "id": "UC8gouwCLu2K8lx7beIrleXw",
+  "name": "こちら野球の反応集(現在こちらで投稿中)",
+  "genre": "fan",
+  "tags": [],
+  "team": "",
+  "streamer": false,
+  "all": false
+ },
+ {
+  "id": "UCchbZjsjbnsk1RYSam4_OAg",
+  "name": "クラチくんch【西武ライオンズ】",
+  "genre": "fan",
+  "tags": [],
+  "team": "",
+  "streamer": false,
+  "all": false
+ },
+ {
+  "id": "UCDsdHnjrgKIZp6tCnZdzgfQ",
+  "name": "こみチャンネル",
+  "genre": "fan",
+  "tags": [],
+  "team": "",
+  "streamer": false,
+  "all": false
+ },
+ {
+  "id": "UCbNMjn6zJ-A7Eg2H11QQssw",
+  "name": "ニワカとマニア",
+  "genre": "fan",
+  "tags": [],
+  "team": "",
+  "streamer": false,
+  "all": false
+ },
+ {
+  "id": "UC6-ho4C8RrVkNYSby_1p6Ug",
+  "name": "ポジ@ベイスターズ全力応援",
+  "genre": "fan",
+  "tags": [],
+  "team": "",
+  "streamer": false,
+  "all": false
+ },
+ {
+  "id": "UC6E8Kqi5iJCKoj2MgOyQxEQ",
+  "name": "やきゅう小僧",
+  "genre": "fan",
+  "tags": [],
+  "team": "",
+  "streamer": false,
+  "all": false
+ },
+ {
+  "id": "UCqny5oKY2tt5Hyl4B5vcDig",
+  "name": "とっさん野球考察チャンネル",
+  "genre": "fan",
+  "tags": [],
+  "team": "",
+  "streamer": false,
+  "all": false
+ },
+ {
+  "id": "UC7yghXsO43v12Nrfk_4Cfbg",
+  "name": "N原隊長[2代目]",
+  "genre": "fan",
+  "tags": [],
+  "team": "",
+  "streamer": false,
+  "all": false
+ },
+ {
+  "id": "UC0iJ0X6XySRp9-10JTXIvLg",
+  "name": "極限野球",
+  "genre": "fan",
+  "tags": [],
+  "team": "",
+  "streamer": false,
+  "all": false
+ },
+ {
+  "id": "UCD7SRWVbnyz0FLflKNjHxpg",
+  "name": "エルchannel",
+  "genre": "fan",
+  "tags": [],
+  "team": "",
+  "streamer": false,
+  "all": false
+ },
+ {
+  "id": "UCBKi-7mkigh6rHEhe5gQ9xA",
+  "name": "ほりえみく | 売り子ちゃん⚾️",
+  "genre": "fan",
+  "tags": [],
+  "team": "",
+  "streamer": false,
+  "all": false
+ },
+ {
+  "id": "UCy_sXw0F_vnEs5h3RvmSTdA",
+  "name": "でぃーじぇー",
+  "genre": "fan",
+  "tags": [],
+  "team": "",
+  "streamer": false,
+  "all": false
+ },
+ {
+  "id": "UCbKxemoodFSpO_4p2PyvKIg",
+  "name": "野球大好きまとめ次郎",
+  "genre": "fan",
+  "tags": [],
+  "team": "",
+  "streamer": false,
+  "all": false
+ },
+ {
+  "id": "UCtwFm32bFifK0JeqTik3TiQ",
+  "name": "アツ《プロ野球応援歌》実録・球場録音",
+  "genre": "fan",
+  "tags": [],
+  "team": "",
+  "streamer": false,
+  "all": false
+ },
+ {
+  "id": "UC1m9SVXIouYXlqWf5mBhT_Q",
+  "name": "つーさん ファイターズ応援チャンネル",
+  "genre": "fan",
+  "tags": [],
+  "team": "",
+  "streamer": false,
+  "all": false
+ },
+ {
+  "id": "UCz5-KuLGkZ5wLn285sss2vA",
+  "name": "プロ野球の黄金時代",
+  "genre": "fan",
+  "tags": [],
+  "team": "",
+  "streamer": false,
+  "all": false
+ },
+ {
+  "id": "UCMqqFDAGt1J9XaxrdNkJu8A",
+  "name": "今日のカープ【フェードロー野球ちゃんねる もんでん】",
+  "genre": "fan",
+  "tags": [],
+  "team": "",
+  "streamer": false,
+  "all": false
+ },
+ {
+  "id": "UC-EdfgEhBGWWkr_xTrWHAkA",
+  "name": "いっしょー🐯",
+  "genre": "fan",
+  "tags": [],
+  "team": "",
+  "streamer": false,
+  "all": false
+ },
+ {
+  "id": "UCBkHSzQFfL7mAI03Jj7l4fA",
+  "name": "【ファン反応】プロ野球ファンのお祭り騒ぎ",
+  "genre": "fan",
+  "tags": [],
+  "team": "",
+  "streamer": false,
+  "all": false
+ },
+ {
+  "id": "UC83fbxPchcdKQHDaCJyDVwQ",
+  "name": "haziou",
+  "genre": "fan",
+  "tags": [],
+  "team": "",
+  "streamer": false,
+  "all": false
+ },
+ {
+  "id": "UC71-xoV_EqpNixbZZzlnWMQ",
+  "name": "虎党スタンド 阪神全力応援",
+  "genre": "fan",
+  "tags": [],
+  "team": "",
+  "streamer": false,
+  "all": false
+ },
+ {
+  "id": "UCCWstKh2zY6aUIrFbn9WwGQ",
+  "name": "プロ野球反応まとめ【なんJ、5ch、2ch、プロ野球ニュース、反応集】",
+  "genre": "fan",
+  "tags": [],
+  "team": "",
+  "streamer": false,
+  "all": false
+ },
+ {
+  "id": "UCVnKyI-7kSXDBukZTp4u6Bw",
+  "name": "Full Swing Bad【球界の裏側レポート】",
+  "genre": "fan",
+  "tags": [],
+  "team": "",
+  "streamer": false,
+  "all": false
+ },
+ {
+  "id": "UCf-mUwfKJLmkx8RaZz5WksA",
+  "name": "ちなヤク育成チャンネル【ジャイ】",
+  "genre": "fan",
+  "tags": [],
+  "team": "",
+  "streamer": false,
+  "all": false
+ },
+ {
+  "id": "UC92xxhzmA7pcw9vBZkP8-og",
+  "name": "今日の野球まとめTV ",
+  "genre": "fan",
+  "tags": [],
+  "team": "",
+  "streamer": false,
+  "all": false
+ },
+ {
+  "id": "UCETdvYFIDM1jUm8Eo66fq-A",
+  "name": "野球女子まミ",
+  "genre": "fan",
+  "tags": [],
+  "team": "",
+  "streamer": false,
+  "all": false
+ },
+ {
+  "id": "UCXX8eGNISlANMjKUX0OSPCw",
+  "name": "Chín Vietsub",
+  "genre": "fan",
+  "tags": [],
+  "team": "",
+  "streamer": false,
+  "all": false
+ },
+ {
+  "id": "UC8zynKltUnrnfmHigVMfggg",
+  "name": "今日の巨人【フェードロー野球ちゃんねる FAかいだ】",
+  "genre": "fan",
+  "tags": [],
+  "team": "",
+  "streamer": false,
+  "all": false
+ },
+ {
+  "id": "UCibBDY-2tprT6-EmMzG5lgw",
+  "name": "AIデータ二刀流　野球ラボ",
+  "genre": "fan",
+  "tags": [],
+  "team": "",
+  "streamer": false,
+  "all": false
+ },
+ {
+  "id": "UC7Oxmt-uciuNXjaiL1Mx89w",
+  "name": "トヨトミヒデヨ",
+  "genre": "fan",
+  "tags": [],
+  "team": "",
+  "streamer": false,
+  "all": false
+ },
+ {
+  "id": "UCzxAQAFKF2a-FTFGv6_MkXw",
+  "name": "ささやき 野球考察",
+  "genre": "fan",
+  "tags": [],
+  "team": "",
+  "streamer": false,
+  "all": false
+ },
+ {
+  "id": "UCy6_C-OgU25oCEOdW4hB3BQ",
+  "name": "タイガース情報",
+  "genre": "fan",
+  "tags": [],
+  "team": "",
+  "streamer": false,
+  "all": false
+ },
+ {
+  "id": "UCwtuI9jS-PgrFvdrx-4jIrQ",
+  "name": "野球応援し隊",
+  "genre": "fan",
+  "tags": [],
+  "team": "",
+  "streamer": false,
+  "all": false
+ },
+ {
+  "id": "UC7F1sdRzNz42P2q63hxVc5g",
+  "name": "壇ノ浦野球トーク",
+  "genre": "fan",
+  "tags": [],
+  "team": "",
+  "streamer": false,
+  "all": false
+ },
+ {
+  "id": "UC7z7KcjVtvq2E1ooYs8YOyw",
+  "name": "ぷらいむ",
+  "genre": "fan",
+  "tags": [],
+  "team": "",
+  "streamer": false,
+  "all": false
+ },
+ {
+  "id": "UCzFzvRSxHDdV6i1mHXvhg-g",
+  "name": "Tee Kay",
+  "genre": "fan",
+  "tags": [],
+  "team": "",
+  "streamer": false,
+  "all": false
+ },
+ {
+  "id": "UCo4LgvniOMniQ0vT2idMUSg",
+  "name": "中日ドラゴンズ情報局",
+  "genre": "fan",
+  "tags": [],
+  "team": "",
+  "streamer": false,
+  "all": false
+ },
+ {
+  "id": "UCbbG8o562nZ5tL8UNp5Tkug",
+  "name": "阪神ファンと巨人ファン【プロ野球ファンのつどい】",
+  "genre": "fan",
+  "tags": [],
+  "team": "",
+  "streamer": false,
+  "all": false
+ },
+ {
+  "id": "UCxPG9mDUHYQtKNg9ALk7JaQ",
+  "name": "ショー日記",
+  "genre": "fan",
+  "tags": [],
+  "team": "",
+  "streamer": false,
+  "all": false
+ },
+ {
+  "id": "UC0v8kD0d3KmMwZhRb_KRKIw",
+  "name": "そらちゃんGX",
+  "genre": "fan",
+  "tags": [],
+  "team": "",
+  "streamer": false,
+  "all": false
+ },
+ {
+  "id": "UC4qgb8UUY4BXNSH68xhCsnw",
+  "name": "Yuki",
+  "genre": "fan",
+  "tags": [],
+  "team": "",
+  "streamer": false,
+  "all": false
+ },
+ {
+  "id": "UCqoikHa2iHRdMxVg1RTGMUg",
+  "name": "阪神ファンが集うチャンネル",
+  "genre": "fan",
+  "tags": [],
+  "team": "",
+  "streamer": false,
+  "all": false
+ },
+ {
+  "id": "UCet6zOoE7ERWkR_upwaUCrw",
+  "name": "広島マフルの野球観戦記【球場撮影】",
+  "genre": "fan",
+  "tags": [],
+  "team": "",
+  "streamer": false,
+  "all": false
+ },
+ {
+  "id": "UC7caGMfgfBpOmzuE8tzCUjw",
+  "name": "オリバレスチャンネル",
+  "genre": "fan",
+  "tags": [],
+  "team": "",
+  "streamer": false,
+  "all": false
+ },
+ {
+  "id": "UCSZqNUQaAhEV1dYls2YE_lw",
+  "name": "Hiroaki Field & Stage",
+  "genre": "fan",
+  "tags": [],
+  "team": "",
+  "streamer": false,
+  "all": false
+ },
+ {
+  "id": "UCYkxPhZUuw17-5_GJPN4z9A",
+  "name": "Hello Autumn",
+  "genre": "fan",
+  "tags": [],
+  "team": "",
+  "streamer": false,
+  "all": false
+ },
+ {
+  "id": "UCeZz4zoHFa9YVoboNNX8DzA",
+  "name": "とらとら先生",
+  "genre": "fan",
+  "tags": [],
+  "team": "",
+  "streamer": false,
+  "all": false
+ },
+ {
+  "id": "UCmR6LcSaU2192ZTxg9LEWUA",
+  "name": "阪神タイガースで満たされる毎日【なんJまとめ】",
+  "genre": "fan",
+  "tags": [],
+  "team": "",
+  "streamer": false,
+  "all": false
+ },
+ {
+  "id": "UCmJJGpVi2Q-zNWeWsVSrxtQ",
+  "name": "AIAI BASE",
+  "genre": "fan",
+  "tags": [],
+  "team": "",
+  "streamer": false,
+  "all": false
+ },
+ {
+  "id": "UCgnloLkWC77jLi4019CIYxg",
+  "name": "DeNAベイスターズファンの雑談部屋",
+  "genre": "fan",
+  "tags": [],
+  "team": "",
+  "streamer": false,
+  "all": false
+ },
+ {
+  "id": "UCJwILZcWLnQC0cScmUZO-SQ",
+  "name": "オリックス応援チャンネル",
+  "genre": "fan",
+  "tags": [],
+  "team": "",
+  "streamer": false,
+  "all": false
+ },
+ {
+  "id": "UC6npJyXF3O7FMoA_2BOOzDA",
+  "name": "マサオの中日ドラゴンズ情報考察部屋",
+  "genre": "fan",
+  "tags": [],
+  "team": "",
+  "streamer": false,
+  "all": false
+ },
+ {
+  "id": "UCupomDafrMPV7PBAej-HEWw",
+  "name": "グッチハマグチの言いたい放題プロ野球",
+  "genre": "fan",
+  "tags": [],
+  "team": "",
+  "streamer": false,
+  "all": false
+ },
+ {
+  "id": "UCjYELDgTWLdPJZu_hSaG_aQ",
+  "name": "ドラホリ",
+  "genre": "fan",
+  "tags": [],
+  "team": "",
+  "streamer": false,
+  "all": false
+ },
+ {
+  "id": "UCDcMBI6ejLZU6LUg3USzzwA",
+  "name": "みかん【阪神タイガース応援】",
+  "genre": "fan",
+  "tags": [],
+  "team": "",
+  "streamer": false,
+  "all": false
+ },
+ {
+  "id": "UCbhjX4_JB0d1TYOjbB5BTPQ",
+  "name": "プロ野球応援部",
+  "genre": "fan",
+  "tags": [],
+  "team": "",
+  "streamer": false,
+  "all": false
+ },
+ {
+  "id": "UCyQyNdL2PCdXXeLJyEMg5rw",
+  "name": "雑音",
+  "genre": "fan",
+  "tags": [],
+  "team": "",
+  "streamer": false,
+  "all": false
+ },
+ {
+  "id": "UC1dfajQJs354OKXoJMps8iA",
+  "name": "野球最前線",
+  "genre": "fan",
+  "tags": [],
+  "team": "",
+  "streamer": false,
+  "all": false
+ },
+ {
+  "id": "UClbaIWD1pBe96_sA_TT2ETg",
+  "name": "オリックス 応援隊チャンネル",
+  "genre": "fan",
+  "tags": [],
+  "team": "",
+  "streamer": false,
+  "all": false
+ },
+ {
+  "id": "UC7zAMCpL51Mrh-trJvUSiIQ",
+  "name": "にしみが さき / みがチャン! (MIGA-Ch.)",
+  "genre": "fan",
+  "tags": [],
+  "team": "",
+  "streamer": false,
+  "all": false
+ },
+ {
+  "id": "UC45IPNJXO151PN-720bIwtw",
+  "name": "おたかさん(85)ホークス応援チャンネル",
+  "genre": "fan",
+  "tags": [],
+  "team": "",
+  "streamer": false,
+  "all": false
+ },
+ {
+  "id": "UCY0jTnhK3zr9Bhp8HcfCS3A",
+  "name": "ダンダンチャンネル",
+  "genre": "fan",
+  "tags": [],
+  "team": "",
+  "streamer": false,
+  "all": false
+ },
+ {
+  "id": "UCpoplo0JJ_fs20aG9v0Zi-g",
+  "name": "コジョユナ",
+  "genre": "fan",
+  "tags": [],
+  "team": "",
+  "streamer": false,
+  "all": false
+ },
+ {
+  "id": "UCoo-Bwbjd0711n0TAP0yLTw",
+  "name": "りゅっくんベースボール【オリックス応援】",
+  "genre": "fan",
+  "tags": [],
+  "team": "",
+  "streamer": false,
+  "all": false
+ },
+ {
+  "id": "UCy09ZbJgoHG80rCCa1uyMmw",
+  "name": "福岡住みのオリックスファン",
+  "genre": "fan",
+  "tags": [],
+  "team": "",
+  "streamer": false,
+  "all": false
+ },
+ {
+  "id": "UCCob2a-3CGn8NszMhP_ZHTQ",
+  "name": "たけち",
+  "genre": "fan",
+  "tags": [],
+  "team": "",
+  "streamer": false,
+  "all": false
+ },
+ {
+  "id": "UCt1OuzFnUq7-mGG6FhLe-Ww",
+  "name": "野球オタクの緊急会議",
+  "genre": "fan",
+  "tags": [],
+  "team": "",
+  "streamer": false,
+  "all": false
+ },
+ {
+  "id": "UCfZtNtTLJW7_pEK7oAd7lWQ",
+  "name": "観戦日記。",
+  "genre": "fan",
+  "tags": [],
+  "team": "",
+  "streamer": false,
+  "all": false
+ },
+ {
+  "id": "UCN6NpgQOGO3TAPvw3xzE2fQ",
+  "name": "野球考察 くもんぬTV",
+  "genre": "fan",
+  "tags": [],
+  "team": "",
+  "streamer": false,
+  "all": false
+ },
+ {
+  "id": "UCAqZzq4BOX9OcMFfqhDE07g",
+  "name": "Joe妻ラボ",
+  "genre": "fan",
+  "tags": [],
+  "team": "",
+  "streamer": false,
+  "all": false
+ },
+ {
+  "id": "UC7j6hJohOnkg6BBR4VMWY1g",
+  "name": "プロ野球情報局",
+  "genre": "fan",
+  "tags": [],
+  "team": "",
+  "streamer": false,
+  "all": false
+ },
+ {
+  "id": "UC91dpie-yOS3hggjA7IVhUw",
+  "name": "スパンジーのぶらり野球観戦⚾️",
+  "genre": "fan",
+  "tags": [],
+  "team": "",
+  "streamer": false,
+  "all": false
+ },
+ {
+  "id": "UCzjI8OJ904Zhdzwon-s4onA",
+  "name": "球眼ちゃんねる",
+  "genre": "fan",
+  "tags": [],
+  "team": "",
+  "streamer": false,
+  "all": false
+ },
+ {
+  "id": "UC5d5rRxB6HWaDuSSfG4gWfQ",
+  "name": "いけやんのプロ野球現地観戦部屋",
+  "genre": "fan",
+  "tags": [],
+  "team": "",
+  "streamer": false,
+  "all": false
+ },
+ {
+  "id": "UCNn7O-awS3O6WYTIbQltTxQ",
+  "name": "まるっとベースボール",
+  "genre": "fan",
+  "tags": [],
+  "team": "",
+  "streamer": false,
+  "all": false
+ },
+ {
+  "id": "UCQEv58yAobAAkvDLYwEfKEA",
+  "name": "夕涼めもる@ロッテファン",
+  "genre": "fan",
+  "tags": [],
+  "team": "",
+  "streamer": false,
+  "all": false
+ },
+ {
+  "id": "UCs6wq2VQ0aZ6fGBkNtF4InQ",
+  "name": "Lポーズ【埼玉西武ライオンズ応援】",
+  "genre": "fan",
+  "tags": [],
+  "team": "",
+  "streamer": false,
+  "all": false
+ },
+ {
+  "id": "UChVhqSBsshoPDds5KD-9cEw",
+  "name": "おにぎり⚾️ベースボールTV【プロ野球情報まとめ&応援集】",
+  "genre": "fan",
+  "tags": [],
+  "team": "",
+  "streamer": false,
+  "all": false
+ },
+ {
+  "id": "UC4sNBIKwbWX3cDRZWWOjJGQ",
+  "name": "やきおにぎり プロ野球、応援歌、観光",
+  "genre": "fan",
+  "tags": [],
+  "team": "",
+  "streamer": false,
+  "all": false
+ },
+ {
+  "id": "UCNxEIo05GfXRg35x1e1BB9w",
+  "name": "京すわちゃんねる",
+  "genre": "fan",
+  "tags": [],
+  "team": "",
+  "streamer": false,
+  "all": false
+ },
+ {
+  "id": "UCWY_4b7-lkpP6nyuNx_aVkA",
+  "name": "ritoze journey / 社会人の小さな冒険記",
+  "genre": "fan",
+  "tags": [],
+  "team": "",
+  "streamer": false,
+  "all": false
+ },
+ {
+  "id": "UCjhzpn6GNUAqsYNnAKVam7g",
+  "name": "茂野吾郎",
+  "genre": "fan",
+  "tags": [],
+  "team": "",
+  "streamer": false,
+  "all": false
+ },
+ {
+  "id": "UCDE_OlUaHgCE77XAQcXIbfg",
+  "name": "本末、転倒",
+  "genre": "fan",
+  "tags": [],
+  "team": "",
+  "streamer": false,
+  "all": false
+ },
+ {
+  "id": "UClbK3CzLMpODVMt5GFsUFKA",
+  "name": "N家(えぬいえ)",
+  "genre": "fan",
+  "tags": [],
+  "team": "",
+  "streamer": false,
+  "all": false
+ },
+ {
+  "id": "UCBIx2dJMtusb1XST8nJxkxA",
+  "name": "匠TV",
+  "genre": "fan",
+  "tags": [],
+  "team": "",
+  "streamer": false,
+  "all": false
+ },
+ {
+  "id": "UC-itv3KEy2KyldUpzqYm6Cg",
+  "name": "ワンダホークス",
+  "genre": "fan",
+  "tags": [],
+  "team": "",
+  "streamer": false,
+  "all": false
+ },
+ {
+  "id": "UC5TCGiD5gkhYrsGGAWQ8aPw",
+  "name": "T-ike",
+  "genre": "fan",
+  "tags": [],
+  "team": "",
+  "streamer": false,
+  "all": false
+ },
+ {
+  "id": "UC1somrTI0LrbhnV52D6-5wA",
+  "name": "野球ファンの隠れ家",
+  "genre": "fan",
+  "tags": [],
+  "team": "",
+  "streamer": false,
+  "all": false
+ },
+ {
+  "id": "UCZP39gAs7YjlZ9WVQFDggog",
+  "name": "taku",
+  "genre": "fan",
+  "tags": [],
+  "team": "",
+  "streamer": false,
+  "all": false
+ },
+ {
+  "id": "UCXgTyQ9OB8NLhCJR7-ieODQ",
+  "name": "野球場へ行こう〜孤独のB級グルメ",
+  "genre": "fan",
+  "tags": [],
+  "team": "",
+  "streamer": false,
+  "all": false
+ },
+ {
+  "id": "UCpj_nD9850tykDqIrjtIXdg",
+  "name": "DRAMATIC BASEBALL 2026",
+  "genre": "fan",
+  "tags": [],
+  "team": "",
+  "streamer": false,
+  "all": false
+ },
+ {
+  "id": "UCgr5CkgytiVfdnk4C0M42nQ",
+  "name": "高木 豊 Takagi Yutaka",
+  "genre": "fan",
+  "tags": [],
+  "team": "",
+  "streamer": false,
+  "all": false
+ },
+ {
+  "id": "UCSFE1o0ihc5mfODf2FybeuA",
+  "name": "片岡篤史チャンネル",
+  "genre": "fan",
+  "tags": [],
+  "team": "",
+  "streamer": false,
+  "all": false
+ },
+ {
+  "id": "UC64uGOYi7v1ClET3GJVlYyA",
+  "name": "谷繁ベースボールチャンネル",
+  "genre": "fan",
+  "tags": [],
+  "team": "",
+  "streamer": false,
+  "all": false
+ },
+ {
+  "id": "UCxYq8xy0kXKkL9R8y749JQw",
+  "name": "ytv阪神応援チャンネル「トラトラタイガース」",
+  "genre": "fan",
+  "tags": [],
+  "team": "",
+  "streamer": false,
+  "all": false
+ },
+ {
+  "id": "UCJ_jf8BIsLasf31SxRbQTXQ",
+  "name": "熱闘ベースボールレコード",
+  "genre": "fan",
+  "tags": [],
+  "team": "",
+  "streamer": false,
+  "all": false
+ },
+ {
+  "id": "UCFU5Nkem713_RFWeCPFPRWw",
+  "name": "【プロ野球考察ch】最新NEWSまとめ",
+  "genre": "fan",
+  "tags": [],
+  "team": "",
+  "streamer": false,
+  "all": false
+ },
+ {
+  "id": "UC5ueR5YtErRTIXNDIea0Hag",
+  "name": "かきこきch【セリーグTV 】",
+  "genre": "fan",
+  "tags": [],
+  "team": "",
+  "streamer": false,
+  "all": false
+ },
+ {
+  "id": "UC2YRjYml8bQH3CCESVwkOzA",
+  "name": "ようこそ野球さん",
+  "genre": "fan",
+  "tags": [],
+  "team": "",
+  "streamer": false,
+  "all": false
+ },
+ {
+  "id": "UCxHdrX0Qdl9IVBI5v6fvwvg",
+  "name": "神奈川人チャンネル",
+  "genre": "fan",
+  "tags": [],
+  "team": "",
+  "streamer": false,
+  "all": false
+ },
+ {
+  "id": "UCaJ9irc3XYSp7z_Ca9qi0aQ",
+  "name": "つばめ魂 ヤクルトスワローズ応燕チャンネル",
+  "genre": "fan",
+  "tags": [],
+  "team": "",
+  "streamer": false,
+  "all": false
+ },
+ {
+  "id": "UCDS_SJ8cgnmWGezIclk40-g",
+  "name": "コタログ",
+  "genre": "fan",
+  "tags": [],
+  "team": "",
+  "streamer": false,
+  "all": false
+ },
+ {
+  "id": "UCTT7KRhGEQSvC3aB1AtUT1g",
+  "name": "オリックスを語るチャンネル",
+  "genre": "fan",
+  "tags": [],
+  "team": "",
+  "streamer": false,
+  "all": false
+ },
+ {
+  "id": "UCzIQITNWoNKyEk45J2LpIwQ",
+  "name": "れっちんちゃんねる",
+  "genre": "fan",
+  "tags": [],
+  "team": "",
+  "streamer": false,
+  "all": false
+ },
+ {
+  "id": "UCE_kCj_4cLLXybUae5a0JbQ",
+  "name": "DAI channel【千葉ロッテマリーンズ応援チャンネル】",
+  "genre": "fan",
+  "tags": [],
+  "team": "",
+  "streamer": false,
+  "all": false
+ },
+ {
+  "id": "UChElcV2MvkVuGtsfHdt1f6g",
+  "name": "伊東勤の110チャンネル",
+  "genre": "fan",
+  "tags": [],
+  "team": "",
+  "streamer": false,
+  "all": false
+ },
+ {
+  "id": "UCRJym0OTNu1Ss77S6pQhxjA",
+  "name": "江戸時代の神秘",
+  "genre": "fan",
+  "tags": [],
+  "team": "",
+  "streamer": false,
+  "all": false
+ },
+ {
+  "id": "UCGBRQd2aj_P7SNimjmOraVA",
+  "name": "Fsの集い Yuチャンネル",
+  "genre": "fan",
+  "tags": [],
+  "team": "",
+  "streamer": false,
+  "all": false
+ },
+ {
+  "id": "UCf3ijQ6xfCjsI8FLqLk19eA",
+  "name": "星乃 どら吉 / Hoshino Dorakichi",
+  "genre": "fan",
+  "tags": [],
+  "team": "",
+  "streamer": false,
+  "all": false
+ },
+ {
+  "id": "UCkZ-9MsFRF1H2z6NBN5C6qQ",
+  "name": "横浜応援隊員",
+  "genre": "fan",
+  "tags": [],
+  "team": "",
+  "streamer": false,
+  "all": false
+ },
+ {
+  "id": "UCCpvRxLop-x3vqmA7b5FKrQ",
+  "name": "ジョニ子の部屋",
+  "genre": "fan",
+  "tags": [],
+  "team": "",
+  "streamer": false,
+  "all": false
+ },
+ {
+  "id": "UC4yz9Vhqbp59eJRJz2pjfjg",
+  "name": "ドリム【読売巨人軍ジャイアンツ】考察チャンネル",
+  "genre": "fan",
+  "tags": [],
+  "team": "",
+  "streamer": false,
+  "all": false
+ },
+ {
+  "id": "UCoIB4goyyoBBWTzEflfFQIg",
+  "name": "ジンザベースボール",
+  "genre": "fan",
+  "tags": [],
+  "team": "",
+  "streamer": false,
+  "all": false
+ },
+ {
+  "id": "UC1mQCbUwNtGFYcDEd1VBb-g",
+  "name": "兎月 カルテ / Uzuki Karte【カープ女子】",
+  "genre": "fan",
+  "tags": [],
+  "team": "",
+  "streamer": false,
+  "all": false
+ },
+ {
+  "id": "UC6_znju6hXJHEshRZCJB6Uw",
+  "name": "あまてち野球ch",
+  "genre": "fan",
+  "tags": [],
+  "team": "",
+  "streamer": false,
+  "all": false
+ },
+ {
+  "id": "UCGzXCq4EK009pO-7QT8-x2w",
+  "name": "メロンパンこしはら 平良カイマンTV",
+  "genre": "fan",
+  "tags": [],
+  "team": "",
+  "streamer": false,
+  "all": false
+ },
+ {
+  "id": "UCYVUFm8fTy-zIccyy_HbnyA",
+  "name": "平成ナイン【プロ野球】",
+  "genre": "fan",
+  "tags": [],
+  "team": "",
+  "streamer": false,
+  "all": false
+ },
+ {
+  "id": "UCiTkOixSAzCLjkbcOIxJyQA",
+  "name": "うたのおねえさん中日ファンあや",
+  "genre": "fan",
+  "tags": [],
+  "team": "",
+  "streamer": false,
+  "all": false
+ },
+ {
+  "id": "UCUDdXDbd2g4BR-DE2_eha5A",
+  "name": "日ハムファンが切る。",
+  "genre": "fan",
+  "tags": [],
+  "team": "",
+  "streamer": false,
+  "all": false
+ },
+ {
+  "id": "UC3v_l0f8OOCbZYGdFXGVqPQ",
+  "name": "まこちゃんねる",
+  "genre": "fan",
+  "tags": [],
+  "team": "",
+  "streamer": false,
+  "all": false
+ },
+ {
+  "id": "UCCRFxeQHlbupY5C_OVeQpHQ",
+  "name": "AL BASEBALL",
+  "genre": "fan",
+  "tags": [],
+  "team": "",
+  "streamer": false,
+  "all": false
+ },
+ {
+  "id": "UCnjXrR41azQYwjKo4bl8Ufg",
+  "name": "【応援歌】ハシオト",
+  "genre": "fan",
+  "tags": [],
+  "team": "",
+  "streamer": false,
+  "all": false
+ },
+ {
+  "id": "UCMKpLE_3l0Qqsf7D_gWQH6w",
+  "name": "ヘベれけ野球論",
+  "genre": "fan",
+  "tags": [],
+  "team": "",
+  "streamer": false,
+  "all": false
+ },
+ {
+  "id": "UCvJqGTye__Z1ZVB8b9JU95A",
+  "name": "Japan Spotlight",
+  "genre": "fan",
+  "tags": [],
+  "team": "",
+  "streamer": false,
+  "all": false
+ },
+ {
+  "id": "UC_fIlVhl0mzYwA2juNWPvvQ",
+  "name": "JP Sports 5 star",
+  "genre": "fan",
+  "tags": [],
+  "team": "",
+  "streamer": false,
+  "all": false
+ },
+ {
+  "id": "UCYWUm2c_wVhXsGlTBe8oN9A",
+  "name": "通勤準急　鉄道&野球ch",
+  "genre": "fan",
+  "tags": [],
+  "team": "",
+  "streamer": false,
+  "all": false
+ },
+ {
+  "id": "UCnGPde0GrGN3fPJ3M84bQ8w",
+  "name": "熱狂的巨人ファン  Enthusiastic G-Fan",
+  "genre": "fan",
+  "tags": [],
+  "team": "",
+  "streamer": false,
+  "all": false
+ },
+ {
+  "id": "UCbkivNgk_QyoPhRg5iqt-Gg",
+  "name": "野球バット",
+  "genre": "fan",
+  "tags": [],
+  "team": "",
+  "streamer": false,
+  "all": false
+ },
+ {
+  "id": "UCKKAVx1OTwPxslJN2UJ__tw",
+  "name": "ドラファンの本音【中日ドラゴンズ反応集】",
+  "genre": "fan",
+  "tags": [],
+  "team": "",
+  "streamer": false,
+  "all": false
+ },
+ {
+  "id": "UCr_R9xH3J4uvOH1544WyXKw",
+  "name": "pakumori夫婦",
+  "genre": "fan",
+  "tags": [],
+  "team": "",
+  "streamer": false,
+  "all": false
+ },
+ {
+  "id": "UCj3uURZf1M7XE6xSEGPUPVA",
+  "name": "Rii",
+  "genre": "fan",
+  "tags": [],
+  "team": "",
+  "streamer": false,
+  "all": false
+ },
+ {
+  "id": "UCD2xestQlEfQb8V1diwu6tw",
+  "name": "Yu",
+  "genre": "fan",
+  "tags": [],
+  "team": "",
+  "streamer": false,
+  "all": false
+ },
+ {
+  "id": "UC1MyEpBW-7Q6gVfnW6A5_cQ",
+  "name": "雪音六花　以後お見知りおきを...",
+  "genre": "fan",
+  "tags": [],
+  "team": "",
+  "streamer": false,
+  "all": false
+ },
+ {
+  "id": "UCYAkK7hYfEBvfnSUgqBnwZA",
+  "name": "yuyu ",
+  "genre": "fan",
+  "tags": [],
+  "team": "",
+  "streamer": false,
+  "all": false
+ },
+ {
+  "id": "UCd_JVNr7GAoHVtytK-7AltA",
+  "name": "ボル",
+  "genre": "fan",
+  "tags": [],
+  "team": "",
+  "streamer": false,
+  "all": false
+ },
+ {
+  "id": "UCU-ZNcV3YIBm3G_FqKuabgA",
+  "name": "じょに_OGちゃんねる",
+  "genre": "fan",
+  "tags": [],
+  "team": "",
+  "streamer": false,
+  "all": false
+ },
+ {
+  "id": "UCUjFRretyl_8By7jS0_OdFw",
+  "name": "KM BASEBALL TV ",
+  "genre": "fan",
+  "tags": [],
+  "team": "",
+  "streamer": false,
+  "all": false
+ },
+ {
+  "id": "UCBu0Dg2Pub-rGIlmvMomSaQ",
+  "name": "たらくちch",
+  "genre": "fan",
+  "tags": [],
+  "team": "",
+  "streamer": false,
+  "all": false
+ },
+ {
+  "id": "UCHjgWLeRI0MHZeV_nGbxsvw",
+  "name": "かわてつ 休日の執務室 / On my days off,",
+  "genre": "fan",
+  "tags": [],
+  "team": "",
+  "streamer": false,
+  "all": false
+ },
+ {
+  "id": "UCZGJvVB0StgUrfKmHaCm4MA",
+  "name": "225-ATAL",
+  "genre": "fan",
+  "tags": [],
+  "team": "",
+  "streamer": false,
+  "all": false
+ },
+ {
+  "id": "UCY4lRPXbKilIW8EdU1qAFdQ",
+  "name": "YUI_VLOG",
+  "genre": "fan",
+  "tags": [],
+  "team": "",
+  "streamer": false,
+  "all": false
+ },
+ {
+  "id": "UChYgZjuT2cG_Vw1pwQ5tFhw",
+  "name": "おかなのSisters",
+  "genre": "fan",
+  "tags": [],
+  "team": "",
+  "streamer": false,
+  "all": false
  }
 ]
