@@ -1,13 +1,14 @@
 name: update-data
 on:
   schedule:
-    - cron: "*/10 * * * *"
-    - cron: "7 * * * *"
-    - cron: "20 18 * * *"
+    - cron: "*/10 * * * *"   # live: ライブ中・配信予定・新着（10分ごと）
+    - cron: "7 * * * *"      # full: 登録者数・トピック・大台達成（毎時7分）
+    - cron: "20 18 * * *"    # discover: 新しい配信者を自動で追加・試合日程を更新（日本時間 3:20）
+    - cron: "40 */4 * * *"   # news: 速報（話題ごとの最新動画。4時間ごと）
   workflow_dispatch:
     inputs:
       mode:
-        description: live / full / discover
+        description: live / full / discover / schedule / news
         default: full
 
 permissions:
@@ -33,6 +34,7 @@ jobs:
             case "${{ github.event.schedule }}" in
               "*/10 * * * *") MODE=live ;;
               "20 18 * * *") MODE=discover ;;
+              "40 */4 * * *") MODE=news ;;
               *) MODE=full ;;
             esac
           fi
@@ -45,5 +47,6 @@ jobs:
         run: |
           git config user.name "data-bot"
           git config user.email "data-bot@users.noreply.github.com"
-          git add data
-          git diff --cached --quiet || (git commit -m "data: $MODE $(date -u +%FT%TZ)" && git push)
+          git add data channels.json
+          [ -f blocked.json ] && git add blocked.json || true
+          git diff --cached --quiet || (git commit -m "data: $MODE $(date -u +%FT%TZ)" && (git push || (git pull --rebase && git push)))
