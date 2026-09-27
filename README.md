@@ -1,4 +1,4 @@
-# 実況スカウト データ収集キット（アプリ名は仮）
+# ヤキュトモ データ収集キット
 
 YouTube の公開情報を定期的に集めて、アプリが読む `data/latest.json` を作ります。
 サーバー代 0 円で動かす前提です（GitHub の公開リポジトリ + GitHub Actions + GitHub Pages）。
