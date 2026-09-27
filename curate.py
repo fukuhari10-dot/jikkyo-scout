@@ -1,4 +1,5 @@
 #!/usr/bin/env python3
+# -*- coding: utf-8 -*-
 """
 載せる配信者をえらぶ画面（Mac の中だけで動く。外には公開されない）
 
@@ -74,7 +75,11 @@ main{max-width:980px;margin:0 auto;padding:14px 16px 80px;display:flex;flex-dire
 .b.save:disabled{background:#999}.hint{font-size:12px;color:var(--ink);background:#FFF6D6;border:2px solid var(--ink);border-radius:10px;padding:8px 12px;line-height:1.7}
 </style></head><body>
 <header><h1>載せる配信者をえらぶ</h1><span class="tabs" id="gtabs"></span><span class="tabs" id="tabs"></span><input type="search" id="q" placeholder="名前で絞る"><span id="cnt" style="font-size:13px;font-weight:700"></span><button class="b save" id="save">この内容で保存</button></header>
-<main><div class="hint">チェックを付けた人だけがアプリに載ります。載せるのは2種類：🎮「ゲーム」＝プロスピの実況・配信をする人、⚾「野球ファン」＝本物のプロ野球の球団ファンのYouTuber（現地観戦・応援・試合の振り返り・ニュース考察・ドラフト・球場グルメなど）。上のタブで分けて見られます。種類がちがう人は、行の中で切りかえられます。<br>「専門」＝最近の動画の7割以上がその種類の動画（ゲーム＝プロスピ、野球ファン＝ゲームでないプロ野球の話題）、「多め」＝4割以上、「ときどき」＝それより少ない。<br>ジャンル・球団・「配信する人」は、アプリの検索やおすすめに使われます（あとから変えてもOK）。球団は「自動」のままなら、チャンネル名・説明・動画タイトルから推定して付けます（はっきりしない人には付けません）。<br>アプリに出る動画・ライブは、ゲームの人はタイトルにプロスピが入ったものだけ、野球ファンの人はプロ野球の話題のタイトルだけ。「全部の動画を出す」をONにした人は、タイトルに関係なく全部出ます（最初はゲームの「専門」の人だけON）。<br>途中の選択は自動で残ります。保存が終わるまでターミナルは閉じないでください。</div><div id="list" style="display:flex;flex-direction:column;gap:10px"></div></main>
+<main><div class="hint">チェックを付けた人だけがアプリに載ります。載せるのは2種類：🎮「ゲーム」＝プロスピの実況・配信をする人、⚾「野球ファン」＝本物のプロ野球の球団ファンのYouTuber（現地観戦・応援・試合の振り返り・ニュース考察・ドラフト・球場グルメなど）。上のタブで分けて見られます。種類がちがう人は、行の中で切りかえられます。<br>
+「専門」＝最近の動画の7割以上がその種類の動画（ゲーム＝プロスピ、野球ファン＝ゲームでないプロ野球の話題）、「多め」＝4割以上、「ときどき」＝それより少ない。<br>
+ジャンル・球団・「配信する人」は、アプリの検索やおすすめに使われます（あとから変えてもOK）。球団は「自動」のままなら、チャンネル名・説明・動画タイトルから推定して付けます（はっきりしない人には付けません）。<br>
+アプリに出る動画・ライブは、ゲームの人はタイトルにプロスピが入ったものだけ、野球ファンの人はプロ野球の話題のタイトルだけ。「全部の動画を出す」をONにした人は、タイトルに関係なく全部出ます（最初はゲームの「専門」の人だけON）。<br>
+途中の選択は自動で残ります。保存が終わるまでターミナルは閉じないでください。</div><div id="list" style="display:flex;flex-direction:column;gap:10px"></div></main>
 <div id="msg"></div><div id="down" style="display:none;position:fixed;top:0;left:0;right:0;z-index:9;background:#B3261E;color:#fff;padding:10px 16px;font-weight:700;font-size:14px">ターミナルが止まっているので保存できません。ターミナルで curate を動かし直してから、このタブで保存してください（選んだ内容は残っています）</div>
 <script>
 const R=__ROWS__,TEAMS=__TEAMS__,GENRES=__GENRES__,FAN_TAGS=__FAN_TAGS__;let tab="全部",gtab="両方";
