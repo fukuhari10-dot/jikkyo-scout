@@ -2842,5 +2842,630 @@
   "team": "",
   "streamer": false,
   "all": false
+ },
+ {
+  "id": "UCOkyE4xhMcK_umPxqKkEUsw",
+  "name": "ゲームの沼 | FaLhq",
+  "genre": "game",
+  "tags": [],
+  "team": "",
+  "streamer": false,
+  "all": false,
+  "auto": true,
+  "added": "2026-09-28"
+ },
+ {
+  "id": "UChYvN2PUIy8XZ2_aFPdUAYA",
+  "name": "ふっくの部屋",
+  "genre": "game",
+  "tags": [],
+  "team": "",
+  "streamer": false,
+  "all": true,
+  "auto": true,
+  "added": "2026-09-28"
+ },
+ {
+  "id": "UCflsDjXVZDW6it3UT1T9cRw",
+  "name": "とけむ【プロスピA ゆっくり実況】",
+  "genre": "game",
+  "tags": [],
+  "team": "",
+  "streamer": false,
+  "all": true,
+  "auto": true,
+  "added": "2026-09-28"
+ },
+ {
+  "id": "UC9PYYKAZS0hDqJmvCP2PumA",
+  "name": "ひろひっぴ",
+  "genre": "game",
+  "tags": [],
+  "team": "",
+  "streamer": false,
+  "all": true,
+  "auto": true,
+  "added": "2026-09-28"
+ },
+ {
+  "id": "UCPxWwIhTtoMhcD8cOsVCBFQ",
+  "name": "BaseballBook",
+  "genre": "game",
+  "tags": [],
+  "team": "",
+  "streamer": false,
+  "all": true,
+  "auto": true,
+  "added": "2026-09-28"
+ },
+ {
+  "id": "UCKErE3BUFxKCi7H9PMXse0g",
+  "name": "つまちん",
+  "genre": "game",
+  "tags": [],
+  "team": "",
+  "streamer": false,
+  "all": true,
+  "auto": true,
+  "added": "2026-09-28"
+ },
+ {
+  "id": "UCW3moyQ69Xv9wv9oXyaluww",
+  "name": "よいっちりんね",
+  "genre": "game",
+  "tags": [],
+  "team": "",
+  "streamer": false,
+  "all": true,
+  "auto": true,
+  "added": "2026-09-28"
+ },
+ {
+  "id": "UCR4rDlJ1qc3GoQ8Wxc_Qxug",
+  "name": "YuKuRu ",
+  "genre": "game",
+  "tags": [],
+  "team": "",
+  "streamer": false,
+  "all": true,
+  "auto": true,
+  "added": "2026-09-28"
+ },
+ {
+  "id": "UCSiuqdnB5ZmJFc4-wPoJdqw",
+  "name": "ひろたす。ちゃんねる",
+  "genre": "game",
+  "tags": [],
+  "team": "",
+  "streamer": false,
+  "all": true,
+  "auto": true,
+  "added": "2026-09-28"
+ },
+ {
+  "id": "UC9WLWeVD4Uk9H6PEpPWmijg",
+  "name": "〓ゲッツーGames〓",
+  "genre": "game",
+  "tags": [],
+  "team": "",
+  "streamer": false,
+  "all": true,
+  "auto": true,
+  "added": "2026-09-28"
+ },
+ {
+  "id": "UCdbXZPIjmfFiB_afLS1jpIg",
+  "name": "β郎",
+  "genre": "game",
+  "tags": [],
+  "team": "",
+  "streamer": false,
+  "all": true,
+  "auto": true,
+  "added": "2026-09-28"
+ },
+ {
+  "id": "UCGVqbnXuBDQl6Uin2DdGKvA",
+  "name": "かぁざのなわばり【プロスピ中日】",
+  "genre": "game",
+  "tags": [],
+  "team": "",
+  "streamer": false,
+  "all": true,
+  "auto": true,
+  "added": "2026-09-28"
+ },
+ {
+  "id": "UC9NDdEsZfqJAoVmVH5aXNnQ",
+  "name": "あかはch",
+  "genre": "game",
+  "tags": [],
+  "team": "",
+  "streamer": false,
+  "all": true,
+  "auto": true,
+  "added": "2026-09-28"
+ },
+ {
+  "id": "UCb4w2HTKUhzgR8Qo0Ihg83g",
+  "name": "みちまる。",
+  "genre": "game",
+  "tags": [],
+  "team": "",
+  "streamer": false,
+  "all": true,
+  "auto": true,
+  "added": "2026-09-28"
+ },
+ {
+  "id": "UCZQc-f-MWBvflluNEd2TjPA",
+  "name": "変化量ちっさいねんボケーの人w",
+  "genre": "game",
+  "tags": [],
+  "team": "",
+  "streamer": false,
+  "all": true,
+  "auto": true,
+  "added": "2026-09-28"
+ },
+ {
+  "id": "UC-oF4CVdgF2Z1VNIT21D8VQ",
+  "name": "んチョ",
+  "genre": "game",
+  "tags": [],
+  "team": "",
+  "streamer": false,
+  "all": true,
+  "auto": true,
+  "added": "2026-09-28"
+ },
+ {
+  "id": "UCukIyyJ6R7FbToXez7fCNyQ",
+  "name": "蒼井ハウル〜プロ野球系YouTuber〜",
+  "genre": "game",
+  "tags": [],
+  "team": "",
+  "streamer": false,
+  "all": true,
+  "auto": true,
+  "added": "2026-09-28"
+ },
+ {
+  "id": "UCi3987HrXfUWPZQd1nCI0rw",
+  "name": "ハム吉ch",
+  "genre": "game",
+  "tags": [],
+  "team": "",
+  "streamer": false,
+  "all": true,
+  "auto": true,
+  "added": "2026-09-28"
+ },
+ {
+  "id": "UC0lAMXOhxNzevdZAPQpUIkA",
+  "name": "たかとら",
+  "genre": "game",
+  "tags": [],
+  "team": "",
+  "streamer": false,
+  "all": true,
+  "auto": true,
+  "added": "2026-09-28"
+ },
+ {
+  "id": "UCRvqTT60BFhoJBI3GZO7pzA",
+  "name": "涼",
+  "genre": "game",
+  "tags": [],
+  "team": "",
+  "streamer": false,
+  "all": true,
+  "auto": true,
+  "added": "2026-09-28"
+ },
+ {
+  "id": "UCVaGTMcETD7uZFKUjA_Wzmw",
+  "name": "ほんまそれ。陣田チャンネル",
+  "genre": "game",
+  "tags": [],
+  "team": "",
+  "streamer": false,
+  "all": true,
+  "auto": true,
+  "added": "2026-09-28"
+ },
+ {
+  "id": "UCAQ6wtn2pvLynwx6-cVZfKQ",
+  "name": "ふうらぎGames【楓羅戯りぜる】",
+  "genre": "game",
+  "tags": [],
+  "team": "",
+  "streamer": false,
+  "all": true,
+  "auto": true,
+  "added": "2026-09-28"
+ },
+ {
+  "id": "UC-inEBhgcyEL0Sqcdznm5wA",
+  "name": "Spirits Doara Channel スピリッツドアラチャンネル",
+  "genre": "game",
+  "tags": [],
+  "team": "",
+  "streamer": false,
+  "all": true,
+  "auto": true,
+  "added": "2026-09-28"
+ },
+ {
+  "id": "UCTwt0BbSgSXzt_8fOXECqPA",
+  "name": "channel OGALDO",
+  "genre": "game",
+  "tags": [],
+  "team": "",
+  "streamer": false,
+  "all": true,
+  "auto": true,
+  "added": "2026-09-28"
+ },
+ {
+  "id": "UCUIOnJ4ApYUH8S180bVHA_A",
+  "name": "チャンネル登録者1万人目指すやつ",
+  "genre": "game",
+  "tags": [],
+  "team": "",
+  "streamer": false,
+  "all": true,
+  "auto": true,
+  "added": "2026-09-28"
+ },
+ {
+  "id": "UCyYmGYAcd-YW33lbSah3SoA",
+  "name": "べっしー 【BESSI】",
+  "genre": "game",
+  "tags": [],
+  "team": "",
+  "streamer": false,
+  "all": true,
+  "auto": true,
+  "added": "2026-09-28"
+ },
+ {
+  "id": "UCcA_EKdqdnk0Fw-W6DvD-Ng",
+  "name": "FRAN_GAMES",
+  "genre": "game",
+  "tags": [],
+  "team": "",
+  "streamer": false,
+  "all": true,
+  "auto": true,
+  "added": "2026-09-28"
+ },
+ {
+  "id": "UCvYo8EDrXOKw09UlcDYxWJw",
+  "name": "森田",
+  "genre": "game",
+  "tags": [],
+  "team": "",
+  "streamer": false,
+  "all": true,
+  "auto": true,
+  "added": "2026-09-28"
+ },
+ {
+  "id": "UCFvDbVG-UjNOnukEsdfNuZQ",
+  "name": "クレイジー侍 クレちゃんねる",
+  "genre": "game",
+  "tags": [],
+  "team": "",
+  "streamer": false,
+  "all": false,
+  "auto": true,
+  "added": "2026-09-28"
+ },
+ {
+  "id": "UCJs47wfPTsOnVADvQXBtCWw",
+  "name": "🍊まーさんch🍮",
+  "genre": "game",
+  "tags": [],
+  "team": "",
+  "streamer": false,
+  "all": true,
+  "auto": true,
+  "added": "2026-09-28"
+ },
+ {
+  "id": "UCUysapF5DzgZVgSf85wbi9Q",
+  "name": "T",
+  "genre": "game",
+  "tags": [],
+  "team": "",
+  "streamer": false,
+  "all": false,
+  "auto": true,
+  "added": "2026-09-28"
+ },
+ {
+  "id": "UCHQipSboAyZyptz-QJR6IZQ",
+  "name": "ハマエビ🦐",
+  "genre": "game",
+  "tags": [],
+  "team": "",
+  "streamer": false,
+  "all": false,
+  "auto": true,
+  "added": "2026-09-28"
+ },
+ {
+  "id": "UCPTNG2qLkJhcyQvdxyyhLXA",
+  "name": "快速準急Ch",
+  "genre": "game",
+  "tags": [],
+  "team": "",
+  "streamer": false,
+  "all": true,
+  "auto": true,
+  "added": "2026-09-28"
+ },
+ {
+  "id": "UCr6TwY-wdqbuiE8hAHE4J5w",
+  "name": "さごまん【切り抜き】",
+  "genre": "game",
+  "tags": [],
+  "team": "",
+  "streamer": false,
+  "all": true,
+  "auto": true,
+  "added": "2026-09-28"
+ },
+ {
+  "id": "UC_7QX-7gzU3kxcIilhki7Bg",
+  "name": "まぐろ",
+  "genre": "game",
+  "tags": [],
+  "team": "",
+  "streamer": false,
+  "all": true,
+  "auto": true,
+  "added": "2026-09-28"
+ },
+ {
+  "id": "UCDEZYFjX0vv8aSx_apddkuQ",
+  "name": "やっほっすぅーチャンネル",
+  "genre": "game",
+  "tags": [],
+  "team": "",
+  "streamer": false,
+  "all": false,
+  "auto": true,
+  "added": "2026-09-28"
+ },
+ {
+  "id": "UCTihKr0q6N9o8dkWWU9HNgA",
+  "name": "すぃチーズ",
+  "genre": "game",
+  "tags": [],
+  "team": "",
+  "streamer": false,
+  "all": true,
+  "auto": true,
+  "added": "2026-09-28"
+ },
+ {
+  "id": "UC3_qkuEg7J91DmqZyZ2G0hw",
+  "name": "ヘルニア界のミスターXヘルニアン騎士4450",
+  "genre": "game",
+  "tags": [],
+  "team": "",
+  "streamer": false,
+  "all": false,
+  "auto": true,
+  "added": "2026-09-28"
+ },
+ {
+  "id": "UC2q1KRuEOwtG5bc7Uoj05AA",
+  "name": "がぶりえる",
+  "genre": "game",
+  "tags": [],
+  "team": "",
+  "streamer": false,
+  "all": false,
+  "auto": true,
+  "added": "2026-09-28"
+ },
+ {
+  "id": "UC_ZGHzzh3lXg7tuKH6VpG2A",
+  "name": "しろたぬきチャンネル【プロスピA】",
+  "genre": "game",
+  "tags": [],
+  "team": "",
+  "streamer": false,
+  "all": true,
+  "auto": true,
+  "added": "2026-09-28"
+ },
+ {
+  "id": "UC_4Jiwfphrs3RbQfrLwiPZQ",
+  "name": "たけみ_プロスピA中日純正",
+  "genre": "game",
+  "tags": [],
+  "team": "",
+  "streamer": false,
+  "all": true,
+  "auto": true,
+  "added": "2026-09-28"
+ },
+ {
+  "id": "UCM318t9RwtZgT6CQAyJNUeA",
+  "name": "IDEALたっか",
+  "genre": "game",
+  "tags": [],
+  "team": "",
+  "streamer": false,
+  "all": false,
+  "auto": true,
+  "added": "2026-09-28"
+ },
+ {
+  "id": "UCIdVReaMjWwspS3T41ZD9Kw",
+  "name": "テフ_Teff 【ホークス純正】",
+  "genre": "game",
+  "tags": [],
+  "team": "",
+  "streamer": false,
+  "all": true,
+  "auto": true,
+  "added": "2026-09-28"
+ },
+ {
+  "id": "UCD1LiUfwwMOP6TbmKl0THJQ",
+  "name": "頑張れDeNAチャンネル",
+  "genre": "game",
+  "tags": [],
+  "team": "",
+  "streamer": false,
+  "all": false,
+  "auto": true,
+  "added": "2026-09-28"
+ },
+ {
+  "id": "UC5AH7Cd6iawRHR8uZTzpuUw",
+  "name": "中日に夢あり",
+  "genre": "game",
+  "tags": [],
+  "team": "",
+  "streamer": false,
+  "all": true,
+  "auto": true,
+  "added": "2026-09-28"
+ },
+ {
+  "id": "UCH2Mn6vgzO7eXMtUQ6g5XPg",
+  "name": "小並チャンネル",
+  "genre": "game",
+  "tags": [],
+  "team": "",
+  "streamer": false,
+  "all": true,
+  "auto": true,
+  "added": "2026-09-28"
+ },
+ {
+  "id": "UCiERe5GPOx7gnac1eZ2icwg",
+  "name": "uehakami sitawaai",
+  "genre": "fan",
+  "tags": [],
+  "team": "",
+  "streamer": false,
+  "all": false,
+  "auto": true,
+  "added": "2026-09-28"
+ },
+ {
+  "id": "UCpvWNFzDZd5bo7f1x_TI_Ow",
+  "name": "パンさんチャンネル　",
+  "genre": "fan",
+  "tags": [
+   "応援"
+  ],
+  "team": "",
+  "streamer": false,
+  "all": false,
+  "auto": true,
+  "added": "2026-09-28"
+ },
+ {
+  "id": "UChUdNmHyNo-olrmIEBsOZag",
+  "name": "Alvida Game Channel | for Baseball",
+  "genre": "fan",
+  "tags": [],
+  "team": "",
+  "streamer": false,
+  "all": false,
+  "auto": true,
+  "added": "2026-09-28"
+ },
+ {
+  "id": "UC6I0FqVMguplvTV6LZYanpg",
+  "name": "半額ゲッターズ",
+  "genre": "fan",
+  "tags": [
+   "現地観戦",
+   "応援"
+  ],
+  "team": "",
+  "streamer": false,
+  "all": false,
+  "auto": true,
+  "added": "2026-09-28"
+ },
+ {
+  "id": "UCTcfnOj8xa-l432ywgCSQcw",
+  "name": "餃子1人前",
+  "genre": "fan",
+  "tags": [
+   "応援"
+  ],
+  "team": "",
+  "streamer": false,
+  "all": false,
+  "auto": true,
+  "added": "2026-09-28"
+ },
+ {
+  "id": "UCM2HNbGr7mhpqKJZG06d6vQ",
+  "name": "阪神ファンのひゃっひゃっひゃっチャンネル",
+  "genre": "fan",
+  "tags": [
+   "試合振り返り",
+   "応援"
+  ],
+  "team": "阪神",
+  "streamer": false,
+  "all": false,
+  "auto": true,
+  "added": "2026-09-28"
+ },
+ {
+  "id": "UCgBCRN_iO4wAht6byUws-WQ",
+  "name": "充実社会人の生活",
+  "genre": "fan",
+  "tags": [
+   "現地観戦",
+   "試合振り返り"
+  ],
+  "team": "ソフトバンク",
+  "streamer": false,
+  "all": false,
+  "auto": true,
+  "added": "2026-09-28"
+ },
+ {
+  "id": "UC3DEDKfGNn5-RFj3PePc45Q",
+  "name": "三遊亭究斗の整うチャンネル",
+  "genre": "fan",
+  "tags": [
+   "応援",
+   "試合振り返り",
+   "ニュース・考察"
+  ],
+  "team": "阪神",
+  "streamer": true,
+  "all": false,
+  "auto": true,
+  "added": "2026-09-28"
+ },
+ {
+  "id": "UCz8N1bDZv0zwpEwPvHM37vA",
+  "name": "阪神タイガース　トラジ",
+  "genre": "fan",
+  "tags": [
+   "応援",
+   "ニュース・考察"
+  ],
+  "team": "阪神",
+  "streamer": false,
+  "all": false,
+  "auto": true,
+  "added": "2026-09-28"
  }
 ]
