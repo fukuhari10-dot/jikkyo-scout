@@ -942,6 +942,197 @@ def news_for_app(now=None):
     return out
 
 
+# ---------------- トレンド（速報タブ）：話題が急に増えたときだけタブを作る ----------------
+# 速報のタイトル（公式チャンネル＋話題の動画）から「人の名前＋出来事」（例：〇〇 トレード）をさがす。
+# 36時間で3つ以上のチャンネルが同じ話題を出し、それまでの5日間より急に増えたらトレンド。
+# 見出しの文章は使わない（YouTube の動画タイトルから言葉を数えるだけ）。
+TREND_EVENTS = {
+    "yakyu": ["トレード", "移籍", "FA", "戦力外", "引退", "退団", "入団", "契約更改", "監督就任", "監督", "解任",
+              "休養", "離脱", "抹消", "復帰", "手術", "ノーヒットノーラン", "完全試合", "サヨナラ", "満塁",
+              "優勝", "胴上げ", "マジック", "日本シリーズ", "ドラフト", "指名", "新人王", "MVP", "沢村賞",
+              "首位打者", "本塁打王", "達成", "初勝利", "初本塁打", "ポスティング", "メジャー挑戦", "侍ジャパン",
+              "WBC", "退場", "乱闘", "号", "勝目"],
+    "game": ["ガチャ", "新イベント", "イベント", "新シリーズ", "登場", "能力", "最強", "限定", "無料", "神引き", "爆死",
+             "アップデート", "不具合", "補償", "コラボ", "リアタイ", "ランキング", "ガチャ更新"],
+}
+TREND_STOP = set("""ハイライト 試合 速報 公式 今日 昨日 本日 動画 解説 切り抜き 配信 生配信 ライブ プロ野球 野球 選手 結果 最新 情報
+全打席 打席 投球 本塁打 安打 勝利 敗戦 今季 今年 来季 日本 球団 ファン 応援 反応 振り返り 特集 密着 舞台裏 まとめ 注目 話題
+ダイジェスト インタビュー ヒーロー ヒーローインタビュー 試合後 試合前 練習 キャンプ 球場 観戦 現地 実況 延長 逆転 先発 登板 好投
+完封 無失点 奪三振 連勝 連敗 首位 順位 公式戦 セリーグ パリーグ リーグ チャンネル ニュース 独占 映像 必見 衝撃 驚愕 神回
+プロスピ プロスピＡ プロスピA スピリッツ プロ野球スピリッツ コナミ KONAMI 攻略 解説動画 無課金 初心者 育成 オーダー
+スタメン 打順 投手 捕手 内野手 外野手 野手 助っ人 外国人 新外国人 若手 ベテラン 二軍 一軍 ファーム 月間 週間 年間 シーズン
+電撃 真相 決定 発表 正式 衝撃 緊急 本人 理由 今後 予想 考察 感想 結論 裏側 本音 激白 告白 号泣 異例 前代未聞 独自
+阪神タイガース 読売ジャイアンツ 中日ドラゴンズ 広島東洋カープ 東京ヤクルトスワローズ 横浜 横浜DeNAベイスターズ 福岡 千葉 北海道 東北 埼玉
+""".split())
+TREND_NOT_LABEL = ("プロスピ", "スピリッツ", "コナミ", "KONAMI")   # アプリの文字に出さない言葉
+TREND_WINDOW_H = 36
+TREND_BASE_DAYS = 5
+TREND_MIN_CH = 3        # 何チャンネル以上で話題になったらトレンドか
+TREND_KEEP_H = 12       # 一度出たら、少なくともこの時間は出しておく
+TREND_MAX_H = 72        # どんなに続いても3日で消す（新しい話題に場所をゆずる）
+TREND_MAX = 5           # 1つの世界に出すタブの数
+
+# トレンドから自動で作る「今日のお題」の型（{n} は人の名前。名前がない話題は {n} のない型だけ）
+_TP_TRADE = ("{n}の{e}、どう思う？", ["いいと思う", "さみしい", "まだわからない", "新天地で応援"])
+_TP_MLB = ("{n}のメジャー挑戦、応援する？", ["応援する", "残ってほしい", "複雑", "わからない"])
+TREND_POLLS = {
+    "トレード": _TP_TRADE, "移籍": _TP_TRADE,
+    "FA": ("{n}のFA、どうなると思う？", ["残留", "移籍", "わからない", "どちらでも応援"]),
+    "戦力外": ("{n}、ほかの球団で見たい？", ["見たい", "残ってほしかった", "わからない", "おつかれさま"]),
+    "引退": ("{n}の引退、ひとことで言うと？", ["ありがとう", "まだ見たかった", "おつかれさま", "泣いた"]),
+    "監督就任": ("{n}監督、期待してる？", ["すごく期待", "少し期待", "不安", "様子見"]),
+    "監督": ("{n}監督、期待してる？", ["すごく期待", "少し期待", "不安", "様子見"]),
+    "解任": ("{n}監督の解任、どう思う？", ["しかたない", "早すぎる", "わからない", "次に期待"]),
+    "ポスティング": _TP_MLB, "メジャー挑戦": _TP_MLB,
+    "ドラフト": ("今年のドラフト、応援球団は何点？", ["100点", "80点", "60点", "それ以下"]),
+    "新シリーズ": ("新シリーズ、引く？", ["引く", "様子見", "引かない", "もう引いた"]),
+    "ガチャ": ("今回のガチャ、引く？", ["引く", "様子見", "引かない", "もう引いた"]),
+    "アップデート": ("今回のアップデート、どう？", ["いい", "ふつう", "イマイチ", "まだ見てない"]),
+}
+
+
+def trend_poll(keys):
+    """トレンドの言葉（[名前, 出来事] か [出来事] か [名前]）からお題を作る。作れなければ None"""
+    name = keys[0] if len(keys) == 2 else ("" if keys and keys[0] in TREND_POLLS else (keys[0] if keys else ""))
+    ev = keys[-1] if keys and keys[-1] in TREND_POLLS else ""
+    if not ev:
+        return None
+    q, opts = TREND_POLLS[ev]
+    if "{n}" in q and not name:
+        return None
+    q = q.format(n=name, e=ev)
+    return {"q": q, "opts": list(opts)} if len(q) <= 40 else None
+
+
+_TOKEN_RE = re.compile(r"[一-龥々〆ヶ]{2,6}|[ァ-ヴー]{3,12}|[A-Za-z]{2,12}")
+
+
+def _team_names():
+    out = []
+    for team, (strong, weak) in TEAM_WORDS.items():
+        out += [team] + list(strong)
+    return sorted(set(out), key=len, reverse=True)
+
+
+def title_terms(title, world):
+    """タイトルから（出来事, 人やものの名前, 球団）を取り出す"""
+    import unicodedata
+    t = unicodedata.normalize("NFKC", str(title or ""))
+    t = re.sub(r"【[^】]{0,12}】|\[[^\]]{0,12}\]|#\S+|https?://\S+", " ", t)
+    teams = []
+    for w in _team_names():
+        if w in t:
+            teams.append(w)
+            t = t.replace(w, " ")
+    events = []
+    for e in sorted(TREND_EVENTS.get(world, []), key=len, reverse=True):
+        if e in t:
+            events.append(e)
+            t = t.replace(e, " ")
+    for s in sorted(TREND_STOP, key=len, reverse=True):
+        if len(s) >= 2 and s in t:
+            t = t.replace(s, " ")
+    names = [w for w in _TOKEN_RE.findall(t) if w not in TREND_STOP and not re.fullmatch(r"[A-Za-z]{2}", w)]
+    team = ""
+    for tm, (strong, _w) in TEAM_WORDS.items():
+        if any(x in teams for x in [tm] + list(strong)):
+            team = tm
+            break
+    return events, list(dict.fromkeys(names)), team
+
+
+def _label_ok(label):
+    return 2 <= len(label) <= 16 and not any(x in label for x in TREND_NOT_LABEL)
+
+
+def detect_trends(items, now, state=None):
+    """速報の動画から、いま急に増えた話題を見つける。state は前回の結果（id を同じに保つ・最低12時間は出す）"""
+    import hashlib
+    state = dict(state or {})
+    win = now - dt.timedelta(hours=TREND_WINDOW_H)
+    base = now - dt.timedelta(days=TREND_BASE_DAYS) - dt.timedelta(hours=TREND_WINDOW_H)
+    rec = {}   # (world, key) -> {chs, vids, teams}
+    old = {}   # (world, key) -> チャンネルの集合
+    for v in items:
+        pub = parse_time(v.get("published"))
+        if pub is None or pub < base:
+            continue
+        world = v.get("world") or "yakyu"
+        events, names, team = title_terms(v.get("title"), world)
+        keys = [("p", n, e) for n in names for e in events] + [("n", n, "") for n in names] + [("e", "", e) for e in events]
+        for k in keys:
+            if pub >= win:
+                r = rec.setdefault((world,) + k, {"chs": set(), "vids": [], "teams": {}})
+                r["chs"].add(v.get("ch") or v["id"])
+                r["vids"].append(v["id"])
+                if team:
+                    r["teams"][team] = r["teams"].get(team, 0) + 1
+                if v.get("team"):
+                    r["teams"][v["team"]] = r["teams"].get(v["team"], 0) + 2
+            else:
+                old.setdefault((world,) + k, set()).add(v.get("ch") or v["id"])
+    found = []
+    for key, r in rec.items():
+        world, kind, name, ev = key
+        n = len(r["chs"])
+        need = TREND_MIN_CH - (1 if kind == "p" else 0)   # 名前＋出来事は2チャンネルからでよい
+        if n < need:
+            continue
+        before = len(old.get(key, ())) / TREND_BASE_DAYS * (TREND_WINDOW_H / 24)
+        if n < max(need, before * 3):   # いつもの量と変わらないものはトレンドにしない
+            continue
+        label = name + ("　" + ev if name and ev else ev)
+        if not _label_ok(label.replace("　", "")):
+            continue
+        score = n * (3 if kind == "p" else 2 if kind == "e" else 1) + len(r["vids"]) * 0.2
+        team = max(r["teams"], key=r["teams"].get) if r["teams"] else ""
+        found.append({"world": world, "label": label, "keys": [x for x in (name, ev) if x], "score": round(score, 2),
+                      "ch": n, "news": list(dict.fromkeys(r["vids"]))[:30], "team": team, "kind": kind})
+    found.sort(key=lambda t: -t["score"])
+    picked = []
+    for t in found:   # 同じ名前・同じ出来事の重なりは、点の高い1つだけ
+        if any(set(t["keys"]) & set(p["keys"]) and p["world"] == t["world"] for p in picked):
+            continue
+        picked.append(t)
+    out, nxt = [], {}
+    stamp = now.isoformat(timespec="seconds")
+    for t in picked:
+        tid = "tr_" + hashlib.md5((t["world"] + "|" + t["label"]).encode("utf-8")).hexdigest()[:8]
+        prev = state.get(tid) or {}
+        first = prev.get("first") or stamp
+        if now - parse_time(first) > dt.timedelta(hours=TREND_MAX_H):
+            continue
+        row = dict(t, id=tid, first=first, last=stamp)
+        pl = trend_poll(t["keys"])
+        if pl:
+            row["poll"] = pl
+        out.append(row)
+        nxt[tid] = row
+    for tid, p in state.items():   # 少し下火になっても12時間は残す
+        if tid in nxt or not p.get("last"):
+            continue
+        if now - parse_time(p["last"]) < dt.timedelta(hours=TREND_KEEP_H) and now - parse_time(p["first"]) < dt.timedelta(hours=TREND_MAX_H):
+            row = dict(p, fading=True)
+            out.append(row)
+            nxt[tid] = row
+    res = []
+    for w in ("yakyu", "game"):
+        res += sorted([t for t in out if t["world"] == w], key=lambda t: (t.get("fading", False), -t["score"]))[:TREND_MAX]
+    return res, nxt
+
+
+def trends_for_app(now=None):
+    """latest.json に入れるトレンド。data/trends.json に前回の結果を残す"""
+    now = now or dt.datetime.now(dt.timezone.utc)
+    items = load(os.path.join(DATA, "news.json"), {}).get("items", [])
+    path = os.path.join(DATA, "trends.json")
+    state = load(path, {})
+    res, nxt = detect_trends(items, now, state if isinstance(state, dict) else {})
+    dump(path, nxt)
+    keep = ("id", "world", "label", "keys", "news", "team", "first", "ch", "fading", "poll")
+    return [{k: t.get(k) for k in keep if t.get(k) not in (None, "")} for t in res]
+
+
 # ---------------- 各モード ----------------
 def build_latest(seed_list=None):
     """アプリが読む latest.json を作る（YouTube の公開値をそのまま並べるだけ）"""
@@ -975,7 +1166,11 @@ def build_latest(seed_list=None):
         "games": upcoming_games(today_jst()),  # 昨日から7日先の試合（NPBの公開日程から自動＋games.csv の手入力）。結果・中止つき
         "news": news_for_app(),  # 速報（7日以内）
         "topics": [{k: t[k] for k in ("id", "world", "label")} for t in news_topics()],  # 最後に「球団公式」
+        "trends": trends_for_app(),  # いま急に増えた話題（アプリではこれだけタブになる）
     }
+    art = load(os.path.join(HERE, "stickers.json"), {})  # スタンプを画像に差し替えるとき：{"st_hr": "https://…png"}
+    if isinstance(art, dict) and art:
+        out["stickerArt"] = {k: v for k, v in art.items() if str(k).startswith("st_") and str(v).startswith("https://")}
     dump(os.path.join(DATA, "latest.json"), out)
     print(f"latest.json: {len(chans)} channels, {len(out['videos'])} videos, {len(live['live'])} live")
 
@@ -1246,6 +1441,26 @@ def merge_proposed():
 
 # ---------------- selftest ----------------
 def selftest():
+    # トレンド：3チャンネル以上が同じ「名前＋出来事」を出したらタブ。いつも多い話題（大谷）はトレンドにしない
+    nowt = dt.datetime(2026, 11, 20, 12, tzinfo=dt.timezone.utc)
+
+    def _it(i, t, ch, h, world="yakyu", team=""):
+        return {"id": "v%d" % i, "title": t, "ch": ch, "published": (nowt - dt.timedelta(hours=h)).isoformat().replace("+00:00", "Z"), "world": world, "team": team}
+    its = [_it(1, "【速報】佐藤選手が電撃トレード！", "A", 2), _it(2, "佐藤 トレードの真相", "B", 3), _it(3, "佐藤のトレード 反応", "C", 5, team="阪神"),
+           _it(4, "大谷翔平 今日のハイライト", "D", 2), _it(5, "大谷翔平 第2打席", "E", 3), _it(6, "大谷翔平 まとめ", "F", 4)]
+    its += [_it(10 + i, "大谷翔平 ホームラン", "G%d" % i, 40 + i * 20) for i in range(6)]
+    its += [_it(40, "プロスピA 新ガチャ", "H", 3, "game"), _it(41, "プロスピ 新ガチャ", "I", 4, "game")]
+    tr, st = detect_trends(its, nowt, {})
+    assert [t["label"] for t in tr] == ["佐藤　トレード"], tr
+    assert tr[0]["team"] == "阪神" and tr[0]["id"].startswith("tr_") and len(tr[0]["news"]) == 3
+    assert tr[0]["poll"] == {"q": "佐藤のトレード、どう思う？", "opts": ["いいと思う", "さみしい", "まだわからない", "新天地で応援"]}, tr[0].get("poll")
+    assert trend_poll(["ドラフト"])["q"].startswith("今年のドラフト") and trend_poll(["引退"]) is None and trend_poll(["大谷翔平"]) is None
+    assert not any("プロスピ" in t["label"] for t in tr)
+    tr2, st2 = detect_trends(its[3:], nowt + dt.timedelta(hours=6), st)
+    assert tr2 and tr2[0]["id"] == tr[0]["id"] and tr2[0].get("fading"), "下火でも12時間は残す"
+    tr3, _ = detect_trends(its[3:], nowt + dt.timedelta(hours=13), st2)
+    assert not tr3, "12時間たったら消す"
+    assert title_terms("【速報】阪神・佐藤輝明が電撃トレード", "yakyu")[:2] == (["トレード"], ["佐藤輝明"])
     import tempfile
     global DATA, SNAP, HERE, get
     today = dt.date(2026, 9, 24)

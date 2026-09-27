@@ -13,8 +13,8 @@
 <style>
 :root{
   --sky:#A6DBF2; --dot:#CBEBF9; --ink:#1E1B18; --paper:#FFFBF0; --paper2:#FFF3D6;
-  --tomato:#FF5B45; --mustard:#FFC62E; --mint:#4ED1A5; --yt:#FF0033;
-  --board:#12281F; --board2:#1C3A2D; --led:#FFB12E; --ledoff:#2E4A3C; --lock:#D3DADF; --muted:#5C6670; --dash:#CFC6B2;
+  --tomato:#D93A28; --mustard:#FFC62E; --mint:#4ED1A5; --yt:#E0002D; --ytd:#B0001C; --redtx:#B8321F;
+  --board:#12281F; --board2:#1C3A2D; --led:#FFB12E; --ledoff:#2E4A3C; --lock:#D3DADF; --muted:#4A535C; --dash:#CFC6B2;
   --display:"Mochiy Pop One","Hiragino Maru Gothic ProN","Zen Maru Gothic",sans-serif;
   --body:"Zen Maru Gothic","Hiragino Maru Gothic ProN","Hiragino Sans",sans-serif;
   --dotf:"DotGothic16","Osaka-mono",monospace;
@@ -308,7 +308,7 @@ a{color:inherit}
 .bellbtn .cnt{position:absolute;top:-8px;right:-8px;min-width:20px;height:20px;border-radius:10px;background:var(--yt);color:#fff;border:2px solid var(--ink);font-family:var(--dotf);font-size:12px;display:flex;align-items:center;justify-content:center;padding:0 4px}
 .pick{display:flex;gap:12px;align-items:center}
 .pick .mid{flex:1;min-width:0}
-.pick .why{font-size:11.5px;color:#0E8A63;margin-top:2px}
+.pick .why{font-size:11.5px;color:#0B7A57;margin-top:2px}
 .ribbon1{position:absolute;left:-6px;top:10px;background:var(--tomato);color:#fff;font-family:var(--display);font-size:12px;padding:2px 10px 2px 12px;border:2.5px solid var(--ink);transform:rotate(-4deg)}
 .mis{list-style:none;margin:8px 0 0;padding:0}
 .mis li{display:flex;align-items:center;gap:10px;padding:7px 0;border-bottom:2px dashed var(--dash);font-size:13.5px}
@@ -400,7 +400,7 @@ a{color:inherit}
 .lg7 div.now{background:var(--mustard);box-shadow:2px 2px 0 var(--ink)}
 /* ---- v1 additions ---- */
 .src{display:inline-flex;align-items:center;gap:3px;font-size:10.5px;color:var(--muted);font-weight:700;white-space:nowrap}
-.src b{color:var(--yt);font-weight:900}
+.src b{color:var(--ytd);font-weight:900}
 .hrow{display:flex;align-items:center;gap:8px;flex-wrap:wrap}
 .hrow .h2{margin-right:auto}
 .thumb img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0}
@@ -412,6 +412,7 @@ a{color:inherit}
 .kwrow button{border:2.5px solid var(--ink);border-radius:9px;background:#fff;padding:2px 9px;font-size:12.5px}
 .kwrow button.on{background:var(--tomato);color:#fff}
 .unoff{font-size:11px;color:var(--muted);text-align:center;line-height:1.6;margin:4px 8px 0}
+.ytsrc{color:var(--ytd)}
 .unoff button{border:0;background:none;padding:0;text-decoration:underline;color:inherit;font-size:inherit}
 .links{display:flex;flex-direction:column;margin-top:6px}
 .links button{display:flex;justify-content:space-between;align-items:center;gap:10px;border:0;border-bottom:2px dashed var(--dash);background:none;padding:10px 2px;font-size:14px;text-align:left;color:var(--ink)}
@@ -552,7 +553,7 @@ button{touch-action:manipulation}
 /* =====================================================================
    作り直し（実況を主役に・シンプルに）
    ===================================================================== */
-:root{--night:#0B1934;--night2:#1D4A80;--live:#FF0033}
+:root{--night:#0B1934;--night2:#1D4A80;--live:#E0002D}
 /* ヘッダーのポイント（押すとマイのポイントへ） */
 .hud{border:3px solid var(--ink);cursor:pointer;font:inherit;color:var(--led)}
 .hud:active{transform:translate(2px,2px)}
@@ -598,7 +599,7 @@ button{touch-action:manipulation}
 .gc-state.on{background:var(--live)}
 .gc-match{display:flex;align-items:baseline;gap:10px;flex-wrap:wrap;font-family:var(--display)}
 .gc-match b{font-weight:400;font-size:26px;line-height:1.1;text-shadow:0 2px 0 var(--ink)}
-.gc-match i{font-style:normal;font-family:var(--dotf);color:var(--led)}
+.gc-match i{font-style:normal;font-family:var(--dotf);color:#FFD84D;background:rgba(11,25,52,.8);border-radius:8px;padding:0 8px}
 .gc-info{font-size:12.5px;opacity:.95}
 .gc-btn{align-self:flex-start;margin-top:4px;font-family:var(--display);font-size:14px;background:var(--mustard);color:var(--ink);border:2.5px solid var(--ink);border-radius:99px;padding:6px 14px;box-shadow:2px 2px 0 var(--ink)}
 .gpick{background:var(--paper);border:3px solid var(--ink);border-radius:14px;padding:12px}
@@ -675,8 +676,8 @@ button{touch-action:manipulation}
 .fh-title{font-family:var(--display);font-weight:400;font-size:23px;line-height:1.25;margin:10px 0 4px;text-shadow:2px 2px 0 rgba(0,0,0,.45)}
 .fh-sub{margin:0;font-size:12.5px;opacity:.95;line-height:1.5}
 .fh-stats{display:flex;gap:8px;margin:6px 0 12px}
-.fh-stats span{flex:1;background:rgba(0,0,0,.35);border-radius:10px;padding:5px 4px;text-align:center;font-size:11px}
-.fh-stats b{display:block;font-family:var(--dotf);font-weight:400;font-size:20px;color:var(--led);line-height:1.1}
+.fh-stats span{flex:1;background:rgba(0,0,0,.65);color:#fff;border-radius:10px;padding:5px 4px;text-align:center;font-size:11px}
+.fh-stats b{display:block;font-family:var(--dotf);font-weight:400;font-size:20px;color:#FFD84D;line-height:1.1}
 .fh-compose{display:flex;align-items:center;gap:10px;width:100%;background:#fff;color:var(--muted);border:3px solid var(--ink);border-radius:14px;padding:8px 8px 8px 10px;text-align:left;font-size:14px;box-shadow:3px 3px 0 var(--ink)}
 .fh-compose .av{width:32px;height:32px;font-size:13px;border-width:2.5px}
 .fh-compose span:not(.av){flex:1;min-width:0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
@@ -686,7 +687,8 @@ button{touch-action:manipulation}
 .gmini .gm-ic{flex:none;width:30px;height:30px}.gmini .gm-ic svg{width:100%;height:100%}
 .gm-mid{flex:1;min-width:0}.gm-mid b{display:block;font-family:var(--display);font-weight:400;font-size:15px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.gm-mid small{font-size:11px;opacity:.85}
 .gm-go{flex:none;font-family:var(--display);font-size:12px;background:var(--live);border:2px solid #fff;border-radius:9px;padding:4px 8px}
-.gmini .gc-state{flex:none}
+.gmini{flex-wrap:wrap}.gmini .gc-state{flex:none;max-width:100%;white-space:nowrap}.gm-mid{flex-basis:40%}
+@media (max-width:430px){.gmini .gm-go{margin-left:auto}}
 .gmini:active{transform:translate(2px,2px);box-shadow:2px 2px 0 var(--ink)}
 .roombar{display:flex;flex-direction:column;gap:8px}
 .roombar .chiprow{margin:0}
@@ -754,7 +756,7 @@ body.w-yakyu .nav .navbig{background:#1E7A4E}
 .hh-k{align-self:flex-start;font-size:11px;background:var(--led);color:var(--ink);border-radius:6px;padding:1px 8px}
 .heathero b{font-family:var(--display);font-weight:400;font-size:21px}.heathero small{font-size:11.5px;opacity:.9;line-height:1.5}
 .heat{display:flex;flex-direction:column;gap:6px}
-.hrow2{display:grid;grid-template-columns:1.6em 6.4em 1fr 3.4em;gap:8px;align-items:center;font-size:13px;padding:3px 4px;border-radius:8px}
+.hrow2{color:var(--ink);display:grid;}.hrow2 span{color:var(--ink)}.hrow2{grid-template-columns:1.6em 6.4em 1fr 3.4em;gap:8px;align-items:center;font-size:13px;padding:3px 4px;border-radius:8px}
 .hrow2.mine{background:var(--paper2);outline:2.5px solid var(--ink)}
 .hrow2 .n{font-family:var(--display);text-align:center}
 .hrow2 .tn{border-left:6px solid var(--tc);padding-left:6px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
@@ -778,7 +780,7 @@ body.w-yakyu .nav .navbig{background:#1E7A4E}
 .nextact:active{transform:translate(2px,2px);box-shadow:2px 2px 0 var(--ink)}
 .na-i{flex:none;width:44px;height:44px;border:2.5px solid var(--ink);border-radius:12px;background:#fff;display:flex;align-items:center;justify-content:center;font-size:22px}
 .na-m{flex:1;min-width:0;display:flex;flex-direction:column}
-.na-m small{font-size:10.5px;color:var(--tomato);letter-spacing:.05em}
+.na-m small{font-size:10.5px;color:var(--redtx);letter-spacing:.05em}
 .na-m b{font-family:var(--display);font-weight:400;font-size:16px;line-height:1.3}
 .na-m span{font-size:11.5px;color:var(--muted);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 .na-go{flex:none;font-family:var(--display);background:var(--tomato);color:#fff;border:2.5px solid var(--ink);border-radius:10px;padding:6px 10px}
@@ -801,7 +803,7 @@ body.w-yakyu .nav .navbig{background:#1E7A4E}
 .nhead{display:grid;grid-template-columns:96px minmax(0,1fr);gap:8px;align-items:center;color:var(--ink)}.nhead small{display:block;color:var(--muted);font-size:10.5px}
 .trends{display:flex;gap:6px;overflow-x:auto;padding:2px 2px 6px;align-items:center;scrollbar-width:none}
 .trends::-webkit-scrollbar{display:none}
-.tr-h{flex:none;font-size:11px;font-family:var(--display);color:var(--tomato)}
+.tr-h{flex:none;font-size:11px;font-family:var(--display);color:var(--ink)}
 .trends button{flex:none;border:2px solid var(--ink);border-radius:999px;background:#fff;padding:2px 10px 2px 4px;font-size:12px;white-space:nowrap}
 .trends button i{font-style:normal;display:inline-block;min-width:18px;height:18px;line-height:18px;text-align:center;border-radius:50%;background:var(--ink);color:#fff;font-size:10px;margin-right:4px}
 /* ===== 課金の画面 ===== */
@@ -864,19 +866,22 @@ body[data-theme="night"] .logo small,body[data-theme="night"] .unoff,body[data-t
 
 /* ===== イラストのスタンプ ===== */
 .stk{width:100%;height:100%;display:block}
-.stkb{display:inline-block;width:76px;height:76px;flex:none}
-.stkb.anim .lg-rays{transform-origin:48px 48px;animation:lgspin 6s linear infinite}
-.stkb.anim .lg-pop{transform-origin:48px 40px;animation:lgpop 1.4s ease-out infinite}
+.stkb{display:inline-block;width:96px;height:96px;flex:none}
+.stkb.anim .lg-rays{transform-box:view-box;transform-origin:100px 100px;animation:lgspin 6s linear infinite}
+.stkb.anim .lg-pop{transform-box:view-box;transform-origin:100px 64px;animation:lgpop 1.4s ease-out infinite}
 .stkb.anim .lg-jump{animation:lgjump .9s ease-in-out infinite}
 @keyframes lgspin{to{transform:rotate(360deg)}}
 @keyframes lgpop{0%{transform:scale(.3);opacity:0}40%{opacity:1}100%{transform:scale(1.15);opacity:0}}
-@keyframes lgjump{0%,100%{transform:translateY(6px)}50%{transform:translateY(-8px)}}
+@keyframes lgjump{0%,100%{transform:translateY(10px)}50%{transform:translateY(-14px)}}
+.stkb.anim .lg-fall{animation:lgfall 2.4s linear infinite}
+@keyframes lgfall{0%{transform:translateY(-30px);opacity:0}15%{opacity:1}100%{transform:translateY(110px);opacity:0}}
+@media (prefers-reduced-motion:reduce){.stkb.anim *{animation:none!important}}
 .stktray{display:flex;gap:6px;overflow-x:auto;padding:2px 2px 6px;width:100%;scrollbar-width:none}
 .stktray::-webkit-scrollbar{display:none}
 .stkbtn{position:relative;flex:none;width:58px;height:58px;padding:0;border:0;background:none}
 .stkbtn.locked{opacity:.45;filter:grayscale(.6)}
 .stkbtn.locked i{position:absolute;right:-2px;bottom:-2px;font-style:normal;font-size:16px;filter:none}
-.stkprev{display:grid;grid-template-columns:repeat(6,1fr);gap:4px;margin-top:6px}.stkprev span{display:block;aspect-ratio:1}
+.stkprev{display:grid;grid-template-columns:repeat(4,1fr);gap:4px;margin-top:6px}.stkprev span{display:block;aspect-ratio:1}
 .packrow.ill{flex-direction:column;align-items:stretch}.packrow.ill>button,.packrow.ill>.chip{align-self:flex-end}
 .frprev{display:flex;gap:12px;padding:8px 6px}.frprev .av{width:34px;height:34px;font-size:13px}
 .thprev{display:flex;gap:6px;margin-top:6px}.thprev span{font-size:11px;border:2px solid var(--ink);border-radius:8px;padding:6px 8px}
@@ -907,6 +912,58 @@ body[data-theme="legend"] .logo small,body[data-theme="legend"] .unoff,body[data
 .quick button b{font-size:13px}
 .grow2 .gt.live{background:var(--live);color:#fff}
 .packrow .btn{white-space:nowrap;flex:none}
+
+/* ===== 速報：トレンドのタブ（話題が起きたときだけ） ===== */
+.ttabs{display:flex;gap:6px;overflow-x:auto;padding:2px 2px 8px;scrollbar-width:none;align-items:center}
+.ttabs::-webkit-scrollbar{display:none}
+.ttab{flex:none;display:inline-flex;align-items:center;gap:4px;border:2.5px solid var(--ink);border-radius:999px;background:#fff;color:var(--ink);padding:6px 12px 6px 8px;font-weight:700;font-size:13.5px;white-space:nowrap;box-shadow:2px 2px 0 var(--ink)}
+.ttab .fl{display:inline-flex}.ttab .fl svg{width:18px;height:18px}
+.ttab.on{background:var(--ink);color:#fff}
+.ttab.team{background:var(--tc);color:var(--tt,#fff)}
+.ttab.team.on{outline:3px solid var(--mustard);outline-offset:1px}
+.ttab.hot{background:linear-gradient(135deg,#FFF1E0,#FFE0D6);border-color:var(--ink)}
+.ttab.hot.on{background:linear-gradient(135deg,#D93A28,#B8321F);color:#fff}
+.ttab.hot.fade{opacity:.7}
+.ttab.ghost{box-shadow:none;border-style:dashed;color:var(--ink);opacity:.45;font-weight:400}
+.tnew{font-style:normal;font-size:9.5px;font-weight:900;background:#B8321F;color:#fff;border-radius:6px;padding:1px 5px;margin-left:2px;letter-spacing:.04em}
+.ttab.hot.on .tnew{background:#fff;color:#B8321F}
+.trhero{border:3px solid var(--ink);border-radius:16px;padding:12px;display:flex;flex-direction:column;gap:10px;box-shadow:4px 4px 0 var(--ink);color:#fff;
+ background:radial-gradient(circle at 100% 110%,rgba(255,216,77,.35),transparent 40%),linear-gradient(135deg,#C8341F 0 50%,#0B1934 100%)}
+.trh-top{display:flex;align-items:center;gap:8px}.trh-top b{font-family:var(--display);font-weight:400;font-size:24px;line-height:1.2;text-shadow:2px 2px 0 rgba(0,0,0,.35);word-break:keep-all;overflow-wrap:anywhere}
+.trh-fire svg{width:30px;height:30px;display:block}
+.trh-top .tnew{background:#FFD84D;color:#1E1B18}
+.trh-th{display:grid;grid-template-columns:repeat(3,1fr);gap:6px}.trh-th .nthumb{width:100%;aspect-ratio:16/9;height:auto;border:2px solid #fff;border-radius:8px}
+.trh-meta{display:flex;flex-wrap:wrap;gap:6px}.trh-meta span{background:rgba(0,0,0,.5);border-radius:999px;padding:2px 10px;font-size:12.5px;font-weight:700}
+.trhero .trgo{font-size:17px}.trhero .trgo i{font-style:normal;background:#fff;color:#E8412F;border-radius:999px;padding:0 8px;margin-left:6px;font-size:13px}
+.note.empty{display:flex;justify-content:center;padding:18px}.note.empty .big{font-size:34px}
+.trbanner{display:flex;flex-direction:column;gap:6px}
+.trbanner button{display:flex;align-items:center;gap:8px;width:100%;text-align:left;border:2.5px solid var(--ink);border-radius:14px;padding:10px 12px;color:#fff;box-shadow:3px 3px 0 var(--ink);
+ background:linear-gradient(100deg,#B8321F 0 55%,#D93A28 100%);animation:trpulse 2.4s ease-in-out infinite}
+.trbanner button b{flex:1;min-width:0;font-size:16px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.trbanner .fl svg{width:24px;height:24px;display:block}.trbanner .go{font-weight:900}
+.trbanner .tnew{background:#FFD84D;color:#1E1B18}
+@keyframes trpulse{0%,100%{box-shadow:3px 3px 0 var(--ink)}50%{box-shadow:3px 3px 0 var(--ink),0 0 0 4px rgba(255,138,46,.35)}}
+@media (prefers-reduced-motion:reduce){.trbanner button{animation:none}}
+
+/* ===== 読みやすさ：どの球団の色・着せかえでも文字が読めるように ===== */
+/* 球団の色の丸（アイコン）の文字は、黒いふちどりで必ず読める */
+.av{text-shadow:-1.5px 0 #1E1B18,1.5px 0 #1E1B18,0 -1.5px #1E1B18,0 1.5px #1E1B18,1px 1px 0 #1E1B18,-1px -1px 0 #1E1B18}
+/* 試合カード：左は球団の色、右は紺。文字は白＋黒ふち */
+.gcard .gc-match b,.gcard .gc-info{color:#fff;text-shadow:-1.5px 0 #1E1B18,1.5px 0 #1E1B18,0 -1.5px #1E1B18,0 2px #1E1B18}
+.fc-lock,.fh-lock{background:rgba(0,0,0,.6);color:#fff}
+/* 暗い着せかえ（夜・レジェンド）：背景に直接のる文字だけ明るく。白いカードの中はいつもの黒 */
+body[data-theme="night"] .rowsb>.h2,body[data-theme="night"] .hrow .h2,body[data-theme="legend"] .rowsb>.h2,body[data-theme="legend"] .hrow .h2,body[data-theme="night"] .unoff,body[data-theme="legend"] .unoff{color:inherit}
+body[data-theme="night"] :is(.h2,.sub,.unoff,.src,.count,.tr-h,.logo .l2):not(:is(.note,.mbox,.modal,.lcard,.gcard,.fancard,.fanhero,.ncard,.trhero,.post,.jhero,.gtoday,.pick,button) *),
+body[data-theme="night"] #upcoming>.up>.mid,body[data-theme="night"] #upcoming>.up>.mid small{color:#EEF2FF}
+body[data-theme="legend"] :is(.h2,.sub,.unoff,.src,.count,.tr-h,.logo .l2):not(:is(.note,.mbox,.modal,.lcard,.gcard,.fancard,.fanhero,.ncard,.trhero,.post,.jhero,.gtoday,.pick,button) *),
+body[data-theme="legend"] #upcoming>.up>.mid,body[data-theme="legend"] #upcoming>.up>.mid small{color:#FFE9A8}
+body:is([data-theme="night"],[data-theme="legend"]) :is(.unoff,.src):not(:is(.note,.mbox,.modal,.lcard,.gtoday,button) *) b{color:#FF9AA8}
+body:is([data-theme="night"],[data-theme="legend"]) .logo .l1{color:#FF6B80}
+.faqa{display:flex;flex-direction:column;gap:2px;border:2.5px solid var(--ink);border-radius:12px;background:#FFF6D6;padding:8px 10px;font-size:12.5px;line-height:1.5}
+.faqa b{font-size:13px}
+.adrules{display:flex;flex-direction:column;gap:6px;width:100%}
+.adrules div{display:flex;align-items:center;gap:10px;border:2.5px solid var(--ink);border-radius:12px;background:#fff;padding:8px 10px}
+.adrules span{font-size:22px;flex:none;width:28px;text-align:center}.adrules b{font-size:13.5px;line-height:1.45}
 </style>
 <div class="app">
   <header class="top">
@@ -928,6 +985,7 @@ body[data-theme="legend"] .logo small,body[data-theme="legend"] .unoff,body[data
     <div id="g-home"></div>
     <button class="samplebar" id="dataBar" style="border:0;width:100%;cursor:pointer">見本のデータで表示中・タップで本物のデータを読み込む</button><input type="file" id="dataFile" accept=".json,application/json" hidden>
     <button class="nextact" id="nextAct" hidden></button>
+    <div class="trbanner" id="homeTrend" hidden></div>
     <button class="jhero" id="jHero" aria-label="実況をひらく"></button>
     <button class="fancard" id="fanCard" aria-label="球団ファンの掲示板"></button>
     <div class="note" id="homeNews" hidden></div>
@@ -957,7 +1015,7 @@ body[data-theme="legend"] .logo small,body[data-theme="legend"] .unoff,body[data
     <div class="lsec" id="liveSec">
       <div class="lhead"><span class="lic"><svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><rect x="3" y="5" width="18" height="12" rx="2.5" fill="#FF0033" stroke="#1E1B18" stroke-width="2"/><path d="M10 8.5v5l4.5-2.5z" fill="#fff"/><path d="M8 20h8" stroke="#1E1B18" stroke-width="2.2" stroke-linecap="round"/></svg></span><div><h2 class="h2" id="liveHead">配信実況</h2><p class="sub" style="margin:0" id="liveSub">ライブ配信を見ながら、みんなで話そう</p></div><span class="chip" id="liveCount"></span></div>
       <div class="livelist" id="lives"></div>
-      <p class="unoff" style="margin:6px 0 0;text-align:left">配信の情報：出典 <b style="color:var(--yt)">YouTube</b></p>
+      <p class="unoff" style="margin:6px 0 0;text-align:left">配信の情報：出典 <b class="ytsrc">YouTube</b></p>
     </div>
     <div class="lsec">
       <div class="lhead"><span class="lic"><svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><circle cx="12" cy="12" r="9" fill="#FFC62E" stroke="#1E1B18" stroke-width="2.2"/><path d="M12 7v5l3 2" fill="none" stroke="#1E1B18" stroke-width="2.2" stroke-linecap="round"/></svg></span><div><h2 class="h2" id="upHead">これからの配信</h2><p class="sub" style="margin:0">始まる前から待機所で話せます</p></div></div>
@@ -1063,6 +1121,7 @@ body[data-theme="legend"] .logo small,body[data-theme="legend"] .unoff,body[data
         <button id="tipsAgain">画面のヒントを出す <span>›</span></button>
         <button id="fbBtn">ご意見・要望・不具合を送る <span>›</span></button>
         <button id="rateBtn">アプリを評価する <span>›</span></button>
+        <button id="adsBtn">広告について <span>›</span></button>
         <button id="trackBtn">使い方データの送信 <span id="trackSt">オン</span></button>
         <button data-legal="about">非公式アプリであること・データの出典 <span>›</span></button>
         <button data-legal="terms">利用規約 <span>›</span></button>
@@ -1138,9 +1197,12 @@ const hhmm=ms=>{const d=new Date(ms+JST);return`${d.getUTCHours()}:${String(d.ge
    決まりごと
    ===================================================================== */
 const TEAMS=["ロッテ","ソフトバンク","日本ハム","楽天","西武","オリックス","巨人","阪神","DeNA","広島","ヤクルト","中日"];
-const TEAMC={"ロッテ":"#1E1B18","ソフトバンク":"#E8A300","日本ハム":"#2E6FB7","楽天":"#8C1C2B","西武":"#1F4EA3","オリックス":"#15294F","巨人":"#F07A1A","阪神":"#E8C300","DeNA":"#1B6CD4","広島":"#D62828","ヤクルト":"#1A8C5A","中日":"#1D3F8F"};
+const TEAMC={"ロッテ":"#1E1B18","ソフトバンク":"#E8A300","日本ハム":"#2E6FB7","楽天":"#8C1C2B","西武":"#1F4EA3","オリックス":"#15294F","巨人":"#F07A1A","阪神":"#E8C300","DeNA":"#1B6CD4","広島":"#D62828","ヤクルト":"#157A4E","中日":"#1D3F8F"};
 /* 球団カラーの上にのせる文字の色（明るい色の球団は黒い文字） */
-const tcText=t=>{const c=(TEAMC[t]||"#1E1B18").replace("#","");const [r,g,b]=[0,2,4].map(i=>parseInt(c.slice(i,i+2),16));return(r*299+g*587+b*114)/1000>150?"#1E1B18":"#fff"};
+/* 球団の色の上の文字：白と黒のうち、読みやすい方（WCAG のコントラスト比で決める） */
+const lumOf=h=>{const c=String(h||"#1E1B18").replace("#","");return[0,2,4].map(i=>parseInt(c.slice(i,i+2),16)/255).map(v=>v<=.03928?v/12.92:Math.pow((v+.055)/1.055,2.4)).reduce((a,v,i)=>a+v*[.2126,.7152,.0722][i],0)};
+const onColor=h=>{const L=lumOf(h);return(1.05/(L+.05))>=((L+.05)/(lumOf("#1E1B18")+.05))?"#fff":"#1E1B18"};
+const tcText=t=>onColor(TEAMC[t]||"#1E1B18");
 const GENRES=["リアタイ","ガチャ","純正","育成","無課金","解説","初心者向け","イベント周回","エンジョイ","査定"];
 /* 球団ファンのチャンネルのジャンル（データ収集キットの FAN_GENRE_WORDS と同じ） */
 const FAN_GENRES=["現地観戦","応援","試合振り返り","ニュース・考察","ドラフト・二軍","球場グルメ"];
@@ -1182,7 +1244,8 @@ const SCOUT_MAX=10000,SCOUT_DAYS=7,SCOUT_HIT_P=500;
 /* 広告の出し方（本番はサーバーの config/ads で上書きでき、アプリを出し直さずに調整できる）
    feedEvery: 広場の何投稿ごとに広告を入れるか / bumpMin: 投稿を上に出す分数 / bumpTop: 上に並べる最大件数
    interEvery: 投稿・返信の何回ごとに全画面広告を出すか / interGapMin: 全画面広告の最短間隔（分） / graceDays: 始めてから全画面広告を出さない日数 */
-const ADS={feedEvery:5,bumpMin:10,bumpTop:3,interEvery:3,interGapMin:5,graceDays:2};
+/* 広告の出し方（ユーザー第一）：管理画面の「広告」で変えられる。全画面広告は1日1回まで・始めて7日は出さない */
+const ADS={feedEvery:8,feedSkip:3,bumpMin:10,bumpTop:3,interEvery:3,interGapMin:30,interPerDay:1,graceDays:7};
 /* 毎日のミッション：「配信者を3人チェック」＋日替わり2つ（サーバーの rules.js と同じ計算） */
 /* ゲーム実況とプロ野球で、それぞれ3つずつ（ポイントの財布は共通） */
 const MFIX={k:"check",n:3,t:"配信者を3人チェック"};
@@ -1339,12 +1402,13 @@ function cleanName(n){n=String(n||"").normalize("NFKC").trim();const why=NGW.che
    本物のデータ（データ収集キットの latest.json）
    YouTube の公開値をそのまま表示する。増加数・伸び率などの独自の指標は作らない（YouTube API の規約）
    ===================================================================== */
-function mapData(d){const now=Date.now();
+function mapData(d){const now=Date.now();if(d.stickerArt&&typeof d.stickerArt==="object")STICKER_ART=d.stickerArt;
+ const stale=d.updated&&now-Date.parse(d.updated)>3*36e5; /* 更新が3時間以上止まっていたら「LIVE」を出さない（終わった配信をLIVEと見せない） */
  const dur=p=>{const m=/PT(?:(\d+)H)?(?:(\d+)M)?(?:(\d+)S)?/.exec(p||"")||[];const h=+(m[1]||0),mi=+(m[2]||0),s=+(m[3]||0);return h?`${h}:${String(mi).padStart(2,"0")}:${String(s).padStart(2,"0")}`:`${mi}:${String(s).padStart(2,"0")}`};
  const days=iso=>Math.max(0,Math.floor((now-new Date(iso))/864e5));
  const vids=(d.videos||[]);const lastBy={};vids.forEach(v=>{const a=days(v.published);lastBy[v.ch]=Math.min(lastBy[v.ch]??99,a)});
  CH.splice(0,CH.length,...d.channels.map(c=>({id:c.id,real:1,name:c.name,handle:c.handle||"",thumb:c.thumb||"",subs:c.subs||0,vcount:c.videos||0,tags:c.tags||[],team:c.team||"",genre:c.genre==="fan"?"fan":"game",streamer:!!c.streamer,last:lastBy[c.id]??30,
-  live:c.live?{vid:c.live.id,v:c.live.viewers||0,t:c.live.title,start:new Date(c.live.start).getTime()}:null,
+  live:c.live&&!stale?{vid:c.live.id,v:c.live.viewers||0,t:c.live.title,start:new Date(c.live.start).getTime()}:null,
   up:c.up?{vid:c.up.id,t:hhmm(new Date(c.up.start).getTime()),title:c.up.title,start:new Date(c.up.start).getTime()}:null})));
  const ids=new Set(CH.map(c=>c.id));
  VIDS.splice(0,VIDS.length,...vids.filter(v=>ids.has(v.ch)).map((v,i)=>({id:v.id,real:1,ch:v.ch,title:v.title,ago:days(v.published),pub:new Date(v.published).getTime(),views:v.views||0,dur:dur(v.duration),col:COLORS[i%COLORS.length]})));
@@ -1452,7 +1516,7 @@ const ERR={"already":"今日は受け取りずみです","too-fast":"続けて�
  "name-cooldown":"名前の変更は1日1回までです","not-premium":"スカウトパスの機能です","banned":"このアカウントは利用停止中です","no-profile":"最初に名前を登録してください","bad-name":"その名前は使えません","not-today":"今日の1人ではありません",
  "too-short":"もう少し書いてください","too-long":"200文字までです","ng-word":"使えない言葉が入っています","bad-meta":"項目を選んでください","bad-cat":"種類を選んでください","bad-url":"YouTubeのチャンネルのURL（https://www.youtube.com/@…）を入れてください",
  "blocked":"この投稿には返信できません","not-owner":"自分の投稿だけ操作できます","not-found":"見つかりません（消されたか、非表示になっています）","bad-choice":"選択肢を選んでください","not-scouted":"スカウトしていません",
- "update-required":"新しいバージョンにアップデートしてください","trial-used":"1日体験は1回だけです","resource-exhausted":"操作が早すぎます。少し待ってから","not-owned":"まだ持っていません","unknown-item":"その品は今は交換できません","bad-report":"通報の内容を選んでください","bad-like":"うまくいきませんでした","bad-amount":"票の数がおかしいです","permission-denied":"このアカウントは利用停止中です","retry":"混み合っています。もう一度お試しください","internal":"サーバーでエラーが起きました。少し待ってから","unavailable":"通信できません。電波のよいところで","unauthenticated":"ログインし直してください","failed-precondition":"うまくいきませんでした"};
+ "update-required":"新しいバージョンにアップデートしてください","muted":"通報が多かったため、しばらく書き込みができません（期間がすぎると自動で戻ります）","dup":"同じ文は続けて書けません","trial-used":"1日体験は1回だけです","resource-exhausted":"操作が早すぎます。少し待ってから","not-owned":"まだ持っていません","unknown-item":"その品は今は交換できません","bad-report":"通報の内容を選んでください","bad-like":"うまくいきませんでした","bad-amount":"票の数がおかしいです","permission-denied":"このアカウントは利用停止中です","retry":"混み合っています。もう一度お試しください","internal":"サーバーでエラーが起きました。少し待ってから","unavailable":"通信できません。電波のよいところで","unauthenticated":"ログインし直してください","failed-precondition":"うまくいきませんでした"};
 const errMsg=r=>(r&&(r.reason||ERR[r.code]))||"うまくいきませんでした。もう一度お試しください";
 const GAIN_LABEL={liveSay:"試合実況で応援",checkChannel:"ミッション",vote:"応援",checkTodayPick:"今日の1人をチェック",createPost:"投稿",reply:"返信",votePoll:"お題に投票",like:"ミッション",sync:""};
 const BOARDS={week:null,votes:null,help:null,orders:null,teams:null};let actBusy=false,SINBOX=[],lastErr="";
@@ -1713,7 +1777,7 @@ function openHowto(){modal(`<div class="h2">使い方ガイド</div><div class="
  <h3>ポイント</h3><p>アプリの中だけで使えます。称号・名前の色・アイコン枠・スカウト枠に交換できます（お金や景品にはなりません）。YouTubeで動画を見てもポイントは付きません。</p><h3>ことばの意味</h3><dl class="gloss"><dt>実況スレ</dt><dd>配信や試合を見ながら、みんなで短く書きこむ場所。書きこみは7日で消えます</dd><dt>待機所</dt><dd>配信が始まる前から話せる実況スレ</dd><dt>応援票</dt><dd>毎日3票。推しの配信者に入れると、みんなの推しランキングに反映されます</dd><dt>原石スカウト</dt><dd>登録者1万人未満の配信者を先に見つけておく機能。1万人に届いたら「発掘」</dd><dt>ポイント（P）</dt><dd>毎日ひらく・ミッション・投稿などでたまり、見た目やスカウト枠と交換できます</dd><dt>シーズン</dt><dd>毎月リセットされるレベル。ためたポイントに合わせて上がり、報酬がもらえます</dd><dt>ファン掲示板</dt><dd>応援球団が同じファンだけが読み書きできる場所（応援球団の変更は30日に1回）</dd><dt>球団対抗</dt><dd>その週の、各球団のファンの書き込みの数。スカウトパスやポイントでは増えません</dd></dl></div><button class="btn paper wide" id="mc">とじる</button>`,x=>{x.querySelector("#mc").onclick=closeModal;const ia=x.querySelector("#introAgain");if(ia)ia.onclick=()=>showIntro(0)},"howto")}
 $("#howto").onclick=openHowto;
 $("#tipsAgain").onclick=()=>{S.tips={};S.tipsOn=1;save();renderAll();toast("各画面の上にヒントを出しました")};
-$("#fbBtn").onclick=()=>openFeedback();$("#rateBtn").onclick=()=>openStoreReview();
+$("#fbBtn").onclick=()=>openFeedback();$("#adsBtn").onclick=()=>openAdsInfo();$("#rateBtn").onclick=()=>openStoreReview();
 $("#trackBtn").onclick=()=>{S.noTrack=!S.noTrack;save();renderAll();toast(S.noTrack?"使い方データを送らないようにしました":"使い方データを送るようにしました")};
 
 /* =====================================================================
@@ -1822,7 +1886,7 @@ function checkOrder(meta){const o=meta&&meta.order;if(!o||o.length!==9)return"1�
  for(const x of o){const n=String(x.name||"").normalize("NFKC").trim();if(!POSITIONS.includes(x.pos)||!n||n.length>12)return"守備位置と選手名（12文字まで）を入れてください";const w=NGW.text(n);if(w)return w}
  if(new Set(o.map(x=>x.pos)).size!==9)return"守備位置が重なっています";if(meta.sp){const w=NGW.text(meta.sp);if(w)return w}return""}
 function lineupHTML(m){if(!m||!m.order)return"";return`<div class="lineup">${m.order.map((x,i)=>`<div><i>${i+1}</i><span class="pos">${esc(x.pos)}</span><b>${esc(x.name)}</b></div>`).join("")}${m.sp?`<div class="spl"><span class="pos">投</span><b>${esc(m.sp)}</b><small>先発</small></div>`:""}</div>`}
-const CATC={"質問":["#FFC62E","#1E1B18"],"オーダー相談":["#4ED1A5","#1E1B18"],"オーダー自慢":["#1E1B18","#FFC62E"],"対戦募集":["#FF5B45","#fff"],"ガチャ報告":["#7A4FD0","#fff"],"配信の感想":["#2E7DD1","#fff"],"雑談":["#FFF8EC","#1E1B18"],"試合の感想":["#FF5B45","#fff"],"選手の話":["#2E7DD1","#fff"],"観戦・遠征":["#4ED1A5","#1E1B18"],"補強・ドラフト":["#7A4FD0","#fff"],"お題":["#12281F","#FFB12E"]};
+const CATC={"質問":["#FFC62E","#1E1B18"],"オーダー相談":["#4ED1A5","#1E1B18"],"オーダー自慢":["#1E1B18","#FFC62E"],"対戦募集":["#D93A28","#fff"],"ガチャ報告":["#7A4FD0","#fff"],"配信の感想":["#2468B4","#fff"],"雑談":["#FFF8EC","#1E1B18"],"試合の感想":["#D93A28","#fff"],"選手の話":["#2468B4","#fff"],"観戦・遠征":["#4ED1A5","#1E1B18"],"補強・ドラフト":["#7A4FD0","#fff"],"お題":["#12281F","#FFB12E"]};
 const GTYPES=["通常","OB","限定","イベント","その他"],MRULES=["リアタイ","ルーム戦","純正しばり","初心者歓迎"],MWHEN=["今から","今夜"];
 const REASONS=["悪口・いやがらせ","なりすまし","変な名前","宣伝・勧誘","不正","その他"];
 const POLLS=[["今日いちばん時間を使うのは？",["リアタイ","イベント周回","育成","ガチャ"]],["リアタイで一番大事だと思うのは？",["配球","ミート打ち","オーダー","メンタル"]],["ガチャはどう回す派？",["10連ずつ","貯めて一気に","無料分だけ","その日の気分"]],["純正にこだわる？",["完全に純正","ほぼ純正","こだわらない","迷い中"]],["配信を見る時間帯は？",["朝・通勤中","昼休み","夜","深夜"]],["好きな配信者のタイプは？",["ガチ勢の解説","エンジョイ系","視聴者参加型","ガチャ配信"]],["新シリーズが出たら？",["すぐ全力で引く","評価を見てから","引かない","無課金で待つ"]],["遊んでいる歴は？",["1年未満","1〜3年","3〜5年","5年以上"]],["課金スタイルは？",["無課金","微課金","パスだけ","しっかり課金"]],["イベントは完走する？",["毎回完走","欲しい報酬まで","たまに","やらない"]],["選手を選ぶとき重視するのは？",["能力","フォーム・見た目","好きな選手","純正かどうか"]],["リアタイで負けたあとは？",["すぐもう1戦","配信で研究","オーダー見直し","今日は終わり"]],["初心者にまずすすめるのは？",["イベント","リアタイ","育成","配信を見る"]],["推しの配信者を見つけたきっかけは？",["YouTubeのおすすめ","検索","友だち","このアプリ"]],["いちばんテンションが上がる瞬間は？",["確定演出","サヨナラ勝ち","ランクが上がる","限界突破"]],["ちょうどいい配信の長さは？",["30分","1時間","2時間","耐久配信"]],["打順で一番こだわるのは？",["1番","4番","9番","こだわらない"]],["投手起用のこだわりは？",["先発重視","中継ぎ重視","抑え重視","バランス"]],["特訓の優先は？",["打者から","投手から","推しから","決めてない"]],["ガチャ動画、見るのは？",["当たり回だけ","全部","たまに","見ない"]],["リアタイの目標は？",["ランク上位","勝率アップ","楽しめればOK","まだやってない"]],["オーダーを変える頻度は？",["毎日","週1くらい","新シリーズごと","ほぼ変えない"]],["配信のコメント欄に書き込む？",["よく書く","たまに","見るだけ","見ない"]],["応援している球団で遊ぶ？",["いつも","ほとんど","たまに","関係なし"]],["スタミナ（体力）の使い方は？",["すぐ使い切る","イベント用に貯める","気づいたら満タン","気にしない"]],["動画を見るならどれ？",["解説・攻略","ガチャ","リアタイ実況","雑談"]],["週末に遊ぶ時間は？",["1時間未満","1〜3時間","3時間以上","平日と同じ"]],["今の自分のオーダー、何点？",["100点","80点","60点","作り直したい"]],["一緒に遊ぶ仲間はいる？",["リアルにいる","ネットにいる","探している","ひとりが好き"]],["このアプリで一番使う機能は？",["ライブ・予定","広場","原石スカウト","ランキング"]]].map(([q,opts])=>({q,opts}));
@@ -1883,13 +1947,15 @@ function allPosts(){if(!CM)cmLoad();const bl=blockedSet();const list=(SV&&SPOSTS
 const onTop=p=>bumped(p)&&allPosts().slice(0,ADS.bumpTop).some(x=>x.id===p.id);
 /* 広場の広告（投稿5件ごとに1つ。スカウトパスでは出さない。本番は AdMob のネイティブ広告で「広告」と表示） */
 function adCard(){return S.premium?"":`<div class="adfeed" aria-label="広告"><span class="adl">広告</span><b>広告枠（ネイティブ広告）</b><small>本番は投稿と同じ大きさの広告が入ります。スカウトパスでは表示しません</small></div>`}
-function withAds(cards){return cards.map((c,i)=>c+((i+1)%ADS.feedEvery===0?adCard():"")).join("")}
+function withAds(cards){return cards.map((c,i)=>c+(i+1>ADS.feedSkip&&(i+1)%ADS.feedEvery===0?adCard():"")).join("")} /* 上の3件には入れない */
 /* 投稿・返信を送ったあとの全画面広告（毎回ではない）。
    AdMob のルールで、操作の途中に割りこむ広告は禁止なので、送信が終わった「区切り」で出す。
    始めたばかりの人（ADS.graceDays 日）には出さない。会員には出さない */
 function maybeInterstitial(){if(S.premium)return;S.adTalk=(S.adTalk||0)+1;const d0=S.firstDay||today();
  const newbie=(Date.parse(today())-Date.parse(d0))/864e5<ADS.graceDays;const gapOk=Date.now()-(S.lastInter||0)>=ADS.interGapMin*6e4;
- if(newbie||S.adTalk%ADS.interEvery!==0||!gapOk){save();return}S.lastInter=Date.now();save();
+ const nDay=S.interDay===today()?(S.interN||0):0; /* 1日の上限 */
+ const g=S.team&&typeof gamesOf==="function"?gamesOf(S.team,today())[0]:null;const inGame=g&&["on","soon","late"].includes(gameState(g).k); /* 応援球団の試合中は出さない */
+ if(newbie||inGame||nDay>=ADS.interPerDay||S.adTalk%ADS.interEvery!==0||!gapOk){save();return}S.lastInter=Date.now();S.interDay=today();S.interN=nDay+1;save();
  if(SV&&SV.showInterstitial){BGM.pause();SV.showInterstitial().catch(()=>{}).finally(()=>BGM.resume());return}
  BGM.pause();
  adRunning=true;let n=3;modal(`<div class="h2">広告</div><div class="adbox"><span>全画面広告</span><b id="adN">${n}</b><span>本番は5秒ほどで閉じられる全画面広告</span></div><button class="btn wide" id="adOk" disabled>とじる</button>`,x=>{
@@ -2076,14 +2142,14 @@ function renderDigest(){const {info,done}=pollState();const d=new Date(Date.now(
   <div class="dlist">
   <button class="dgrow" data-dgo="poll"><span class="cat" style="background:#12281F;color:#FFB12E">お題</span><span class="mid">${esc(info.q)}</span><span class="go">▶</span></button>
   <button class="dgrow" data-dgo="live"><span class="cat" style="background:#0B1934;color:#fff">試合</span><span class="mid">${todays.length?`今日のプロ野球 ${todays.length}試合`:"今日は試合がありません"}</span><span class="go">▶</span></button>
-  <button class="dgrow" data-dgo="heat"><span class="cat" style="background:${t?TEAMC[t]:"#1E1B18"};color:#fff">対抗</span><span class="mid">${t?`球団対抗：${esc(t)}は今週 ${my}位`:"球団対抗ランキング"}</span><span class="go">▶</span></button></div>`}
+  <button class="dgrow" data-dgo="heat"><span class="cat" style="background:${t?TEAMC[t]:"#1E1B18"};color:${t?tcText(t):"#fff"}">対抗</span><span class="mid">${t?`球団対抗：${esc(t)}は今週 ${my}位`:"球団対抗ランキング"}</span><span class="go">▶</span></button></div>`}
  else{const waitN=allPosts().filter(waiting).length;const openN=allPosts().filter(matchOpen).length;const lv=CH.filter(c=>c.live&&genreOf(c)==="game").length;
  $("#digestBox").innerHTML=`<div class="rowsb"><h2 class="h2">今日やること</h2><span class="chip">${date}</span></div>
  <div class="quick"><button data-dgo="vote"><span class="qi">${QI.heart}</span><b>応援する</b><small>残り${S.vLeft}票</small></button><button data-dgo="poll"><span class="qi">${QI.poll}</span><b>お題</b><small>${done?"結果を見る":"+10P"}</small></button><button data-dgo="write"><span class="qi">${QI.pen}</span><b>書く</b><small>質問・募集</small></button><button data-dgo="live"><span class="qi">${ICON.ball}</span><b>配信実況</b><small>${lv?`ライブ${lv}件`:"予定を見る"}</small></button></div>
  <div class="dlist">
  <button class="dgrow" data-dgo="poll"><span class="cat" style="background:#12281F;color:#FFB12E">お題</span><span class="mid">${esc(info.q)}</span><span class="go">▶</span></button>
  ${waitN?`<button class="dgrow" data-dgo="wait"><span class="cat" style="background:#FFC62E">質問</span><span class="mid">回答を待っている質問 ${waitN}件</span><span class="go">▶</span></button>`:""}
- ${openN?`<button class="dgrow" data-dgo="match"><span class="cat" style="background:#FF5B45;color:#fff">対戦</span><span class="mid">募集中の対戦 ${openN}件</span><span class="go">▶</span></button>`:""}
+ ${openN?`<button class="dgrow" data-dgo="match"><span class="cat" style="background:#D93A28;color:#fff">対戦</span><span class="mid">募集中の対戦 ${openN}件</span><span class="go">▶</span></button>`:""}
  <button class="dgrow" data-dgo="orders"><span class="cat" style="background:#1E1B18;color:#FFC62E">オーダー</span><span class="mid">今週のベストオーダー</span><span class="go">▶</span></button></div>`}
  $("#digestBox").querySelectorAll("[data-dgo]").forEach(b=>b.onclick=()=>{const g=b.dataset.dgo;
   if(g==="vote"||g==="scout"){goTab("oshi")}else if(g==="write"){openComposer({cat:"質問"})}else if(g==="live"){goTab("live")}
@@ -2136,7 +2202,7 @@ function openChat(cf){const vid=cf.vid;
    <div class="sub" style="margin:0">${cf.sub}</div>${cf.link||""}
    <div class="chatlog" id="chatLog">${msgs}</div>
    <div class="stamprow2">${(cf.stamps||STAMPS).map(s=>`<button data-stamp="${s}">${s}</button>`).join("")}${(cf.stampsPass||STAMPS_PASS).map(s=>`<button data-stamp="${s}" class="pass ${S.premium?"":"locked"}" title="スカウトパスのスタンプ">${S.premium?"":"🔒"}${s}</button>`).join("")}${Object.entries(PACKS).filter(([id])=>hasPack(id)).flatMap(([,p])=>p.stamps).map(s=>`<button data-stamp="${s}" class="pack">${s}</button>`).join("")}${isLegend()?LEGEND_STAMPS.map(s=>`<button data-stamp="${s}" class="legend">${s}</button>`).join(""):""}<button class="morest" id="moreSt">＋スタンプ</button></div>
-   <div class="stktray">${myStickers().map(s=>`<button data-stamp="${s}" class="stkbtn" aria-label="${esc(STICKERS[s].n)}">${STICKERS[s].svg()}</button>`).join("")}${Object.keys(STICKERS).filter(s=>!myStickers().includes(s)).slice(0,myStickers().length?3:6).map(s=>`<button data-lockst="${s}" class="stkbtn locked" aria-label="${esc(STICKERS[s].n)}">${STICKERS[s].svg()}<i>🔒</i></button>`).join("")}</div>
+   <div class="stktray" style="--tc:${stkTC()}">${myStickers().map(s=>`<button data-stamp="${s}" class="stkbtn" aria-label="${esc(STICKERS[s].n)}">${stickerSVG(s)}</button>`).join("")}${Object.keys(STICKERS).filter(s=>!myStickers().includes(s)).slice(0,myStickers().length?4:8).map(s=>`<button data-lockst="${s}" class="stkbtn locked" aria-label="${esc(STICKERS[s].n)}">${stickerSVG(s)}<i>🔒</i></button>`).join("")}</div>
    <div class="frow"><input class="inp" id="chatIn" maxlength="60" placeholder="ひとこと（60字まで）" style="flex:1" enterkeyhint="send"><button class="btn sm tomato" id="chatGo">送る</button></div>
    ${LOCAL_ONLY()?LOCAL_NOTE:""}<p class="sub" style="margin:0">${cf.rule}</p>
    <button class="btn paper wide" id="mc">とじる</button>`,x=>{x.querySelector("#mc").onclick=()=>{clearInterval(chatTimer);closeModal()};
@@ -2169,7 +2235,7 @@ function seedGame(team,vid){if(!DEMO||(CM.chats||[]).some(m=>m.vid===vid))return
 function openGame(team){if(S.team!==team){toast(`${team}ファンの部屋です（応援球団を${team}にすると入れます）`,1);return}
  const day=today(),vid=gameVid(day,team);seedGame(team,vid);const g=gamesOf(team,day)[0];
  openChat({vid,team,reopen:()=>openGame(team),stamps:TEAM_STAMPS,stampsPass:TEAM_STAMPS_PASS,
-  head:`<div class="h2">${esc(team)} 試合実況</div><span class="chip" style="background:${TEAMC[team]||"#1E1B18"};color:#fff">ファン限定</span>`,
+  head:`<div class="h2">${esc(team)} 試合実況</div><span class="chip" style="background:${TEAMC[team]||"#1E1B18"};color:${tcText(team)}">ファン限定</span>`,
   sub:g?`今日：${gameLine(g,team)}`:`${day.slice(5).replace("-","/")}の試合実況（試合がない日は雑談でもOK）`,
   rule:"相手チームや選手への悪口はやめよう。見ているのは同じ球団のファンだけです。書き込みは7日で消えます。1日1回、書きこむと+10P。書き込みは球団対抗の熱量にもなります。"})}
 let TEAMPOSTS={};
@@ -2358,6 +2424,8 @@ function renderLive(){const box=$("#v-live");if(!box)return;const t=S.team,day=t
  bindCards(box)}
 const ICON={
  ball:`<svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><circle cx="12" cy="12" r="9" fill="#fff" stroke="#1E1B18" stroke-width="2.2"/><path d="M7 5.5c2 3 2 10 0 13M17 5.5c-2 3-2 10 0 13" fill="none" stroke="#FF5B45" stroke-width="1.8" stroke-dasharray="2.2 1.8"/></svg>`,
+ fire:`<svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path d="M12 2c1 4 6 6 6 12a6 6 0 0 1-12 0c0-3 1.5-5 3-6 0 2 1 3 2 3-1-3 0-7 1-9z" fill="#FF6A2E" stroke="#1E1B18" stroke-width="1.8" stroke-linejoin="round"/><path d="M12 13c1 1.5 3 2.5 3 5a3 3 0 0 1-6 0c0-1.5.8-2.5 1.5-3 0 1 .5 1.5 1 1.5-.3-1.5 0-2.5.5-3.5z" fill="#FFD84D"/></svg>`,
+ news:`<svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><rect x="3" y="4" width="18" height="16" rx="3" fill="#fff" stroke="#1E1B18" stroke-width="2"/><path d="M6 8h8M6 12h12M6 16h9" stroke="#1E1B18" stroke-width="2" stroke-linecap="round"/><circle cx="18" cy="8" r="2" fill="#FF5B45"/></svg>`,
 };
 /* マイページの中のタブ（推し活・ポイント・設定） */
 let myGroup="oshi";
@@ -2455,49 +2523,175 @@ function renderSound(){const b=bgmCfg();const box=$("#soundBox");if(!box)return;
  $("#bgmVol").onchange=()=>save()}
 
 /* =====================================================================
-   イラストのスタンプ（すべてオリジナル。その場で描く）
+   イラストのスタンプ（すべてオリジナル）
+   主役はマスコット「スカウトくん」。帽子とユニフォームの色は応援球団の色になる
    実況スレに「st_…」のIDで送ると、絵で表示される
+   画像のスタンプ（イラストレーターの絵）に差し替えるときは latest.json の stickerArt に
+   {"st_hr":"https://…/st_hr.png"} のように入れる（なければこの絵を使う）
    ===================================================================== */
-const SK=(inner,bg)=>`<svg viewBox="0 0 96 96" class="stk" aria-hidden="true">${bg?`<rect x="4" y="4" width="88" height="88" rx="22" fill="${bg}" stroke="#1E1B18" stroke-width="4"/>`:""}${inner}</svg>`;
-/* ボールの顔（スカウトくん）。表情だけ変える */
-const BALL=(cx,cy,r,face)=>`<circle cx="${cx}" cy="${cy}" r="${r}" fill="#fff" stroke="#1E1B18" stroke-width="4"/>
- <path d="M${cx-r*.72} ${cy-r*.5}c${r*.25} ${r*.3} ${r*.25} ${r*.7} 0 ${r}" fill="none" stroke="#FF5B45" stroke-width="3" stroke-dasharray="4 3"/>
- <path d="M${cx+r*.72} ${cy-r*.5}c${-r*.25} ${r*.3} ${-r*.25} ${r*.7} 0 ${r}" fill="none" stroke="#FF5B45" stroke-width="3" stroke-dasharray="4 3"/>${face}`;
-const EYES=(cx,cy)=>`<ellipse cx="${cx-8}" cy="${cy}" rx="3.4" ry="4.6" fill="#1E1B18"/><ellipse cx="${cx+8}" cy="${cy}" rx="3.4" ry="4.6" fill="#1E1B18"/>`;
-const SMILE=(cx,cy)=>`<path d="M${cx-7} ${cy}q7 8 14 0" fill="#FF5B45" stroke="#1E1B18" stroke-width="3" stroke-linejoin="round"/>`;
-const CHEEK=(cx,cy)=>`<ellipse cx="${cx-15}" cy="${cy}" rx="5" ry="3" fill="#FF9DB0" opacity=".85"/><ellipse cx="${cx+15}" cy="${cy}" rx="5" ry="3" fill="#FF9DB0" opacity=".85"/>`;
-const TXT=(t,y,c,s)=>`<text x="48" y="${y}" text-anchor="middle" font-family="Mochiy Pop One,sans-serif" font-size="${s||15}" fill="${c||"#1E1B18"}" stroke="#fff" stroke-width="4" paint-order="stroke">${t}</text>`;
+let STICKER_ART={};
+const INK="#1E1B18",UNI="#FFFDF7",RED="#E8412F",GOLD="#FFC62E",TC="var(--tc,#22386B)";
+function stkDefs(){if(typeof document==="undefined"||document.getElementById("stkDefs"))return;
+ const d=document.createElement("div");d.setAttribute("aria-hidden","true");d.style.cssText="position:absolute;width:0;height:0;overflow:hidden";
+ d.innerHTML=`<svg id="stkDefs" width="0" height="0"><defs>
+ <filter id="stkO" x="-15%" y="-15%" width="130%" height="130%" color-interpolation-filters="sRGB"><feMorphology in="SourceAlpha" operator="dilate" radius="5" result="d"/><feFlood flood-color="#fff"/><feComposite in2="d" operator="in" result="w"/><feOffset in="d" dy="4" result="o"/><feGaussianBlur in="o" stdDeviation="2.5" result="ob"/><feFlood flood-color="#000" flood-opacity=".22"/><feComposite in2="ob" operator="in" result="s"/><feMerge><feMergeNode in="s"/><feMergeNode in="w"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+ <radialGradient id="skHead" cx=".36" cy=".3" r=".78"><stop offset="0" stop-color="#fff"/><stop offset=".55" stop-color="#FFFDF8"/><stop offset="1" stop-color="#DCD5C8"/></radialGradient>
+ <linearGradient id="skShade" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#fff" stop-opacity=".35"/><stop offset=".45" stop-color="#fff" stop-opacity="0"/><stop offset="1" stop-color="#000" stop-opacity=".28"/></linearGradient>
+ <linearGradient id="skGold" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#FFF1A8"/><stop offset=".5" stop-color="#FFC62E"/><stop offset="1" stop-color="#D99A00"/></linearGradient>
+ <radialGradient id="skGlow"><stop offset="0" stop-color="#FFE98A"/><stop offset=".6" stop-color="#FFD04A" stop-opacity=".55"/><stop offset="1" stop-color="#FFC62E" stop-opacity="0"/></radialGradient>
+ <linearGradient id="skBat" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#E8B774"/><stop offset=".5" stop-color="#F6D29C"/><stop offset="1" stop-color="#C98D4A"/></linearGradient>
+ </defs></svg>`;(document.body||document.documentElement).appendChild(d)}
+/* 1枚のスタンプ（200×200）。白いふちどりと影をつける */
+const SK=(back,body,front)=>{stkDefs();return`<svg viewBox="0 0 200 200" class="stk" aria-hidden="true"><g filter="url(#stkO)">${back||""}${body||""}${front||""}</g></svg>`};
+/* ふちどり文字（白→黒→色の3重） */
+function TX(s,y,fill,size,rot){const x=100;const w=[...s].reduce((a,c)=>a+(/[\x20-\x7e]/.test(c)?.62:1),0)*size,fit=w>184?` textLength="184" lengthAdjust="spacingAndGlyphs"`:"";
+ const a=`x="${x}" y="${y}" text-anchor="middle" font-family="Mochiy Pop One,Zen Maru Gothic,sans-serif" font-weight="900" font-size="${size}"${fit}`;
+ return`<g${rot?` transform="rotate(${rot} ${x} ${y})"`:""}><text ${a} fill="${INK}" stroke="${INK}" stroke-width="${size*.34}" stroke-linejoin="round">${s}</text><text ${a} fill="${fill}" stroke="#fff" stroke-width="${size*.08}" paint-order="stroke">${s}</text></g>`}
+/* ---- 小物 ---- */
+const star4=(x,y,r,c)=>`<path d="M${x} ${y-r}Q${x+r*.18} ${y-r*.18} ${x+r} ${y}Q${x+r*.18} ${y+r*.18} ${x} ${y+r}Q${x-r*.18} ${y+r*.18} ${x-r} ${y}Q${x-r*.18} ${y-r*.18} ${x} ${y-r}z" fill="${c||GOLD}" stroke="${INK}" stroke-width="2.5" stroke-linejoin="round"/>`;
+const star5=(x,y,r,f,sw)=>{let p="";for(let i=0;i<10;i++){const a=-Math.PI/2+i*Math.PI/5,rr=i%2?r*.45:r;p+=(i?"L":"M")+(x+rr*Math.cos(a)).toFixed(1)+" "+(y+rr*Math.sin(a)).toFixed(1)}return`<path d="${p}z" fill="${f||"url(#skGold)"}" stroke="${INK}" stroke-width="${sw||4}" stroke-linejoin="round"/>`};
+const focus=(c,n,r0)=>{let o="";n=n||30;r0=r0||74;for(let i=0;i<n;i++){const a=i*2*Math.PI/n+(i%2?.05:0),w=.045,r1=r0+(i%3)*8;o+=`<path d="M${100+r1*Math.cos(a-w)} ${100+r1*Math.sin(a-w)}L${100+98*Math.cos(a)} ${100+98*Math.sin(a)}L${100+r1*Math.cos(a+w)} ${100+r1*Math.sin(a+w)}z" fill="${c}"/>`}return`<g opacity=".9">${o}</g>`};
+const rays=(c,n)=>{let o="";n=n||12;for(let i=0;i<n;i++){const a=i*2*Math.PI/n,w=Math.PI/n*.55;o+=`<path d="M100 100L${100+100*Math.cos(a-w)} ${100+100*Math.sin(a-w)}L${100+100*Math.cos(a+w)} ${100+100*Math.sin(a+w)}z" fill="${c}"/>`}return o};
+const confetti=(seed,n,cls)=>{let o="",s=seed||7;const r=()=>(s=(s*9301+49297)%233280)/233280,cs=[RED,GOLD,"#2FB57A","#2E7DD1","#E0529C",TC];for(let i=0;i<(n||14);i++){const x=12+r()*176,y=8+r()*70,a=r()*180;o+=`<rect x="${x}" y="${y}" width="${7+r()*5}" height="${4+r()*3}" rx="1.5" fill="${cs[i%cs.length]}" stroke="${INK}" stroke-width="1.5" transform="rotate(${a} ${x} ${y})"/>`}return`<g class="${cls||""}">${o}</g>`};
+const drop=(x,y,s,c)=>`<path d="M${x} ${y-9*s}C${x+7*s} ${y-1*s} ${x+7*s} ${y+6*s} ${x} ${y+6*s}C${x-7*s} ${y+6*s} ${x-7*s} ${y-1*s} ${x} ${y-9*s}z" fill="${c||"#7CCBFF"}" stroke="${INK}" stroke-width="2.5"/><circle cx="${x-2*s}" cy="${y+1*s}" r="${1.6*s}" fill="#fff"/>`;
+const motion=(pts)=>pts.map(([x1,y1,x2,y2])=>`<path d="M${x1} ${y1}L${x2} ${y2}" stroke="${INK}" stroke-width="4" stroke-linecap="round"/>`).join("");
+const heart=(x,y,s,f)=>`<path d="M${x} ${y+14*s}C${x-26*s} ${y-2*s} ${x-18*s} ${y-24*s} ${x} ${y-12*s}C${x+18*s} ${y-24*s} ${x+26*s} ${y-2*s} ${x} ${y+14*s}z" fill="${f||RED}" stroke="${INK}" stroke-width="4" stroke-linejoin="round"/><ellipse cx="${x-9*s}" cy="${y-8*s}" rx="${4*s}" ry="${2.6*s}" fill="#fff" opacity=".75" transform="rotate(-30 ${x-9*s} ${y-8*s})"/>`;
+const crown=(x,y,s)=>`<g transform="translate(${x} ${y}) scale(${s||1})"><path d="M-34 10L-38 -22L-16 -4L0 -30L16 -4L38 -22L34 10z" fill="url(#skGold)" stroke="${INK}" stroke-width="4.5" stroke-linejoin="round"/><rect x="-35" y="6" width="70" height="12" rx="4" fill="url(#skGold)" stroke="${INK}" stroke-width="4.5"/><circle cx="0" cy="-6" r="5" fill="${RED}" stroke="${INK}" stroke-width="2.5"/><circle cx="-38" cy="-24" r="4" fill="#fff" stroke="${INK}" stroke-width="2.5"/><circle cx="38" cy="-24" r="4" fill="#fff" stroke="${INK}" stroke-width="2.5"/><circle cx="0" cy="-32" r="4" fill="#fff" stroke="${INK}" stroke-width="2.5"/></g>`;
+const ballS=(x,y,r)=>`<circle cx="${x}" cy="${y}" r="${r}" fill="url(#skHead)" stroke="${INK}" stroke-width="3.5"/><path d="M${x-r*.55} ${y-r*.8}q${r*.45} ${r*.8} 0 ${r*1.6}M${x+r*.55} ${y-r*.8}q${-r*.45} ${r*.8} 0 ${r*1.6}" fill="none" stroke="${RED}" stroke-width="2.4" stroke-dasharray="3 2.4"/>`;
+/* ---- 顔 ---- */
+const EYE=(x,y,s)=>`<ellipse cx="${x}" cy="${y}" rx="${6*s}" ry="${8.4*s}" fill="${INK}"/><circle cx="${x-2*s}" cy="${y-3.4*s}" r="${2.8*s}" fill="#fff"/><circle cx="${x+2.4*s}" cy="${y+3*s}" r="${1.3*s}" fill="#fff"/>`;
+const EYES={
+ n:()=>EYE(84,99,1)+EYE(116,99,1),
+ big:()=>EYE(84,98,1.2)+EYE(116,98,1.2),
+ sparkle:()=>[84,116].map(x=>`<ellipse cx="${x}" cy="98" rx="8" ry="10.5" fill="${INK}"/>${star4(x-2,94,5.5,"#fff").replace(/stroke="[^"]+" stroke-width="2.5"/,"")}<circle cx="${x+3.4}" cy="103" r="2" fill="#fff"/>`).join(""),
+ happy:()=>`<path d="M77 101q7-10 14 0M109 101q7-10 14 0" fill="none" stroke="${INK}" stroke-width="5" stroke-linecap="round"/>`,
+ closed:()=>`<path d="M77 97q7 7 14 0M109 97q7 7 14 0" fill="none" stroke="${INK}" stroke-width="5" stroke-linecap="round"/>`,
+ tight:()=>`<path d="M77 92l12 6-12 6M123 92l-12 6 12 6" fill="none" stroke="${INK}" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>`,
+ wink:()=>EYE(84,99,1)+`<path d="M109 101q7-10 14 0" fill="none" stroke="${INK}" stroke-width="5" stroke-linecap="round"/>`,
+ shock:()=>[84,116].map(x=>`<circle cx="${x}" cy="97" r="10" fill="#fff" stroke="${INK}" stroke-width="3.5"/><circle cx="${x}" cy="98" r="3" fill="${INK}"/>`).join(""),
+ dizzy:()=>`<path d="M78 92l12 12M90 92l-12 12M110 92l12 12M122 92l-12 12" stroke="${INK}" stroke-width="4.5" stroke-linecap="round"/>`,
+ flat:()=>`<path d="M77 99h14M109 99h14" stroke="${INK}" stroke-width="5" stroke-linecap="round"/><path d="M79 99q5 5 10 0M111 99q5 5 10 0" fill="${INK}"/>`,
+ up:()=>EYE(84,97,1).replace(/cy="97"/,'cy="96"')+EYE(116,97,1)
+};
+const BROW={angry:`<path d="M74 84l17 8M126 84l-17 8" stroke="${INK}" stroke-width="5" stroke-linecap="round"/>`,sad:`<path d="M75 90l15-6M125 90l-15-6" stroke="${INK}" stroke-width="4.5" stroke-linecap="round"/>`,up:`<path d="M76 84q8-6 16 0M108 84q8-6 16 0" fill="none" stroke="${INK}" stroke-width="4" stroke-linecap="round"/>`};
+const MOUTH={
+ smile:`<path d="M90 110h20q-1 13-10 13t-10-13z" fill="#8A1E14" stroke="${INK}" stroke-width="3.5" stroke-linejoin="round"/><ellipse cx="100" cy="119" rx="5.5" ry="3" fill="#FF8577"/>`,
+ big:`<path d="M85 108h30q-2 20-15 20t-15-20z" fill="#8A1E14" stroke="${INK}" stroke-width="3.5" stroke-linejoin="round"/><ellipse cx="100" cy="122" rx="8" ry="4" fill="#FF8577"/><path d="M88 109h24v4q-12 3-24 0z" fill="#fff"/>`,
+ o:`<ellipse cx="100" cy="116" rx="6.5" ry="8" fill="#8A1E14" stroke="${INK}" stroke-width="3.5"/>`,
+ small:`<path d="M95 114q5 4 10 0" fill="none" stroke="${INK}" stroke-width="4" stroke-linecap="round"/>`,
+ wave:`<path d="M86 118q3.5-5 7 0t7 0 7 0 7 0" fill="none" stroke="${INK}" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>`,
+ frown:`<path d="M91 119q9-8 18 0" fill="none" stroke="${INK}" stroke-width="4.5" stroke-linecap="round"/>`,
+ teeth:`<rect x="86" y="108" width="28" height="14" rx="5" fill="#fff" stroke="${INK}" stroke-width="3.5"/><path d="M86 115h28M93 108v14M100 108v14M107 108v14" stroke="${INK}" stroke-width="2"/>`,
+ cat:`<path d="M90 112q5 6 10 0q5 6 10 0" fill="none" stroke="${INK}" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>`,
+ wail:`<path d="M86 124q14-22 28 0z" fill="#8A1E14" stroke="${INK}" stroke-width="3.5" stroke-linejoin="round"/>`
+};
+const CHEEK=`<ellipse cx="71" cy="112" rx="8" ry="4.6" fill="#FF8FA6" opacity=".8"/><ellipse cx="129" cy="112" rx="8" ry="4.6" fill="#FF8FA6" opacity=".8"/>`;
+const TEARS=`<path d="M80 106q-4 16-2 34M120 106q4 16 2 34" fill="none" stroke="#6CC4FF" stroke-width="7" stroke-linecap="round" opacity=".95"/><path d="M80 106q-4 16-2 34M120 106q4 16 2 34" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" opacity=".7"/>`;
+/* ---- 腕：肩から手の位置へ ---- */
+const SHL=[78,134],SHR=[122,134];
+function arm(from,to,ctrl,hand){const c=ctrl||[(from[0]+to[0])/2,(from[1]+to[1])/2];const d=`M${from[0]} ${from[1]}Q${c[0]} ${c[1]} ${to[0]} ${to[1]}`;
+ return`<path d="${d}" fill="none" stroke="${INK}" stroke-width="17" stroke-linecap="round"/><path d="${d}" fill="none" stroke="${UNI}" stroke-width="9" stroke-linecap="round"/>${hand===0?"":`<circle cx="${to[0]}" cy="${to[1]}" r="9.5" fill="#fff" stroke="${INK}" stroke-width="4"/>`}`}
+const ARMS={
+ rest:()=>arm(SHL,[62,154],[64,140])+arm(SHR,[138,154],[136,140]),
+ up:()=>arm(SHL,[44,40],[30,104])+arm(SHR,[156,40],[170,104]),
+ clasp:()=>arm(SHL,[96,146],[80,152],0)+arm(SHR,[104,146],[120,152],0)+`<circle cx="100" cy="144" r="11" fill="#fff" stroke="${INK}" stroke-width="4"/>`,
+ clap:()=>arm(SHL,[88,142],[76,152])+arm(SHR,[112,142],[124,152]),
+ fistR:()=>arm(SHL,[62,154],[64,140])+arm(SHR,[158,72],[170,128]),
+ waveR:()=>arm(SHL,[62,154],[64,140])+arm(SHR,[160,64],[172,120]),
+ saluteR:()=>arm(SHL,[62,154],[64,140])+arm(SHR,[138,66],[160,120]),
+ cheeks:()=>arm(SHL,[58,112],[52,140])+arm(SHR,[142,112],[148,140]),
+ face:()=>arm(SHL,[94,114],[66,140])+arm(SHR,[106,114],[134,140]),
+ holdR:()=>arm(SHL,[62,154],[64,140])+arm(SHR,[146,118],[150,140]),
+ chin:()=>arm(SHL,[62,154],[64,140])+arm(SHR,[114,128],[142,150]),
+ fists:()=>arm(SHL,[64,150],[62,138])+arm(SHR,[136,150],[138,138])
+};
+/* ---- 頭の上 ---- */
+const HAT={
+ cap:()=>`<path d="M56 74C55 28 145 28 144 74z" fill="${TC}" stroke="${INK}" stroke-width="5" stroke-linejoin="round"/><path d="M56 74C55 28 145 28 144 74z" fill="url(#skShade)"/><path d="M100 34v40" stroke="${INK}" stroke-width="2" opacity=".35"/><circle cx="100" cy="33" r="5" fill="${TC}" stroke="${INK}" stroke-width="3"/>${star5(100,55,11,GOLD,2.5)}<path d="M46 70Q100 84 158 68L160 77Q100 95 43 79z" fill="${TC}" stroke="${INK}" stroke-width="4.5" stroke-linejoin="round"/><path d="M46 70Q100 84 158 68L160 77Q100 95 43 79z" fill="#000" opacity=".18"/>`,
+ crown:()=>crown(100,50,1.15),
+ night:()=>`<path d="M54 80C50 36 120 20 150 48C160 58 164 70 168 66" fill="#5B6BD6" stroke="${INK}" stroke-width="5" stroke-linejoin="round"/><path d="M54 80C50 36 120 20 150 48L146 80z" fill="#5B6BD6" stroke="${INK}" stroke-width="5" stroke-linejoin="round"/><circle cx="170" cy="70" r="9" fill="#fff" stroke="${INK}" stroke-width="4"/><path d="M50 78Q100 90 150 78L150 88Q100 100 50 88z" fill="#fff" stroke="${INK}" stroke-width="4"/>`,
+ none:()=>""
+};
+/* ---- スカウトくん本体 ---- */
+function KUN(o){o=o||{};const e=EYES[o.eyes||"n"](),m=MOUTH[o.mouth||"smile"];
+ const legs=o.jump?`<path d="M88 160q-8 12-18 12M112 160q8 12 18 12" fill="none" stroke="${INK}" stroke-width="15" stroke-linecap="round"/><path d="M88 160q-8 12-18 12M112 160q8 12 18 12" fill="none" stroke="${UNI}" stroke-width="7" stroke-linecap="round"/><ellipse cx="68" cy="173" rx="10" ry="6.5" fill="${INK}"/><ellipse cx="132" cy="173" rx="10" ry="6.5" fill="${INK}"/>`
+  :`<rect x="80" y="152" width="15" height="20" rx="6" fill="${UNI}" stroke="${INK}" stroke-width="4"/><rect x="105" y="152" width="15" height="20" rx="6" fill="${UNI}" stroke="${INK}" stroke-width="4"/><rect x="80" y="160" width="15" height="8" fill="${TC}"/><rect x="105" y="160" width="15" height="8" fill="${TC}"/><ellipse cx="85" cy="175" rx="12" ry="7" fill="${INK}"/><ellipse cx="115" cy="175" rx="12" ry="7" fill="${INK}"/><ellipse cx="81" cy="172" rx="4" ry="2" fill="#fff" opacity=".5"/><ellipse cx="111" cy="172" rx="4" ry="2" fill="#fff" opacity=".5"/>`;
+ const body=`<path d="M74 136q0-16 26-16t26 16v14q0 12-12 12h-28q-12 0-12-12z" fill="${UNI}" stroke="${INK}" stroke-width="4.5" stroke-linejoin="round"/><path d="M100 128v32" stroke="${TC}" stroke-width="3.5"/><path d="M87 124l13 10 13-10" fill="none" stroke="${TC}" stroke-width="4" stroke-linejoin="round"/><rect x="76" y="148" width="48" height="6" fill="${TC}" opacity=".9"/>${o.towel?`<path d="M72 128q28 14 56 0l2 10q-30 16-60 0z" fill="${TC}" stroke="${INK}" stroke-width="3.5" stroke-linejoin="round"/><path d="M76 132v14l8-2v-10M124 132v14l-8-2v-10" fill="${TC}" stroke="${INK}" stroke-width="3" stroke-linejoin="round"/>`:""}`;
+ const head=`<circle cx="100" cy="84" r="48" fill="url(#skHead)" stroke="${INK}" stroke-width="5"/><path d="M60 72c9 12 9 34 0 46M140 72c-9 12-9 34 0 46" fill="none" stroke="${RED}" stroke-width="3.6" stroke-dasharray="5 4" stroke-linecap="round"/>${o.soot?`<ellipse cx="80" cy="116" rx="14" ry="7" fill="#555" opacity=".45"/><ellipse cx="124" cy="80" rx="10" ry="6" fill="#555" opacity=".4"/>`:""}`;
+ const face=`${o.blush===false?"":CHEEK}${e}${o.brow?BROW[o.brow]:""}${m}${o.tears?TEARS:""}${o.sweat?drop(146,76,1.2):""}`;
+ const arms=ARMS[o.arms||"rest"]();const behind=o.armsBehind;
+ const g=`${legs}${behind?arms:""}${body}${head}${HAT[o.hat||"cap"]()}${face}${behind?"":arms}${o.over||""}`;
+ const tr=[o.dy?`translate(0 ${o.dy})`:"",o.tilt?`rotate(${o.tilt} 100 120)`:"",o.scale?`translate(100 110) scale(${o.scale}) translate(-100 -110)`:"","translate(100 100) scale(.9) translate(-100 -108)"].join(" ").trim();
+ return`<g transform="${tr}">${g}</g>`}
+/* ---- 持ち物 ---- */
+const BAT=(x,y,a)=>`<g transform="translate(${x} ${y}) rotate(${a})"><path d="M-6 0L-9 -70Q-9 -84 0 -84Q9 -84 9 -70L6 0z" fill="url(#skBat)" stroke="${INK}" stroke-width="4" stroke-linejoin="round"/><rect x="-7" y="-4" width="14" height="14" rx="3" fill="${INK}"/></g>`;
+const MEGA=`<path d="M136 104l44-22v52l-44-16z" fill="${TC}" stroke="${INK}" stroke-width="4.5" stroke-linejoin="round"/><path d="M136 104l44-22v52l-44-16z" fill="url(#skShade)"/><ellipse cx="180" cy="108" rx="7" ry="26" fill="#fff" stroke="${INK}" stroke-width="4"/><rect x="128" y="100" width="12" height="22" rx="4" fill="${GOLD}" stroke="${INK}" stroke-width="4"/>`;
+const FLAG=`<path d="M150 170V20" stroke="${INK}" stroke-width="7" stroke-linecap="round"/><path d="M150 170V20" stroke="#C98D4A" stroke-width="3" stroke-linecap="round"/><circle cx="150" cy="18" r="6" fill="${GOLD}" stroke="${INK}" stroke-width="3"/><path d="M152 24q20-10 36 0v44q-16-10-36 0z" fill="${TC}" stroke="${INK}" stroke-width="4" stroke-linejoin="round"/><path d="M152 24q20-10 36 0v44q-16-10-36 0z" fill="url(#skShade)"/>${star5(170,46,9,"#fff",2.5)}`;
+const GLOVE=(x,y)=>`<g transform="translate(${x} ${y}) rotate(-20)"><path d="M-16 10q-6-24 0-30q6-4 9 4q0-12 8-12q7 0 7 12q4-8 10-4q6 6-2 30z" fill="#C8782E" stroke="${INK}" stroke-width="4" stroke-linejoin="round"/><path d="M-8 4q8 4 16 0" fill="none" stroke="${INK}" stroke-width="2.5"/></g>`;
+const TROPHY=(x,y,s)=>`<g transform="translate(${x} ${y}) scale(${s||1})"><path d="M-22 -40h44v10q0 30-22 36q-22-6-22-36z" fill="url(#skGold)" stroke="${INK}" stroke-width="4" stroke-linejoin="round"/><path d="M-22 -32q-16 0-14 12t16 12M22 -32q16 0 14 12t-16 12" fill="none" stroke="${INK}" stroke-width="4"/><rect x="-6" y="4" width="12" height="12" fill="url(#skGold)" stroke="${INK}" stroke-width="3.5"/><rect x="-18" y="14" width="36" height="10" rx="3" fill="${TC}" stroke="${INK}" stroke-width="3.5"/>${star5(0,-22,9,"#fff",2)}</g>`;
+const THUMB=`<g transform="translate(152 112)"><rect x="-12" y="-6" width="24" height="22" rx="8" fill="#fff" stroke="${INK}" stroke-width="4"/><path d="M-9 -4v-18q0-7 7-7q5 0 5 7v18" fill="#fff" stroke="${INK}" stroke-width="4" stroke-linejoin="round"/></g>`;
+const QM=(x,y,s,c,r)=>`<text x="${x}" y="${y}" font-family="Mochiy Pop One,sans-serif" font-size="${s}" text-anchor="middle" fill="${c}" stroke="${INK}" stroke-width="3" paint-order="stroke" transform="rotate(${r||0} ${x} ${y})">?</text>`;
+const BURST=(c1,c2)=>{let p="";for(let i=0;i<24;i++){const a=i*Math.PI/12,r=i%2?62:94;p+=(i?"L":"M")+(100+r*Math.cos(a)).toFixed(1)+" "+(100+r*Math.sin(a)).toFixed(1)}return`<path d="${p}z" fill="${c1}" stroke="${INK}" stroke-width="4" stroke-linejoin="round"/><path d="${p}z" fill="${c2}" transform="translate(100 100) scale(.72) translate(-100 -100)"/>`};
+const GRASS=`<g>${[16,34,52,148,166,184].map((x,i)=>`<path d="M${x} 190q-4-22 -12-30q10 6 14 16q2-18 10-26q-4 14-2 40z" fill="#3DBE63" stroke="${INK}" stroke-width="3" stroke-linejoin="round"/>`).join("")}</g>`;
+const SUN=`<g>${rays("#FFD84D",14)}</g><circle cx="100" cy="100" r="66" fill="#FFE98A"/>`;
+const ZZZ=`<g font-family="Mochiy Pop One,sans-serif" fill="#7B8CFF" stroke="${INK}" stroke-width="3" paint-order="stroke"><text x="150" y="44" font-size="26">Z</text><text x="170" y="22" font-size="18">z</text><text x="136" y="64" font-size="14">z</text></g>`;
+const MOON=`<path d="M30 22a22 22 0 1 0 24 32a18 18 0 1 1 -24 -32z" fill="${GOLD}" stroke="${INK}" stroke-width="3.5" stroke-linejoin="round"/>`;
+const HALO=`<ellipse cx="100" cy="22" rx="30" ry="9" fill="none" stroke="${INK}" stroke-width="9"/><ellipse cx="100" cy="22" rx="30" ry="9" fill="none" stroke="${GOLD}" stroke-width="5"/>`;
+const SHAKE=`<path d="M40 70q-8 10 0 20M32 64q-12 16 0 32M160 70q8 10 0 20M168 64q12 16 0 32" fill="none" stroke="${INK}" stroke-width="3.5" stroke-linecap="round"/>`;
+const ANGER=`<g transform="translate(150 50)" stroke="${RED}" stroke-width="5" stroke-linecap="round" fill="none"><path d="M-10 -4q6 0 6-6M4 -10q0 6 6 6M10 4q-6 0-6 6M-4 10q0-6-6-6"/></g>`;
+const SURPRISE=`<path d="M40 40l-12-12M28 70h-16M44 22l-6-14M160 40l12-12M172 70h16M156 22l6-14" stroke="${INK}" stroke-width="5" stroke-linecap="round"/>`;
+const SPARKS=pts=>pts.map(([x,y,r,c])=>star4(x,y,r,c)).join("");
+const LGRING=`<circle cx="100" cy="100" r="96" fill="url(#skGlow)"/>`;
 const STICKERS={
- /* 応援イラストパック */
- st_hr:{n:"ホームラン",svg:()=>SK(`<path d="M10 70Q48 -4 86 30" fill="none" stroke="#FFC62E" stroke-width="5" stroke-dasharray="2 7" stroke-linecap="round"/>${BALL(70,34,16,EYES(70,32)+SMILE(70,40))}${TXT("HR!",86,"#FF5B45",22)}`,"#E8F6FF")},
- st_mega:{n:"メガホン応援",svg:()=>SK(`<path d="M22 44l38-18v44L22 54z" fill="#FF5B45" stroke="#1E1B18" stroke-width="4" stroke-linejoin="round"/><rect x="12" y="42" width="12" height="14" rx="3" fill="#FFC62E" stroke="#1E1B18" stroke-width="4"/><path d="M68 34l12-8M70 48h14M68 62l12 8" stroke="#1E1B18" stroke-width="4" stroke-linecap="round"/>${TXT("いけー!",88,"#1E1B18",14)}`,"#FFF6D6")},
- st_banzai:{n:"ばんざい",svg:()=>SK(`<path d="M22 50L10 22M74 50l12-28" stroke="#1E1B18" stroke-width="6" stroke-linecap="round"/><circle cx="10" cy="20" r="6" fill="#fff" stroke="#1E1B18" stroke-width="4"/><circle cx="86" cy="20" r="6" fill="#fff" stroke="#1E1B18" stroke-width="4"/>${BALL(48,52,24,`<path d="M36 48q4-5 8 0M52 48q4-5 8 0" fill="none" stroke="#1E1B18" stroke-width="3.5" stroke-linecap="round"/>`+`<path d="M40 58q8 12 16 0z" fill="#FF5B45" stroke="#1E1B18" stroke-width="3" stroke-linejoin="round"/>`+CHEEK(48,58))}`,"#E8FFF4")},
- st_naki:{n:"くやしい",svg:()=>SK(`${BALL(48,50,26,EYES(48,46)+`<path d="M40 64q8-7 16 0" fill="none" stroke="#1E1B18" stroke-width="3.5" stroke-linecap="round"/><path d="M36 52q-3 10 0 16M60 52q3 10 0 16" stroke="#4FB3FF" stroke-width="5" stroke-linecap="round"/>`)}${TXT("くやしい",90,"#2E7DD1",13)}`,"#EAF2FF")},
- st_guts:{n:"ガッツポーズ",svg:()=>SK(`${BALL(42,54,24,`<path d="M30 50l6 3-6 3M54 50l-6 3 6 3" fill="none" stroke="#1E1B18" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/>`+SMILE(42,62))}<path d="M64 48l14-20" stroke="#1E1B18" stroke-width="6" stroke-linecap="round"/><circle cx="80" cy="24" r="9" fill="#fff" stroke="#1E1B18" stroke-width="4"/><path d="M76 14l2-6M86 16l4-4M88 26h6" stroke="#FFC62E" stroke-width="3.5" stroke-linecap="round"/>`,"#FFF0E8")},
- st_flag:{n:"旗ふり",svg:()=>SK(`<path d="M26 86V14" stroke="#1E1B18" stroke-width="5" stroke-linecap="round"/><path d="M28 16q20-8 34 0t30 0v30q-16 8-30 0t-34 0z" fill="var(--tc,#1E7A4E)" stroke="#1E1B18" stroke-width="4" stroke-linejoin="round"/>${TXT("ファイト",78,"#1E1B18",14)}`,"#F4F4F4")},
- /* 実況イラストパック */
- st_kami:{n:"神引き",svg:()=>SK(`${[[20,24],[76,22],[16,66],[80,70],[48,12]].map(([x,y])=>`<path d="M${x} ${y-7}l2 5 5 2-5 2-2 5-2-5-5-2 5-2z" fill="#FFC62E" stroke="#1E1B18" stroke-width="2"/>`).join("")}${BALL(48,50,22,`<path d="M36 46l4-4 4 4M52 46l4-4 4 4" fill="none" stroke="#1E1B18" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/>`+SMILE(48,56))}${TXT("神!",90,"#B8860B",16)}`,"#FFF6D6")},
- st_baku:{n:"爆死",svg:()=>SK(`<path d="M48 10l8 16 18-8-4 18 18 6-16 10 10 16-18-2-2 18-14-14-14 14-2-18-18 2 10-16-16-10 18-6-4-18 18 8z" fill="#FFB12E" stroke="#1E1B18" stroke-width="3.5" stroke-linejoin="round"/>${BALL(48,50,16,`<path d="M40 46l5 5M45 46l-5 5M51 46l5 5M56 46l-5 5" stroke="#1E1B18" stroke-width="3" stroke-linecap="round"/>`)}${TXT("爆死",90,"#E0301E",14)}`,"")},
- st_gg:{n:"GG",svg:()=>SK(`${TXT("GG",58,"#1E1B18",40)}<path d="M18 72q30 12 60 0" fill="none" stroke="#FF5B45" stroke-width="5" stroke-linecap="round"/>`,"#E8F6FF")},
- st_www:{n:"草",svg:()=>SK(`${[[22,64],[40,56],[58,62],[74,54]].map(([x,y])=>`<path d="M${x} 84q-2-${84-y} 6-${90-y}M${x+6} 84q4-${80-y} -2-${86-y}" fill="none" stroke="#1E9E73" stroke-width="5" stroke-linecap="round"/>`).join("")}${TXT("www",40,"#1E9E73",22)}`,"#E8FFF4")},
- st_hatena:{n:"？？？",svg:()=>SK(`${BALL(48,54,24,`<circle cx="40" cy="50" r="3.5" fill="#1E1B18"/><circle cx="56" cy="50" r="3.5" fill="#1E1B18"/><path d="M42 64h12" stroke="#1E1B18" stroke-width="3.5" stroke-linecap="round"/>`)}${TXT("??",26,"#7A4FD0",22)}`,"#F3EEFF")},
- st_clap:{n:"はくしゅ",svg:()=>SK(`<path d="M30 60l10-30a5 5 0 0 1 9 3l-4 14 12-22a5 5 0 0 1 9 4L56 52l14-14a5 5 0 0 1 7 7L56 70q-10 10-24 2z" fill="#FFD8B8" stroke="#1E1B18" stroke-width="3.5" stroke-linejoin="round"/><path d="M18 30l8 6M16 46h10M24 18l6 8" stroke="#FFC62E" stroke-width="3.5" stroke-linecap="round"/>${TXT("ぱちぱち",90,"#1E1B18",12)}`,"#FFF6D6")},
- /* パス会員のイラスト */
- st_p_crown:{n:"王冠",svg:()=>SK(`<path d="M20 44l12 10 16-24 16 24 12-10-4 30H24z" fill="#FFC62E" stroke="#1E1B18" stroke-width="4" stroke-linejoin="round"/>${TXT("さすが",90,"#B8860B",14)}`,"#1B2A55")},
- st_p_star:{n:"MVP",svg:()=>SK(`<path d="M48 12l10 22 24 3-18 16 5 24-21-12-21 12 5-24-18-16 24-3z" fill="#FFC62E" stroke="#1E1B18" stroke-width="4" stroke-linejoin="round"/>${TXT("MVP",90,"#fff",16)}`,"#1B2A55")},
- st_p_heart:{n:"推し",svg:()=>SK(`<path d="M48 80S16 60 16 38a16 16 0 0 1 32-4 16 16 0 0 1 32 4c0 22-32 42-32 42z" fill="#FF5B45" stroke="#1E1B18" stroke-width="4" stroke-linejoin="round"/>${TXT("推し!",54,"#fff",16)}`,"#1B2A55")},
- /* レジェンドの動くスタンプ */
- st_lg_come:{n:"レジェンド降臨",anim:1,svg:()=>SK(`<g class="lg-rays">${Array.from({length:12},(_,i)=>`<path d="M48 48L${48+46*Math.cos(i*Math.PI/6)} ${48+46*Math.sin(i*Math.PI/6)}" stroke="#FFE38A" stroke-width="6" opacity=".7"/>`).join("")}</g>${BALL(48,52,22,EYES(48,50)+SMILE(48,58))}<path d="M30 30l6 6 12-16 12 16 6-6-2 12H32z" fill="#FFC62E" stroke="#1E1B18" stroke-width="3" stroke-linejoin="round"/>${TXT("降臨",90,"#B8860B",14)}`,"#FFF6D6")},
- st_lg_fire:{n:"花火",anim:1,svg:()=>SK(`<g class="lg-pop">${Array.from({length:10},(_,i)=>`<circle cx="${48+28*Math.cos(i*Math.PI/5)}" cy="${40+28*Math.sin(i*Math.PI/5)}" r="5" fill="${["#FF5B45","#FFC62E","#4ED1A5","#2E7DD1","#D0418A"][i%5]}"/>`).join("")}</g><circle cx="48" cy="40" r="8" fill="#FFE38A" stroke="#1E1B18" stroke-width="3"/>${TXT("おめでとう",88,"#1E1B18",12)}`,"#0B1934")},
- st_lg_doage:{n:"胴上げ",anim:1,svg:()=>SK(`<g class="lg-jump">${BALL(48,34,16,`<path d="M40 32q3-4 6 0M50 32q3-4 6 0" fill="none" stroke="#1E1B18" stroke-width="3" stroke-linecap="round"/>`+SMILE(48,38))}</g>${[20,36,52,68,80].map(x=>`<path d="M${x} 86v-18" stroke="#1E1B18" stroke-width="5" stroke-linecap="round"/><circle cx="${x}" cy="64" r="5" fill="#FFD8B8" stroke="#1E1B18" stroke-width="2.5"/>`).join("")}`,"#FFF6D6")}
+ /* ===== 応援パック ===== */
+ st_hr:{n:"ホームラン",svg:()=>SK(`<path d="M30 60Q70 -6 150 26" fill="none" stroke="${GOLD}" stroke-width="7" stroke-dasharray="1 12" stroke-linecap="round"/>${ballS(36,54,14)}${motion([[56,42,70,34],[58,58,74,56]])}`,KUN({eyes:"sparkle",mouth:"big",arms:"holdR",tilt:-6})+BAT(146,120,50),TX("ホームラン!",188,RED,30,-4))},
+ st_mega:{n:"いけー!",svg:()=>SK(`${motion([[186,64,196,54],[190,110,200,110],[186,154,196,164]])}`,KUN({eyes:"tight",mouth:"big",arms:"holdR",tilt:-8,brow:"angry"})+MEGA,TX("いけー!!",188,RED,34,-5))},
+ st_banzai:{n:"バンザイ",svg:()=>SK(confetti(11,16),KUN({eyes:"happy",mouth:"big",arms:"up",armsBehind:1,jump:1,dy:-6}),TX("バンザーイ!",190,"#FF7A00",30,-3))},
+ st_naki:{n:"くやしい",svg:()=>SK(SHAKE,KUN({eyes:"tight",mouth:"teeth",arms:"fists",brow:"sad",tears:1,sweat:1}),TX("くやしい〜",190,"#2E7DD1",30,3))},
+ st_guts:{n:"よっしゃ!",svg:()=>SK(SPARKS([[176,40,12],[160,16,8,"#fff"],[184,86,7]]),KUN({eyes:"tight",mouth:"big",arms:"fistR",brow:"angry",tilt:-4}),TX("よっしゃ!!",190,RED,34,-4))},
+ st_flag:{n:"ファイト!",svg:()=>SK("",KUN({eyes:"n",mouth:"big",arms:"holdR",tilt:-6,brow:"angry"})+FLAG,TX("ファイト!",190,TC,34,-3))},
+ st_nicepi:{n:"ナイスピー!",svg:()=>SK(`${ballS(176,70,11)}${motion([[146,62,160,64],[148,78,160,76]])}`,KUN({eyes:"wink",mouth:"smile",arms:"waveR",tilt:6})+GLOVE(56,146),TX("ナイスピー!",190,"#2E7DD1",30,-3))},
+ st_shinji:{n:"信じてる",svg:()=>SK(`<g opacity=".6">${rays("#FFE98A",10)}</g>`,KUN({eyes:"sparkle",mouth:"small",arms:"clasp"}),SPARKS([[30,40,10],[172,34,8],[176,120,7,"#fff"]])+TX("信じてる",190,"#8A4FD0",32,0))},
+ /* ===== 実況パック ===== */
+ st_kami:{n:"神!",svg:()=>SK(`<g opacity=".8">${rays("#FFE98A",12)}</g>${HALO}`,KUN({eyes:"sparkle",mouth:"big",arms:"clasp"}),SPARKS([[24,60,12],[178,52,10],[30,130,8,"#fff"],[176,136,9]])+TX("神!!",192,"#C98A00",44,-4))},
+ st_baku:{n:"爆死",svg:()=>SK(BURST("#FF8A2E","#FFD84D"),KUN({eyes:"dizzy",mouth:"wave",soot:1,tilt:10,sweat:1}),`<circle cx="40" cy="36" r="12" fill="#bbb" stroke="${INK}" stroke-width="3"/><circle cx="54" cy="24" r="9" fill="#ccc" stroke="${INK}" stroke-width="3"/>`+TX("爆死…",192,"#7A2A1A",38,4))},
+ st_gg:{n:"GG",svg:()=>SK(SPARKS([[30,40,10],[176,30,8]]),KUN({eyes:"wink",mouth:"smile",arms:"holdR"})+THUMB,TX("GG!",192,"#2E7DD1",44,-6))},
+ st_www:{n:"草",svg:()=>SK(GRASS,KUN({eyes:"tight",mouth:"big",arms:"cheeks",tilt:18,tears:0})+`<path d="M72 100q-10 4-14 12M128 100q10 4 14 12" stroke="#6CC4FF" stroke-width="5" stroke-linecap="round" fill="none"/>`,TX("www",60,"#2FA35A",40,-10))},
+ st_hatena:{n:"？？？",svg:()=>SK(QM(32,58,40,"#8A4FD0",-15)+QM(172,48,34,"#8A4FD0",15)+QM(160,124,22,"#B895F0",10),KUN({eyes:"n",mouth:"small",arms:"chin",tilt:-10,sweat:1}),TX("？？？",192,"#8A4FD0",36,0))},
+ st_clap:{n:"ぱちぱち",svg:()=>SK(motion([[70,122,58,114],[66,138,52,136],[130,122,142,114],[134,138,148,136]])+SPARKS([[100,20,9],[40,34,7],[160,34,7]]),KUN({eyes:"happy",mouth:"smile",arms:"clap"}),TX("ぱちぱち",192,"#FF7A00",32,0))},
+ st_kita:{n:"キター!",svg:()=>SK(focus("#FF4B3A",36),KUN({eyes:"sparkle",mouth:"big",arms:"up",armsBehind:1,jump:1,dy:-4}),TX("キターー!!",192,"#FFD000",34,-5))},
+ st_gunu:{n:"ぐぬぬ",svg:()=>SK(SHAKE+ANGER,KUN({eyes:"n",mouth:"teeth",arms:"fists",brow:"angry",sweat:1}),TX("ぐぬぬ…",192,"#7A2A1A",36,2))},
+ /* ===== きもちパック ===== */
+ st_arigato:{n:"ありがとう",svg:()=>SK(heart(30,40,.7,"#FF8FA6")+heart(174,52,.55,"#FF8FA6"),KUN({eyes:"happy",mouth:"smile",arms:"clasp",tilt:-8}),TX("ありがとう!",192,"#E0529C",30,-3))},
+ st_gomen:{n:"ごめん",svg:()=>SK(motion([[36,70,50,76],[34,92,50,92]]),KUN({eyes:"tight",mouth:"small",arms:"face",brow:"sad",sweat:1,tilt:6}),TX("ごめん!",192,"#2E7DD1",38,3))},
+ st_ok:{n:"了解!",svg:()=>SK(SPARKS([[176,28,9],[28,40,7]]),KUN({eyes:"n",mouth:"smile",arms:"saluteR",brow:"up"}),TX("了解!",192,"#2FA35A",42,-4))},
+ st_oyasumi:{n:"おやすみ",svg:()=>SK(MOON+ZZZ,KUN({eyes:"closed",mouth:"small",hat:"night",tilt:8}),TX("おやすみ",192,"#5B6BD6",32,0))},
+ st_ee:{n:"えっ!?",svg:()=>SK(SURPRISE,KUN({eyes:"shock",mouth:"o",arms:"cheeks",sweat:1}),TX("えっ!?",192,RED,42,-4))},
+ st_naku:{n:"泣ける",svg:()=>SK(`${drop(30,60,1.3)}${drop(172,50,1.1)}`,KUN({eyes:"closed",mouth:"wail",tears:1,arms:"rest",brow:"sad"}),TX("泣ける…",192,"#2E7DD1",36,0))},
+ st_ohayo:{n:"おはよう",svg:()=>SK(SUN,KUN({eyes:"happy",mouth:"smile",arms:"waveR"})+motion([[172,48,184,40],[176,64,190,62]]),TX("おはよう!",192,"#FF7A00",32,-3))},
+ st_otsu:{n:"おつかれ",svg:()=>SK(SPARKS([[28,40,8,"#fff"],[176,40,8]]),KUN({eyes:"closed",mouth:"cat",towel:1,sweat:1}),TX("おつかれ!",192,"#2FA35A",32,0))},
+ /* ===== パス会員 ===== */
+ st_p_crown:{n:"さすが",svg:()=>SK(`<g opacity=".7">${rays("#FFE98A",12)}</g>`,KUN({eyes:"wink",mouth:"smile",hat:"crown",arms:"saluteR"}),TX("さすが!",192,"#C98A00",38,-3))},
+ st_p_star:{n:"MVP",svg:()=>SK(SPARKS([[24,44,10],[176,40,10],[30,120,7,"#fff"]]),KUN({eyes:"sparkle",mouth:"big",arms:"up",armsBehind:1})+`<g transform="translate(0 -6)">${star5(100,24,22,"url(#skGold)",4)}</g>`,TX("MVP",192,"#C98A00",44,-4))},
+ st_p_heart:{n:"推し!",svg:()=>SK(heart(36,40,.6)+heart(170,34,.5),KUN({eyes:"sparkle",mouth:"smile",arms:"clasp"})+heart(100,146,.9),TX("推し!",192,"#E0529C",42,-4))},
+ st_p_sayo:{n:"サヨナラ!",svg:()=>SK(focus(TC,32)+confetti(3,12),KUN({eyes:"tight",mouth:"big",arms:"up",armsBehind:1,jump:1,dy:-6}),TX("サヨナラ!!",192,"#fff",34,-5))},
+ /* ===== レジェンド（動く） ===== */
+ st_lg_come:{n:"レジェンド降臨",anim:1,svg:()=>SK(`${LGRING}<g class="lg-rays">${rays("#FFD84D",14)}</g>`,KUN({eyes:"sparkle",mouth:"smile",hat:"crown",arms:"up",armsBehind:1}),SPARKS([[26,150,9,"#fff"],[176,150,9,"#fff"]])+TX("降臨",192,"#C98A00",46,0))},
+ st_lg_fire:{n:"おめでとう",anim:1,svg:()=>SK(`<rect x="8" y="8" width="184" height="184" rx="36" fill="#0B1934"/><g class="lg-pop">${Array.from({length:14},(_,i)=>{const a=i*Math.PI/7;return`<path d="M100 64L${100+54*Math.cos(a)} ${64+54*Math.sin(a)}" stroke="${[RED,GOLD,"#4ED1A5","#6FB6FF","#FF7ACF"][i%5]}" stroke-width="6" stroke-linecap="round"/><circle cx="${100+60*Math.cos(a)}" cy="${64+60*Math.sin(a)}" r="5" fill="${[RED,GOLD,"#4ED1A5","#6FB6FF","#FF7ACF"][i%5]}"/>`}).join("")}</g>`,KUN({eyes:"happy",mouth:"big",arms:"up",armsBehind:1,scale:.8,dy:20}),TX("おめでとう!",190,GOLD,30,0))},
+ st_lg_doage:{n:"胴上げ",anim:1,svg:()=>SK(confetti(21,12),`<g class="lg-jump">${KUN({eyes:"happy",mouth:"big",arms:"up",armsBehind:1,jump:1,scale:.78,dy:-26})}</g>${[34,62,100,138,166].map((x,i)=>`<path d="M${x} 200v-26" stroke="${INK}" stroke-width="12" stroke-linecap="round"/><path d="M${x} 200v-26" stroke="${UNI}" stroke-width="5" stroke-linecap="round"/><circle cx="${x}" cy="170" r="9" fill="#fff" stroke="${INK}" stroke-width="3.5"/>`).join("")}`,TX("胴上げ!",44,RED,36,-4))},
+ st_lg_v:{n:"優勝!",anim:1,svg:()=>SK(`${LGRING}${confetti(5,16,"lg-fall")}`,KUN({eyes:"sparkle",mouth:"big",arms:"up",armsBehind:1})+`<g transform="translate(0 -4)">${TROPHY(100,40,1)}</g>`,TX("優勝!!",192,"#C98A00",44,-4))}
 };
 /* パック（買い切り）とパス・レジェンドのイラストスタンプ */
-const STICKER_PACKS={pack_ill_ouen:{n:"イラスト応援パック",price:250,ids:["st_hr","st_mega","st_banzai","st_naki","st_guts","st_flag"]},
- pack_ill_game:{n:"イラスト実況パック",price:250,ids:["st_kami","st_baku","st_gg","st_www","st_hatena","st_clap"]}};
-const PASS_STICKERS=["st_p_crown","st_p_star","st_p_heart"],LEGEND_STICKERS=["st_lg_come","st_lg_fire","st_lg_doage"];
+const STICKER_PACKS={pack_ill_ouen:{n:"応援スタンプ",price:250,ids:["st_hr","st_mega","st_banzai","st_naki","st_guts","st_flag","st_nicepi","st_shinji"]},
+ pack_ill_game:{n:"実況スタンプ",price:250,ids:["st_kami","st_baku","st_gg","st_www","st_hatena","st_clap","st_kita","st_gunu"]},
+ pack_ill_emo:{n:"きもちスタンプ",price:250,ids:["st_arigato","st_gomen","st_ok","st_oyasumi","st_ee","st_naku","st_ohayo","st_otsu"]}};
+const PASS_STICKERS=["st_p_crown","st_p_star","st_p_heart","st_p_sayo"],LEGEND_STICKERS=["st_lg_come","st_lg_fire","st_lg_doage","st_lg_v"];
 const isSticker=s=>!!STICKERS[s];
+const stkTC=()=>typeof TEAMC!=="undefined"&&S&&S.team&&TEAMC[S.team]?TEAMC[S.team]:"#22386B";
+/* 1つのスタンプの絵（画像があれば画像） */
+function stickerSVG(s){const u=STICKER_ART[s];return u?`<img class="stk" src="${esc(u)}" alt="" loading="lazy">`:STICKERS[s].svg()}
 /* 実況スレでの表示：イラストは絵、文字のスタンプは札 */
-function stampHTML(s){const k=STICKERS[s];return k?`<span class="stkb ${k.anim?"anim":""}" title="${esc(k.n)}">${k.svg()}</span>`:`<span class="stampb">${esc(s)}</span>`}
+function stampHTML(s){const k=STICKERS[s];return k?`<span class="stkb ${k.anim?"anim":""}" title="${esc(k.n)}" style="--tc:${stkTC()}">${stickerSVG(s)}</span>`:`<span class="stampb">${esc(s)}</span>`}
 /* いま使えるイラストスタンプ */
 function myStickers(){const out=[];Object.entries(STICKER_PACKS).forEach(([id,p])=>{if(hasPack(id))out.push(...p.ids)});if(S.premium)out.push(...PASS_STICKERS);if(isLegend())out.push(...LEGEND_STICKERS);return out}
 
@@ -2528,7 +2722,7 @@ const hasPack=id=>isLegend()||!!(S.packs||[]).includes(id);
 const trialOn=()=>(S.trialUntil||0)>Date.now();
 /* 体験の期限が切れたら元に戻す（端末内モード） */
 function checkTrial(){if(!SV&&S.trialUntil&&!trialOn()&&S.premium&&!S.plan){S.premium=false;S.trialUntil=0;save();toast("スカウトパスの1日体験が終わりました")}}
-const LEGEND_PERKS=[["スカウトパスの全部がずっと","月額も更新もなし。これから増える特典も"],["課金アイテムが全部つく","イラストスタンプ・文字スタンプ・動く枠・着せ替えのパックを全部（合計1,780円分）"],["動くスタンプ","「レジェンド降臨」「花火」「胴上げ」が実況スレで動く"],["金色の吹き出し","実況スレの書き込みが金色で目立つ"],["レジェンドの称号と番号","「レジェンド No.0042」。早い人ほど若い番号。1000番までは「創設メンバー」"],["動くアイコン枠","キラキラ光るレジェンドだけの枠"],["限定の着せ替え","「ゴールド」「レジェンド」はレジェンドだけ"],["毎月の限定アイテムが全部無料","今月の称号・枠・色を毎月ぜんぶ"],["Pショップが20%オフ","ポイントで交換するものがぜんぶ2割引き"]];
+const LEGEND_PERKS=[["スカウトパスの全部がずっと","月額も更新もなし。これから増える特典も"],["課金アイテムが全部つく","イラストスタンプ・文字スタンプ・動く枠・着せ替えのパックを全部（合計2,030円分）"],["動くスタンプ","「レジェンド降臨」「花火」「胴上げ」が実況スレで動く"],["金色の吹き出し","実況スレの書き込みが金色で目立つ"],["レジェンドの称号と番号","「レジェンド No.0042」。早い人ほど若い番号。1000番までは「創設メンバー」"],["動くアイコン枠","キラキラ光るレジェンドだけの枠"],["限定の着せ替え","「ゴールド」「レジェンド」はレジェンドだけ"],["毎月の限定アイテムが全部無料","今月の称号・枠・色を毎月ぜんぶ"],["Pショップが20%オフ","ポイントで交換するものがぜんぶ2割引き"]];
 /* 課金の画面（どこから開いたかを記録して、改善に使う） */
 function openPaywall(src,tab){track("paywall_view",{src:src||""});const cur=S.plan||"";
  const planBtn=p=>`<button class="plan ${p.badge==="いちばんお得"?"best":""} ${cur===p.id?"on":""}" data-buy="${p.id}"><span class="pl-n">${p.n}</span>${p.badge?`<span class="pl-b">${p.badge}</span>`:""}<b>${p.price.toLocaleString()}<small>${p.unit}</small></b><small class="pl-s">${p.sub}</small></button>`;
@@ -2545,7 +2739,7 @@ function openPaywall(src,tab){track("paywall_view",{src:src||""});const cur=S.pl
   ${isLegend()?`<p class="paynow">レジェンドパスを持っています（No.${String(S.legendNo||0).padStart(4,"0")}）</p>`:`<button class="btn wide legendbtn" data-buy="${LEGEND.id}">レジェンドパスを買う（${LEGEND.price.toLocaleString()}円）</button>`}
   <p class="sub" style="margin:0">スカウトパスを持っている人も買えます（月額・年額は、App Storeの設定から解約してください）。</p>`
  :`<p class="sub" style="margin:0">だれでも買える買い切りのアイテムです。レジェンドパスには全部ついています。</p>
-  ${Object.entries(STICKER_PACKS).map(([id,p])=>`<div class="packrow ill"><div><b>${p.n}</b><div class="stkprev">${p.ids.map(s=>`<span>${STICKERS[s].svg()}</span>`).join("")}</div></div>${buyBtn(id,p.price)}</div>`).join("")}
+  ${Object.entries(STICKER_PACKS).map(([id,p])=>`<div class="packrow ill"><div><b>${p.n}</b><div class="stkprev" style="--tc:${stkTC()}">${p.ids.map(s=>`<span>${stickerSVG(s)}</span>`).join("")}</div></div>${buyBtn(id,p.price)}</div>`).join("")}
   <div class="packrow"><div><b>${COSME_PACKS.pack_frames.n}</b><div class="frprev">${COSME_PACKS.pack_frames.frames.map(([v])=>`<span class="av fr-${v}" style="background:${TEAMC[S.team]||"#FF5B45"}">${esc((S.name||"ゲ")[0])}</span>`).join("")}</div></div>${buyBtn("pack_frames",COSME_PACKS.pack_frames.price)}</div>
   <div class="packrow"><div><b>${COSME_PACKS.pack_themes.n}</b><div class="thprev">${COSME_PACKS.pack_themes.themes.map(k=>`<span class="th-${k}">${(THEMES.find(t=>t[0]===k)||[,""])[1]}</span>`).join("")}</div></div>${buyBtn("pack_themes",COSME_PACKS.pack_themes.price)}</div>
   ${Object.entries(PACKS).map(([id,p])=>`<div class="packrow"><div><b>${p.n}</b><div class="packst">${p.stamps.map(s=>`<span>${esc(s)}</span>`).join("")}</div></div>${buyBtn(id,p.price)}</div>`).join("")}
@@ -2579,11 +2773,12 @@ function applyTheme(){const t=canTheme(S.theme||"")?(S.theme||""):"";document.bo
 /* =====================================================================
    速報（YouTube の最新動画を話題ごとに。4時間ごとに自動）＋ 話題スレ
    ===================================================================== */
-let NEWS=[],TOPICS=[],newsTopic="";
+let NEWS=[],TOPICS=[],TRENDS=[],newsTopic="";
 if(DEMO){const t0=Date.now(),H=36e5;TOPICS=[{id:"ohtani",world:"yakyu",label:"大谷翔平"},{id:"npb",world:"yakyu",label:"プロ野球"},{id:"mlbjp",world:"yakyu",label:"日本人メジャー"},{id:"draft",world:"yakyu",label:"ドラフト・移籍"},{id:"psnew",world:"game",label:"新情報"},{id:"psgacha",world:"game",label:"ガチャ"},{id:"official",world:"yakyu",label:"球団公式"}];
  [["ohtani","大谷翔平 第2打席でタイムリー！ 今日のハイライト",1.2],["npb","【ハイライト】ロッテ 逆転勝ちで3連勝",2],["ohtani","大谷 今季の全ホームランまとめ",5],["mlbjp","山本由伸 7回無失点の好投",3.5],["npb","阪神 延長戦を制す 試合ダイジェスト",6],["draft","ドラフト注目候補 高校生編",9],["npb","巨人 若手が躍動 二軍戦ダイジェスト",11],["mlbjp","今永昇太 奪三振ショー",14],["psnew","新シリーズ情報まとめ",1.5],["psgacha","新ガチャ 引くべき？",4],["psnew","次回イベント予想",8],["psgacha","無料ガチャの結果",12]]
-  .concat([["official","【公式】試合ハイライト 逆転勝利！",0.6,"ロッテ"],["official","【公式】ヒーローインタビュー",0.9,"阪神"]]).forEach(([tp,t,h,team],i)=>NEWS.push({id:"n"+i,title:`【見本】${t}`,ch:"",chName:["野球チャンネル","ハイライト部","プロ野球まとめ","ゲーム速報"][i%4],published:new Date(t0-h*H).toISOString(),topic:tp,team:team||"",world:(TOPICS.find(x=>x.id===tp)||{world:"yakyu"}).world,thumb:"",col:team?TEAMC[team]:COLORS[i%COLORS.length]}))}
-function useNews(d){NEWS=Array.isArray(d.news)?d.news:[];TOPICS=Array.isArray(d.topics)?d.topics:[]}
+  .concat([["official","【公式】試合ハイライト 逆転勝利！",0.6,"ロッテ"],["official","【公式】ヒーローインタビュー",0.9,"阪神"],["npb","佐藤 電撃トレード 移籍先は",0.8],["draft","佐藤 トレードの真相を考察",1.6],["official","【公式】佐藤選手 トレードのお知らせ",0.4,"阪神"],["psnew","新シリーズ 登場キャラまとめ",0.7]]).forEach(([tp,t,h,team],i)=>NEWS.push({id:"n"+i,title:`【見本】${t}`,ch:"",chName:["野球チャンネル","ハイライト部","プロ野球まとめ","ゲーム速報"][i%4],published:new Date(t0-h*H).toISOString(),topic:tp,team:team||"",world:(TOPICS.find(x=>x.id===tp)||{world:"yakyu"}).world,thumb:"",col:team?TEAMC[team]:COLORS[i%COLORS.length]}));
+ TRENDS=[{id:"tr_d0000001",world:"yakyu",label:"佐藤　トレード",keys:["佐藤","トレード"],news:[],team:"阪神",first:new Date(t0-1.6*H).toISOString()},{id:"tr_d0000002",world:"game",label:"新シリーズ",keys:["新シリーズ"],news:[],first:new Date(t0-.7*H).toISOString()}]}
+function useNews(d){NEWS=Array.isArray(d.news)?d.news:[];TOPICS=Array.isArray(d.topics)?d.topics:[];TRENDS=Array.isArray(d.trends)?d.trends.filter(t=>t&&/^tr_/.test(t.id||"")&&t.label&&String(t.label).length<=20&&!NGW.text(String(t.label))):[]}
 const newsW=()=>NEWS.filter(n=>(n.world||"yakyu")===W()).filter(n=>Date.now()-Date.parse(n.published)<7*864e5).sort((a,b)=>Date.parse(b.published)-Date.parse(a.published));
 const topicLabel=id=>(TOPICS.find(t=>t.id===id)||{label:""}).label;
 const newsUrl=n=>n.ch||n.thumb?`https://www.youtube.com/watch?v=${encodeURIComponent(n.id)}`:`https://www.youtube.com/results?search_query=${encodeURIComponent(n.title.replace("【見本】",""))}`;
@@ -2593,14 +2788,44 @@ const isFresh=n=>Date.now()-Date.parse(n.published)<6*36e5;
 const talkN=n=>((CM&&CM.chats)||[]).filter(m=>m.vid==="t_"+n.id&&!m.hidden).length;
 function newsCard(n,small){return`<button class="ncard ${small?"sm":""}" data-news="${esc(n.id)}">${newsThumb(n)}<span class="nbody"><span class="ntop"><span class="ntag" ${n.team?`style="background:${TEAMC[n.team]||"#0B1934"};color:${tcText(n.team)}"`:""}>${esc(n.team||topicLabel(n.topic)||"速報")}</span><small>${agoTxt(Date.parse(n.published))}</small></span><b>${esc(n.title)}</b><small>${esc(n.chName||"")}・出典 YouTube</small><span class="ntalk">語る${talkN(n)?" "+talkN(n):""} ▶</span></span></button>`}
 function bindNews(root){root.querySelectorAll("[data-news]").forEach(b=>b.onclick=()=>openNews(b.dataset.news))}
-/* 速報の画面：話題のチップ＋一覧 */
-function renderNewsView(box){const tops=TOPICS.filter(t=>t.world===W());const list=newsW().filter(n=>!newsTopic||(newsTopic==="myteam"?n.team===S.team:n.topic===newsTopic));
- box.innerHTML=`<div class="newshero"><b>${isY()?"野球の速報":"ゲームの速報"}</b><small>${isY()?"球団公式の動画は約20分ごと、話題の動画は4時間ごとに自動で集めています":"話題の動画を4時間ごとに自動で集めています"}</small></div>
- <div class="chiprow" data-keepx="1" id="topicRow"><button class="${newsTopic?"":"on"}" data-tp="">すべて</button>${isY()&&S.team&&NEWS.some(n=>n.team===S.team)?`<button class="${newsTopic==="myteam"?"on":""}" data-tp="myteam" style="border-left:6px solid ${TEAMC[S.team]}">${esc(S.team)}</button>`:""}${tops.map(t=>`<button class="${newsTopic===t.id?"on":""}" data-tp="${esc(t.id)}">${esc(t.label)}</button>`).join("")}</div>
- ${renderTrendsHTML()}
- <div class="nlist">${list.slice(0,40).map(n=>newsCard(n)).join("")||'<div class="note"><p class="sub" style="margin:0">いまは新しい速報がありません。数時間ごとに自動で増えます</p></div>'}</div>
- <p class="unoff" style="text-align:left">動画の情報：出典 <b style="color:var(--yt)">YouTube</b>。タイトル・サムネイルは YouTube の公開情報です</p>`;
- box.querySelectorAll("[data-tp]").forEach(b=>b.onclick=()=>{newsTopic=b.dataset.tp;renderNewsView(box)});bindNews(box);bindTrends(box)}
+/* 速報の画面：固定のタブはない。大きな話題（トレンド）が起きたときだけ「🔥タブ」ができる */
+const trendsW=()=>{const kit=TRENDS.filter(t=>(t.world||"yakyu")===W());
+ const ppl=(SV&&BOARDS.trends?BOARDS.trends:trendWords()).filter(r=>(!r.world||r.world===W())&&r.n>=TREND_POST_MIN&&/^#/.test(r.w)&&!kit.some(t=>(t.keys||[]).some(k=>r.w.includes(k)))).slice(0,2)
+  .map(r=>({id:"tp_"+hashN(r.w),label:r.w,keys:[r.w.slice(1)],people:1,n:r.n}));return[...kit,...ppl]};
+const TREND_POST_MIN=8;
+const trendNews=t=>{const ids=new Set(t.news||[]);return newsW().filter(n=>ids.has(n.id)||(t.keys||[]).length&&(t.keys||[]).every(k=>String(n.title).includes(k)))};
+const trendNew=t=>t.first&&Date.now()-Date.parse(t.first)<3*36e5;
+function trendTab(t){return`<button class="ttab hot ${newsTopic===t.id?"on":""} ${t.fading?"fade":""}" data-tp="${esc(t.id)}"${t.team&&TEAMC[t.team]?` style="--tc:${TEAMC[t.team]}"`:""}><span class="fl">${ICON.fire||"🔥"}</span>${esc(String(t.label).replace("　"," "))}${trendNew(t)?'<i class="tnew">NEW</i>':""}</button>`}
+function renderNewsView(box){const trs=trendsW();if(newsTopic&&newsTopic!=="myteam"&&!trs.some(t=>t.id===newsTopic))newsTopic="";
+ const tr=trs.find(t=>t.id===newsTopic);const mine=isY()&&S.team&&NEWS.some(n=>n.team===S.team);
+ const list=tr?trendNews(tr):newsW().filter(n=>newsTopic!=="myteam"||n.team===S.team);
+ box.innerHTML=`<div class="ttabs" data-keepx="1" id="topicRow"><button class="ttab ${newsTopic?"":"on"}" data-tp=""><span class="fl">${ICON.news||""}</span>すべて</button>${mine?`<button class="ttab team ${newsTopic==="myteam"?"on":""}" data-tp="myteam" style="--tc:${TEAMC[S.team]};--tt:${tcText(S.team)}">${esc(S.team)}</button>`:""}${trs.map(trendTab).join("")}${trs.length?"":'<span class="ttab ghost" aria-label="大きな話題が起きるとタブができます">🔥 …</span>'}</div>
+ ${tr?trendHero(tr,list):renderTrendsHTML()}
+ <div class="nlist">${list.slice(0,40).map(n=>newsCard(n)).join("")||(tr&&tr.people?"":'<div class="note empty"><span class="big">📭</span></div>')}</div>
+ ${tr&&tr.people?trendPostsHTML(tr):""}
+ <p class="unoff" style="text-align:left">動画：出典 <b class="ytsrc">YouTube</b></p>`;
+ box.querySelectorAll("[data-tp]").forEach(b=>b.onclick=()=>{newsTopic=b.dataset.tp;track("news_tab",{trend:/^tr_|^tp_/.test(newsTopic)?1:0});renderNewsView(box)});
+ const go=box.querySelector("#trTalk");if(go)go.onclick=()=>openTrendTalk(tr);const wp=box.querySelector("#trWrite");if(wp)wp.onclick=()=>writeTrend(tr);
+ box.querySelectorAll("[data-post]").forEach(b=>b.onclick=()=>openPost(b.dataset.post));bindNews(box);bindTrends(box)}
+/* トレンドのタブの上：大きく「🔥 話題」と「語る」ボタン（文字を読まなくても押せる） */
+function trendHero(t,list){const tv="t_"+t.id,n=((CM&&CM.chats)||[]).filter(m=>m.vid===tv&&!m.hidden).length;const lab=esc(String(t.label).replace("　"," "));
+ const th=list.slice(0,3).map(x=>newsThumb(x)).join("");
+ return`<div class="trhero" style="--tc:${t.team&&TEAMC[t.team]?TEAMC[t.team]:"#E8412F"}"><div class="trh-top"><span class="trh-fire">${ICON.fire||"🔥"}</span><b>${lab}</b>${trendNew(t)?'<i class="tnew">NEW</i>':""}</div>
+ ${th?`<div class="trh-th">${th}</div>`:""}
+ <div class="trh-meta">${t.people?`<span>✏️ ${t.n}</span>`:`<span>▶ ${list.length}</span>`}${t.first?`<span>⏱ ${agoTxt(Date.parse(t.first))}</span>`:""}${t.team?`<span>${esc(t.team)}</span>`:""}</div>
+ ${t.people?`<button class="btn tomato wide" id="trWrite">✏️ この話題で書く</button>`:`<button class="btn tomato wide trgo" id="trTalk">💬 語る${n?` <i>${n}</i>`:""}</button>`}</div>`}
+function trendPostsHTML(t){const key=(t.keys||[""])[0];const posts=[...(SV&&SPOSTS?SPOSTS:CM.posts)].filter(p=>!p.hidden&&!blockedSet().has(p.uid)&&(!p.room||p.room===S.team)&&String(p.text||"").includes(key)).sort((a,b)=>b.at-a.at).slice(0,20);
+ return`<div class="posts">${posts.map(p=>postCard(p,1)).join("")}</div>`}
+function writeTrend(t){const w=t.label.startsWith("#")?t.label:"#"+t.label.replace(/[　\s]/g,"");isY()&&S.team?openComposer({cat:"雑談",room:S.team,text:w+" "}):openComposer({cat:"雑談",text:w+" "})}
+/* トレンドのスレ（そのタブに1つ。トレンドが消えたら閉じる・書き込みは7日で消える） */
+function openTrendTalk(t){const vid="t_"+t.id;seedTrend(t,vid);track("trend_talk",{});const lab=String(t.label).replace("　"," ");
+ openChat({vid,reopen:()=>openTrendTalk(t),
+  head:`<div class="h2">🔥 ${esc(lab)}</div><span class="chip">トレンド</span>`,
+  sub:"",link:"",
+  stamps:isY()?["まじか","えぐい","ありがとう","さみしい","期待","これは熱い"]:STAMPS,stampsPass:isY()?TEAM_STAMPS_PASS:STAMPS_PASS,
+  rule:"選手やチームへの悪口はやめよう。書き込みは7日で消えます"})}
+function seedTrend(t,vid){if(!DEMO||(CM.chats||[]).some(m=>m.vid===vid))return;CM.chats=CM.chats||[];const now=Date.now();
+ [["外野席の人","まじか…びっくりした"],["ライトスタンド民","","えぐい"],["鴎の民","新天地でも頑張ってほしい"]].forEach(([nm,tx,st],i)=>CM.chats.push({id:"sd"+vid+i,vid,uid:"s-"+nm,name:nm,text:tx,stamp:st||"",at:now-(4-i)*5e5,hidden:false,sample:1}))}
 /* 速報の動画を開く：YouTube で見る＋話題スレ（実況スレと同じしくみ・7日で消える） */
 function openNews(id){const n=NEWS.find(x=>x.id===id);if(!n){toast("この速報は見つかりません",1);return}track("news_open",{topic:n.topic||""});
  const vid="t_"+n.id;seedTopic(n,vid);
@@ -2636,9 +2861,12 @@ function openTrend(w){track("trend_open",{});const key=w.replace(/^[#＃]/,"");c
   x.querySelector("#trPost").onclick=()=>isY()&&S.team?openComposer({cat:"雑談",room:S.team,text:w.startsWith("#")?w+" ":"#"+w+" "}):openComposer({cat:"雑談",text:w.startsWith("#")?w+" ":"#"+w+" "})},"trend"+w)}
 /* ホームの速報（3件だけ） */
 function renderHomeNews(){const box=$("#homeNews");if(!box)return;const mine=n=>S.team&&n.team===S.team&&Date.now()-Date.parse(n.published)<12*36e5;const l=[...newsW()].sort((a,b)=>(mine(b)-mine(a))||Date.parse(b.published)-Date.parse(a.published)).slice(0,3);
- box.hidden=!l.length;if(!l.length)return;
- box.innerHTML=`<div class="rowsb"><h2 class="h2">${isY()?"速報":"ゲーム速報"}</h2><button class="pbtn" id="moreNews">もっと見る ▶</button></div>${renderTrendsHTML()}<div class="nlist" style="margin-top:8px">${l.map(n=>newsCard(n,1)).join("")}</div>`;
- bindNews(box);bindTrends(box);$("#moreNews").onclick=()=>goComm("news")}
+ const trs=trendsW().filter(t=>!t.fading).slice(0,3);const hb=$("#homeTrend");
+ if(hb){hb.hidden=!trs.length;hb.innerHTML=trs.map(t=>`<button data-gotr="${esc(t.id)}"><span class="fl">${ICON.fire}</span><b>${esc(String(t.label).replace("　"," "))}</b>${trendNew(t)?'<i class="tnew">NEW</i>':""}<span class="go">▶</span></button>`).join("");
+  hb.querySelectorAll("[data-gotr]").forEach(b=>b.onclick=()=>{newsTopic=b.dataset.gotr;track("trend_home",{});goComm("news")})}
+ box.hidden=!l.length;if(box.hidden)return;
+ box.innerHTML=`<div class="rowsb"><h2 class="h2">${isY()?"速報":"ゲーム速報"}</h2><button class="pbtn" id="moreNews">▶</button></div>${renderTrendsHTML()}<div class="nlist" style="margin-top:8px">${l.map(n=>newsCard(n,1)).join("")}</div>`;
+ bindNews(box);bindTrends(box);$("#moreNews").onclick=()=>{newsTopic="";goComm("news")}}
 
 /* =====================================================================
    次にやること（ホームのいちばん上に1つだけ。説明を読まなくても次がわかる）
@@ -2696,12 +2924,27 @@ document.addEventListener("click",e=>{const a=e.target.closest("a[href*='youtube
 /* =====================================================================
    ご意見・要望（不具合も）。本番はサーバーの feedback に保存し、管理画面で読む
    ===================================================================== */
+/* 広告について（ユーザー第一のルールを見せる） */
+function openAdsInfo(){track("ads_info",{});const R=[["🚫","試合中・実況中・書いている途中には出しません"],["🔰",`始めて${ADS.graceDays}日間は全画面の広告なし`],["1️⃣",`全画面の広告は1日${ADS.interPerDay}回まで`],["🏷","広告には必ず「広告」と書きます"],["🎁","動画広告は、見たい人が自分で選んだときだけ"],["👶","子どもに向かない広告は出さない設定です"]];
+ modal(`<div class="h2">広告について</div><div class="adrules">${R.map(([i,t])=>`<div><span>${i}</span><b>${t}</b></div>`).join("")}</div>
+ ${S.premium?'<p class="sub" style="margin:0">スカウトパス会員なので、広告は出ません</p>':'<button class="btn tomato wide" id="adPass">スカウトパスで広告をなくす</button>'}<button class="btn paper wide" id="mc">とじる</button>`,x=>{x.querySelector("#mc").onclick=closeModal;const b=x.querySelector("#adPass");if(b)b.onclick=()=>openPaywall("ads","pass")})}
+/* よくある質問：ご意見を書いている途中で、答えが見つかったらその場で出す（問い合わせを減らす） */
+const FAQ=[[/課金|購入|復元|買った|払った|パス.*(消|ない)|レジェンド.*(消|ない)/,"買ったものが見えないとき","マイ →「設定」→「購入を復元」を押してください。同じ Apple ID / Google アカウントなら、機種を変えても戻ります。"],
+ [/解約|やめたい|サブスク|自動更新|止め/,"スカウトパスをやめたいとき","iPhone は「設定」→ 自分の名前 →「サブスクリプション」、Android は Google Play →「お支払いと定期購入」から止められます。期限までは使えます。"],
+ [/消え|引き継|機種変|データ|ポイント.*(ない|消)/,"ポイントや記録が消えたとき","サインイン（Apple / Google）していれば、同じアカウントでサインインすると戻ります。サインインしていないと戻せません。"],
+ [/書け|書き込め|投稿でき|送れ/,"書き込めないとき","書き込みにはサインインが必要です。通報が多かったときは、しばらく書き込みが止まります（期間がすぎると自動で戻ります）。"],
+ [/通知|お知らせ.*(来|こ)/,"通知が来ないとき","スマホの「設定」→「通知」で、このアプリの通知をオンにしてください。"],
+ [/広告|こうこく/,"広告をなくしたいとき","スカウトパス（年額・月額・買い切り）の人には広告が出ません。"],
+ [/退会|アカウント.*削除|消したい/,"退会したいとき","マイ →「設定」→「アカウントを削除」でいつでも退会できます。"]];
+const faqFor=t=>FAQ.filter(([re])=>re.test(t)).slice(0,2);
 function openFeedback(){const kinds=["不具合","こうしてほしい","使いにくい","その他"];let k=kinds[1];
  modal(`<div class="h2">ご意見・要望を送る</div><p class="sub" style="margin:0">いただいた声はすべて読んで、アプリの改善に使います（返信はできないことがあります）。</p>
  <div class="seg" id="fbK">${kinds.map(x=>`<button class="${x===k?"on":""}" data-k="${x}">${x}</button>`).join("")}</div>
  <textarea class="ta" id="fbT" maxlength="500" placeholder="どの画面で・何が・どうなったか"></textarea>
+ <div id="fbFaq"></div>
  <button class="btn tomato wide" id="fbGo">送る</button><button class="btn paper wide" id="mc">とじる</button>`,x=>{x.querySelector("#mc").onclick=closeModal;
   x.querySelectorAll("#fbK [data-k]").forEach(b=>b.onclick=()=>{k=b.dataset.k;x.querySelectorAll("#fbK [data-k]").forEach(z=>z.classList.toggle("on",z===b))});
+  const ta=x.querySelector("#fbT");ta.oninput=()=>{const f=faqFor(ta.value);x.querySelector("#fbFaq").innerHTML=f.map(([,h,a])=>`<div class="faqa"><b>💡 ${h}</b><span>${a}</span></div>`).join("");if(f.length)track("faq_hit",{})};
   x.querySelector("#fbGo").onclick=()=>{const t=x.querySelector("#fbT").value.trim();if(t.length<2){toast("もう少し書いてください",1);return}const w=NGW.text(t);if(w&&!/URL/.test(w)){toast(w,1);return}
    const meta={v:APP.version,world:W(),ua:(navigator.userAgent||"").slice(0,120)};
    if(!SV){const body=`【${k}】\n${t}\n\n（${APP.full} ${APP.version}・${W()}）`;location.href=`mailto:${APP.contact}?subject=${encodeURIComponent("【ご意見】"+APP.full)}&body=${encodeURIComponent(body)}`;closeModal();return}
@@ -2746,7 +2989,7 @@ function copyText(t,okMsg){try{navigator.clipboard.writeText(t).then(()=>toast(o
 /* =====================================================================
    お知らせ
    ===================================================================== */
-function inboxItems(){const out=[];const follow=new Set([...Object.keys(S.scout),...Object.keys(S.bells).filter(k=>S.bells[k]),...Object.keys(S.votes)]);
+function inboxItems(){const out=[];if(typeof TRENDS!=="undefined")TRENDS.filter(t=>t.team&&t.team===S.team&&!t.fading).forEach(t=>out.push({k:"tr-"+t.id,c:null,t:`🔥 ${String(t.label).replace("　"," ")}`,s:`${t.team}の話題がトレンドに`,trend:t.id,hot:1}));const follow=new Set([...Object.keys(S.scout),...Object.keys(S.bells).filter(k=>S.bells[k]),...Object.keys(S.votes)]);
  follow.forEach(id=>{const c=chById(id);if(!c)return;
   if(c.live)out.push({k:"live-"+id+"-"+today(),c,t:`${c.name}がライブ中`,s:c.live.t,hot:1});
   if(c.up)out.push({k:"up-"+id+"-"+today(),c,t:`今夜${c.up.t}から配信予定`,s:`${c.name}「${c.up.title}」`});
@@ -2761,9 +3004,9 @@ function inboxItems(){const out=[];const follow=new Set([...Object.keys(S.scout)
  if(!out.length)out.push({k:"tip",c:null,t:"スカウトした人・お知らせONの人の動きがここに届きます",s:"まずは原石スカウトか、配信予定の「通知」を押してみよう"});
  return out.sort((a,b)=>(b.hot||0)-(a.hot||0))}
 function openInbox(){const it=inboxItems();
- modal(`<div class="rowsb" style="width:100%"><div class="h2">お知らせ</div><span class="chip">スカウト・お知らせON・投票した人</span></div><div class="inbox">${it.map(n=>`<button class="nt ${S.read[n.k]?"":"new"}" ${n.game?`data-igame="1"`:n.post?`data-ipost="${esc(n.post)}"`:n.v?`data-v="${esc(n.v)}"`:n.c?`data-ch="${esc(n.c.id)}"`:""}>${n.c?avatar(n.c):`<span class="av" style="background:var(--mustard);color:var(--ink)">!</span>`}<span class="mid">${esc(n.t)}<small>${esc(n.s)}</small></span>${n.hot?'<span class="livebadge">LIVE</span>':""}</button>`).join("")}</div><button class="btn paper wide" id="mc">とじる</button>`,x=>{
+ modal(`<div class="rowsb" style="width:100%"><div class="h2">お知らせ</div><span class="chip">スカウト・お知らせON・投票した人</span></div><div class="inbox">${it.map(n=>`<button class="nt ${S.read[n.k]?"":"new"}" ${n.trend?`data-itr="${esc(n.trend)}"`:n.game?`data-igame="1"`:n.post?`data-ipost="${esc(n.post)}"`:n.v?`data-v="${esc(n.v)}"`:n.c?`data-ch="${esc(n.c.id)}"`:""}>${n.c?avatar(n.c):`<span class="av" style="background:var(--mustard);color:var(--ink)">!</span>`}<span class="mid">${esc(n.t)}<small>${esc(n.s)}</small></span>${n.hot?'<span class="livebadge">LIVE</span>':""}</button>`).join("")}</div><button class="btn paper wide" id="mc">とじる</button>`,x=>{
   it.forEach(n=>S.read[n.k]=1);if(S.saved)S.saved.seen=CH.filter(c=>genreOf(c)===((S.saved.world||"game")==="yakyu"?"fan":"game")&&chMatch(c,S.saved)).map(c=>c.id);save();renderHeader();x.querySelector("#mc").onclick=closeModal;
-  x.querySelectorAll("[data-ch]").forEach(b=>b.onclick=()=>openCh(b.dataset.ch));x.querySelectorAll("[data-ipost]").forEach(b=>b.onclick=()=>openPost(b.dataset.ipost));x.querySelectorAll("[data-igame]").forEach(b=>b.onclick=()=>{setWorld("yakyu",true);openGame(S.team)});x.querySelectorAll("[data-v]").forEach(b=>b.onclick=()=>openVid(b.dataset.v))})}
+  x.querySelectorAll("[data-ch]").forEach(b=>b.onclick=()=>openCh(b.dataset.ch));x.querySelectorAll("[data-ipost]").forEach(b=>b.onclick=()=>openPost(b.dataset.ipost));x.querySelectorAll("[data-itr]").forEach(b=>b.onclick=()=>{closeModal();newsTopic=b.dataset.itr;goComm("news")});x.querySelectorAll("[data-igame]").forEach(b=>b.onclick=()=>{setWorld("yakyu",true);openGame(S.team)});x.querySelectorAll("[data-v]").forEach(b=>b.onclick=()=>openVid(b.dataset.v))})}
 $("#inboxBtn").onclick=openInbox;
 
 /* =====================================================================
@@ -2864,7 +3107,7 @@ showTitle(()=>{if(!S.onb)setTimeout(()=>onboarding(false),200);
  else{if(S.legal!==APP.legalVer)setTimeout(()=>modalLater(consentModal),200);if(SV)startServer();else setTimeout(()=>modalLater(showLoginIfNeeded),300)}});
 setInterval(()=>{if(boosted()||S.boostUntil)renderBoost()},30000);
 if(SV)setInterval(loadBoards,5*60e3);
-window.__ts={BGM,CH,VIDS,get S(){return S},save,loadBoards,get CM(){return CM}}; /* 動作テスト用 */
+window.__ts={BGM,CH,VIDS,TEAMC,gamesOf,gameState,today,STICKERS,STICKER_PACKS,maybeInterstitial,ADS,applyTheme,renderAll,get S(){return S},save,loadBoards,get CM(){return CM}}; /* 動作テスト用 */
 })();
 
 </script>
