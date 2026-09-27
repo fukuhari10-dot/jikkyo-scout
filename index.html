@@ -771,6 +771,96 @@ body.w-yakyu .nav .navbig{background:#1E7A4E}
 
 .fanhero.light .fh-title,.fancard.light .fc-title{text-shadow:2px 2px 0 rgba(255,255,255,.55)}
 .fanhero.light .fh-stats span{background:rgba(0,0,0,.72);color:#fff}
+
+/* ===== つぎはこれ（ホームのいちばん上） ===== */
+.nextact{display:flex;align-items:center;gap:12px;width:100%;text-align:left;border:3px solid var(--ink);border-radius:16px;background:var(--paper);padding:10px 12px;box-shadow:4px 4px 0 var(--ink);color:var(--ink)}
+.nextact.hot{background:linear-gradient(90deg,#FFE3DE,#FFF6D6)}
+.nextact:active{transform:translate(2px,2px);box-shadow:2px 2px 0 var(--ink)}
+.na-i{flex:none;width:44px;height:44px;border:2.5px solid var(--ink);border-radius:12px;background:#fff;display:flex;align-items:center;justify-content:center;font-size:22px}
+.na-m{flex:1;min-width:0;display:flex;flex-direction:column}
+.na-m small{font-size:10.5px;color:var(--tomato);letter-spacing:.05em}
+.na-m b{font-family:var(--display);font-weight:400;font-size:16px;line-height:1.3}
+.na-m span{font-size:11.5px;color:var(--muted);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.na-go{flex:none;font-family:var(--display);background:var(--tomato);color:#fff;border:2.5px solid var(--ink);border-radius:10px;padding:6px 10px}
+/* ===== 速報 ===== */
+.newshero{border:3px solid var(--ink);border-radius:16px;padding:12px 14px;background:repeating-linear-gradient(135deg,rgba(255,255,255,.06) 0 10px,transparent 10px 20px),#0B1934;color:#fff;box-shadow:4px 4px 0 var(--ink);display:flex;flex-direction:column;gap:2px}
+.newshero b{font-family:var(--display);font-weight:400;font-size:20px}.newshero small{font-size:11.5px;opacity:.85}
+.nlist{display:flex;flex-direction:column;gap:8px}
+.ncard{display:grid;grid-template-columns:120px minmax(0,1fr);gap:10px;width:100%;text-align:left;border:2.5px solid var(--ink);border-radius:12px;background:#fff;padding:6px;box-shadow:3px 3px 0 var(--ink);color:var(--ink)}
+.ncard.sm{grid-template-columns:96px minmax(0,1fr)}
+.ncard:active{transform:translate(2px,2px);box-shadow:1px 1px 0 var(--ink)}
+.nthumb{position:relative;display:block;aspect-ratio:16/9;border-radius:8px;overflow:hidden;border:2px solid var(--ink)}
+.nthumb img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.nnew{position:absolute;left:3px;top:3px;font-size:9.5px;background:var(--live);color:#fff;border-radius:4px;padding:0 4px;font-family:var(--dotf)}
+.nbody{display:flex;flex-direction:column;gap:2px;min-width:0}
+.ntop{display:flex;gap:6px;align-items:center}.ntop small{font-size:10.5px;color:var(--muted)}
+.ntag{font-size:10.5px;background:#0B1934;color:#FFC62E;border-radius:5px;padding:0 6px;white-space:nowrap}
+.nbody b{font-size:13px;line-height:1.35;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.nbody>small{font-size:10.5px;color:var(--muted);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.ntalk{align-self:flex-start;font-size:11px;background:var(--tomato);color:#fff;border:2px solid var(--ink);border-radius:8px;padding:0 7px;margin-top:2px}
+.nhead{display:grid;grid-template-columns:96px minmax(0,1fr);gap:8px;align-items:center;color:var(--ink)}.nhead small{display:block;color:var(--muted);font-size:10.5px}
+.trends{display:flex;gap:6px;overflow-x:auto;padding:2px 2px 6px;align-items:center;scrollbar-width:none}
+.trends::-webkit-scrollbar{display:none}
+.tr-h{flex:none;font-size:11px;font-family:var(--display);color:var(--tomato)}
+.trends button{flex:none;border:2px solid var(--ink);border-radius:999px;background:#fff;padding:2px 10px 2px 4px;font-size:12px;white-space:nowrap}
+.trends button i{font-style:normal;display:inline-block;min-width:18px;height:18px;line-height:18px;text-align:center;border-radius:50%;background:var(--ink);color:#fff;font-size:10px;margin-right:4px}
+/* ===== 課金の画面 ===== */
+.paytabs{display:grid;grid-template-columns:repeat(3,1fr);gap:4px;width:100%;background:var(--paper2);border:2.5px solid var(--ink);border-radius:999px;padding:3px}
+.paytabs button{border:0;background:none;border-radius:999px;padding:6px 2px;font-family:var(--display);font-size:13px}
+.paytabs button.on{background:var(--ink);color:#fff}
+.payhero{display:flex;flex-direction:column;align-items:center;text-align:center;gap:2px;width:100%;padding:12px;border-radius:14px;background:linear-gradient(160deg,#1B2A55,#0B1532);color:#fff;border:3px solid var(--ink)}
+.payhero b{font-family:var(--display);font-weight:400;font-size:22px;color:#FFC62E}.payhero span{font-size:12px}
+.paynow{margin:0;font-size:12.5px;background:#E8FFF4;border:2px solid var(--ink);border-radius:8px;padding:4px 8px}
+.plans{display:flex;flex-direction:column;gap:8px;width:100%}
+.plan{position:relative;display:grid;grid-template-columns:1fr auto;grid-template-rows:auto auto;align-items:center;column-gap:10px;width:100%;text-align:left;border:3px solid var(--ink);border-radius:14px;background:#fff;padding:10px 12px;box-shadow:3px 3px 0 var(--ink);color:var(--ink)}
+.plan.best{background:#FFF6D6;outline:3px solid #FFC62E;outline-offset:-6px}
+.plan.on{background:#E8FFF4}
+.pl-n{font-family:var(--display);font-size:16px}
+.pl-b{position:absolute;right:10px;top:-11px;font-size:10.5px;background:var(--tomato);color:#fff;border:2px solid var(--ink);border-radius:999px;padding:0 8px}
+.plan b{grid-row:1/3;grid-column:2;font-family:var(--display);font-weight:400;font-size:22px}.plan b small{font-size:11px;font-family:var(--body)}
+.pl-s{font-size:11px;color:var(--muted)}
+.payperks{margin:0;padding-left:1.2em;font-size:12.5px;line-height:1.7;width:100%}
+.payperks.gold li::marker{color:#B8860B}.payperks small{color:var(--muted)}
+.legendhero{position:relative;display:flex;flex-direction:column;align-items:center;gap:2px;width:100%;padding:14px;border-radius:16px;border:3px solid var(--ink);color:#1E1B18;text-align:center;overflow:hidden;
+ background:linear-gradient(120deg,#FFE38A,#FFC62E 35%,#FFF6D6 50%,#FFC62E 65%,#D99A00);background-size:200% 100%;animation:shine 4s linear infinite}
+.legendhero b{font-family:var(--display);font-weight:400;font-size:24px}.lg-k{font-size:10.5px;background:#1E1B18;color:#FFC62E;border-radius:999px;padding:1px 9px}
+.lg-p{font-family:var(--display);font-size:26px}.lg-p small{font-size:12px}
+@keyframes shine{0%{background-position:0 0}100%{background-position:200% 0}}
+.lgprev{display:flex;align-items:center;gap:10px;background:#fff;border:2px dashed var(--ink);border-radius:12px;padding:8px 12px;width:100%}
+.lgprev b{display:block;background:linear-gradient(90deg,#B8860B,#FF5B45,#B8860B);-webkit-background-clip:text;background-clip:text;color:transparent}
+.legendbtn{background:linear-gradient(180deg,#FFE38A,#FFB300)!important;font-size:16px}
+.packrow{display:flex;align-items:center;justify-content:space-between;gap:10px;width:100%;border:2.5px solid var(--ink);border-radius:12px;background:#fff;padding:10px}
+.packst{display:flex;flex-wrap:wrap;gap:4px;margin-top:4px}.packst span{font-size:11px;background:var(--paper2);border:1.5px solid var(--ink);border-radius:8px;padding:0 6px}
+.paylinks{display:flex;gap:10px;justify-content:center;width:100%}.paylinks button{border:0;background:none;font-size:11px;color:var(--muted);text-decoration:underline}
+.celebrate{display:flex;flex-direction:column;align-items:center;gap:6px;text-align:center;width:100%;padding:14px;border-radius:16px;background:#FFF6D6;border:3px solid var(--ink)}
+.celebrate.gold{background:linear-gradient(120deg,#FFE38A,#FFC62E,#FFF6D6);}
+.celebrate b{font-family:var(--display);font-weight:400;font-size:20px}.celebrate p{margin:0;font-size:13px}
+.updbox{display:flex;flex-direction:column;align-items:center;gap:6px;text-align:center}.updbox b{font-family:var(--display);font-weight:400;font-size:19px}.updbox p{margin:0;font-size:13px}
+.legendcta{display:grid;grid-template-columns:1fr auto;grid-template-rows:auto auto auto;gap:2px 8px;width:100%;text-align:left;margin-top:10px;border:2.5px solid #FFC62E;border-radius:12px;padding:10px 12px;color:#1E1B18;
+ background:linear-gradient(120deg,#FFE38A,#FFC62E 40%,#FFF6D6 50%,#FFC62E 60%,#D99A00);background-size:200% 100%;animation:shine 5s linear infinite}
+.legendcta .lg-k{justify-self:start}.legendcta b{font-family:var(--display);font-weight:400;font-size:17px}.legendcta small{font-size:11px}.legendcta .lg-go{grid-row:1/4;grid-column:2;align-self:center;font-family:var(--display);font-size:13px}
+.passcard.lg{background:radial-gradient(circle at 100% 0,rgba(255,198,46,.5) 0 26%,transparent 27%),linear-gradient(160deg,#3A2A05,#0B1532 70%)}
+/* レジェンドの動く枠・称号 */
+.av.fr-legend{box-shadow:0 0 0 2px #1E1B18,0 0 0 5px #FFC62E,0 0 0 7px #1E1B18;animation:lgglow 2.4s ease-in-out infinite}
+@keyframes lgglow{0%,100%{box-shadow:0 0 0 2px #1E1B18,0 0 0 5px #FFC62E,0 0 0 7px #1E1B18,0 0 0 0 rgba(255,198,46,0)}50%{box-shadow:0 0 0 2px #1E1B18,0 0 0 5px #FFE38A,0 0 0 7px #1E1B18,0 0 12px 6px rgba(255,198,46,.75)}}
+.title-chip.legend{background:linear-gradient(90deg,#FFE38A,#FFC62E);color:#1E1B18}
+.themerow{display:flex;flex-wrap:wrap;gap:6px;align-items:center;font-size:12px}.themerow button{border:2px solid var(--ink);border-radius:999px;background:#fff;padding:2px 10px;font-size:12px}.themerow button.on{background:#FFC62E}
+/* 着せ替え（レジェンド） */
+body[data-theme="night"]{--sky:#16254A;--dot:#1E3160;background-image:radial-gradient(#2B4280 12%,transparent 13%),radial-gradient(#2B4280 12%,transparent 13%)}
+body[data-theme="gold"]{--sky:#FFE9A8;--dot:#FFDB70}
+body[data-theme="team"]{--sky:color-mix(in srgb,var(--themec) 35%,#fff);--dot:color-mix(in srgb,var(--themec) 22%,#fff)}
+body[data-theme="night"] .logo small,body[data-theme="night"] .unoff,body[data-theme="night"] .rowsb>.h2,body[data-theme="night"] .hrow .h2{color:#E8EEFF}
+/* スタンプ：パス（鍵つき）・パック・レジェンド */
+.stamprow2 button.locked{opacity:.8;background:#eee}
+.stamprow2 button.pack{background:#E8FFF4}
+.stamprow2 button.legend{background:linear-gradient(90deg,#FFE38A,#FFC62E);font-weight:900}
+.stamprow2 .morest{background:var(--paper2);border-style:dashed}
+.grow2 em.sc{font-style:normal;font-family:var(--dotf);background:#0B1934;color:#FFC62E;border-radius:5px;padding:0 5px}
+.gc-state.off{background:#777}.gc-state.late{background:#B8860B}
+.segtabs.n5{grid-template-columns:repeat(5,1fr);gap:4px}.segtabs.n5 button{font-size:12px;padding:7px 0;white-space:nowrap;letter-spacing:-.04em}
+.segtabs.n4 button.fan{font-size:11.5px}
+@media (max-width:400px){.segtabs.n5 button{font-size:10.5px}.segtabs.n4 button{font-size:11px}}
+.modal .mbox>*{flex-shrink:0}
 </style>
 <div class="app">
   <header class="top">
@@ -791,8 +881,10 @@ body.w-yakyu .nav .navbig{background:#1E7A4E}
   <section id="v-home" class="view">
     <div id="g-home"></div>
     <button class="samplebar" id="dataBar" style="border:0;width:100%;cursor:pointer">見本のデータで表示中・タップで本物のデータを読み込む</button><input type="file" id="dataFile" accept=".json,application/json" hidden>
+    <button class="nextact" id="nextAct" hidden></button>
     <button class="jhero" id="jHero" aria-label="実況をひらく"></button>
     <button class="fancard" id="fanCard" aria-label="球団ファンの掲示板"></button>
+    <div class="note" id="homeNews" hidden></div>
     <div class="note tape" id="digestBox"></div>
     <div class="note tape" id="today1" style="padding-top:34px"></div>
     <div class="note" id="missionBox"></div>
@@ -863,6 +955,7 @@ body.w-yakyu .nav .navbig{background:#1E7A4E}
     <div id="g-comm"></div>
     <div class="segtabs" id="cMode"></div>
     <div id="cTeam" class="view" hidden></div>
+    <div id="cNews" class="view" hidden></div>
     <div id="cBoard" class="view"></div>
     <div id="cPoll" class="view" hidden></div>
     <div id="cGacha" class="view" hidden></div>
@@ -921,7 +1014,10 @@ body.w-yakyu .nav .navbig{background:#1E7A4E}
       <h2 class="h2">このアプリについて</h2>
       <div class="links">
         <button id="howto">使い方ガイド <span>›</span></button>
-        <button id="tipsAgain">画面のヒントをもう一度出す <span>›</span></button>
+        <button id="tipsAgain">画面のヒントを出す <span>›</span></button>
+        <button id="fbBtn">ご意見・要望・不具合を送る <span>›</span></button>
+        <button id="rateBtn">アプリを評価する <span>›</span></button>
+        <button id="trackBtn">使い方データの送信 <span id="trackSt">オン</span></button>
         <button data-legal="about">非公式アプリであること・データの出典 <span>›</span></button>
         <button data-legal="terms">利用規約 <span>›</span></button>
         <button data-legal="privacy">プライバシーポリシー <span>›</span></button>
@@ -967,6 +1063,8 @@ const APP={name1:"実況",name2:"スカウト",full:"実況スカウト",operato
 const DATA_URL=window.TS_DATA_URL||(/\.github\.io$/.test(location.hostname)?"data/latest.json":""); /* GitHub Pages に置いたときは同じ場所の data/latest.json を自動で読む */
 /* サーバー接続（本番はアプリ本体が window.TS_SERVER を用意する。下の「サーバー接続」を参照）。無ければ端末の中だけで動く */
 const SV=window.TS_SERVER||null;
+/* サインインの名前（iPhone は Apple、Android は Google） */
+const SIGNIN=SV&&SV.platform==="android"?"Google":"Apple";
 /* 見本モード：配信者データもサーバーも無いとき（開発中のプレビューだけ）。利用者が使う本番では出ない */
 const DEMO=!DATA_URL&&!SV;
 /* 開発者用：URLの最後に #dev を付けたときだけ、テスト用のボタン（パスの体験・データの読み込みなど）を出す */
@@ -1019,12 +1117,14 @@ function limitedFor(sk){const m=Number(String(sk).split("-")[1])||1;const out={}
 /* スカウトパス会員だけの見た目（サーバーの lib/shop.js と同じ。解約するとはずれる） */
 const PASS_ITEMS={pass_frame:{kind:"frame",v:"pass",n:"パス会員のアイコン枠",cost:0,pass:true},pass_team:{kind:"frame",v:"team",n:"応援球団カラーのアイコン枠",cost:0,pass:true},pass_color:{kind:"color",v:"#C28A00",n:"パス会員の名前の色（こがね）",cost:0,pass:true}};
 const PASS_TITLE="スカウトパス会員";
+/* レジェンドパスだけの見た目 */
+const LEGEND_ITEMS={legend_frame:{kind:"frame",v:"legend",n:"レジェンドの動く枠",cost:0,pass:true,legend:true}};
 const PASS_VALS=new Set(Object.values(PASS_ITEMS).map(x=>x.v));
 /* 無料とパスの上限の差（自分だけに関係するもの） */
 const LIMITS={bells:[10,1e9],later:[30,1e9]};
 const lim=k=>LIMITS[k][S.premium?1:0];
 const itemFor=(id,sk)=>ITEMS[id]||limitedFor(sk)[id]||null;
-function ownedItem(id){if(ITEMS[id])return ITEMS[id];if(PASS_ITEMS[id])return PASS_ITEMS[id];const m=/^lim_(\d{4}-\d{1,2})_(\d)$/.exec(id);return m?limitedFor(m[1])[id]:null}
+function ownedItem(id){if(ITEMS[id])return ITEMS[id];if(PASS_ITEMS[id])return PASS_ITEMS[id];if(LEGEND_ITEMS[id])return LEGEND_ITEMS[id];const m=/^lim_(\d{4}-\d{1,2})_(\d)$/.exec(id);return m?limitedFor(m[1])[id]:null}
 const frameCls=v=>v?` fr-${String(v).replace(/[^a-z0-9]/g,"")}`:"";
 /* 球団カラーの枠は、その人の応援球団の色で描く */
 const frameSt=o=>o&&o.frame==="team"&&o.tc?`--tc:${o.tc};`:"";
@@ -1146,7 +1246,7 @@ const slotsMax=()=>5+Math.min(6,(S.bought.slot||0)+(S.extraSlots||0))+(S.premium
 const boosted=()=>Date.now()<S.boostUntil;
 function rankTitle(){let t=TITLES[0][1];for(const [p,n] of TITLES)if(S.total>=p)t=n;return t}
 /* 自分の見た目（称号・名前の色・アイコン枠）。投稿やランキングに出る */
-function myLook(){S.equip=S.equip||{};if(S.title&&!S.equip.title){S.equip.title=S.title;S.title=""}if(S.bought.frame&&S.equip.frame==null)S.equip.frame="gold";const keep=v=>v&&PASS_VALS.has(v)&&!S.premium?"":v||"";const t=S.equip.title===PASS_TITLE&&!S.premium?"":S.equip.title;
+function myLook(){S.equip=S.equip||{};if(S.title&&!S.equip.title){S.equip.title=S.title;S.title=""}if(S.bought.frame&&S.equip.frame==null)S.equip.frame="gold";const keep=v=>v==="legend"&&!S.legend?"":v&&PASS_VALS.has(v)&&!S.premium?"":v||"";const t=S.equip.title===PASS_TITLE&&!S.premium?"":S.equip.title;
  const fr=keep(S.equip.frame);return{title:t||rankTitle(),color:keep(S.equip.color),frame:fr,tc:fr==="team"?(TEAMC[S.team]||"#1E1B18"):""}}
 function titleOf(){return myLook().title}
 
@@ -1200,7 +1300,7 @@ function mapData(d){const now=Date.now();
   up:c.up?{vid:c.up.id,t:hhmm(new Date(c.up.start).getTime()),title:c.up.title,start:new Date(c.up.start).getTime()}:null})));
  const ids=new Set(CH.map(c=>c.id));
  VIDS.splice(0,VIDS.length,...vids.filter(v=>ids.has(v.ch)).map((v,i)=>({id:v.id,real:1,ch:v.ch,title:v.title,ago:days(v.published),pub:new Date(v.published).getTime(),views:v.views||0,dur:dur(v.duration),col:COLORS[i%COLORS.length]})));
- Object.keys(BASEVOTES).forEach(k=>delete BASEVOTES[k]);PR_ID=d.pr||"";if(typeof GAMES!=="undefined")GAMES=Array.isArray(d.games)?d.games:[];REAL=true}
+ Object.keys(BASEVOTES).forEach(k=>delete BASEVOTES[k]);PR_ID=d.pr||"";if(typeof GAMES!=="undefined")GAMES=Array.isArray(d.games)?d.games:[];useNews(d);if(d.app)setTimeout(()=>checkVersion(d.app),500);REAL=true}
 const DKEY="jikkyo-scout-data";
 function useData(d,from){if(!d||!Array.isArray(d.channels)||!d.channels.length)throw new Error("bad");mapData(d);
  Object.keys(S.scout).forEach(id=>{if(!chById(id))delete S.scout[id]});save();refreshScouts();if(typeof resolveDP==="function")resolveDP();renderAll();
@@ -1224,7 +1324,7 @@ function ensureDM(){if(!S.dm||S.dm.day!==today())S.dm={day:today(),list:missions
 function mprog(k,v){if(SV)return;ensureDM();
  [[S.dm,DM,"ゲーム"],[S.dmY,DMY,"野球"]].forEach(([d,L,lab])=>{if(!L.some(m=>m.k===k))return;d.prog[k]=(d.prog[k]||0)+(v||1);
   L.forEach((m,i)=>{if(!d.got.includes(i)&&(d.prog[m.k]||0)>=m.n){d.got.push(i);setTimeout(()=>addP(30,`ミッション「${m.t}」`),300)}});
-  if(!d.bonus&&d.got.length===L.length){d.bonus=true;setTimeout(()=>addP(50,`${lab}のミッション全部クリア`),900)}});save()}
+  if(!d.bonus&&d.got.length===L.length){d.bonus=true;setTimeout(()=>addP(50,`${lab}のミッション全部クリア`),900);setTimeout(()=>maybeReview("mission"),2500)}});save()}
 /* 配信者ページのチェック（ポイントは付かない。ミッションとスタンプだけ進む）
    ※ YouTube の規約で「動画を見る・チャンネル登録する」ことへの報酬は禁止。YouTubeへのリンクには何も付けない */
 function checkLocal(c){if(S.chk[c.id]===today())return;if(Object.values(S.chk).filter(d=>d===today()).length>=30)return;
@@ -1281,7 +1381,12 @@ function loginModal(streak,idx){const r=LOGIN7[idx];
        inbox() → Promise<[{text, at}]>,      // 自分宛てのお知らせ
        posts({limit}) → Promise<[投稿]>,     // posts（hidden==false・新しい順）
        replies(postId) → Promise<[返信]>,    // replies（post==postId・hidden==false・古い順）
-       purchase() → Promise,                 // スカウトパスの購入（RevenueCat）
+       purchase(productId) → Promise,        // 購入（RevenueCat）。pass_month / pass_year / pass_life / legend_life / pack_ouen / pack_game
+       restore() → Promise,                  // 購入の復元
+       platform: "ios" | "android",          // サインインの名前（Apple / Google）とストアのURLに使う
+       track(name, params)                   // 使い方の記録（Firebase Analytics の logEvent）。文章や名前は送らない
+       requestReview() → Promise             // OS の評価のお願い（SKStoreReviewController / Play In-App Review）
+       openReviewPage()                      // ストアの評価ページを開く（設定の「アプリを評価する」）
        showAd(type) → Promise<boolean>,      // リワード広告（userId=uid, customData=type を渡す。報酬はサーバーが付ける）
        signIn() → Promise                    // Appleでサインイン
        posts({limit}) は room=="" の投稿だけ（球団ルームの投稿はファンしか読めないので、まぜると読み込みが拒否される）
@@ -1295,11 +1400,11 @@ function loginModal(streak,idx){const r=LOGIN7[idx];
    ===================================================================== */
 const ERR={"already":"今日は受け取りずみです","too-fast":"続けて操作するときは少し時間をあけてください","daily-limit":"今日の上限に達しました","no-votes":"今日の応援票がありません","unknown-channel":"掲載されていない配信者です",
  "too-big":"1万人以上は原石スカウトの対象外です","full":"スカウト枠がいっぱいです","closed":"受付は終わりました（配信が終わった場合もこう出ます）","not-streaming":"今夜配信する人だけ予想できます","no-points":"ポイントが足りません",
- "owned":"購入ずみです","max":"上限です","used":"今日は使用ずみです","need-signin":"この操作は、Appleでサインインすると使えます","self":"自分には使えません","no-code":"コードが見つかりません",
+ "owned":"購入ずみです","max":"上限です","used":"今日は使用ずみです","need-signin":`この操作は、${SIGNIN}でサインインすると使えます`,"self":"自分には使えません","no-code":"コードが見つかりません",
  "name-cooldown":"名前の変更は1日1回までです","not-premium":"スカウトパスの機能です","banned":"このアカウントは利用停止中です","no-profile":"最初に名前を登録してください","bad-name":"その名前は使えません","not-today":"今日の1人ではありません",
  "too-short":"もう少し書いてください","too-long":"200文字までです","ng-word":"使えない言葉が入っています","bad-meta":"項目を選んでください","bad-cat":"種類を選んでください","bad-url":"YouTubeのチャンネルのURL（https://www.youtube.com/@…）を入れてください",
  "blocked":"この投稿には返信できません","not-owner":"自分の投稿だけ操作できます","not-found":"見つかりません（消されたか、非表示になっています）","bad-choice":"選択肢を選んでください","not-scouted":"スカウトしていません",
- "resource-exhausted":"操作が早すぎます。少し待ってから","not-owned":"まだ持っていません","unknown-item":"その品は今は交換できません","bad-report":"通報の内容を選んでください","bad-like":"うまくいきませんでした","bad-amount":"票の数がおかしいです","permission-denied":"このアカウントは利用停止中です","retry":"混み合っています。もう一度お試しください","internal":"サーバーでエラーが起きました。少し待ってから","unavailable":"通信できません。電波のよいところで","unauthenticated":"ログインし直してください","failed-precondition":"うまくいきませんでした"};
+ "update-required":"新しいバージョンにアップデートしてください","trial-used":"1日体験は7日に1回です","resource-exhausted":"操作が早すぎます。少し待ってから","not-owned":"まだ持っていません","unknown-item":"その品は今は交換できません","bad-report":"通報の内容を選んでください","bad-like":"うまくいきませんでした","bad-amount":"票の数がおかしいです","permission-denied":"このアカウントは利用停止中です","retry":"混み合っています。もう一度お試しください","internal":"サーバーでエラーが起きました。少し待ってから","unavailable":"通信できません。電波のよいところで","unauthenticated":"ログインし直してください","failed-precondition":"うまくいきませんでした"};
 const errMsg=r=>(r&&(r.reason||ERR[r.code]))||"うまくいきませんでした。もう一度お試しください";
 const GAIN_LABEL={liveSay:"試合実況で応援",checkChannel:"ミッション",vote:"応援",checkTodayPick:"今日の1人をチェック",createPost:"投稿",reply:"返信",votePoll:"お題に投票",like:"ミッション",sync:""};
 const BOARDS={week:null,votes:null,help:null,orders:null,teams:null};let actBusy=false,SINBOX=[],lastErr="";
@@ -1307,7 +1412,8 @@ const BOARDS={week:null,votes:null,help:null,orders:null,teams:null};let actBusy
 async function act(name,data,local,after){
  if(!SV){const r=local();if(r&&r.ok===false&&r.code)toast(errMsg(r),1);after&&after(r);return r}
  if(actBusy)return null;actBusy=true;let r=null;
- try{r=await SV.call(name,data||{});
+ try{r=await SV.call(name,Object.assign({_v:APP.version},data||{}));
+  if(r&&r.code==="update-required"){actBusy=false;showUpdate(true);return r}
   if(r&&r.wallet)applyWallet(r.wallet);
   if(r&&r.ok===false)toast(errMsg(r),1);
   else if(r&&r.gained){S.hist.unshift({w:GAIN_LABEL[name]||"",v:r.gained,t:Date.now()});S.hist=S.hist.slice(0,30);pop(`+${r.gained}P`);toast(`${GAIN_LABEL[name]||""} +${r.gained}P${boosted()?"（2倍中）":""}`)}
@@ -1315,10 +1421,10 @@ async function act(name,data,local,after){
  catch(e){const m=String(e&&e.message||""),c=String(e&&e.code||"").replace("functions/","");lastErr=ERR[m]?m:c;toast(errMsg({code:lastErr}),1);actBusy=false;return null}
  actBusy=false;after&&after(r);return r}
 /* 裏で送るだけの操作（他のボタンを止めない） */
-async function sideCall(name,data){try{const r=await SV.call(name,data||{});if(r&&r.wallet)applyWallet(r.wallet);
+async function sideCall(name,data){try{const r=await SV.call(name,Object.assign({_v:APP.version},data||{}));if(r&&r.wallet)applyWallet(r.wallet);
  if(r&&r.gained){S.hist.unshift({w:GAIN_LABEL[name]||"",v:r.gained,t:Date.now()});S.hist=S.hist.slice(0,30);pop(`+${r.gained}P`);toast(`${GAIN_LABEL[name]} +${r.gained}P`)}save();renderAll();return r}catch(e){return null}}
 function applyWallet(w){S.p=w.p;S.week=w.week;S.total=w.total;S.vLeft=w.votesLeft;S.vDay=today();S.adN=w.adVotes||0;S.boostUntil=w.boostUntil||0;S.boostDay=w.boostUsed?today():"";
- S.premium=!!w.premium;if(w.finds!=null)S.finds=w.finds;S.streak=w.streak||S.streak;S.extraSlots=w.extraSlots||0;S.bought=w.bought||{};if(w.name)S.name=w.name;if(w.code)S.code=w.code;S.helpWeek=w.helpWeek||0;
+ S.premium=!!w.premium;S.plan=w.plan||"";S.legend=!!w.legend;S.legendNo=w.legendNo||0;S.packs=w.packs||[];S.trialUntil=w.trialUntil||0;S.trialAt=w.trialAt||S.trialAt||0;if(w.legendSold!=null)S.legendSold=w.legendSold;if(S.legend&&w.legendNo&&!S.ownTitles.includes(legendTitle()))S.ownTitles.push(legendTitle());if(w.finds!=null)S.finds=w.finds;S.streak=w.streak||S.streak;S.extraSlots=w.extraSlots||0;S.bought=w.bought||{};if(w.name)S.name=w.name;if(w.code)S.code=w.code;S.helpWeek=w.helpWeek||0;
  if(w.mission)S.dm={day:today(),list:w.mission.list||["check","vote","newch"],prog:w.mission.prog||{},got:w.mission.got||[],bonus:!!w.mission.bonus};
  if(w.missionY)S.dmY={day:today(),list:w.missionY.list||[],prog:w.missionY.prog||{},got:w.missionY.got||[],bonus:!!w.missionY.bonus};if(w.pollDoneY!=null)S.pollDoneDayY=w.pollDoneY?today():"";if(w.teamHeat!=null)S.teamHeat=w.teamHeat;
  if(w.blocked)S.blocked=w.blocked;if(w.following)S.follow=w.following;if(w.team!=null){S.team=w.team;S.teamAt=w.teamAt||0}if(w.pollDone!=null)S.pollDoneDay=w.pollDone?today():"";
@@ -1326,7 +1432,7 @@ function applyWallet(w){S.p=w.p;S.week=w.week;S.total=w.total;S.vLeft=w.votesLef
 /* 広告を見終わったら：本番は Google がサーバーに報酬を届けるので、少し待ってから最新の状態を読む */
 function adReward(type,local){if(!SV){local();return}setTimeout(()=>sideCall("sync",{}),2000)}
 async function loadBoards(){if(!SV)return;try{const [w,v,hp,od,tm]=await Promise.all([SV.read("boards/week"),SV.read("boards/votes"),SV.read("boards/help"),SV.read("boards/orders"),SV.read("boards/teams")]);
- if(tm&&tm.key===weekKey())BOARDS.teams=tm.rows;
+ if(tm&&tm.key===weekKey())BOARDS.teams=tm.rows;const trd=await SV.read("boards/trends").catch(()=>null);if(trd&&trd.rows)BOARDS.trends=trd.rows;
  if(od&&od.key===weekKey())BOARDS.orders=od.rows;
  if(w&&w.key===weekKey())BOARDS.week=w.rows;if(hp&&hp.key===weekKey())BOARDS.help=hp.rows;if(v&&v.key===weekKey()){BOARDS.votes={};v.rows.forEach(r=>BOARDS.votes[r.id]=r.n)}
  const y=await SV.read("results/predict_"+dayKeyOf(Date.now()-864e5));if(y&&S.dp&&S.dp.day===y.day){const wins=y.winners||(y.winner?[y.winner]:[]);S.dpLast={day:y.day,pick:S.dp.pick,win:wins[0]||null,ok:wins.includes(S.dp.pick),reason:y.reason||""}}renderAll()}catch(e){}}
@@ -1362,7 +1468,7 @@ const totalVotes=id=>SV&&BOARDS.votes?(BOARDS.votes[id]||0):(BASEVOTES[id]||0)+m
 function voteRanking(){return chW().sort((a,b)=>totalVotes(b.id)-totalVotes(a.id)||a.name.localeCompare(b.name,"ja"))}
 function voteRows(list,max,start){const top=Math.max(1,totalVotes(list[0]?list[0].id:""));return list.slice(0,max).map((c,i)=>`<div class="vote ${myVotes(c.id)?"mine":""}"><span class="n">${(start||0)+i+1}</span>${avatar(c)}<button class="mid" data-ch="${esc(c.id)}" style="background:none;border:0;padding:0;text-align:left"><b>${esc(c.name)}</b><div class="vbar"><i style="width:${totalVotes(c.id)/top*100}%"></i></div></button><span class="v">${totalVotes(c.id).toLocaleString()}票</span></div>`).join("")}
 const isLater=id=>(S.later||[]).some(x=>x.id===id);
-function toggleLater(id){if(isLater(id)){S.later=S.later.filter(x=>x.id!==id);toast("あとで見るから外しました")}else{if((S.later||[]).length>=lim("later")){toast(`あとで見るは${lim("later")}本までです（スカウトパスは上限なし）`,1);return}S.later.unshift({id,at:Date.now()});toast("あとで見るに入れました")}save();renderAll()}
+function toggleLater(id){if(isLater(id)){S.later=S.later.filter(x=>x.id!==id);toast("あとで見るから外しました")}else{if((S.later||[]).length>=lim("later")){toast(`あとで見るは${lim("later")}本までです（スカウトパスは上限なし）`,1);openPaywall("later");return}S.later.unshift({id,at:Date.now()});toast("あとで見るに入れました")}save();renderAll()}
 
 /* =====================================================================
    ヘッダー・タブ
@@ -1379,7 +1485,7 @@ function renderWorld(){const w=W();document.body.classList.toggle("w-yakyu",w===
  document.querySelectorAll("#worldSw [data-w]").forEach(b=>{const on=b.dataset.w===w;b.classList.toggle("on",on);b.setAttribute("aria-selected",on?"true":"false")});
  const ls=$("#logoSub");if(ls)ls.textContent=w==="yakyu"?"プロ野球をファンみんなで":"ゲーム実況をみんなで"}
 document.querySelectorAll("#worldSw [data-w]").forEach(b=>b.onclick=()=>{setWorld(b.dataset.w);scrollTo({top:0})});
-function goTab(t){if(t==="oshi"){goTab("my");setMyGroup("oshi");const o=$("#oshiTop");if(o)setTimeout(()=>o.scrollIntoView({behavior:"smooth",block:"start"}),50);return}
+function goTab(t){checkTrial();track("tab",{t});if(t==="oshi"){goTab("my");setMyGroup("oshi");const o=$("#oshiTop");if(o)setTimeout(()=>o.scrollIntoView({behavior:"smooth",block:"start"}),50);return}
  const cur=TABS.find(v=>!$("#v-"+v).hidden);if(cur===t){scrollTo({top:0,behavior:"smooth"});return}if(cur)tabY[cur]=scrollY;
  document.querySelectorAll(".nav button").forEach(b=>{if(b.dataset.tab===t)b.setAttribute("aria-current","page");else b.removeAttribute("aria-current")});
  TABS.forEach(v=>$("#v-"+v).hidden=v!==t);scrollTo(0,tabY[t]||0);if(t==="comm")openComm();if(t==="live")renderLive()}
@@ -1403,13 +1509,13 @@ const GUIDES={
 /* 画面ごとのヒント：1行だけ出す。「くわしく」で開く・「×」で消える（マイ→設定→「画面のヒントをもう一度出す」で戻せる） */
 let tipOpen={};
 function renderGuides(){S.tips=S.tips||{};for(const k0 in GUIDES){const yk=isY()&&GUIDES_Y[k0];const k=yk?k0+"_y":k0;const g=yk?GUIDES_Y[k0]:GUIDES[k0];const el=$("#g-"+k0);if(!el)continue;
- if(S.tips[k]||!S.onb){el.innerHTML="";continue}
+ if(!S.tipsOn||S.tips[k]||!S.onb){el.innerHTML="";continue}
  el.innerHTML=`<div class="tipbar"><span class="tipm">${ART.mascot(34,"wink")}</span><div class="tipt"><b>${g.t}</b><span>${g.i[0]}</span>${tipOpen[k]?`<ol>${g.i.slice(1).map(x=>`<li>${x}</li>`).join("")}</ol>${g.b?`<button class="btn sm tomato" data-tipgo="${g.b[1]}" style="margin-top:6px">${g.b[0]}</button>`:""}`:""}</div><div class="tipbtns"><button class="pbtn" data-tipmore="${k}">${tipOpen[k]?"とじる":"くわしく"}</button><button class="tipx" data-tipx="${k}" aria-label="ヒントを消す">×</button></div></div>`;
  el.querySelector("[data-tipx]").onclick=()=>{S.tips[k]=1;save();renderGuides()};
  el.querySelector("[data-tipmore]").onclick=()=>{tipOpen[k]=!tipOpen[k];renderGuides()};
  const go=el.querySelector("[data-tipgo]");if(go)go.onclick=()=>{S.tips[k]=1;save();if(go.dataset.tipgo==="post")openComposer({cat:"質問"});else if(go.dataset.tipgo==="room")goComm("team");else goTab(go.dataset.tipgo);renderGuides()}}}
 function renderAllNow(){rafId=0;const sx={};document.querySelectorAll(".recs[id],.hscroll[id],[data-keepx]").forEach(e=>{if(e.id&&e.scrollLeft)sx[e.id]=e.scrollLeft});
- rollover();renderWorld();renderGuides();renderHeader();renderHome();renderLive();renderDigest();renderFilters();renderResults();renderComm();renderOshi();renderMy();
+ rollover();checkTrial();applyTheme();renderWorld();renderGuides();renderHeader();renderHome();renderLive();renderDigest();renderFilters();renderResults();renderComm();renderOshi();renderMy();
  for(const id in sx){const e=document.getElementById(id);if(e)e.scrollLeft=sx[id]}}
 
 /* =====================================================================
@@ -1425,7 +1531,9 @@ function renderSeasonBar(){ensureSeason();const lv=sLv();const into=S.season.pts
  $("#seasonBar").onclick=openSeason}
 function recScore(c){if(!inW(c))return-99;let s=0;if(S.team&&c.team===S.team)s+=3;s+=c.tags.filter(t=>(S.likes||[]).includes(t)).length*2;if(c.live)s+=1;if(S.scout[c.id])s-=10;if(S.seenCh[c.id])s-=1;return s+(hashN(today()+c.id)%10)/20}
 function recWhy(c){if(S.team&&c.team===S.team)return`同じ${c.team}ファン`;const t=c.tags.find(t=>(S.likes||[]).includes(t));if(t)return`#${t}`;if(c.live)return"いまライブ中";return c.subs<SCOUT_MAX?"原石候補":"人気の配信者"}
-function renderHome(){renderBoost();renderFanCard();renderSeasonBar();$("#bannerAd").hidden=S.premium;
+/* 応援球団が勝った日：お祝い（＋アプリの評価のお願いを出してよい、うれしい瞬間） */
+function checkWin(){const t=S.team,g=t&&gamesOf(t,today())[0];if(!g||g.status!=="end"||!g.score||S.winDay===today())return;const mine=g.home===t?g.score[0]:g.score[1],opp=g.home===t?g.score[1]:g.score[0];if(mine<=opp)return;S.winDay=today();save();pop("勝った！");toast(`${t} 勝利！ ${gameScore(g)}`);maybeReview("win")}
+function renderHome(){renderNextAction();checkWin();renderHomeNews();renderBoost();renderFanCard();renderSeasonBar();$("#bannerAd").hidden=S.premium;
  renderJHero();$("#fanCard").hidden=!isY();$("#recTitle").textContent=isY()?"おすすめのファンチャンネル":"あなたへのおすすめ";
  // 今日の1人
  const tp=todayPick();const done=S[isY()?"t1Y":"t1"]===today();
@@ -1451,7 +1559,7 @@ function renderHome(){renderBoost();renderFanCard();renderSeasonBar();$("#banner
 $("#editPref").onclick=()=>onboarding(true);
 $("#toVote").onclick=()=>goTab("oshi");
 $("#hudBtn").onclick=()=>{goTab("my");setMyGroup("points")};
-function toggleBell(id){if(!S.bells[id]&&Object.values(S.bells).filter(Boolean).length>=lim("bells")){toast(`お知らせONは${lim("bells")}人までです（スカウトパスは上限なし）`,1);return}S.bells[id]=!S.bells[id];save();renderAll();toast(S.bells[id]?"配信が始まったらお知らせします":"お知らせをオフにしました")}
+function toggleBell(id){if(!S.bells[id]&&Object.values(S.bells).filter(Boolean).length>=lim("bells")){toast(`お知らせONは${lim("bells")}人までです（スカウトパスは上限なし）`,1);openPaywall("bells");return}S.bells[id]=!S.bells[id];save();renderAll();toast(S.bells[id]?"配信が始まったらお知らせします":"お知らせをオフにしました")}
 
 /* =====================================================================
    さがす
@@ -1490,7 +1598,7 @@ function renderResults(){const q=F.q.toLowerCase();
  r.sort(so);$("#hits").textContent=`${r.length}${isY()?"チャンネル":"人"}`;
  const pr=chById(PR_ID)&&inW(chById(PR_ID))?chById(PR_ID):null;
  $("#results").innerHTML=r.length?`<div class="list">${pr&&!q&&F.subs==="all"&&!F.tags.length?chCard(pr,true):""}${r.map(c=>chCard(c)).join("")}</div>`:'<div class="note"><p class="sub" style="margin:0">条件に合うチャンネルがありません。しぼりこみを減らしてみてね。</p></div>';bindCards($("#results"))}
-$("#saveSearch").onclick=()=>{if(!S.premium){toast("条件の保存はスカウトパスの機能です",1);return}S.saved={subs:F.subs,tags:[...F.tags],team:F.team,world:W(),at:Date.now(),seen:CH.filter(c=>inW(c)&&chMatch(c,F)).map(c=>c.id)};save();renderAll();toast("この条件を保存しました。新しく載った配信者をお知らせします")};
+$("#saveSearch").onclick=()=>{if(!S.premium){toast("条件の保存はスカウトパスの機能です",1);openPaywall("saveSearch");return}S.saved={subs:F.subs,tags:[...F.tags],team:F.team,world:W(),at:Date.now(),seen:CH.filter(c=>inW(c)&&chMatch(c,F)).map(c=>c.id)};save();renderAll();toast("この条件を保存しました。新しく載った配信者をお知らせします")};
 $("#apply").onclick=openApply;
 function openApply(){modal(`<div class="h2">掲載の申請</div><p class="sub" style="margin:0">野球ゲームの実況・配信をしているチャンネルと、プロ野球の球団ファンのチャンネルを申請できます。運営が確認してから載ります（載せられない場合もあります）。</p>
  <div class="seg" id="apKind"><button class="${isY()?"":"on"}" data-k="ゲーム実況">ゲーム実況</button><button class="${isY()?"on":""}" data-k="球団ファン">球団ファン</button></div>
@@ -1556,7 +1664,9 @@ function openHowto(){modal(`<div class="h2">使い方ガイド</div><div class="
  <h3>広場</h3><p>質問・オーダー相談・対戦募集・ガチャ報告ができます。答えて「参考になった」をもらうとポイント。自分の投稿は広告を1本見ると10分だけ上に出せます（1日1回）。</p>
  <h3>ポイント</h3><p>アプリの中だけで使えます。称号・名前の色・アイコン枠・スカウト枠に交換できます（お金や景品にはなりません）。YouTubeで動画を見てもポイントは付きません。</p><h3>ことばの意味</h3><dl class="gloss"><dt>実況スレ</dt><dd>配信や試合を見ながら、みんなで短く書きこむ場所。書きこみは7日で消えます</dd><dt>待機所</dt><dd>配信が始まる前から話せる実況スレ</dd><dt>応援票</dt><dd>毎日3票。推しの配信者に入れると、みんなの推しランキングに反映されます</dd><dt>原石スカウト</dt><dd>登録者1万人未満の配信者を先に見つけておく機能。1万人に届いたら「発掘」</dd><dt>ポイント（P）</dt><dd>毎日ひらく・ミッション・投稿などでたまり、見た目やスカウト枠と交換できます</dd><dt>シーズン</dt><dd>毎月リセットされるレベル。ためたポイントに合わせて上がり、報酬がもらえます</dd><dt>ファン掲示板</dt><dd>応援球団が同じファンだけが読み書きできる場所（応援球団の変更は30日に1回）</dd><dt>球団対抗</dt><dd>その週の、各球団のファンの書き込みの数。スカウトパスやポイントでは増えません</dd></dl></div><button class="btn paper wide" id="mc">とじる</button>`,x=>{x.querySelector("#mc").onclick=closeModal;const ia=x.querySelector("#introAgain");if(ia)ia.onclick=()=>showIntro(0)},"howto")}
 $("#howto").onclick=openHowto;
-$("#tipsAgain").onclick=()=>{S.tips={};save();renderAll();toast("各画面の上にヒントを出しました")};
+$("#tipsAgain").onclick=()=>{S.tips={};S.tipsOn=1;save();renderAll();toast("各画面の上にヒントを出しました")};
+$("#fbBtn").onclick=()=>openFeedback();$("#rateBtn").onclick=()=>openStoreReview();
+$("#trackBtn").onclick=()=>{S.noTrack=!S.noTrack;save();renderAll();toast(S.noTrack?"使い方データを送らないようにしました":"使い方データを送るようにしました")};
 
 /* =====================================================================
    マイ
@@ -1567,7 +1677,7 @@ const BADGES=[{m:"初",n:"はじめまして",d:"好みを設定",ok:()=>!!S.onb
  {m:"話",n:"広場デビュー",d:"広場に投稿",ok:()=>S.posted>=1},{m:"名",n:"名スカウト",d:"累計20,000P",ok:()=>S.total>=20000}];
 function renderMy(){const nt=TITLES.find(([p])=>p>S.total);
  const lk=myLook();$("#prof").innerHTML=`<span class="av${frameCls(lk.frame)}" style="${frameSt(lk)}background:${TEAMC[S.team]||"#FF5B45"}">${esc((S.name||"ゲ")[0])}</span><div style="flex:1;min-width:0"><input id="pName" value="${esc(S.name)}" maxlength="12" aria-label="ニックネーム" style="${lk.color?`color:${lk.color}`:""}"><div><button class="title-chip" id="titleBtn" style="border:0;cursor:pointer">${esc(titleOf())} ▾</button>${S.premium?'<span class="title-chip" style="background:var(--mustard);color:var(--ink);margin-left:4px">パス会員</span>':""}</div>
-  <div style="margin-top:6px"><select id="pTeam" aria-label="応援球団" class="inp" style="padding:3px 6px">${[["","応援球団（なし）"],...TEAMS.map(t=>[t,t])].map(([v,l])=>`<option value="${v}" ${S.team===v?"selected":""}>${l}</option>`).join("")}</select></div>${SV&&!SV.linked&&SV.signIn?`<button class="btn sm" id="signIn" style="margin-top:8px">Appleでサインイン（ランキング・広場に参加）</button>`:""}</div>`;
+  <div style="margin-top:6px"><select id="pTeam" aria-label="応援球団" class="inp" style="padding:3px 6px">${[["","応援球団（なし）"],...TEAMS.map(t=>[t,t])].map(([v,l])=>`<option value="${v}" ${S.team===v?"selected":""}>${l}</option>`).join("")}</select></div>${SV&&!SV.linked&&SV.signIn?`<button class="btn sm" id="signIn" style="margin-top:8px">${SIGNIN}でサインイン（ランキング・広場に参加）</button>`:""}</div>`;
  $("#pName").onchange=e=>{const nm=cleanName(e.target.value);if(!nm||nm===S.name){e.target.value=S.name;return}act("setProfile",{name:nm},()=>({ok:true}),r=>{if(r&&r.ok===false){e.target.value=S.name;return}S.name=nm;save();renderAll();toast("名前を変えました")})};
  $("#pTeam").onchange=e=>{const v=e.target.value;e.target.value=S.team;chooseTeam(v)};$("#titleBtn").onclick=openTitles;
  const si=$("#signIn");if(si)si.onclick=()=>SV.signIn().then(()=>act("sync",{})).catch(()=>{});
@@ -1580,26 +1690,27 @@ function renderMy(){const nt=TITLES.find(([p])=>p>S.total);
  $("#badges").innerHTML=BADGES.map(b=>`<div class="bd ${b.ok()?"":"off"}"><i>${b.m}</i><span>${b.n}<br><span style="color:var(--muted);font-size:9.5px">${b.d}</span></span></div>`).join("");
  $("#stCount").textContent=`${Object.keys(S.teamSeen).length}/12`;
  $("#stamps").innerHTML=TEAMS.map(t=>`<div class="stp ${S.teamSeen[t]?"on":""}">${t.length>4?t.slice(0,3):t}</div>`).join("");
- renderBlocks();renderDev();$("#verLine").textContent=`${APP.full} ${APP.version}`+(DEV?`・${REAL?"データ読み込みずみ":"見本"}・${SV?"サーバー接続":"端末内"}`:"")}
+ renderBlocks();renderDev();$("#trackSt").textContent=S.noTrack?"オフ":"オン";$("#verLine").textContent=`${APP.full} ${APP.version}`+(DEV?`・${REAL?"データ読み込みずみ":"見本"}・${SV?"サーバー接続":"端末内"}`:"")}
 /* Pショップ */
 let shopTab="title";
 const SHOP_TABS=[["title","称号"],["color","名前の色"],["frame","アイコン枠"],["limited","今月の限定"],["pass","パス会員"],["slot","便利"]];
 const freeLimOk=()=>S.premium&&S.freeLim!==seasonKey();
-function equipLocal(kind,id,title){S.equip=S.equip||{};if(kind==="title"){if(title===PASS_TITLE&&!S.premium)return{ok:false,code:"not-premium"};S.equip.title=title||"";return{ok:true}}const it=id&&ownedItem(id);if(it&&it.pass){if(!S.premium)return{ok:false,code:"not-premium"};S.equip[kind]=it.v;return{ok:true}}if(id&&(!it||!S.bought[id]))return{ok:false,code:"not-owned"};S.equip[kind]=it?it.v:"";return{ok:true}}
+function equipLocal(kind,id,title){S.equip=S.equip||{};if(kind==="title"){if(title===PASS_TITLE&&!S.premium)return{ok:false,code:"not-premium"};S.equip.title=title||"";return{ok:true}}const it=id&&ownedItem(id);if(it&&it.pass){if(!S.premium||(it.legend&&!S.legend))return{ok:false,code:"not-premium"};S.equip[kind]=it.v;return{ok:true}}if(id&&(!it||!S.bought[id]))return{ok:false,code:"not-owned"};S.equip[kind]=it?it.v:"";return{ok:true}}
 function doEquip(kind,id,title){act("equip",{kind,id,title},()=>equipLocal(kind,id,title),r=>{if(r&&r.ok===false)return;if(SV&&r&&r.wallet&&r.wallet.equip)S.equip=r.wallet.equip;save();renderAll();toast(kind==="title"?`称号を「${title||rankTitle()}」にしました`:"見た目を変えました")})}
 function renderShop(){const sk=seasonKey();const lim=limitedFor(sk);const lk=myLook();
  const all=Object.entries(ITEMS).map(([id,it])=>({id,...it})).concat(Object.entries(lim).map(([id,it])=>({id,...it})));
  const past=Object.keys(S.bought).filter(id=>/^lim_/.test(id)&&!lim[id]).map(id=>({id,...ownedItem(id)})).filter(it=>it.kind);
- const passList=[...Object.entries(PASS_ITEMS).map(([id,it])=>({id,...it})),{id:"pass_title",kind:"title",v:PASS_TITLE,n:`称号「${PASS_TITLE}」`,pass:true}];
+ const passList=[...Object.entries(PASS_ITEMS).map(([id,it])=>({id,...it})),{id:"pass_title",kind:"title",v:PASS_TITLE,n:`称号「${PASS_TITLE}」`,pass:true},{id:"legend_frame",kind:"frame",v:"legend",n:"レジェンドの動く枠",pass:true,legend:true},{id:"legend_title",kind:"title",v:legendTitle(),n:"称号「レジェンド No.〇〇〇〇」",pass:true,legend:true}];
  const list=shopTab==="pass"?passList:[...all,...past].filter(it=>shopTab==="limited"?it.limited&&lim[it.id]:it.kind===shopTab&&(!it.limited||past.some(p=>p.id===it.id)));
- const price=it=>it.limited&&freeLimOk()?0:it.cost;
+ const price=it=>it.limited&&(freeLimOk()||isLegend())?0:isLegend()?Math.round(it.cost*.8):it.cost;
  const pv=it=>it.kind==="color"?`<span class="sw" style="background:${it.v}"></span>`:it.kind==="frame"?`<span class="av${frameCls(it.v)}" style="${it.v==="team"?`--tc:${TEAMC[S.team]||"#1E1B18"};`:""}background:${TEAMC[S.team]||"#FF5B45"}">${esc((S.name||"ゲ")[0])}</span>`:it.kind==="title"?`<span class="title-chip" style="font-size:10px">称</span>`:`<span class="title-chip" style="font-size:10px">＋</span>`;
  const on=it=>it.kind==="title"?lk.title===it.v:it.kind==="color"?lk.color===it.v:it.kind==="frame"?lk.frame===it.v:false;
  $("#shopP").textContent=`${S.p.toLocaleString()}P`;
  $("#shop").innerHTML=`<div class="shoptabs">${SHOP_TABS.map(([k,l])=>`<button class="${shopTab===k?"on":""}" data-stab="${k}">${l}</button>`).join("")}</div>
  ${shopTab==="limited"?`<p class="sub">${mon()}月だけ交換できます。交換したものは来月以降もずっと使えます。${S.premium?(freeLimOk()?"<b>パス会員は今月1つ無料</b>":"今月の無料分は使いました"):"スカウトパスなら毎月1つ無料"}</p>`:""}
- ${shopTab==="pass"?`<p class="sub">${S.premium?"パス会員のあいだ、いつでもつけられます（交換は不要）。":"スカウトパス会員だけが使える見た目です。"}</p>`:""}
- ${list.map(it=>{if(it.pass)return`<div class="item"><span class="pv">${pv(it)}</span><div>${esc(it.n)}<span class="lim" style="background:var(--ink)">パス</span><small>${it.kind==="title"?"名前の横に出ます":"広場とランキングで表示"}</small></div>${S.premium?`<button class="btn sm ${on(it)?"mint":"paper"}" data-peq="${it.id}">${on(it)?"つけている":"つける"}</button>`:`<button class="btn sm" disabled>パス会員</button>`}</div>`;
+ ${shopTab==="pass"?`<p class="sub">${S.premium?"パス会員のあいだ、いつでもつけられます（交換は不要）。":"スカウトパス会員だけが使える見た目です。"}</p>${isLegend()?`<div class="themerow"><span>着せ替え</span>${THEMES.map(([k,l])=>`<button class="${(S.theme||"")===k?"on":""}" data-theme="${k}">${l}</button>`).join("")}</div>`:`<button class="pbtn" id="shopLegend" style="align-self:flex-start">レジェンドパスの見た目を見る ▶</button>`}`:""}
+ ${isLegend()&&shopTab!=="pass"&&shopTab!=="slot"?'<p class="sub">レジェンド：ぜんぶ20%オフ・今月の限定は無料</p>':""}
+ ${list.map(it=>{if(it.pass){const ok=it.legend?isLegend():S.premium;return`<div class="item"><span class="pv">${pv(it)}</span><div>${esc(it.n)}<span class="lim" style="background:${it.legend?"#B8860B":"var(--ink)"}">${it.legend?"レジェンド":"パス"}</span><small>${it.kind==="title"?"名前の横に出ます":"広場とランキングで表示"}</small></div>${ok?`<button class="btn sm ${on(it)?"mint":"paper"}" data-peq="${it.id}">${on(it)?"つけている":"つける"}</button>`:`<button class="btn sm" data-paywall="${it.legend?"legend":"pass"}">${it.legend?"レジェンド":"パス会員"}</button>`}</div>`}
   const owned=(S.bought[it.id]||0)>0&&it.kind!=="slot";const maxed=it.max&&(S.bought[it.id]||0)>=it.max;
   return`<div class="item"><span class="pv">${pv(it)}</span><div>${esc(it.n)}${it.limited?'<span class="lim">限定</span>':""}<small>${it.kind==="slot"?`原石スカウトの枠（${S.bought[it.id]||0}/${it.max}）`:it.kind==="title"?"名前の横に出ます":it.kind==="color"?"広場とランキングの名前の色":it.kind==="frame"?"広場とランキングのアイコンの枠":""}</small></div>
   ${owned?`<button class="btn sm ${on(it)?"mint":"paper"}" data-eq="${it.id}">${on(it)?"つけている":"つける"}</button>`:`<button class="btn sm" data-buy="${it.id}" ${maxed||S.p<price(it)?"disabled":""}>${maxed?"上限":price(it)===0?"無料":price(it).toLocaleString()+"P"}</button>`}</div>`}).join("")}
@@ -1607,7 +1718,10 @@ function renderShop(){const sk=seasonKey();const lim=limitedFor(sk);const lk=myL
  $("#shop").querySelectorAll("[data-stab]").forEach(b=>b.onclick=()=>{shopTab=b.dataset.stab;renderShop()});
  $("#shop").querySelectorAll("[data-buy]").forEach(b=>b.onclick=()=>{const id=b.dataset.buy;const it=itemFor(id,sk);if(!it||S.p<price(it))return;const cost=price(it);
   act("buyItem",{id},()=>{S.p-=cost;if(it.limited&&cost===0)S.freeLim=seasonKey();S.bought[id]=(S.bought[id]||0)+1;if(it.kind==="title"&&!S.ownTitles.includes(it.v))S.ownTitles.push(it.v);return{ok:true}},r=>{if(r&&r.ok===false)return;save();renderAll();toast(`「${it.n}」を手に入れました。「つける」で使えます`)})});
- $("#shop").querySelectorAll("[data-peq]").forEach(b=>b.onclick=()=>{const id=b.dataset.peq;if(id==="pass_title"){doEquip("title","",lk.title===PASS_TITLE?"":PASS_TITLE);return}const it=PASS_ITEMS[id];doEquip(it.kind,lk[it.kind]===it.v?"":id)});
+ $("#shop").querySelectorAll("[data-paywall]").forEach(b=>b.onclick=()=>openPaywall("shop",b.dataset.paywall==="legend"?"legend":"pass"));
+ $("#shop").querySelectorAll("[data-theme]").forEach(b=>b.onclick=()=>{S.theme=b.dataset.theme;save();applyTheme();renderShop();toast("着せ替えました")});
+ const sl=$("#shopLegend");if(sl)sl.onclick=()=>openPaywall("shop","legend");
+ $("#shop").querySelectorAll("[data-peq]").forEach(b=>b.onclick=()=>{const id=b.dataset.peq;if(id==="legend_title"){doEquip("title","",lk.title===legendTitle()?"":legendTitle());return}if(id==="legend_frame"){doEquip("frame",lk.frame==="legend"?"":"legend_frame");return}if(id==="pass_title"){doEquip("title","",lk.title===PASS_TITLE?"":PASS_TITLE);return}const it=PASS_ITEMS[id];doEquip(it.kind,lk[it.kind]===it.v?"":id)});
  $("#shop").querySelectorAll("[data-eq]").forEach(b=>b.onclick=()=>{const it=ownedItem(b.dataset.eq);if(!it)return;if(it.kind==="title")doEquip("title","",on(it)?"":it.v);else doEquip(it.kind,on(it)?"":b.dataset.eq)});
  $("#shop").querySelectorAll("[data-uneq]").forEach(b=>b.onclick=()=>doEquip(b.dataset.uneq,""))}
 function openTitles(){const base=TITLES.filter(([p])=>S.total>=p).map(t=>t[1]);const all=[...new Set([...base,...S.ownTitles.filter(t=>t!=="パス会員"),...(S.premium?[PASS_TITLE]:[])])];
@@ -1618,22 +1732,26 @@ const PASS_PERKS=[
  ["共通",[["広告なし","投稿の上げ・2倍タイムも広告を見ずに使える"],["今月の限定アイテムが毎月1つ無料","Pショップの「今月の限定」から選べる"],["パス会員だけの見た目","こがね色の枠・名前の色・称号「スカウトパス会員」"],["あなたの今月レポート","チェック・応援・書き込みの記録を毎月まとめて表示"],["シーズンのパス側の報酬","毎月、右側の列の報酬ももらえる"]]],
  ["ゲーム実況",[["原石スカウトの枠 +3","最大8人まで同時にスカウト"],["お知らせON・あとで見るが上限なし","無料は10人・30本まで"],["配信実況のスタンプが増える","「確定演出！」「神回！」など"],["保存した条件の新着お知らせ","条件に合う配信者が新しく載ったらお知らせ"]]],
  ["プロ野球",[["応援球団カラーのアイコン枠","掲示板・実況で、あなたの球団の色の枠"],["試合実況のスタンプが増える","「サヨナラ！」「完封！」「神采配」など"],["試合前のお知らせ","応援球団の試合がもうすぐ始まるとお知らせに届く"]]]];
-function renderPass(){const on=S.premium;
- $("#passBox").innerHTML=`<div class="passcard ${on?"on":""}"><div class="rowsb"><div class="h2">スカウトパス</div>${on?'<span class="chip" style="background:var(--mustard)">加入中</span>':'<span class="price">480<small>円/月</small></span>'}</div>
+function renderPass(){const on=S.premium;const lg=isLegend();
+ $("#passBox").innerHTML=`<div class="passcard ${on?"on":""} ${lg?"lg":""}"><div class="rowsb"><div class="h2">${lg?"レジェンドパス":"スカウトパス"}</div>${lg?`<span class="chip" style="background:var(--mustard)">No.${String(S.legendNo||0).padStart(4,"0")}</span>`:on?`<span class="chip" style="background:var(--mustard)">${trialOn()&&!S.plan?"1日体験中":"加入中"}</span>`:'<span class="price"><small>月</small>480<small>円〜</small></span>'}</div>
  <p class="passlead">ゲーム実況もプロ野球も、1つのパスで</p>
  ${PASS_PERKS.map(([g,list])=>`<div class="pgroup"><span class="pg-h ${g==="プロ野球"?"y":g==="ゲーム実況"?"g":""}">${g}</span><ul>${list.map(([a,b])=>`<li><b>${a}</b><br><span style="font-size:11.5px;opacity:.85">${b}</span></li>`).join("")}</ul></div>`).join("")}
- ${on?'<p class="sub" style="color:inherit">解約は iPhone の「設定」→ 自分の名前 →「サブスクリプション」から</p>':'<button class="btn yt" id="passBuy">登録する</button><p class="sub" style="color:var(--ink)">App Storeの月額課金（自動更新）。いつでも解約できます。ポイントや応援票の販売はしていません。特典はどれも自分の見た目と便利さだけで、ランキング・球団対抗・他の人には影響しません。</p>'}</div>`;
- const b=$("#passBuy");if(b)b.onclick=()=>(SV&&SV.purchase)?SV.purchase().then(()=>act("sync",{})).catch(()=>toast("購入はキャンセルされました")):modal(`<div class="h2">スカウトパス</div><p class="sub" style="margin:0;color:var(--ink)">スカウトパスは、App Store版のアプリから登録できます。いまはアプリ版の準備中です。公開したらお知らせします。</p><button class="btn wide" id="mc">とじる</button>`,x=>x.querySelector("#mc").onclick=closeModal);
+ ${on&&S.plan&&S.plan!=="pass_life"&&!lg?'<p class="sub" style="color:inherit">解約は iPhone の「設定」→ 自分の名前 →「サブスクリプション」から</p>':""}
+ ${on&&!trialOn()?"":`<button class="btn yt" id="passBuy">${on?"プランを見る":"プランを選ぶ（7日間無料あり）"}</button>`}
+ ${lg?"":`<button class="legendcta" id="legendBuy"><span class="lg-k">買い切り限定</span><b>レジェンドパス</b><small>パスの全部がずっと＋動く枠・着せ替え・番号つき称号</small><span class="lg-go">見る ▶</span></button>`}
+ <p class="sub" style="color:rgba(255,255,255,.85)">ポイントや応援票の販売はしていません。特典はどれも自分の見た目と便利さだけで、ランキング・球団対抗・他の人には影響しません。</p></div>`;
+ const b=$("#passBuy");if(b)b.onclick=()=>openPaywall("my");const l=$("#legendBuy");if(l)l.onclick=()=>openPaywall("my","legend");
  renderReport()}
 /* あなたの今月（パス会員の特典。無料の人には中身をぼかして見本だけ見せる） */
 function renderReport(){const box=$("#reportBox");if(!box)return;const m=S.mstat&&S.mstat.key===seasonKey()?S.mstat:{checks:0,votes:0,talk:0,room:0,gchat:0,ch:{}};ensureSeason();
  const top=Object.entries(m.ch||{}).sort((a,b)=>b[1]-a[1]).map(([id])=>chById(id)).filter(Boolean).slice(0,3);
  const body=`<div class="report"><div><b>${(S.season.pts||0).toLocaleString()}</b><small>今月ためたP</small></div><div><b>${m.checks||0}</b><small>チェックした配信者</small></div><div><b>${m.votes||0}</b><small>入れた応援票</small></div><div><b>${m.talk||0}</b><small>広場への投稿・返信</small></div><div><b>${m.room||0}</b><small>ファン掲示板への書き込み</small></div><div><b>${m.gchat||0}</b><small>試合実況の書き込み</small></div></div>
   <div class="sub" style="margin-top:8px;color:var(--ink)">今月よく見た配信者：${top.length?top.map(c=>esc(c.name)).join("・"):"まだいません"}</div>`;
- box.innerHTML=`<div class="rowsb"><h2 class="h2">あなたの${mon()}月</h2><span class="chip">${S.premium?"パス会員":"スカウトパスの特典"}</span></div>${S.premium?body:`<div class="lockwrap"><div aria-hidden="true">${body.replace(/<b>[^<]*<\/b>/g,"<b>--</b>")}</div><div class="lockmsg"><span class="lk">🔒</span><b>パス会員限定</b><small>登録すると、毎月のあなたの記録が見られます</small></div></div>`}`}
+ box.innerHTML=`<div class="rowsb"><h2 class="h2">あなたの${mon()}月</h2><span class="chip">${S.premium?"パス会員":"スカウトパスの特典"}</span></div>${S.premium?body:`<div class="lockwrap"><div aria-hidden="true">${body.replace(/<b>[^<]*<\/b>/g,"<b>--</b>")}</div><div class="lockmsg"><span class="lk">🔒</span><b>パス会員限定</b><small>登録すると、毎月のあなたの記録が見られます</small></div></div>`}`;const lw=box.querySelector(".lockwrap");if(lw)lw.onclick=()=>openPaywall("report")}
 /* 開発者用（URLの最後に #dev を付けたときだけ出る） */
 function renderDev(){const box=$("#devBox");if(!box)return;box.hidden=!DEV;if(!DEV)return;
- box.innerHTML=`<h2 class="h2">開発者用</h2><p class="sub">利用者には表示されません。</p><div style="display:flex;gap:8px;flex-wrap:wrap;margin-top:8px"><button class="btn sm" id="devPass">パス会員を${S.premium?"OFF":"ON"}</button><button class="btn sm paper" id="devData">データを読み込む</button><button class="btn sm paper" id="devP">+1000P</button></div>`;
+ box.innerHTML=`<h2 class="h2">開発者用</h2><p class="sub">利用者には表示されません。</p><div style="display:flex;gap:8px;flex-wrap:wrap;margin-top:8px"><button class="btn sm" id="devPass">パス会員を${S.premium?"OFF":"ON"}</button><button class="btn sm paper" id="devData">データを読み込む</button><button class="btn sm paper" id="devP">+1000P</button><button class="btn sm paper" id="devLg">レジェンドを${isLegend()?"OFF":"ON"}</button><button class="btn sm paper" id="devUpd">強制アップデートの画面</button></div><p class="sub">使い方データ（最新20件）：${(S.ev||[]).slice(-20).map(e=>esc(e.n)).join("・")||"なし"}</p>`;
+ $("#devLg").onclick=()=>{if(isLegend()){S.legend=false;save();renderAll()}else applyLocalPurchase(LEGEND.id)};$("#devUpd").onclick=()=>{APPCFG={minVersion:"9.9.9",message:""};showUpdate(true)};
  $("#devPass").onclick=()=>{S.premium=!S.premium;save();renderAll();toast(S.premium?"パス会員ON（開発者用）":"パス会員OFF")};
  $("#devData").onclick=()=>$("#dataFile").click();$("#devP").onclick=()=>{S.p+=1000;save();renderAll()}}
 function openSeason(){ensureSeason();const lv=sLv();const rows=[];for(let i=1;i<=SEASON_T;i++){const f=S.season.free.includes(i),p=S.season.prem.includes(i);
@@ -1674,7 +1792,7 @@ const LOCAL_NOTE='<p class="sub" style="background:#FFF6D6;border:2px solid var(
 function seedComm(){const now=Date.now(),H=36e5;const ids=CH.map(c=>c.id);const ch=i=>ids[i%ids.length]||"";
  const P=(id,name,cat,text,hAgo,extra)=>CM.posts.push(Object.assign({id,uid:"s-"+name,name,title:"",cat,text,ch:"",meta:{},at:now-hAgo*H,day:dayKeyOf(now-hAgo*H),likes:0,replies:0,best:"",hidden:false,sample:1,expireAt:0},extra||{}));
  const Rp=(post,name,text,hAgo,likes,best)=>{const id="sr"+CM.replies.length;CM.replies.push({id,post,uid:"s-"+name,name,text,at:now-hAgo*H,likes:likes||0,best:!!best,hidden:false,sample:1});const p=CM.posts.find(x=>x.id===post);p.replies++;if(best)p.best=id};
- P("s1","リアタイ修行中","質問","リアタイでストレートばかり打たれます。配球のコツってありますか？",1.2,{likes:4});
+ P("s1","リアタイ修行中","質問","リアタイでストレートばかり打たれます。配球のコツってありますか？ #配球",1.2,{likes:4});
  Rp("s1","夜ふかし監督","高めのストレートを見せてから低めの変化球、が基本です。同じ球を3球続けないだけでもかなり変わりますよ",0.9,6,true);
  Rp("s1","純正信者","配信者さんのリアタイ解説動画を見るのが一番早かったです",0.5,2);
  P("s2","鷹党スカウトマン","対戦募集","ルーム戦やりませんか？エンジョイでゆるくやりたいです",0.4,{meta:{rule:"ルーム戦",when:"今から"},expireAt:now+2.6*H,likes:1});
@@ -1684,14 +1802,14 @@ function seedComm(){const now=Date.now(),H=36e5;const ids=CH.map(c=>c.id);const 
  P("s5","夜ふかし監督","配信の感想","昨日の深夜リアタイ耐久、最後の逆転は鳥肌でした",8,{ch:ch(6),likes:12});
  P("s6","はじめて3日目","質問","始めたばかりです。最初にやっておくべきことを教えてください",3,{likes:2});
  P("s7","ひとりベンチ","ガチャ報告","無料分だけで引いたら当たりました",6,{meta:{type:"通常",pulls:10,hits:1},likes:9});
- P("s8","ガチャ運ゼロ","雑談","みんな1日どれくらい遊んでます？",10,{likes:2});
+ P("s8","ガチャ運ゼロ","雑談","みんな1日どれくらい遊んでます？ #新シリーズ",10,{likes:2});P("s12","夜ふかし監督","雑談","新シリーズ誰から育てる？ #新シリーズ",0.8,{likes:3});
  Rp("s8","鷹党スカウトマン","平日は1時間くらいです",9);
  P("s9","リアタイ修行中","配信の感想","配球講座のライブ、メモしながら見ました。明日から試します",12,{ch:ch(18),likes:5});
  P("s10","鷹党スカウトマン","対戦募集","純正同士でリアタイしたいです",26,{meta:{rule:"純正しばり",when:"今夜"},expireAt:now-20*H});
  P("s11","純正信者","オーダー自慢","足の速い選手を上位に固めました",4,{meta:{order:DEF_ORDER.map((pos,i)=>({pos,name:["韋駄天","つなぎ役","主砲A","主砲B","勝負強い人","ベテラン","長距離砲","正捕手","守備職人"][i]})),sp:"エース"},likes:6,week:weekKey()});
  const d=today();CM.polls[d]={counts:pollFor(d).opts.map((_,i)=>hashN(d+i)%40+6),mine:null};CM.polls["y"+d]={counts:pollFor(d,"yakyu").opts.map((_,i)=>hashN("y"+d+i)%50+8),mine:null}}
 /* みんなのタブ：ゲーム実況とプロ野球で中身がちがう */
-const COMM_SEGS={game:[["board","広場"],["poll","お題"],["gacha","ガチャ"],["rank","ランキング"]],yakyu:[["team","ファン掲示板"],["poll","お題"],["rank","ランキング"]]};
+const COMM_SEGS={game:[["board","広場"],["news","速報"],["poll","お題"],["gacha","ガチャ"],["rank","ランキング"]],yakyu:[["team","ファン掲示板"],["news","速報"],["poll","お題"],["rank","ランキング"]]};
 const RANK_MODES={game:[["user","ポイント"],["order","オーダー"],["help","頼れる人"],["oshi","応援票"]],yakyu:[["teams","球団対抗"],["user","ポイント"],["oshi","応援票"]]};
 let SPOSTS=null,cSeg=S.world==="yakyu"?"team":"board",cCat="すべて",commLoaded=0,rMode=S.world==="yakyu"?"teams":"user";
 /* みんなの中の場所へ（その場所がある世界に切りかえてから） */
@@ -1748,7 +1866,7 @@ function fanVoice(c){const ps=allPosts().filter(p=>p.ch===c.id).slice(0,3);
 function renderComm(){if(!CM)cmLoad();const segs=COMM_SEGS[W()];if(!segs.some(x=>x[0]===cSeg))cSeg=segs[0][0];
  const cm=$("#cMode");cm.className=`segtabs n${segs.length}`;cm.innerHTML=segs.map(([k,l])=>`<button data-c="${k}" class="${k===cSeg?"on":""} ${k==="team"?"fan":""}">${l}</button>`).join("");
  cm.querySelectorAll("button").forEach(b=>b.onclick=()=>{cSeg=b.dataset.c;renderComm()});
- ["board","team","poll","gacha","rank"].forEach(k=>$("#c"+k[0].toUpperCase()+k.slice(1)).hidden=k!==cSeg);
+ ["board","team","news","poll","gacha","rank"].forEach(k=>$("#c"+k[0].toUpperCase()+k.slice(1)).hidden=k!==cSeg);
  const waitN=allPosts().filter(waiting).length;const unread=unreadReplies();$("#dotComm").hidden=pollState().done&&!unread;
  if(cSeg==="board"){const cats=["すべて","フォロー中","回答まち","募集中","自分の投稿",...CATS];let list=allPosts().filter(p=>p.cat!=="お題"||cCat==="自分の投稿");
   if(cCat==="回答まち")list=list.filter(waiting);else if(cCat==="自分の投稿")list=list.filter(p=>p.uid===ME());else if(cCat==="募集中")list=list.filter(matchOpen);else if(cCat==="フォロー中")list=(SV&&SV.postsBy?(FOLLOW_POSTS||[]):list.filter(p=>(S.follow||[]).includes(p.uid)));else if(cCat!=="すべて")list=list.filter(p=>p.cat===cCat);
@@ -1760,6 +1878,7 @@ function renderComm(){if(!CM)cmLoad();const segs=COMM_SEGS[W()];if(!segs.some(x=
   $("#newPost").onclick=()=>openComposer({cat:CATS.includes(cCat)?cCat:"質問"});
   $("#catRow").querySelectorAll("[data-cat]").forEach(b=>b.onclick=()=>{cCat=b.dataset.cat;if(cCat==="フォロー中"&&SV&&SV.postsBy){FOLLOW_POSTS=null;followPosts().then(renderComm)}renderComm()});const rl=$("#reloadPosts");if(rl)rl.onclick=fetchPosts}
  else if(cSeg==="team")renderTeamRoom();
+ else if(cSeg==="news")renderNewsView($("#cNews"));
  else if(cSeg==="poll")renderPoll();
  else if(cSeg==="gacha")renderGacha();
  else renderRank();
@@ -1768,8 +1887,8 @@ function renderRank(){const modes=RANK_MODES[W()];if(!modes.some(x=>x[0]===rMode
  rm.innerHTML=modes.map(([k,l])=>`<button data-m="${k}" class="${k===rMode?"on":""}">${l}</button>`).join("");rm.querySelectorAll("button").forEach(b=>b.onclick=()=>{rMode=b.dataset.m;renderRank()});const body=$("#rankBody");
  const table=(rows,unit)=>`<table class="rk" style="margin-top:8px">${rows.map((r,i)=>`<tr class="${r.me?"me":""}"><td class="n">${i+1}</td><td><span style="${r.c?`color:${r.c}`:""}">${esc(r.n)}</span>${r.t?`<span class="title-chip" style="margin-left:6px">${esc(r.t)}</span>`:""}</td><td class="p">${r.p.toLocaleString()}${unit}</td></tr>`).join("")}</table>`;
  if(rMode==="user"){const all=SV&&BOARDS.week?BOARDS.week.map(r=>({n:r.name,p:r.pts,me:r.uid===SV.uid,t:r.title,c:r.color})):SV||!DEMO?[{n:S.name,p:S.week,me:1,t:titleOf(),c:myLook().color}]:[...RIVALS.map(r=>({n:r[0]+"（見本）",p:r[1]})),{n:S.name,p:S.week,me:1,t:titleOf(),c:myLook().color}].sort((a,b)=>b.p-a.p);const my=all.findIndex(r=>r.me)+1;
-  body.innerHTML=`<div class="board" style="padding:12px 14px"><div class="rowsb"><span style="font-size:12px;color:#9FC4B2">今週のあなた</span><span class="led" style="font-size:12px">月曜リセット</span></div><div class="rowsb" style="margin-top:4px"><b class="led" style="font-size:32px;font-weight:400">${S.week.toLocaleString()}P</b><span style="color:#fff;font-size:14px">${my?`${all.length}人中 ${my}位`:SV&&!SV.linked?"Appleでサインインすると載ります":"100位圏外"}</span></div></div>
-  <div class="note tape"><h2 class="h2">週間ポイントランキング</h2>${table(all,"P")}<p class="sub">${SV?"10分ごとに更新。名前が載るのはAppleでサインインした人だけ。":DEMO?"見本のライバルと比べています。":"ランキングはアプリ版から始まります。"}ポイントはアプリの中だけのもので、景品はありません。</p></div>
+  body.innerHTML=`<div class="board" style="padding:12px 14px"><div class="rowsb"><span style="font-size:12px;color:#9FC4B2">今週のあなた</span><span class="led" style="font-size:12px">月曜リセット</span></div><div class="rowsb" style="margin-top:4px"><b class="led" style="font-size:32px;font-weight:400">${S.week.toLocaleString()}P</b><span style="color:#fff;font-size:14px">${my?`${all.length}人中 ${my}位`:SV&&!SV.linked?SIGNIN+"でサインインすると載ります":"100位圏外"}</span></div></div>
+  <div class="note tape"><h2 class="h2">週間ポイントランキング</h2>${table(all,"P")}<p class="sub">${SV?"10分ごとに更新。名前が載るのは"+SIGNIN+"でサインインした人だけ。":DEMO?"見本のライバルと比べています。":"ランキングはアプリ版から始まります。"}ポイントはアプリの中だけのもので、景品はありません。</p></div>
   <div class="note"><h2 class="h2">ポイントのため方</h2><p class="sub" style="margin:0 0 6px">ゲーム実況でもプロ野球でも、同じ財布にたまります。</p><div class="earn"><div><span>毎日ひらく（7日目は+100）</span><b>+20</b></div><div><span>デイリーミッション（1つ・ゲームと野球で3つずつ）</span><b>+30</b></div><div><span>ミッション3つ全部クリア（それぞれ）</span><b>+50</b></div><div><span>今日の1人・今日のチャンネルをチェック</span><b>+10</b></div><div><span>応援票を入れる（1票）</span><b>+2</b></div><div><span>今日のお題に投票（ゲーム・野球それぞれ）</span><b>+10</b></div><div><span>広場・ファン掲示板に投稿・返信（1日3〜5回まで）</span><b>+5</b></div><div><span>試合実況で応援（1日1回）</span><b>+10</b></div><div><span>「参考になった」「いいね」をもらう</span><b>+2</b></div><div><span>ベストアンサーに選ばれる（1日1回）</span><b>+30</b></div><div><span>ガチャ報告（1日1回）</span><b>+5</b></div><div><span>原石スカウトで発掘</span><b>+500</b></div><div><span>2倍タイム（1日1回・30分）</span><b>×2</b></div></div><p class="sub">YouTubeで動画を見たりチャンネル登録したりしても、ポイントは付きません（YouTubeのルール）。</p></div>`}
  else if(rMode==="teams"){const rows=teamHeat().sort((a,b)=>b.n-a.n||TEAMS.indexOf(a.t)-TEAMS.indexOf(b.t));const top=Math.max(1,rows[0].n);const my=rows.findIndex(r=>r.t===S.team)+1;
   body.innerHTML=`<div class="heathero"><span class="hh-k">今週の球団対抗</span><b>${S.team?`${esc(S.team)}は ${my}位`:"応援球団を選ぶと参加できます"}</b><small>ファン掲示板と試合実況に書きこむと、あなたの球団の熱量が上がります（1人1日${HEAT_DAY_MAX}回まで）。月曜リセット</small></div>
@@ -1814,14 +1933,14 @@ function renderGacha(){const list=allPosts().filter(p=>p.cat==="ガチャ報告"
 /* --- 投稿を書く --- */
 const GUIDE=`<ul class="guide"><li>悪口・からかい・差別はしない</li><li>LINE・電話番号・URLなどの連絡先は書かない（書けません）</li><li>アカウントの売買・宣伝・勧誘はしない</li><li>配信者への攻撃や、なりすましはしない</li><li>ゲームの画像や動画を勝手に転載しない（文章で書こう）</li><li>困った投稿は「通報」、見たくない人は「ブロック」</li></ul><p class="sub" style="margin:0">ルールを守らない投稿は、通報が3件集まると自動で見えなくなり、利用停止になることがあります。</p>`;
 function openComposer(pre){if(!S.guideOK){modal(`<div class="h2">広場のルール</div>${GUIDE}<button class="btn tomato wide" id="gOk">守って使う</button><button class="btn paper wide" id="mc">やめる</button>`,x=>{x.querySelector("#mc").onclick=closeModal;x.querySelector("#gOk").onclick=()=>{S.guideOK=1;save();openComposer(pre)}});return}
- if(SV&&!SV.linked){modal(`<div class="h2">Appleでサインイン</div><p class="sub" style="margin:0">広場への投稿・返信は、なりすましや荒らしを防ぐため、Appleでサインインした人だけができます。読むのはだれでもできます。</p>${SV.signIn?'<button class="btn tomato wide" id="si">Appleでサインイン</button>':""}<button class="btn paper wide" id="mc">とじる</button>`,x=>{x.querySelector("#mc").onclick=closeModal;const b=x.querySelector("#si");if(b)b.onclick=()=>SV.signIn().then(()=>{closeModal();act("sync",{})}).catch(()=>{})});return}
+ if(SV&&!SV.linked){modal(`<div class="h2">${SIGNIN}でサインイン</div><p class="sub" style="margin:0">広場への投稿・返信は、なりすましや荒らしを防ぐため、${SIGNIN}でサインインした人だけができます。読むのはだれでもできます。</p>${SV.signIn?`<button class="btn tomato wide" id="si">${SIGNIN}でサインイン</button>`:""}<button class="btn paper wide" id="mc">とじる</button>`,x=>{x.querySelector("#mc").onclick=closeModal;const b=x.querySelector("#si");if(b)b.onclick=()=>SV.signIn().then(()=>{closeModal();act("sync",{})}).catch(()=>{})});return}
  const st=Object.assign({cat:"質問",text:"",ch:"",meta:{}},pre||{});if(st.cat==="対戦募集")st.meta=Object.assign({rule:"リアタイ",when:"今から"},st.meta);if(st.cat==="ガチャ報告")st.meta=Object.assign({type:"通常",pulls:10,hits:0},st.meta);if(st.cat==="オーダー自慢"&&!(st.meta&&st.meta.order))st.meta={order:DEF_ORDER.map(pos=>({pos,name:""})),sp:""};
  const draw=()=>{const chs=CH.filter(c=>genreOf(c)==="game").sort((a,b)=>a.name.localeCompare(b.name,"ja"));
   modal(`<div class="h2">${st.room?`${esc(st.room)}ファンの掲示板に投稿`:"投稿する"}</div>${st.room?'<p class="sub" style="margin:0">見られるのは同じ球団のファンだけです</p>':""}<div class="chiprow">${(st.room?ROOM_CATS:CATS).map(k=>`<button class="${st.cat===k?"on":""}" data-k="${k}">${k}</button>`).join("")}</div>
   ${st.cat==="対戦募集"?`<div class="frow"><label>ルール</label><select class="inp" id="mRule">${MRULES.map(r=>`<option ${st.meta.rule===r?"selected":""}>${r}</option>`).join("")}</select><label>いつ</label><select class="inp" id="mWhen">${MWHEN.map(r=>`<option ${st.meta.when===r?"selected":""}>${r}</option>`).join("")}</select></div><p class="sub" style="margin:0">3時間で自動で締め切り。ゲーム内のルームIDは相手と決めてから伝えてね。</p>`:""}
   ${st.cat==="ガチャ報告"?`<div class="frow"><label>種類</label><select class="inp" id="gType">${GTYPES.map(r=>`<option ${st.meta.type===r?"selected":""}>${r}</option>`).join("")}</select><label>連数</label><input class="inp" id="gPulls" type="number" min="1" max="1000" value="${st.meta.pulls}" style="width:74px"><label>当たり</label><input class="inp" id="gHits" type="number" min="0" max="1000" value="${st.meta.hits}" style="width:62px"></div>`:""}
   ${st.cat==="オーダー自慢"?`<div class="lineup-ed">${st.meta.order.map((x,i)=>`<div><i>${i+1}</i><select class="inp" data-op="${i}">${POSITIONS.map(p=>`<option ${x.pos===p?"selected":""}>${p}</option>`).join("")}</select><input class="inp" data-on="${i}" maxlength="12" placeholder="選手名" value="${esc(x.name)}"></div>`).join("")}<div><i>投</i><span class="sub" style="margin:0;min-width:3em">先発</span><input class="inp" id="oSp" maxlength="12" placeholder="なくてもOK" value="${esc(st.meta.sp)}"></div></div><p class="sub" style="margin:0">いいねが多いオーダーは「今週のベストオーダー」に載ります</p>`:""}
-  <textarea class="ta" id="pText" maxlength="200" placeholder="${{"質問":"困っていること、知りたいこと","オーダー相談":"迷っているポジションや選手のこと（選手名OK）","オーダー自慢":"ひとこと（なくてもOK）","対戦募集":"どんな相手とやりたいか","ガチャ報告":"ひとこと（なくてもOK）","配信の感想":"配信や動画の感想","試合の感想":"今日の試合、どうだった？","選手の話":"推しの選手、気になる若手のこと","観戦・遠征":"球場・遠征・観戦のこと","補強・ドラフト":"補強やドラフトの話"}[st.cat]||"なんでも"}">${esc(st.text)}</textarea>
+  <textarea class="ta" id="pText" maxlength="200" placeholder="${{"質問":"困っていること、知りたいこと","オーダー相談":"迷っているポジションや選手のこと（選手名OK）","オーダー自慢":"ひとこと（なくてもOK）","対戦募集":"どんな相手とやりたいか","ガチャ報告":"ひとこと（なくてもOK）","配信の感想":"配信や動画の感想","試合の感想":"今日の試合、どうだった？","選手の話":"推しの選手、気になる若手のこと","観戦・遠征":"球場・遠征・観戦のこと","補強・ドラフト":"補強やドラフトの話"}[st.cat]||"なんでも"}（#タグ で話題に参加）">${esc(st.text)}</textarea>
   ${TEMPL[st.cat]?`<div class="qr"><button type="button" id="useT">書き方のひな形を入れる</button></div>`:""}
   <div class="rowsb"><select class="inp" id="pCh" style="max-width:62%${st.room?";visibility:hidden":""}"><option value="">配信者のタグ（なし）</option>${chs.map(c=>`<option value="${esc(c.id)}" ${st.ch===c.id?"selected":""}>${esc(c.name)}</option>`).join("")}</select><span class="count" id="pCount">${st.text.length}/200</span></div>
   <button class="btn tomato wide" id="pSend">投稿する</button><button class="btn paper wide" id="mc">やめる</button>`,x=>{
@@ -1932,7 +2051,7 @@ const keepPosts=l=>{(l||[]).forEach(p=>{if(p&&p.id)EXTRA_POSTS[p.id]=p});return 
 const STAMPS=["ナイス！","きたー！","うまい！","ドンマイ","わかる","おつかれ！"],STAMPS_PASS=["確定演出！","鳥肌…","神回！","優勝！"];
 /* サインインが必要なとき（サーバーあり・未サインイン）は案内を出して true を返す */
 function needSignIn(){if(!(SV&&!SV.linked))return false;
- modal(`<div class="h2">Appleでサインイン</div><p class="sub" style="margin:0">書き込みは、なりすましや荒らしを防ぐため、Appleでサインインした人だけができます。読むのはだれでもできます。</p>${SV.signIn?'<button class="btn tomato wide" id="si">Appleでサインイン</button>':""}<button class="btn paper wide" id="mc">とじる</button>`,x=>{x.querySelector("#mc").onclick=closeModal;const b=x.querySelector("#si");if(b)b.onclick=()=>SV.signIn().then(()=>{closeModal();act("sync",{})}).catch(()=>{})});return true}
+ modal(`<div class="h2">${SIGNIN}でサインイン</div><p class="sub" style="margin:0">書き込みは、なりすましや荒らしを防ぐため、${SIGNIN}でサインインした人だけができます。読むのはだれでもできます。</p>${SV.signIn?`<button class="btn tomato wide" id="si">${SIGNIN}でサインイン</button>`:""}<button class="btn paper wide" id="mc">とじる</button>`,x=>{x.querySelector("#mc").onclick=closeModal;const b=x.querySelector("#si");if(b)b.onclick=()=>SV.signIn().then(()=>{closeModal();act("sync",{})}).catch(()=>{})});return true}
 /* 広場のルールに同意していなければ先に見せる */
 function needGuide(then){if(S.guideOK)return false;modal(`<div class="h2">広場のルール</div>${GUIDE}<button class="btn tomato wide" id="gOk">守って使う</button><button class="btn paper wide" id="mc">やめる</button>`,x=>{x.querySelector("#mc").onclick=closeModal;x.querySelector("#gOk").onclick=()=>{S.guideOK=1;save();then()}});return true}
 
@@ -1961,13 +2080,14 @@ function openChat(cf){const vid=cf.vid;
   modal(`<div class="rowsb" style="width:100%">${cf.head}</div>
    <div class="sub" style="margin:0">${cf.sub}</div>${cf.link||""}
    <div class="chatlog" id="chatLog">${msgs}</div>
-   <div class="stamprow2">${(cf.stamps||STAMPS).map(s=>`<button data-stamp="${s}">${s}</button>`).join("")}${(cf.stampsPass||STAMPS_PASS).map(s=>`<button data-stamp="${s}" class="pass" ${S.premium?"":"disabled"} title="スカウトパスのスタンプ">${s}</button>`).join("")}</div>
+   <div class="stamprow2">${(cf.stamps||STAMPS).map(s=>`<button data-stamp="${s}">${s}</button>`).join("")}${(cf.stampsPass||STAMPS_PASS).map(s=>`<button data-stamp="${s}" class="pass ${S.premium?"":"locked"}" title="スカウトパスのスタンプ">${S.premium?"":"🔒"}${s}</button>`).join("")}${Object.entries(PACKS).filter(([id])=>hasPack(id)).flatMap(([,p])=>p.stamps).map(s=>`<button data-stamp="${s}" class="pack">${s}</button>`).join("")}${isLegend()?LEGEND_STAMPS.map(s=>`<button data-stamp="${s}" class="legend">${s}</button>`).join(""):""}<button class="morest" id="moreSt">＋スタンプ</button></div>
    <div class="frow"><input class="inp" id="chatIn" maxlength="60" placeholder="ひとこと（60字まで）" style="flex:1" enterkeyhint="send"><button class="btn sm tomato" id="chatGo">送る</button></div>
    ${LOCAL_ONLY()?LOCAL_NOTE:""}<p class="sub" style="margin:0">${cf.rule}</p>
    <button class="btn paper wide" id="mc">とじる</button>`,x=>{x.querySelector("#mc").onclick=()=>{clearInterval(chatTimer);closeModal()};
    x.querySelector("#chatGo").onclick=()=>say({text:x.querySelector("#chatIn").value.trim()});
    x.querySelector("#chatIn").onkeydown=e=>{if(e.key==="Enter"&&!e.isComposing)say({text:e.target.value.trim()})};
-   x.querySelectorAll("[data-stamp]").forEach(b=>b.onclick=()=>say({stamp:b.dataset.stamp}));
+   x.querySelectorAll("[data-stamp]").forEach(b=>b.onclick=()=>{if(b.classList.contains("locked")){openPaywall("stamp");return}say({stamp:b.dataset.stamp})});
+   x.querySelector("#moreSt").onclick=()=>openPaywall("stamp","packs");
    bindChat();const lg=x.querySelector("#chatLog");lg.scrollTop=1e9},"live"+vid)};
  const bindChat=()=>{const x=$("#mbox");x.querySelectorAll("[data-user]").forEach(b=>b.onclick=()=>openUser(b.dataset.user,b.dataset.uname,cf.reopen));
   x.querySelectorAll("[data-cid]").forEach(b=>b.onclick=()=>moreMenu("chat",b.dataset.cid,b.dataset.cuid,b.dataset.cname,cf.reopen))};
@@ -1975,7 +2095,7 @@ function openChat(cf){const vid=cf.vid;
   if(text){if(text.length>60){toast(ERR["too-long"],1);return}const w=NGW.text(text);if(w){toast(w,1);return}}
   act("liveSay",{vid,text:text||"",stamp:stamp||""},()=>{const c0=cmDay();if(c0.chatAt&&Date.now()-c0.chatAt<5000)return{ok:false,code:"too-fast",reason:"続けて書くときは5秒あけてください"};c0.chatAt=Date.now();
     CM.chats=CM.chats||[];CM.chats.push({id:"mc"+(CM.seq++),vid,ch:cf.ch||"",team:cf.team||"",uid:"me",name:S.name,...myLook(),text:text||"",stamp:stamp||"",at:Date.now(),hidden:false});CM.chats=CM.chats.slice(-2000);cmSave();return{ok:true}},
-   r=>{if(!r||r.ok===false)return;const i=$("#chatIn");if(i&&text)i.value="";if(cf.team){mstat("gchat");if(!SV){mprog("gchat");addHeat();if(S.gbDay!==today()){S.gbDay=today();save();addP(10,"試合実況で応援")}}}else mstat("talk");draw(false).then(()=>{const l=$("#chatLog");if(l)l.scrollTop=1e9})})};
+   r=>{if(!r||r.ok===false)return;track("chat_say",{kind:cf.team?"game":/^t_/.test(vid)?"topic":"live",stamp:stamp?1:0});const i=$("#chatIn");if(i&&text)i.value="";if(cf.team){mstat("gchat");if(!SV){mprog("gchat");addHeat();if(S.gbDay!==today()){S.gbDay=today();save();addP(10,"試合実況で応援")}}}else mstat("talk");draw(false).then(()=>{const l=$("#chatLog");if(l)l.scrollTop=1e9})})};
  clearInterval(chatTimer);draw(true);
  if(SV)chatTimer=setInterval(()=>{if(mKey!=="live"+vid||$("#modal").hidden){clearInterval(chatTimer);return}draw(false)},10000)}
 
@@ -2005,7 +2125,7 @@ function chooseTeam(team,then){const first=!S.team;
 /* 球団ファンの掲示板（コミュニティの中心） */
 let rCat="すべて",rSort="new";
 function seedRoom(team){if(!DEMO||(CM.posts||[]).some(p=>p.room===team))return;const now=Date.now(),H=36e5;
- [["外野席の人","試合の感想","今日の継投ハマってた。8回の三者凡退しびれた",2,14,3],["ライトスタンド民","観戦・遠征","今度はじめて遠征します。球場のおすすめグルメ教えてください",5,6,4],["ベンチ入り","選手の話","若手の守備うまくなってない？毎試合たのしみ",9,21,2],["応援歌おぼえ中","雑談","ファン歴1年目です。よろしくお願いします！",20,11,5],["補強ウォッチャー","補強・ドラフト","ドラフトは即戦力の投手がほしいな",30,8,1]]
+ [["外野席の人","試合の感想","今日の継投ハマってた。8回の三者凡退しびれた #継投",2,14,3],["ライトスタンド民","観戦・遠征","今度はじめて遠征します。球場のおすすめグルメ教えてください",5,6,4],["ベンチ入り","選手の話","若手の守備うまくなってない？毎試合たのしみ #若手",9,21,2],["応援歌おぼえ中","雑談","ファン歴1年目です。よろしくお願いします！",20,11,5],["補強ウォッチャー","補強・ドラフト","ドラフトは即戦力の投手がほしいな",30,8,1]]
   .forEach(([n,cat,t,h,l,r],i)=>CM.posts.push({id:"rm"+TEAMS.indexOf(team)+"_"+i,uid:"s-"+n,name:n,title:"",cat,text:t,ch:"",meta:{},room:team,at:now-h*H,day:dayKeyOf(now-h*H),week:weekKey(),likes:l,replies:r,best:"",hidden:false,sample:1,expireAt:0}));cmSave()}
 function roomTop(t,g){const gs=gameState(g),day=today();
  return`<button class="gmini" id="gameIn" style="--tc:${TEAMC[t]||"#1E1B18"}"><span class="gm-ic">${ICON.ball}</span><span class="gm-mid"><b>${g?`${g.home===t?"":"＠"}vs ${esc(g.home===t?g.away:g.home)}`:`${day.slice(5).replace("-","/")}の実況スレ`}</b><small>${g?`${esc(g.time||"")}${g.place?`・${esc(g.place)}`:""}`:"今日は試合なし・雑談OK"}</small></span><span class="gc-state ${gs.k}">${gs.k==="on"?'<i class="dotlive"></i>':""}${esc(gs.t)}</span><span class="gm-go">試合実況 ▶</span></button>`}
@@ -2132,8 +2252,11 @@ const ART={
    実況タブ：試合実況（応援球団）＋ 配信実況（ライブ）＋ これからの配信
    ===================================================================== */
 /* 試合の状態（開始時刻から）：試合前 / もうすぐ / 試合中 / 試合後 */
-function gameState(g){if(!g||!g.time)return{k:"",t:"今日"};const [h,m]=g.time.split(":").map(Number);const d=new Date(Date.parse(g.day+"T00:00:00+09:00"));const st=d.getTime()+(h*60+m)*6e4,now=Date.now();
- if(now<st-60*6e4)return{k:"pre",t:`${g.time} プレイボール`};if(now<st)return{k:"soon",t:"もうすぐ試合開始"};if(now<st+4*36e5)return{k:"on",t:"試合中"};return{k:"post",t:"試合終了"}}
+/* 試合の状態：NPB公式の結果（status・score）があればそれ。なければ開始時刻から（3時間半を過ぎたら「結果まち」） */
+function gameScore(g){return g&&Array.isArray(g.score)?`${g.home} ${g.score[0]}-${g.score[1]} ${g.away}`:""}
+function gameState(g){if(g&&g.status==="off")return{k:"off",t:"中止"};if(g&&g.status==="end")return{k:"post",t:`試合終了 ${g.score?g.score[0]+"-"+g.score[1]:""}`.trim()};
+ if(!g||!g.time)return{k:"",t:"今日"};const [h,m]=g.time.split(":").map(Number);const d=new Date(Date.parse(g.day+"T00:00:00+09:00"));const st=d.getTime()+(h*60+m)*6e4,now=Date.now();
+ if(now<st-60*6e4)return{k:"pre",t:`${g.time} プレイボール`};if(now<st)return{k:"soon",t:"もうすぐ試合開始"};if(now<st+3.5*36e5)return{k:"on",t:"試合中"};if(now<st+5*36e5)return{k:"late",t:"終盤・結果まち"};return{k:"post",t:"試合終了"}}
 function renderJHero(){const b=$("#jHero");if(!b)return;const lives=chW().filter(c=>c.live);
  if(!isY()){const top=[...lives].sort((a,b)=>b.live.v-a.live.v)[0];const ups=chW().filter(c=>c.up).length;
   b.innerHTML=`${ART.screen("h")}<span class="jh-body"><span class="jh-kicker">${lives.length?'<i class="dotlive"></i>いま配信中':"配信実況"}</span><b class="jh-title">${lives.length?`ライブ配信 ${lives.length}件`:"配信を見ながら実況しよう"}</b><span class="jh-sub">${top?esc(top.name)+"「"+esc(top.live.t.slice(0,18))+"」":ups?`今日の配信予定 ${ups}件`:"配信が始まるとここに出ます"}</span></span><span class="jh-go">ひらく ▶</span>`;
@@ -2151,11 +2274,11 @@ function renderLive(){const box=$("#v-live");if(!box)return;const t=S.team,day=t
  const todays=GAMES.filter(g=>g.day===day);const g=t&&gamesOf(t,day)[0];const gs=gameState(g);
  $("#gameBox").innerHTML=`<div class="lhead"><span class="lic">${ICON.ball}</span><div><h2 class="h2">試合実況</h2><p class="sub" style="margin:0">応援球団のファンだけで、試合を見ながら応援</p></div></div>
   ${t?`<button class="gcard" id="gameGo" style="--tc:${TEAMC[t]||"#1E1B18"}"><span class="gc-top"><span class="gc-team">${esc(t)}</span><span class="gc-state ${gs.k}">${gs.k==="on"?'<i class="dotlive"></i>':""}${esc(gs.t)}</span></span>
-    <span class="gc-match">${g?`<b>${esc(g.home)}</b><i>vs</i><b>${esc(g.away)}</b>`:`<b>${day.slice(5).replace("-","/")}の実況スレ</b>`}</span>
+    <span class="gc-match">${g?`<b>${esc(g.home)}</b><i>${g.score?`${g.score[0]} - ${g.score[1]}`:"vs"}</i><b>${esc(g.away)}</b>`:`<b>${day.slice(5).replace("-","/")}の実況スレ</b>`}</span>
     <span class="gc-info">${g?`${esc(g.time||"")}${g.place?`・${esc(g.place)}`:""}`:"今日は試合の予定がありません（雑談もOK）"}</span>
     <span class="gc-btn">試合実況に入る ▶</span></button><button class="btn paper wide" id="toRoom" style="margin-top:8px">${esc(t)}ファンの掲示板へ</button>`
   :`<div class="gpick"><p class="sub" style="margin:0 0 8px;color:var(--ink)">応援球団を選ぶと、同じ球団のファンだけで試合を実況できます（変更は30日に1回）</p><div class="onb-teams">${TEAMS.map(x=>`<button data-pick="${x}">${x}</button>`).join("")}</div></div>`}
-  ${todays.length?`<div class="gtoday"><div class="sub" style="margin:0 0 4px">今日のプロ野球</div>${todays.map(x=>{const mine=t&&(x.home===t||x.away===t);return`<div class="grow2 ${mine?"mine":""}"><span class="gt">${esc(x.time||"")}</span><span><b>${esc(x.home)}</b> vs <b>${esc(x.away)}</b></span><small>${esc(x.place||"")}</small>${mine?'<span class="gtag">あなたの球団</span>':""}</div>`}).join("")}<p class="unoff" style="margin:4px 0 0;text-align:left">日程：NPB公式サイトの公開情報をもとに自動で作成</p></div>`:""}`;
+  ${todays.length?`<div class="gtoday"><div class="sub" style="margin:0 0 4px">今日のプロ野球</div>${todays.map(x=>{const mine=t&&(x.home===t||x.away===t);return`<div class="grow2 ${mine?"mine":""}"><span class="gt">${x.status==="off"?"中止":x.status==="end"?"終了":esc(x.time||"")}</span><span><b>${esc(x.home)}</b> ${x.score?`<em class="sc">${x.score[0]}-${x.score[1]}</em>`:"vs"} <b>${esc(x.away)}</b></span><small>${esc(x.place||"")}</small>${mine?'<span class="gtag">あなたの球団</span>':""}</div>`}).join("")}<p class="unoff" style="margin:4px 0 0;text-align:left">日程：NPB公式サイトの公開情報をもとに自動で作成</p></div>`:""}`;
  const gg=$("#gameGo");if(gg)gg.onclick=()=>openGame(t);const tr=$("#toRoom");if(tr)tr.onclick=()=>goComm("team");
  $("#gameBox").querySelectorAll("[data-pick]").forEach(b=>b.onclick=()=>chooseTeam(b.dataset.pick));
  // 配信実況
@@ -2271,6 +2394,202 @@ function renderSound(){const b=bgmCfg();const box=$("#soundBox");if(!box)return;
  $("#bgmVol").onchange=()=>save()}
 
 /* =====================================================================
+   課金プラン・速報・運用まわり
+   ・スカウトパス：月額／年額／買い切り（どれも同じ特典）
+   ・レジェンドパス：買い切りだけ（スカウトパスの全部＋レジェンド特典）
+   ・スタンプパック：買い切り（だれでも）
+   ・パス1日体験：広告を1本見ると24時間（7日に1回）
+   どれも「自分の見た目と便利さ」だけ。ランキング・球団対抗・応援票は増えない
+   ===================================================================== */
+const PLANS=[
+ {id:"pass_year",kind:"sub",n:"年額",price:3800,unit:"円/年",sub:"月あたり317円",badge:"いちばんお得"},
+ {id:"pass_month",kind:"sub",n:"月額",price:480,unit:"円/月",sub:"はじめての人は7日間無料",badge:"7日間無料"},
+ {id:"pass_life",kind:"life",n:"買い切り",price:9800,unit:"円",sub:"一度払えばずっと（年額の約2.6年分）",badge:""}];
+const LEGEND={id:"legend_life",n:"レジェンドパス",price:14800,founders:1000};
+const PACKS={pack_ouen:{n:"応援スタンプパック",price:160,stamps:["かっとばせー！","よっしゃー！","ありがとう！","また明日！"]},
+ pack_game:{n:"実況スタンプパック",price:160,stamps:["神引き！","爆死…","リアタイ勝った","完全試合"]}};
+const LEGEND_STAMPS=["レジェンド降臨","伝説の一打","殿堂入り"];
+const THEMES=[["","ふつう"],["night","ナイター"],["gold","ゴールド"],["team","球団カラー"]];
+const isLegend=()=>!!S.legend;
+const hasPack=id=>isLegend()||!!(S.packs||[]).includes(id);
+const trialOn=()=>(S.trialUntil||0)>Date.now();
+/* 体験の期限が切れたら元に戻す（端末内モード） */
+function checkTrial(){if(!SV&&S.trialUntil&&!trialOn()&&S.premium&&!S.plan){S.premium=false;S.trialUntil=0;save();toast("スカウトパスの1日体験が終わりました")}}
+const LEGEND_PERKS=[["スカウトパスの全部がずっと","月額も更新もなし。これから増える特典も"],["レジェンドの称号と番号","「レジェンド No.0042」。早い人ほど若い番号。1000番までは「創設メンバー」"],["動くアイコン枠","キラキラ光るレジェンドだけの枠"],["アプリの着せ替え","ナイター・ゴールド・球団カラー"],["毎月の限定アイテムが全部無料","今月の称号・枠・色を毎月ぜんぶ"],["スタンプパックが全部つく","レジェンドだけのスタンプも"],["Pショップが20%オフ","ポイントで交換するものがぜんぶ2割引き"]];
+/* 課金の画面（どこから開いたかを記録して、改善に使う） */
+function openPaywall(src,tab){track("paywall_view",{src:src||""});const cur=S.plan||"";
+ const planBtn=p=>`<button class="plan ${p.badge==="いちばんお得"?"best":""} ${cur===p.id?"on":""}" data-buy="${p.id}"><span class="pl-n">${p.n}</span>${p.badge?`<span class="pl-b">${p.badge}</span>`:""}<b>${p.price.toLocaleString()}<small>${p.unit}</small></b><small class="pl-s">${p.sub}</small></button>`;
+ const t=tab||"pass";
+ modal(`<div class="paytabs"><button class="${t==="pass"?"on":""}" data-pt="pass">スカウトパス</button><button class="${t==="legend"?"on":""}" data-pt="legend">レジェンド</button><button class="${t==="packs"?"on":""}" data-pt="packs">スタンプ</button></div>
+ ${t==="pass"?`<div class="payhero"><b>スカウトパス</b><span>ゲーム実況もプロ野球も、1つのパスで</span></div>
+  ${S.premium&&S.plan?`<p class="paynow">いま：${esc(planName(S.plan))}</p>`:trialOn()?`<p class="paynow">1日体験中（あと${Math.ceil((S.trialUntil-Date.now())/36e5)}時間）</p>`:""}
+  <div class="plans">${PLANS.map(planBtn).join("")}</div>
+  <ul class="payperks">${PASS_PERKS.flatMap(([g,l])=>l.slice(0,g==="共通"?5:2).map(([a])=>`<li>${a}</li>`)).join("")}</ul>
+  ${!S.premium&&!trialOn()?`<button class="btn paper wide" id="trialAd" ${trialReady()?"":"disabled"}>${trialReady()?"広告を見て24時間だけ体験する":`1日体験は ${trialNext()} からまた使えます`}</button>`:""}`
+ :t==="legend"?`<div class="legendhero"><span class="lg-k">買い切り限定</span><b>レジェンドパス</b><span class="lg-p">${LEGEND.price.toLocaleString()}<small>円</small></span><small>${S.legendSold!=null?`創設メンバーの番号 のこり${Math.max(0,LEGEND.founders-S.legendSold)}`:`No.0001〜${LEGEND.founders}は「創設メンバー」`}</small></div>
+  <ul class="payperks gold">${LEGEND_PERKS.map(([a,b])=>`<li><b>${a}</b><br><small>${b}</small></li>`).join("")}</ul>
+  <div class="lgprev"><span class="av fr-legend" style="background:${TEAMC[S.team]||"#FF5B45"}">${esc((S.name||"ゲ")[0])}</span><span><b>${esc(S.name)}</b><span class="title-chip legend">レジェンド No.${String(S.legendNo||42).padStart(4,"0")}</span></span></div>
+  ${isLegend()?`<p class="paynow">レジェンドパスを持っています（No.${String(S.legendNo||0).padStart(4,"0")}）</p>`:`<button class="btn wide legendbtn" data-buy="${LEGEND.id}">レジェンドパスを買う（${LEGEND.price.toLocaleString()}円）</button>`}
+  <p class="sub" style="margin:0">スカウトパスを持っている人も買えます（月額・年額は、App Storeの設定から解約してください）。</p>`
+ :`<p class="sub" style="margin:0">だれでも買える、実況スレのスタンプです（買い切り）。レジェンドパスには全部ついています。</p>
+  ${Object.entries(PACKS).map(([id,p])=>`<div class="packrow"><div><b>${p.n}</b><div class="packst">${p.stamps.map(s=>`<span>${esc(s)}</span>`).join("")}</div></div>${hasPack(id)?'<span class="chip">持っている</span>':`<button class="btn sm tomato" data-buy="${id}">${p.price}円</button>`}</div>`).join("")}`}
+ <p class="sub" style="margin:0">お支払いは App Store / Google Play。月額・年額は自動更新で、いつでも解約できます。特典はどれも自分の見た目と便利さだけで、ランキング・球団対抗・応援票には影響しません。</p>
+ <div class="paylinks"><button data-legal="terms">利用規約</button><button data-legal="privacy">プライバシー</button>${SV&&SV.restore?'<button id="restore">購入を復元</button>':""}</div>
+ <button class="btn paper wide" id="mc">とじる</button>`,x=>{x.querySelector("#mc").onclick=closeModal;
+  x.querySelectorAll("[data-pt]").forEach(b=>b.onclick=()=>openPaywall(src,b.dataset.pt));
+  x.querySelectorAll("[data-buy]").forEach(b=>b.onclick=()=>buyPlan(b.dataset.buy,src));
+  const ta=x.querySelector("#trialAd");if(ta)ta.onclick=startTrialAd;
+  const rs=x.querySelector("#restore");if(rs)rs.onclick=()=>SV.restore().then(()=>act("sync",{})).then(()=>{toast("購入を復元しました");closeModal()}).catch(()=>toast("復元できませんでした",1))},"pay"+t)}
+const planName=id=>id===LEGEND.id?"レジェンドパス":(PLANS.find(p=>p.id===id)||{n:""}).n?`スカウトパス（${PLANS.find(p=>p.id===id).n}）`:"スカウトパス";
+function buyPlan(id,src){track("purchase_start",{id,src:src||""});
+ if(SV&&SV.purchase){SV.purchase(id).then(()=>act("sync",{})).then(()=>{track("purchase_done",{id});closeModal();celebrate(id)}).catch(()=>toast("購入はキャンセルされました"));return}
+ if(DEV){/* 開発者用：その場で買ったことにする */applyLocalPurchase(id);closeModal();celebrate(id);return}
+ modal(`<div class="h2">アプリ版で買えます</div><p class="sub" style="margin:0;color:var(--ink)">スカウトパス・レジェンドパス・スタンプは、App Store / Google Play 版のアプリから買えます。いまはアプリ版の準備中です。公開したらお知らせします。</p><button class="btn wide" id="mc">とじる</button>`,x=>x.querySelector("#mc").onclick=closeModal)}
+function applyLocalPurchase(id){if(PACKS[id]){S.packs=[...new Set([...(S.packs||[]),id])]}
+ else if(id===LEGEND.id){S.legend=true;S.premium=true;S.plan=S.plan||"pass_life";S.legendNo=S.legendNo||(hashN(S.name+Date.now())%900+42);if(!S.ownTitles.includes(legendTitle()))S.ownTitles.push(legendTitle())}
+ else{S.premium=true;S.plan=id}save();renderAll()}
+const legendTitle=()=>`レジェンド No.${String(S.legendNo||0).padStart(4,"0")}`;
+function celebrate(id){const legend=id===LEGEND.id;pop(legend?"LEGEND!":"ありがとう！");
+ modal(`<div class="celebrate ${legend?"gold":""}">${ART.mascot(96,"wink")}<b>${legend?"レジェンドの仲間入り！":PACKS[id]?"スタンプが増えました！":"スカウトパスへようこそ！"}</b><p>${legend?`あなたは <b>${esc(legendTitle())}</b> です。<br>マイ→Pショップ→「パス会員」で称号・枠・着せ替えをつけられます。`:PACKS[id]?"実況スレのスタンプに追加されました。":"特典はもう使えます。<br>マイ→Pショップ→「パス会員」で見た目をつけよう。"}</p></div><button class="btn tomato wide" id="mc">はじめる</button>`,x=>x.querySelector("#mc").onclick=()=>{closeModal();goTab("my");setMyGroup("points")})}
+/* パス1日体験（広告を1本見る・7日に1回） */
+const trialReady=()=>!S.trialAt||Date.now()-S.trialAt>=7*864e5;
+const trialNext=()=>{const d=new Date((S.trialAt||0)+7*864e5+JST);return`${d.getUTCMonth()+1}/${d.getUTCDate()}`};
+function startTrialAd(){if(!trialReady())return;watchAd("スカウトパス 1日体験","trial",()=>adReward("trial",()=>{S.trialAt=Date.now();S.trialUntil=Date.now()+864e5;S.premium=true;save();closeModal();renderAll();track("trial_start",{});toast("24時間、スカウトパスの特典が使えます！")}))}
+/* 着せ替え（レジェンドだけ） */
+function applyTheme(){const t=isLegend()?(S.theme||""):"";document.body.dataset.theme=t;document.body.style.setProperty("--themec",TEAMC[S.team]||"#1E7A4E")}
+
+/* =====================================================================
+   速報（YouTube の最新動画を話題ごとに。4時間ごとに自動）＋ 話題スレ
+   ===================================================================== */
+let NEWS=[],TOPICS=[],newsTopic="";
+if(DEMO){const t0=Date.now(),H=36e5;TOPICS=[{id:"ohtani",world:"yakyu",label:"大谷翔平"},{id:"npb",world:"yakyu",label:"プロ野球"},{id:"mlbjp",world:"yakyu",label:"日本人メジャー"},{id:"draft",world:"yakyu",label:"ドラフト・移籍"},{id:"psnew",world:"game",label:"新情報"},{id:"psgacha",world:"game",label:"ガチャ"}];
+ [["ohtani","大谷翔平 第2打席でタイムリー！ 今日のハイライト",1.2],["npb","【ハイライト】ロッテ 逆転勝ちで3連勝",2],["ohtani","大谷 今季の全ホームランまとめ",5],["mlbjp","山本由伸 7回無失点の好投",3.5],["npb","阪神 延長戦を制す 試合ダイジェスト",6],["draft","ドラフト注目候補 高校生編",9],["npb","巨人 若手が躍動 二軍戦ダイジェスト",11],["mlbjp","今永昇太 奪三振ショー",14],["psnew","新シリーズ情報まとめ",1.5],["psgacha","新ガチャ 引くべき？",4],["psnew","次回イベント予想",8],["psgacha","無料ガチャの結果",12]]
+  .forEach(([tp,t,h],i)=>NEWS.push({id:"n"+i,title:`【見本】${t}`,ch:"",chName:["野球チャンネル","ハイライト部","プロ野球まとめ","ゲーム速報"][i%4],published:new Date(t0-h*H).toISOString(),topic:tp,world:TOPICS.find(x=>x.id===tp).world,thumb:"",col:COLORS[i%COLORS.length]}))}
+function useNews(d){NEWS=Array.isArray(d.news)?d.news:[];TOPICS=Array.isArray(d.topics)?d.topics:[]}
+const newsW=()=>NEWS.filter(n=>(n.world||"yakyu")===W()).filter(n=>Date.now()-Date.parse(n.published)<7*864e5);
+const topicLabel=id=>(TOPICS.find(t=>t.id===id)||{label:""}).label;
+const newsUrl=n=>n.ch||n.thumb?`https://www.youtube.com/watch?v=${encodeURIComponent(n.id)}`:`https://www.youtube.com/results?search_query=${encodeURIComponent(n.title.replace("【見本】",""))}`;
+function newsThumb(n){const img=n.id&&!/^n\d+$/.test(n.id)?`<img src="https://i.ytimg.com/vi/${encodeURIComponent(n.id)}/mqdefault.jpg" alt="" loading="lazy" referrerpolicy="no-referrer" onerror="this.remove()">`:"";
+ return`<span class="nthumb" style="background:linear-gradient(135deg,${n.col||"#1E7A4E"},#0B1934)">${img}${isFresh(n)?'<span class="nnew">NEW</span>':""}</span>`}
+const isFresh=n=>Date.now()-Date.parse(n.published)<6*36e5;
+const talkN=n=>((CM&&CM.chats)||[]).filter(m=>m.vid==="t_"+n.id&&!m.hidden).length;
+function newsCard(n,small){return`<button class="ncard ${small?"sm":""}" data-news="${esc(n.id)}">${newsThumb(n)}<span class="nbody"><span class="ntop"><span class="ntag">${esc(topicLabel(n.topic)||"速報")}</span><small>${agoTxt(Date.parse(n.published))}</small></span><b>${esc(n.title)}</b><small>${esc(n.chName||"")}・出典 YouTube</small><span class="ntalk">語る${talkN(n)?" "+talkN(n):""} ▶</span></span></button>`}
+function bindNews(root){root.querySelectorAll("[data-news]").forEach(b=>b.onclick=()=>openNews(b.dataset.news))}
+/* 速報の画面：話題のチップ＋一覧 */
+function renderNewsView(box){const tops=TOPICS.filter(t=>t.world===W());const list=newsW().filter(n=>!newsTopic||n.topic===newsTopic);
+ box.innerHTML=`<div class="newshero"><b>${isY()?"野球の速報":"ゲームの速報"}</b><small>YouTube の新しい動画から、4時間ごとに自動で集めています。気になる話題はみんなで語ろう</small></div>
+ <div class="chiprow" data-keepx="1" id="topicRow"><button class="${newsTopic?"":"on"}" data-tp="">すべて</button>${tops.map(t=>`<button class="${newsTopic===t.id?"on":""}" data-tp="${esc(t.id)}">${esc(t.label)}</button>`).join("")}</div>
+ ${renderTrendsHTML()}
+ <div class="nlist">${list.slice(0,40).map(n=>newsCard(n)).join("")||'<div class="note"><p class="sub" style="margin:0">いまは新しい速報がありません。数時間ごとに自動で増えます</p></div>'}</div>
+ <p class="unoff" style="text-align:left">動画の情報：出典 <b style="color:var(--yt)">YouTube</b>。タイトル・サムネイルは YouTube の公開情報です</p>`;
+ box.querySelectorAll("[data-tp]").forEach(b=>b.onclick=()=>{newsTopic=b.dataset.tp;renderNewsView(box)});bindNews(box);bindTrends(box)}
+/* 速報の動画を開く：YouTube で見る＋話題スレ（実況スレと同じしくみ・7日で消える） */
+function openNews(id){const n=NEWS.find(x=>x.id===id);if(!n){toast("この速報は見つかりません",1);return}track("news_open",{topic:n.topic||""});
+ const vid="t_"+n.id;seedTopic(n,vid);
+ openChat({vid,reopen:()=>openNews(id),
+  head:`<div class="h2">話題スレ</div><span class="chip">${esc(topicLabel(n.topic)||"速報")}</span>`,
+  sub:`<span class="nhead">${newsThumb(n)}<span>${esc(n.title)}<small>${esc(n.chName||"")}・${agoTxt(Date.parse(n.published))}・出典 YouTube</small></span></span>`,
+  link:`<a class="btn yt wide" href="${newsUrl(n)}" target="_blank" rel="noopener" data-trk="yt_news">YouTubeで見る</a>`,
+  stamps:isY()?["すごい！","えぐい","さすが！","これは熱い","泣いた","ナイス！"]:STAMPS,stampsPass:isY()?TEAM_STAMPS_PASS:STAMPS_PASS,
+  rule:"選手やチームへの悪口はやめよう。書き込みは7日で消えます。#タグ を付けると「いま話題」に出やすくなります。"})}
+function seedTopic(n,vid){if(!DEMO||(CM.chats||[]).some(m=>m.vid===vid)||hashN(n.id)%3===0)return;CM.chats=CM.chats||[];const now=Date.now();
+ [["外野席の人","これは見たい #"+(topicLabel(n.topic)||"速報").replace(/[・\s]/g,"")],["ライトスタンド民","","すごい！"]].forEach(([nm,t,st],i)=>CM.chats.push({id:"st"+vid+i,vid,uid:"s-"+nm,name:nm,text:t,stamp:st||"",at:now-(3-i)*6e5,hidden:false,sample:1}))}
+
+/* いま話題：アプリの中の書き込み（広場・掲示板・実況・話題スレ）の #タグ と球団名・話題名を数える（YouTube のデータは使わない） */
+function trendWords(){const since=Date.now()-24*36e5;const texts=[];if(!CM)cmLoad();
+ const y=isY();const yPost=p=>!!p.room||p.cat==="野球のお題";
+ (SV&&SPOSTS?SPOSTS:CM.posts).filter(p=>!p.hidden&&p.at>=since&&(!p.room||p.room===S.team)&&yPost(p)===y).forEach(p=>texts.push(p.text||""));
+ (CM.chats||[]).filter(m=>!m.hidden&&m.at>=since).filter(m=>{const n=/^t_/.test(m.vid)&&NEWS.find(x=>"t_"+x.id===m.vid);const wy=m.team?true:n?(n.world!=="game"):false;return wy===y}).forEach(m=>texts.push(m.text||""));
+ const cnt={};const add=w=>{w=w.trim();if(w.length<2||w.length>16)return;cnt[w]=(cnt[w]||0)+1};
+ const dict=[...TEAMS,...TOPICS.map(t=>t.label)];
+ texts.forEach(t=>{(t.match(/[#＃][^\s#＃、。！？!?,]{2,16}/g)||[]).forEach(h=>add("#"+h.slice(1)));dict.forEach(w=>{if(w&&t.includes(w))add(w)})});
+ return Object.entries(cnt).sort((a,b)=>b[1]-a[1]).slice(0,8).map(([w,n])=>({w,n}))}
+function trendsNow(){if(SV&&BOARDS.trends)return BOARDS.trends.filter(r=>!r.world||r.world===W()).slice(0,8);return trendWords()}
+function renderTrendsHTML(){const t=trendsNow();if(!t.length)return"";return`<div class="trends"><span class="tr-h">いま話題</span>${t.map((r,i)=>`<button data-trend="${esc(r.w)}"><i>${i+1}</i>${esc(r.w)}</button>`).join("")}</div>`}
+function bindTrends(root){root.querySelectorAll("[data-trend]").forEach(b=>b.onclick=()=>openTrend(b.dataset.trend))}
+function openTrend(w){track("trend_open",{});const key=w.replace(/^[#＃]/,"");const hit=t=>String(t||"").includes(key);
+ const posts=[...(SV&&SPOSTS?SPOSTS:CM.posts)].filter(p=>!p.hidden&&!blockedSet().has(p.uid)&&(!p.room||p.room===S.team)&&hit(p.text)).sort((a,b)=>b.at-a.at).slice(0,20);
+ const news=NEWS.filter(n=>hit(n.title)||hit(topicLabel(n.topic))).slice(0,6);
+ modal(`<div class="h2">${esc(w)}</div><p class="sub" style="margin:0">この24時間の書き込みでよく出ている話題です</p>
+ ${news.length?`<div class="h2" style="font-size:15px">速報</div><div class="nlist">${news.map(n=>newsCard(n,1)).join("")}</div>`:""}
+ <div class="h2" style="font-size:15px">みんなの投稿</div><div class="posts">${posts.map(p=>postCard(p,1)).join("")||'<p class="sub" style="margin:0">広場・掲示板の投稿はまだありません。実況スレや話題スレで話されています</p>'}</div>
+ <button class="btn tomato wide" id="trPost">この話題で書く</button><button class="btn paper wide" id="mc">とじる</button>`,x=>{x.querySelector("#mc").onclick=closeModal;bindNews(x);
+  x.querySelectorAll("[data-post]").forEach(b=>b.onclick=()=>openPost(b.dataset.post));
+  x.querySelector("#trPost").onclick=()=>isY()&&S.team?openComposer({cat:"雑談",room:S.team,text:w.startsWith("#")?w+" ":"#"+w+" "}):openComposer({cat:"雑談",text:w.startsWith("#")?w+" ":"#"+w+" "})},"trend"+w)}
+/* ホームの速報（3件だけ） */
+function renderHomeNews(){const box=$("#homeNews");if(!box)return;const l=newsW().slice(0,3);
+ box.hidden=!l.length;if(!l.length)return;
+ box.innerHTML=`<div class="rowsb"><h2 class="h2">${isY()?"速報":"ゲーム速報"}</h2><button class="pbtn" id="moreNews">もっと見る ▶</button></div>${renderTrendsHTML()}<div class="nlist" style="margin-top:8px">${l.map(n=>newsCard(n,1)).join("")}</div>`;
+ bindNews(box);bindTrends(box);$("#moreNews").onclick=()=>goComm("news")}
+
+/* =====================================================================
+   次にやること（ホームのいちばん上に1つだけ。説明を読まなくても次がわかる）
+   ===================================================================== */
+function nextAction(){const y=isY(),t=S.team,day=today();
+ if(y){if(!t)return{i:"flag",t:"応援球団をえらぶ",s:"同じファンだけの掲示板と試合実況に入れます",go:()=>goComm("team")};
+  const g=gamesOf(t,day)[0],gs=gameState(g);
+  if(g&&(gs.k==="on"||gs.k==="soon"||gs.k==="late"))return{i:"ball",t:`${t}の試合実況に入る`,s:`${gs.t}・みんなで応援しよう`,go:()=>openGame(t),hot:1};
+  const fresh=newsW().filter(isFresh);if(fresh.length&&S.newsSeen!==fresh[0].id)return{i:"news",t:"新しい速報があります",s:fresh[0].title.replace("【見本】",""),go:()=>{S.newsSeen=fresh[0].id;save();openNews(fresh[0].id)}};
+  if(!pollState("yakyu").done)return{i:"poll",t:"今日の野球のお題に答える",s:"答えると +10P・みんなの結果が見える",go:()=>goComm("poll")};
+  return{i:"pen",t:`${t}ファンの掲示板に書く`,s:"今日の感想・観戦のこと、なんでも",go:()=>openComposer({cat:"雑談",room:t})}}
+ const lv=chW().filter(c=>c.live);if(lv.length)return{i:"live",t:"ライブ中の配信で実況する",s:`${lv.length}件ライブ中・みんなで見よう`,go:()=>goTab("live"),hot:1};
+ if(!pollState("game").done)return{i:"poll",t:"今日のお題に答える",s:"答えると +10P・みんなの結果が見える",go:()=>goComm("poll")};
+ const tp=todayPick();if(tp&&S.t1!==today())return{i:"star",t:"今日の1人をチェック",s:`${tp.name}・チェックで +10P`,go:()=>openCh(tp.id)};
+ return{i:"search",t:"新しい配信者をさがす",s:"ジャンルや球団でしぼれます",go:()=>goTab("search")}}
+const NA_ICON={flag:"🚩",ball:"⚾",news:"📰",poll:"🗳️",pen:"✏️",live:"🔴",star:"⭐",search:"🔍"};
+function renderNextAction(){const b=$("#nextAct");if(!b)return;if(!S.onb){b.hidden=true;return}const a=nextAction();b.hidden=false;
+ b.className=`nextact ${a.hot?"hot":""}`;b.innerHTML=`<span class="na-i">${NA_ICON[a.i]||"▶"}</span><span class="na-m"><small>つぎはこれ</small><b>${esc(a.t)}</b><span>${esc(a.s)}</span></span><span class="na-go">▶</span>`;
+ b.onclick=()=>{track("next_action",{i:a.i});a.go()}}
+
+/* =====================================================================
+   強制アップデート（古いバージョンを止める）
+   本番：Firestore の config/app に {minVersion, latestVersion, message, iosUrl, androidUrl} を置く。
+   サーバーの処理も、アプリが送る版（_v）が minVersion より古ければ "update-required" を返す
+   ===================================================================== */
+function cmpVer(a,b){const x=String(a||"0").split(".").map(Number),y=String(b||"0").split(".").map(Number);for(let i=0;i<3;i++){const d=(x[i]||0)-(y[i]||0);if(d)return d<0?-1:1}return 0}
+let APPCFG=null;
+function checkVersion(cfg){if(!cfg)return;APPCFG=cfg;
+ if(cfg.minVersion&&cmpVer(APP.version,cfg.minVersion)<0){showUpdate(true);return}
+ if(cfg.latestVersion&&cmpVer(APP.version,cfg.latestVersion)<0&&S.updAsk!==today()){S.updAsk=today();save();modalLater(()=>showUpdate(false))}}
+function showUpdate(force){track("update_prompt",{force:force?1:0});lockModal=!!force;const url=storeUrl();
+ modal(`<div class="updbox">${ART.mascot(80,"wink")}<b>${force?"アップデートをお願いします":"新しいバージョンがあります"}</b><p>${esc((APPCFG&&APPCFG.message)||(force?"このバージョンは使えなくなりました。最新のバージョンにすると、つづけて使えます（データはそのまま残ります）。":"新しい機能や直したところがあります。"))}</p></div>
+ ${url?`<a class="btn tomato wide" href="${esc(url)}" target="_blank" rel="noopener">アップデートする</a>`:`<button class="btn tomato wide" id="reload">読み込み直す</button>`}${force?"":'<button class="btn paper wide" id="mc">あとで</button>'}`,x=>{const m=x.querySelector("#mc");if(m)m.onclick=closeModal;const r=x.querySelector("#reload");if(r)r.onclick=()=>location.reload()},"update")}
+function storeUrl(){if(!APPCFG)return"";if(SV&&SV.platform==="android")return APPCFG.androidUrl||"";if(SV)return APPCFG.iosUrl||"";return""}
+
+/* =====================================================================
+   アプリの評価のお願い（うれしい瞬間だけ・OS の仕組みを使う・年3回まで）
+   Apple / Google のルールで、評価と引きかえに何かをあげること・自前の★画面は禁止
+   ===================================================================== */
+function maybeReview(why){S.sessions=S.sessions||0;const days=S.firstDay?(Date.parse(today())-Date.parse(S.firstDay))/864e5:0;
+ if(days<3||S.sessions<5||S.badDay===today())return;if(S.revAt&&Date.now()-S.revAt<120*864e5)return;
+ S.revAt=Date.now();save();track("review_prompt",{why});if(SV&&SV.requestReview){setTimeout(()=>SV.requestReview().catch(()=>{}),800)}}
+/* 設定の「アプリを評価する」（自分から押したとき） */
+function openStoreReview(){const u=storeUrl();if(SV&&SV.openReviewPage){SV.openReviewPage();return}if(u){location.href=u;return}toast("アプリ版の公開後に評価できます")}
+
+/* =====================================================================
+   改善のためのデータ（どの画面・機能が使われたか）。本番は Firebase Analytics に送る
+   送るのは操作の種類だけ。書いた文章・名前・検索した言葉は送らない。設定でオフにできる
+   ===================================================================== */
+function track(name,params){if(S&&S.noTrack)return;const e={n:name,p:params||{},t:Date.now(),w:W()};
+ try{if(SV&&SV.track){SV.track(name,Object.assign({world:e.w},params||{}));return}}catch(_){}
+ S.ev=S.ev||[];S.ev.push(e);if(S.ev.length>300)S.ev=S.ev.slice(-300)}
+document.addEventListener("click",e=>{const a=e.target.closest("a[href*='youtube.com']");if(a)track(a.dataset.trk||"yt_open",{})},true);
+
+/* =====================================================================
+   ご意見・要望（不具合も）。本番はサーバーの feedback に保存し、管理画面で読む
+   ===================================================================== */
+function openFeedback(){const kinds=["不具合","こうしてほしい","使いにくい","その他"];let k=kinds[1];
+ modal(`<div class="h2">ご意見・要望を送る</div><p class="sub" style="margin:0">いただいた声はすべて読んで、アプリの改善に使います（返信はできないことがあります）。</p>
+ <div class="seg" id="fbK">${kinds.map(x=>`<button class="${x===k?"on":""}" data-k="${x}">${x}</button>`).join("")}</div>
+ <textarea class="ta" id="fbT" maxlength="500" placeholder="どの画面で・何が・どうなったか"></textarea>
+ <button class="btn tomato wide" id="fbGo">送る</button><button class="btn paper wide" id="mc">とじる</button>`,x=>{x.querySelector("#mc").onclick=closeModal;
+  x.querySelectorAll("#fbK [data-k]").forEach(b=>b.onclick=()=>{k=b.dataset.k;x.querySelectorAll("#fbK [data-k]").forEach(z=>z.classList.toggle("on",z===b))});
+  x.querySelector("#fbGo").onclick=()=>{const t=x.querySelector("#fbT").value.trim();if(t.length<2){toast("もう少し書いてください",1);return}const w=NGW.text(t);if(w&&!/URL/.test(w)){toast(w,1);return}
+   const meta={v:APP.version,world:W(),ua:(navigator.userAgent||"").slice(0,120)};
+   if(!SV){const body=`【${k}】\n${t}\n\n（${APP.full} ${APP.version}・${W()}）`;location.href=`mailto:${APP.contact}?subject=${encodeURIComponent("【ご意見】"+APP.full)}&body=${encodeURIComponent(body)}`;closeModal();return}
+   act("feedback",{kind:k,text:t,meta},()=>({ok:true}),r=>{if(!r||r.ok===false)return;track("feedback_send",{kind:k});closeModal();toast("送りました。ありがとうございます！")})}},"feedback")}
+
+/* =====================================================================
    配信者・動画
    ===================================================================== */
 function similar(c){return CH.filter(x=>x.id!==c.id&&genreOf(x)===genreOf(c)).map(x=>({x,s:x.tags.filter(t=>c.tags.includes(t)).length*2+(x.team&&x.team===c.team?1:0)})).filter(o=>o.s>0).sort((a,b)=>b.s-a.s).slice(0,4).map(o=>o.x)}
@@ -2371,20 +2690,20 @@ const LEGAL={
  terms:()=>`<div class="h2">利用規約</div><div class="legal"><p class="meta">最終更新：2026年10月（版 ${APP.legalVer}）</p>
   <h3>第1条（このアプリ）</h3><p>この規約は、${esc(APP.operator)}（以下「運営者」）が提供するアプリ「${APP.full}」（以下「本アプリ」）の利用条件を定めます。本アプリは非公式のファンアプリで、ゲームの開発・運営会社、YouTube、プロ野球の各団体とは関係ありません。</p>
   <h3>第2条（YouTube 利用規約への同意）</h3><p>本アプリは YouTube API サービスを利用しています。本アプリを利用することで、利用者は YouTube 利用規約（${A("https://www.youtube.com/t/terms")}）に拘束されることに同意したものとみなします。</p>
-  <h3>第3条（アカウント）</h3><p>本アプリは登録なしで使い始められます。広場への投稿・返信、ランキングへの掲載には、Appleでのサインインが必要です。利用者は自分の端末とアカウントを自分の責任で管理してください。</p>
+  <h3>第3条（アカウント）</h3><p>本アプリは登録なしで使い始められます。広場への投稿・返信、ランキングへの掲載には、Apple または Google でのサインインが必要です。利用者は自分の端末とアカウントを自分の責任で管理してください。</p>
   <h3>第4条（禁止事項）</h3><ul><li>他人への悪口、いやがらせ、差別、脅し</li><li>なりすまし、運営者や配信者を名のること</li><li>連絡先の交換、出会いの勧誘、宣伝、アカウントや物の売買</li><li>ゲームの画像・動画など、他人の権利を侵害する投稿</li><li>複数のアカウントや自動化によるポイント・ランキングの不正</li><li>本アプリやサーバーの運営をさまたげる行為</li><li>法令や公序良俗に反する行為</li></ul>
   <h3>第5条（投稿）</h3><p>投稿の権利は投稿した利用者にあります。利用者は、運営者が本アプリの提供に必要な範囲で投稿を表示・保存することを無償で許諾します。運営者は、禁止事項にあたる投稿や通報が一定数集まった投稿を、予告なく非表示・削除できます。</p>
   <h3>第6条（ポイント・応援票・称号）</h3><p>ポイント・応援票・称号などは本アプリの中だけで使えるもので、お金・景品・他のサービスと交換することはできません。運営者は内容や数値を変更・調整することがあります。不正に得たものは取り消します。</p>
-  <h3>第7条（スカウトパス）</h3><p>スカウトパスは月額の自動更新サブスクリプションで、App Store を通じて購入します。解約は iPhone の「設定」→ 自分の名前 →「サブスクリプション」から、次の更新日の24時間前までに行ってください。返金は Apple の定めに従います。</p>
+  <h3>第7条（有料プラン）</h3><p>有料プランには、スカウトパス（月額・年額の自動更新サブスクリプション、または買い切り）、レジェンドパス（買い切り）、スタンプパック（買い切り）があり、App Store または Google Play を通じて購入します。自動更新の解約は、各ストアの設定から次の更新日の24時間前までに行ってください。無料体験の期間中に解約しなければ、自動で有料に切りかわります。「買い切り」は、本アプリの提供が続くあいだ追加の料金なく使えることをいい、本アプリの提供を終了する場合は第10条に従います。返金は各ストアの定めに従います。有料プランの特典は自分の見た目と便利さに関するもので、ランキング等の結果には影響しません。</p>
   <h3>第8条（利用停止）</h3><p>利用者が本規約に違反したとき、運営者は投稿の削除、機能の制限、アカウントの停止を行うことがあります。</p>
   <h3>第9条（免責）</h3><p>YouTube から取得した情報は、正確さ・最新であることを保証しません。本アプリの利用や利用者どうしのやりとりで生じた損害について、運営者は、運営者に故意または重大な過失がある場合を除き、責任を負いません。</p>
   <h3>第10条（変更・終了）</h3><p>運営者は、本規約や本アプリの内容を変更し、または提供を終了することがあります。重要な変更はアプリ内でお知らせし、同意をお願いします。</p>
   <h3>第11条（準拠法・裁判管轄）</h3><p>本規約は日本法に準拠します。本アプリに関する紛争は、運営者の所在地を管轄する地方裁判所を第一審の専属的合意管轄裁判所とします。</p></div>`,
  privacy:()=>`<div class="h2">プライバシーポリシー</div><div class="legal"><p class="meta">最終更新：2026年10月（版 ${APP.legalVer}）</p>
-  <h3>1. 取得する情報</h3><ul><li>ニックネーム、応援球団、好きなジャンル</li><li>アプリ内の操作の記録（応援票、スカウト、投票、ポイント、ミッション、フォロー）</li><li>広場・球団ファンの掲示板への投稿・返信、実況の書き込み、「参考になった」・通報・ブロックの内容</li><li>Appleでサインインしたときの識別子（メールアドレスは取得しません）</li><li>端末や通信の情報（不正防止のための確認情報をふくむ）</li><li>スカウトパスの購入状況（Apple・RevenueCat から）</li><li>広告の配信・効果測定のための情報（広告識別子は、あなたが許可した場合だけ）</li></ul>
-  <h3>2. 使う目的</h3><p>本アプリの提供（ランキング・広場など）、不正やいやがらせの防止、お問い合わせへの対応、機能の改善、広告の表示、サブスクリプションの管理のために使います。</p>
+  <h3>1. 取得する情報</h3><ul><li>ニックネーム、応援球団、好きなジャンル</li><li>アプリ内の操作の記録（応援票、スカウト、投票、ポイント、ミッション、フォロー）</li><li>広場・球団ファンの掲示板への投稿・返信、実況の書き込み、「参考になった」・通報・ブロックの内容</li><li>Apple・Google でサインインしたときの識別子（メールアドレスは取得しません）</li><li>端末や通信の情報（不正防止のための確認情報をふくむ）</li><li>スカウトパスの購入状況（Apple・RevenueCat から）</li><li>広告の配信・効果測定のための情報（広告識別子は、あなたが許可した場合だけ）</li><li>アプリの使い方の記録（開いた画面・使った機能・アプリのバージョン・不具合の情報）。書いた文章や検索した言葉はふくみません。マイ →「使い方データの送信」でオフにできます</li><li>ご意見・要望フォームに書いた内容</li></ul>
+  <h3>2. 使う目的</h3><p>本アプリの提供（ランキング・広場など）、不正やいやがらせの防止、お問い合わせへの対応、機能の改善（使い方の記録を集計して、使いにくいところを見つける。集計や分析にAIを使うことがあります）、広告の表示、購入の管理のために使います。</p>
   <h3>3. YouTube API サービス</h3><p>本アプリは、配信者や動画の公開情報を表示するために YouTube API サービスを使っています。利用者の YouTube や Google のアカウントにはアクセスしません。Google のプライバシーポリシー：${A("https://policies.google.com/privacy")}。Google アカウントの接続の管理：${A("https://security.google.com/settings/security/permissions")}</p>
-  <h3>4. 外部への送信（利用者情報の外部送信）</h3><ul><li>Google LLC（Firebase）：ログイン、データの保存、不正防止のため。識別子・操作の記録・投稿</li><li>Google LLC（AdMob）：広告の配信・報酬の確認のため。広告識別子（許可した場合）・端末情報</li><li>RevenueCat, Inc.：サブスクリプションの管理のため。購入状況・識別子</li><li>Apple Inc.：サインイン・購入のため</li></ul>
+  <h3>4. 外部への送信（利用者情報の外部送信）</h3><ul><li>Google LLC（Firebase）：ログイン、データの保存、不正防止、使い方の分析（Google Analytics for Firebase）のため。識別子・操作の記録・投稿</li><li>Google LLC（AdMob）：広告の配信・報酬の確認のため。広告識別子（許可した場合）・端末情報</li><li>RevenueCat, Inc.：サブスクリプションの管理のため。購入状況・識別子</li><li>Apple Inc.：サインイン・購入のため</li></ul>
   <h3>5. 第三者への提供</h3><p>法令にもとづく場合を除き、本人の同意なく第三者に個人情報を提供しません。上記の委託先には、目的の範囲内で必要な情報を渡します。</p>
   <h3>6. 保存期間と削除</h3><p>アカウントがあるあいだ保存します（配信・試合の実況の書き込みは7日で自動で消えます）。マイ →「アカウントを削除」から、いつでも削除できます。削除すると、ポイント・スカウト・設定は消え、投稿は「退会したユーザー」として見えなくなります。</p>
   <h3>7. お問い合わせ</h3><p>${esc(APP.operator)}　${esc(APP.contact)}</p></div>`,
@@ -2416,6 +2735,8 @@ if(DATA_URL){/* 前回のデータをすぐ出して、新しいデータが届�
  load();setInterval(load,10*60e3);document.addEventListener("visibilitychange",()=>{if(!document.hidden)load()})}
 else{/* 読み込んだデータは7日で捨てる（YouTube のデータを長く持たない） */try{localStorage.removeItem("tuber-scout-data");const t=localStorage.getItem(DKEY);if(t){const o=JSON.parse(t);if(o&&o.at&&Date.now()-o.at<7*864e5)useData(o.d);else localStorage.removeItem(DKEY)}}catch(_){}}
 if(S.onb&&!S.firstDay){S.firstDay=today();save()}
+S.sessions=(S.sessions||0)+1;save();track("app_open",{s:S.sessions});
+if(SV&&SV.read)SV.read("config/app").then(checkVersion).catch(()=>{});
 if(SV&&!DATA_URL&&DEV)$("#dataBar").textContent="【設定が必要】配信者データのURL（DATA_URL）が未設定です";
 if(!SV&&S.onb)loginLocal();
 refreshScouts();if(!DATA_URL)resolveDP();renderAllNow(); /* DATA_URL があるときは読み込み後（useData の中）で答え合わせ */

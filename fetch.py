@@ -6,6 +6,7 @@
   YT_API_KEY=xxxx python fetch.py --mode live       # 10分ごと: ライブ中・配信予定・新着動画
   YT_API_KEY=xxxx python fetch.py --mode full       # 1時間ごと: 登録者数・動画の再生数・トピック・大台達成
   YT_API_KEY=xxxx python fetch.py --mode discover   # 1日1回: 新しい配信者の候補をさがす（人が確認してから channels.json に追加）
+  YT_API_KEY=xxxx python fetch.py --mode news       # 4時間ごと: 速報（話題ごとの最新動画）を data/news.json に集める
   YT_API_KEY=xxxx python fetch.py --mode seed       # 最初の1回: seed_names.json の名前・@ハンドルから本物のチャンネルを探して
                                                     #   channels.proposed.json を作る（人が確認して不要な行を消す）
   YT_API_KEY=xxxx python fetch.py --mode wide       # プロスピの動画を出しているチャンネルを広く集める（候補づくり。約1,800ユニット）
@@ -20,6 +21,8 @@
   data/candidates.json         … discover で見つかった掲載候補
   data/snap/YYYY-MM-DD.json    … その日の22時台最初の更新での同時視聴者数（「今夜の1位予想」の答え合わせ用）
   data/handles.json            … @ハンドル → チャンネルID の対応（一度調べたら保存）
+  data/news.json               … 速報（話題ごとの最新動画。7日より古いものは消す）
+  data/games_npb.json          … 試合日程と結果（NPB の公開日程ページから）
 
 channels.json には "id"（UC…）か "handle"（@…）のどちらかを書けばよい。
 "genre" は "game"（ゲーム実況・プロスピ）か "fan"（プロ野球の球団ファン）。書かなければ "game"。
@@ -55,6 +58,21 @@ WIDE_MIN_SUBS = 100     # 登録者がこれより少ないチャンネルは候
 FAN_DISCOVER_QUERIES = ["プロ野球 現地観戦", "プロ野球 反省会", "応援歌 現地", "プロ野球 ドラフト 考察", "球場グルメ"]
 FAN_WIDE_QUERIES = ["プロ野球 現地観戦", "プロ野球 反省会", "プロ野球 試合 振り返り", "応援歌 現地", "プロ野球 ドラフト 考察", "プロ野球 ニュース 考察",
                     "球場グルメ", "野球観戦 vlog", "二軍 ファーム 観戦", "プロ野球 順位 予想", "プロ野球 ファン 雑談", "プロ野球 戦力外 補強"]
+
+# ---------- 速報（話題ごとの最新動画） ----------
+# world："yakyu"＝⚾ プロ野球、"game"＝🎮 ゲーム実況。キットの一番上に topics.json（同じ形）を置くと、こちらの代わりに使う
+# search.list は1回100ユニット。6つの話題 × 4時間ごと（1日6回）≈ 3,600ユニット
+NEWS_TOPICS = [
+    {"id": "ohtani", "world": "yakyu", "q": "大谷翔平", "label": "大谷翔平"},
+    {"id": "npb", "world": "yakyu", "q": "プロ野球 ハイライト", "label": "プロ野球"},
+    {"id": "mlb_jp", "world": "yakyu", "q": "山本由伸 OR 佐々木朗希 OR 今永昇太 OR 鈴木誠也", "label": "日本人メジャー"},
+    {"id": "draft", "world": "yakyu", "q": "プロ野球 ドラフト OR 移籍 OR FA", "label": "ドラフト・移籍"},
+    {"id": "prospi_new", "world": "game", "q": "プロスピA 新情報 OR 新シリーズ OR 最新情報", "label": "新情報"},
+    {"id": "prospi_gacha", "world": "game", "q": "プロスピA ガチャ 新", "label": "ガチャ"},
+]
+NEWS_KEEP_DAYS = 7     # 速報は7日で消す（YouTube の規約の30日より短い）
+NEWS_MAX = 120         # 速報の最大件数
+NEWS_HOURS = 48        # 何時間前までの動画をさがすか
 
 
 # ---------------- 通信 ----------------
@@ -329,14 +347,64 @@ def parse_npb_schedule(html, year):
         if dm:
             try: cur = dt.date(year, int(dm.group(1)), int(dm.group(2)))
             except ValueError: cur = None
-        m = re.search(rf"({_TEAMS_RE})\s*(?:\d+\s*)?[-－―ー–]\s*(?:\d+\s*)?({_TEAMS_RE})", text)
-        if not (cur and m) or m.group(1) == m.group(2):
+        m = re.search(rf"({_TEAMS_RE})\s*(?:(\d+)\s*)?[-－―ー–]\s*(?:(\d+)\s*)?({_TEAMS_RE})", text)
+        if not (cur and m) or m.group(1) == m.group(4):
             continue
         tm = re.search(r"([^\s|｜\d][^|｜]*?)\s*(\d{1,2}:\d{2})", text[m.end():])
         place, time = (tm.group(1).strip()[-12:], tm.group(2).zfill(5)) if tm else ("", "")
-        out.append({"day": cur.isoformat(), "time": time, "home": m.group(1), "away": m.group(2), "place": place,
-                    "off": "中止" in text or "延期" in text})
+        off = "中止" in text or "延期" in text
+        g = {"day": cur.isoformat(), "time": time, "home": m.group(1), "away": m.group(4), "place": place, "off": off}
+        # 状態：off＝中止・延期、end＝終わった（点数あり）、""＝まだ・わからない
+        if off:
+            g["status"] = "off"
+        elif m.group(2) and m.group(3):
+            g["status"], g["score"] = "end", [int(m.group(2)), int(m.group(3))]  # [ホームの点, ビジターの点]
+        else:
+            g["status"] = ""
+        out.append(g)
     return out
+
+
+def merge_today_games(old, fresh, days):
+    """old の試合のうち、fresh と同じ日・ホーム・ビジターのものを fresh で置きかえる（days の日の fresh だけ使う）"""
+    fresh = [g for g in fresh if g["day"] in days]
+    key = lambda g: (g["day"], g["home"], g["away"])
+    new = {key(g) for g in fresh}
+    out = [g for g in old if key(g) not in new] + fresh
+    return sorted(out, key=lambda g: (g["day"], g.get("time", ""), g["home"]))
+
+
+def need_today_games(now_jst, today_at):
+    """13時〜23時台で、前に読んでから20分以上たっていれば True"""
+    if not (13 <= now_jst.hour <= 23):
+        return False
+    if not today_at:
+        return True
+    try:
+        last = dt.datetime.fromisoformat(today_at)
+    except ValueError:
+        return True
+    return now_jst - last >= dt.timedelta(minutes=20)
+
+
+def mode_today_games(now_jst=None):
+    """今月の日程ページだけ読んで、昨日・今日の試合（結果・中止）を data/games_npb.json に入れる"""
+    now_jst = now_jst or dt.datetime.now(JST)
+    path = os.path.join(DATA, "games_npb.json")
+    cur = load(path, {})
+    if not need_today_games(now_jst, cur.get("todayAt")):
+        return False
+    cur["todayAt"] = now_jst.isoformat(timespec="minutes")  # 失敗しても20分は読み直さない
+    today = now_jst.date()
+    try:
+        html = get(NPB_URL.format(y=today.year, m=today.month), as_json=False).decode("utf-8", "replace")
+        fresh = parse_npb_schedule(html, today.year)
+        days = {today.isoformat(), (today - dt.timedelta(days=1)).isoformat()}
+        cur["games"] = merge_today_games(cur.get("games", []), fresh, days)
+    except Exception as e:
+        print("今日の試合を読めませんでした", e, file=sys.stderr)
+    dump(path, cur)
+    return True
 
 
 def mode_schedule(_seeds=None):
@@ -357,15 +425,32 @@ def mode_schedule(_seeds=None):
         print(f"試合日程：{len(keep)}試合")
 
 
+def game_row(g):
+    """アプリに出す形：day,time,home,away,place,status と、終わった試合だけ score"""
+    st = g.get("status") or ("off" if g.get("off") else "")
+    row = {k: g.get(k, "") for k in ("day", "time", "home", "away", "place")}
+    row["status"] = st
+    if st == "end" and g.get("score"):
+        row["score"] = list(g["score"])
+    return row
+
+
 def upcoming_games(today, days=7):
-    """自動の日程（NPB）に、games.csv の手入力を上書きで足す（同じ日・同じ球団は手入力を優先）"""
-    auto = [g for g in load(os.path.join(DATA, "games_npb.json"), {}).get("games", []) if not g.get("off")]
-    auto = [g for g in auto if 0 <= (dt.date.fromisoformat(g["day"]) - today).days < days]
+    """自動の日程（NPB）に、games.csv の手入力を上書きで足す（同じ日・同じ球団は手入力を優先）
+    昨日から7日先まで。中止の試合・終わった試合の点数も出す"""
+    auto = load(os.path.join(DATA, "games_npb.json"), {}).get("games", [])
+    auto = [g for g in auto if -1 <= (dt.date.fromisoformat(g["day"]) - today).days < days]
     manual, _ = read_games(os.path.join(HERE, "games.csv"), today, days)
     key = lambda g: (g["day"], g["home"])
-    merged = {key(g): {k: g[k] for k in ("day", "time", "home", "away", "place")} for g in auto}
+    merged = {key(g): game_row(g) for g in auto}
     for g in manual:
-        merged[key(g)] = g
+        a = merged.get(key(g))
+        row = dict(g, status="")
+        if a and a["away"] == g["away"]:  # 同じ試合なら、自動で分かった結果・中止はそのまま使う
+            row["status"] = a["status"]
+            if "score" in a:
+                row["score"] = a["score"]
+        merged[key(g)] = row
     return sorted(merged.values(), key=lambda g: (g["day"], g["time"]))
 
 
@@ -512,6 +597,111 @@ def prune_old(today):
                 os.remove(os.path.join(SNAP, fn))
 
 
+# ---------------- 速報 ----------------
+def load_topics():
+    """topics.json があればそれを使う（形がおかしい行は使わない）。なければ NEWS_TOPICS"""
+    rows = load(os.path.join(HERE, "topics.json"), None)
+    if isinstance(rows, list):
+        ok = []
+        for t in rows:
+            if not isinstance(t, dict) or t.get("world") not in ("game", "yakyu"):
+                continue
+            if all(isinstance(t.get(k), str) and t.get(k) for k in ("id", "q", "label")):
+                ok.append({k: t[k] for k in ("id", "world", "q", "label")})
+        if ok:
+            return ok
+        print("topics.json が読めないので、ふつうの話題を使います", file=sys.stderr)
+    return [dict(t) for t in NEWS_TOPICS]
+
+
+def parse_time(s):
+    """YouTube の時刻（…Z）を datetime にする。読めなければ None"""
+    try:
+        return dt.datetime.fromisoformat(str(s).replace("Z", "+00:00"))
+    except ValueError:
+        return None
+
+
+def api_news_videos(ids):
+    """videos.list（50件で1ユニット）：速報に出すもの（タイトル・チャンネル名・サムネイル・公開時刻）だけ取る"""
+    out = {}
+    for part in chunks(ids):
+        res = get(API + "videos", {"part": "snippet,contentDetails", "id": ",".join(part), "maxResults": 50})
+        for it in res.get("items", []):
+            sn = it["snippet"]
+            th = sn.get("thumbnails", {})
+            thumb = (th.get("medium") or th.get("high") or th.get("default") or {}).get("url", "")
+            out[it["id"]] = {"id": it["id"], "title": sn.get("title", ""), "ch": sn.get("channelId", ""),
+                             "chName": sn.get("channelTitle", ""), "published": sn.get("publishedAt", ""), "thumb": thumb}
+    return out
+
+
+def merge_news(prev, fresh, topics, blocked, now, keep_days=NEWS_KEEP_DAYS, limit=NEWS_MAX):
+    """新しく見つかった動画（fresh）と前回の速報（prev）を合わせる。
+    同じ動画は1つにまとめ、最初の話題を topic、全部の話題を topics に入れる。
+    外した人（blocked）・7日より古いもの・今の話題にないものは消す。新しい順に最大 limit 件"""
+    world = {t["id"]: t["world"] for t in topics}
+    by = {}
+    for v in list(fresh) + list(prev):
+        tps = v.get("topics") or [v.get("topic")]
+        cur = by.get(v["id"])
+        if cur is None:
+            by[v["id"]] = cur = dict(v, topics=[])
+        for t in tps:
+            if t and t not in cur["topics"]:
+                cur["topics"].append(t)
+    since = now - dt.timedelta(days=keep_days)
+    out = []
+    for v in by.values():
+        tps = [t for t in v["topics"] if t in world]
+        pub = parse_time(v.get("published"))
+        if not tps or v.get("ch") in blocked or pub is None or pub < since:
+            continue
+        top = v.get("topic") if v.get("topic") in tps else tps[0]
+        out.append(dict(v, topic=top, topics=tps, world=world[top]))
+    out.sort(key=lambda v: parse_time(v["published"]), reverse=True)
+    return out[:limit]
+
+
+def mode_news(now=None):
+    """話題ごとに新しい動画をさがして data/news.json に入れる（前回の分と合わせるので、見つからない回があっても空にならない）"""
+    now = now or dt.datetime.now(dt.timezone.utc)
+    topics = load_topics()
+    since = (now - dt.timedelta(hours=NEWS_HOURS)).strftime("%Y-%m-%dT%H:%M:%SZ")
+    found = []
+    for t in topics:  # search.list は1回100ユニット
+        p = {"part": "snippet", "q": t["q"], "type": "video", "order": "date", "regionCode": "JP",
+             "relevanceLanguage": "ja", "publishedAfter": since, "maxResults": 15}
+        try:
+            res = get(API + "search", p)
+        except Exception as e:
+            print("速報をさがせませんでした", t["id"], e, file=sys.stderr)
+            continue
+        ids = [it["id"]["videoId"] for it in res.get("items", []) if it.get("id", {}).get("videoId")]
+        found.append((t, ids))
+    all_ids = list(dict.fromkeys(i for _, ids in found for i in ids))
+    vids = api_news_videos(all_ids) if all_ids else {}
+    fresh = [dict(vids[i], topic=t["id"]) for t, ids in found for i in ids if i in vids]
+    path = os.path.join(DATA, "news.json")
+    prev = load(path, {}).get("items", [])
+    blocked = set(load(os.path.join(HERE, "blocked.json"), []))
+    items = merge_news(prev, fresh, topics, blocked, now)
+    dump(path, {"updated": dt.datetime.now(JST).isoformat(timespec="minutes"), "items": items})
+    print(f"速報：{len(items)}件（今回見つかった {len(fresh)}件）")
+
+
+def news_for_app(now=None):
+    """latest.json に入れる速報（7日以内・アプリに出す項目だけ）"""
+    now = now or dt.datetime.now(dt.timezone.utc)
+    since = now - dt.timedelta(days=NEWS_KEEP_DAYS)
+    out = []
+    for v in load(os.path.join(DATA, "news.json"), {}).get("items", []):
+        pub = parse_time(v.get("published"))
+        if pub is not None and pub >= since:
+            out.append({k: v.get(k, "") for k in ("id", "title", "ch", "chName", "published", "topic", "world", "thumb")})
+    return out
+
+
 # ---------------- 各モード ----------------
 def build_latest(seed_list=None):
     """アプリが読む latest.json を作る（YouTube の公開値をそのまま並べるだけ）"""
@@ -542,7 +732,9 @@ def build_latest(seed_list=None):
         "channels": sorted(chans, key=lambda c: -c.get("subs", 0)),
         "videos": sorted(videos.values(), key=lambda v: v["published"], reverse=True)[:300],
         "pr": load(os.path.join(HERE, "pr.json"), {}).get("id", ""),  # PR枠（{"id": "UC…"} を置くと表示）
-        "games": upcoming_games(today_jst()),  # これから7日の試合日程（NPBの公開日程から自動＋games.csv の手入力）
+        "games": upcoming_games(today_jst()),  # 昨日から7日先の試合（NPBの公開日程から自動＋games.csv の手入力）。結果・中止つき
+        "news": news_for_app(),  # 速報（7日以内）
+        "topics": [{k: t[k] for k in ("id", "world", "label")} for t in load_topics()],
     }
     dump(os.path.join(DATA, "latest.json"), out)
     print(f"latest.json: {len(chans)} channels, {len(out['videos'])} videos, {len(live['live'])} live")
@@ -568,6 +760,10 @@ def mode_live(seeds):
     recent = [v for v in vids.values() if v["state"] == "none" and shown(v, al, fi)]
     dump(os.path.join(DATA, "live.json"), {"live": live, "upcoming": upcoming, "recent": recent})
     take_snapshot(live, dt.datetime.now(JST))
+    try:  # 試合の時間帯だけ、今日の試合の結果・中止を20分ごとに読み直す（失敗しても live は止めない）
+        mode_today_games()
+    except Exception as e:
+        print("今日の試合の更新に失敗", e, file=sys.stderr)
 
 
 def take_snapshot(live, now_jst):
@@ -803,7 +999,7 @@ def merge_proposed():
 # ---------------- selftest ----------------
 def selftest():
     import tempfile
-    global DATA, SNAP
+    global DATA, SNAP, HERE, get
     today = dt.date(2026, 9, 24)
     assert is_related("【プロスピA】x") and not is_related("雑談")
     assert shown({"ch": "A", "title": "リアタイ10連勝"}, {"A"}) and not shown({"ch": "B", "title": "リアタイ10連勝"}, {"A"})
@@ -827,10 +1023,45 @@ def selftest():
 <tr><td>ロッテ - 日本ハム</td><td>ZOZOマリン 18:00</td></tr>
 <tr><td>10/2（金）</td><td>ソフトバンク 3 - 2 西武</td><td>みずほPayPay 18:00</td><td>中止</td></tr>
 <tr><td>10/3（土）</td><td>DeNA - 中日</td><td>横浜 14:00</td></tr>
+<tr><td>10/4（日）</td><td>楽天 5 - 1 オリックス</td><td>楽天モバイル 13:00</td></tr>
 <tr><td>10/8（木）</td><td>セ・CSファーストS</td><td></td></tr></table>"""
     g = parse_npb_schedule(html, 2026)
-    assert [(x["day"], x["home"], x["away"], x["time"]) for x in g] == [("2026-10-01", "阪神", "巨人", "18:00"), ("2026-10-01", "ロッテ", "日本ハム", "18:00"), ("2026-10-02", "ソフトバンク", "西武", "18:00"), ("2026-10-03", "DeNA", "中日", "14:00")], g
+    got = [(x["day"], x["home"], x["away"], x["time"]) for x in g]
+    assert got[:3] == [("2026-10-01", "阪神", "巨人", "18:00"), ("2026-10-01", "ロッテ", "日本ハム", "18:00"), ("2026-10-02", "ソフトバンク", "西武", "18:00")], g
+    assert got[3:] == [("2026-10-03", "DeNA", "中日", "14:00"), ("2026-10-04", "楽天", "オリックス", "13:00")], g
     assert g[0]["place"] == "甲子園" and g[1]["place"] == "ZOZOマリン" and g[2]["off"] is True
+    assert g[2]["status"] == "off" and "score" not in g[2], "中止の試合は点数を付けない"
+    assert g[4]["status"] == "end" and g[4]["score"] == [5, 1] and g[4]["off"] is False, g[4]
+    assert g[0]["status"] == "" and "score" not in g[0] and g[3]["status"] == ""
+    assert g[4]["place"] == "楽天モバイル", g[4]
+    # 今日の試合の読み直し
+    old_g = [{"day": "2026-10-04", "time": "13:00", "home": "楽天", "away": "オリックス", "place": "x", "off": False, "status": ""},
+             {"day": "2026-10-05", "time": "18:00", "home": "巨人", "away": "中日", "place": "東京ドーム", "off": False, "status": ""}]
+    mg = merge_today_games(old_g, g, {"2026-10-04"})
+    assert [(x["day"], x["home"], x["status"]) for x in mg] == [("2026-10-04", "楽天", "end"), ("2026-10-05", "巨人", "")], mg
+    t0 = dt.datetime(2026, 10, 4, 18, 0, tzinfo=JST)
+    assert need_today_games(t0, None) and need_today_games(t0, "こわれた")
+    assert not need_today_games(dt.datetime(2026, 10, 4, 12, 59, tzinfo=JST), None), "13時前は読まない"
+    assert not need_today_games(t0, "2026-10-04T17:45+09:00") and need_today_games(t0, "2026-10-04T17:40+09:00")
+    assert game_row({"day": "d", "time": "", "home": "a", "away": "b", "place": "", "off": True}) == {"day": "d", "time": "", "home": "a", "away": "b", "place": "", "status": "off"}
+    assert game_row(g[4])["score"] == [5, 1] and "off" not in game_row(g[4]) and "score" not in game_row(g[2])
+    # 速報
+    now = dt.datetime(2026, 10, 4, 12, 0, tzinfo=dt.timezone.utc)
+    tps = [{"id": "a", "world": "yakyu"}, {"id": "b", "world": "game"}]
+    fr = [{"id": "v1", "ch": "C1", "published": "2026-10-04T10:00:00Z", "topic": "a"},
+          {"id": "v1", "ch": "C1", "published": "2026-10-04T10:00:00Z", "topic": "b"},
+          {"id": "v2", "ch": "BAD", "published": "2026-10-04T11:00:00Z", "topic": "a"},
+          {"id": "v3", "ch": "C3", "published": "2026-10-04T11:30:00Z", "topic": "b"}]
+    pv = [{"id": "v4", "ch": "C4", "published": "2026-10-01T00:00:00Z", "topic": "a", "topics": ["a"], "world": "yakyu"},
+          {"id": "v5", "ch": "C5", "published": "2026-09-20T00:00:00Z", "topic": "a", "topics": ["a"], "world": "yakyu"},
+          {"id": "v6", "ch": "C6", "published": "2026-10-03T00:00:00Z", "topic": "gone", "topics": ["gone"], "world": "yakyu"},
+          {"id": "v3", "ch": "C3", "published": "2026-10-04T11:30:00Z", "topic": "a", "topics": ["a"], "world": "yakyu"}]
+    nw = merge_news(pv, fr, tps, {"BAD"}, now)
+    assert [v["id"] for v in nw] == ["v3", "v1", "v4"], nw
+    assert nw[1]["topic"] == "a" and nw[1]["topics"] == ["a", "b"] and nw[1]["world"] == "yakyu", nw[1]
+    assert nw[0]["topic"] == "b" and nw[0]["topics"] == ["b", "a"] and nw[0]["world"] == "game", "今回見つかった話題を先に"
+    assert len(merge_news([], fr[:1] * 3 + fr[3:], tps, set(), now, limit=1)) == 1
+    assert parse_time("2026-10-04T10:00:00Z").hour == 10 and parse_time("x") is None
     assert auto_tags(["【プロスピA】リアタイ", "リアタイ最強", "無課金ガチャ", "ガチャ100連"]) == ["リアタイ", "ガチャ"]
     assert auto_streamer(["【生配信】プロスピ", "参加型ライブ"]) and not auto_streamer(["解説"])
     ok_titles = ["【プロスピA】a"] * 12 + ["x"] * 3
@@ -866,7 +1097,7 @@ def selftest():
     assert [(c["id"], c["genre"]) for c in both] == [("B", "game"), ("F1", "fan")], both
     q = discover_queries(dt.date(2026, 9, 24))
     assert len(q) == 12 and sum(1 for _, g in q if g == "fan") == 6 and q[-1][0].endswith("ファン"), q
-    old, old_s = DATA, SNAP
+    old, old_s, old_here = DATA, SNAP, HERE
     DATA = tempfile.mkdtemp(); SNAP = os.path.join(DATA, "snap")
     try:
         live = [{"ch": "A", "viewers": 300}, {"ch": "B", "viewers": None}]
@@ -884,14 +1115,65 @@ def selftest():
         lj = load(os.path.join(DATA, "latest.json"), {})
         assert {c["id"]: c["genre"] for c in lj["channels"]} == {"UC1": "game", "UC2": "fan"}, lj["channels"]
         assert [c for c in lj["channels"] if c["id"] == "UC2"][0]["tags"] == ["応援"]
+        assert lj["news"] == [] and [t["id"] for t in lj["topics"]] == [t["id"] for t in NEWS_TOPICS]
+        assert set(lj["topics"][0]) == {"id", "world", "label"}
+        # topics.json で話題を変える（形がおかしい行は使わない）
+        HERE = DATA
+        dump(os.path.join(HERE, "topics.json"), [{"id": "x", "world": "yakyu", "q": "q", "label": "L"}, {"id": "y", "world": "?", "q": "q", "label": "L"}, "z"])
+        assert load_topics() == [{"id": "x", "world": "yakyu", "q": "q", "label": "L"}]
+        dump(os.path.join(HERE, "topics.json"), [{"id": "", "world": "game"}])
+        assert load_topics() == NEWS_TOPICS, "使える行がなければふつうの話題"
+        os.remove(os.path.join(HERE, "topics.json"))
+        # 速報を latest.json に入れる（7日以内・決まった項目だけ）
+        nowu = dt.datetime.now(dt.timezone.utc)
+        rec = (nowu - dt.timedelta(hours=3)).strftime("%Y-%m-%dT%H:%M:%SZ")
+        old8 = (nowu - dt.timedelta(days=8)).strftime("%Y-%m-%dT%H:%M:%SZ")
+        n1 = {"id": "v1", "title": "t", "ch": "C", "chName": "n", "published": rec, "topic": "ohtani", "topics": ["ohtani"], "world": "yakyu", "thumb": "u"}
+        dump(os.path.join(DATA, "news.json"), {"items": [n1, dict(n1, id="v2", published=old8)]})
+        nf = news_for_app()
+        assert [v["id"] for v in nf] == ["v1"] and set(nf[0]) == {"id", "title", "ch", "chName", "published", "topic", "world", "thumb"}, nf
+        # 試合：昨日の結果・中止も出す。手入力が優先だが、同じ試合なら結果は残す
+        td = today_jst()
+        d = lambda n: (td + dt.timedelta(days=n)).isoformat()
+        auto = [{"day": d(-2), "time": "18:00", "home": "阪神", "away": "巨人", "place": "", "off": False, "status": "end", "score": [1, 0]},
+                {"day": d(-1), "time": "18:00", "home": "ロッテ", "away": "西武", "place": "", "off": False, "status": "end", "score": [3, 2]},
+                {"day": d(0), "time": "18:00", "home": "広島", "away": "中日", "place": "", "off": True},
+                {"day": d(0), "time": "18:00", "home": "楽天", "away": "オリックス", "place": "", "status": "end", "score": [4, 4]},
+                {"day": d(1), "time": "18:00", "home": "DeNA", "away": "ヤクルト", "place": ""}]
+        dump(os.path.join(DATA, "games_npb.json"), {"games": auto})
+        with open(os.path.join(HERE, "games.csv"), "w", encoding="utf-8") as f:
+            f.write(f"{d(0)},14:00,楽天,オリックス,楽天モバイル\n{d(1)},13:00,DeNA,巨人,横浜\n")
+        ug = upcoming_games(td)
+        assert [(x["day"], x["home"]) for x in ug] == [(d(-1), "ロッテ"), (d(0), "楽天"), (d(0), "広島"), (d(1), "DeNA")], ug
+        assert ug[0]["status"] == "end" and ug[0]["score"] == [3, 2] and ug[2]["status"] == "off" and "score" not in ug[2]
+        assert ug[1]["time"] == "14:00" and ug[1]["status"] == "end" and ug[1]["score"] == [4, 4], ug[1]
+        assert ug[3]["away"] == "巨人" and ug[3]["status"] == "" and "score" not in ug[3], ug[3]
+        assert all(set(x) <= {"day", "time", "home", "away", "place", "status", "score"} and "status" in x for x in ug), ug
+        # 今日の試合の読み直し（通信はせず、日程ページの代わりに html を返す）
+        old_get = get
+        html_today = f"<table><tr><td>{td.month}/{td.day}</td><td>広島 2 - 1 中日</td><td>マツダ 18:00</td></tr></table>"
+        get = lambda url, params=None, as_json=True: html_today.encode("utf-8")
+        try:
+            dump(os.path.join(DATA, "games_npb.json"), {"games": auto})
+            t1 = dt.datetime.combine(td, dt.time(21, 0), JST)
+            assert mode_today_games(t1) is True
+            gj = load(os.path.join(DATA, "games_npb.json"), {})
+            hs = [x for x in gj["games"] if x["home"] == "広島"]
+            assert len(hs) == 1 and hs[0]["status"] == "end" and hs[0]["score"] == [2, 1] and len(gj["games"]) == len(auto), gj
+            assert mode_today_games(t1 + dt.timedelta(minutes=10)) is False, "20分以内は読まない"
+            get = lambda *a, **k: (_ for _ in ()).throw(OSError("x"))
+            assert mode_today_games(t1 + dt.timedelta(minutes=30)) is True, "失敗しても止まらない"
+            assert len(load(os.path.join(DATA, "games_npb.json"), {})["games"]) == len(auto)
+        finally:
+            get = old_get
     finally:
-        DATA, SNAP = old, old_s
+        DATA, SNAP, HERE = old, old_s, old_here
     print("selftest ok")
 
 
 def main():
     ap = argparse.ArgumentParser()
-    ap.add_argument("--mode", choices=["live", "full", "discover", "seed", "wide", "schedule"])
+    ap.add_argument("--mode", choices=["live", "full", "discover", "seed", "wide", "schedule", "news"])
     ap.add_argument("--genre", choices=["game", "fan"], default="game", help="--mode wide で集めるジャンル（game＝ゲーム実況、fan＝プロ野球の球団ファン）")
     ap.add_argument("--selftest", action="store_true")
     ap.add_argument("--merge-proposed", action="store_true")
@@ -910,6 +1192,9 @@ def main():
     if a.mode == "wide":
         return mode_wide(seeds, a.genre)
     seeds = resolve_seeds(seeds)
+    if a.mode == "news":  # 速報は配信者がいなくても動く
+        mode_news()
+        return build_latest(seeds)
     if not seeds:
         sys.exit("channels.json に配信者がいません（まず --mode seed → --merge-proposed）")
     {"live": mode_live, "full": mode_full, "discover": mode_discover}[a.mode](seeds)
