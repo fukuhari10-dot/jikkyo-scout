@@ -861,6 +861,52 @@ body[data-theme="night"] .logo small,body[data-theme="night"] .unoff,body[data-t
 .segtabs.n4 button.fan{font-size:11.5px}
 @media (max-width:400px){.segtabs.n5 button{font-size:10.5px}.segtabs.n4 button{font-size:11px}}
 .modal .mbox>*{flex-shrink:0}
+
+/* ===== イラストのスタンプ ===== */
+.stk{width:100%;height:100%;display:block}
+.stkb{display:inline-block;width:76px;height:76px;flex:none}
+.stkb.anim .lg-rays{transform-origin:48px 48px;animation:lgspin 6s linear infinite}
+.stkb.anim .lg-pop{transform-origin:48px 40px;animation:lgpop 1.4s ease-out infinite}
+.stkb.anim .lg-jump{animation:lgjump .9s ease-in-out infinite}
+@keyframes lgspin{to{transform:rotate(360deg)}}
+@keyframes lgpop{0%{transform:scale(.3);opacity:0}40%{opacity:1}100%{transform:scale(1.15);opacity:0}}
+@keyframes lgjump{0%,100%{transform:translateY(6px)}50%{transform:translateY(-8px)}}
+.stktray{display:flex;gap:6px;overflow-x:auto;padding:2px 2px 6px;width:100%;scrollbar-width:none}
+.stktray::-webkit-scrollbar{display:none}
+.stkbtn{position:relative;flex:none;width:58px;height:58px;padding:0;border:0;background:none}
+.stkbtn.locked{opacity:.45;filter:grayscale(.6)}
+.stkbtn.locked i{position:absolute;right:-2px;bottom:-2px;font-style:normal;font-size:16px;filter:none}
+.stkprev{display:grid;grid-template-columns:repeat(6,1fr);gap:4px;margin-top:6px}.stkprev span{display:block;aspect-ratio:1}
+.packrow.ill{flex-direction:column;align-items:stretch}.packrow.ill>button,.packrow.ill>.chip{align-self:flex-end}
+.frprev{display:flex;gap:12px;padding:8px 6px}.frprev .av{width:34px;height:34px;font-size:13px}
+.thprev{display:flex;gap:6px;margin-top:6px}.thprev span{font-size:11px;border:2px solid var(--ink);border-radius:8px;padding:6px 8px}
+.th-night{background:#16254A;color:#fff}.th-team{background:#C9E7D4}.th-sakura{background:#FFE1EA}
+/* 動く枠パック */
+.av.fr-fire{box-shadow:0 0 0 3px #FF5B45,0 0 10px 3px #FFB12E;animation:frfire 1.2s ease-in-out infinite alternate}
+@keyframes frfire{to{box-shadow:0 0 0 3px #FFB12E,0 0 16px 6px #FF5B45}}
+.av.fr-neon{box-shadow:0 0 0 3px #00E5FF,0 0 12px 4px #7A4FD0;animation:frneon 1.6s linear infinite}
+@keyframes frneon{50%{box-shadow:0 0 0 3px #FF4FD8,0 0 14px 5px #00E5FF}}
+.av.fr-wave{box-shadow:0 0 0 3px #2E7DD1;animation:frwave 2s ease-in-out infinite}
+@keyframes frwave{50%{box-shadow:0 0 0 3px #4ED1A5,0 0 0 7px rgba(46,125,209,.35)}}
+.av.fr-star{box-shadow:0 0 0 3px #FFC62E,0 0 0 5px #1E1B18;animation:frstar 1s steps(2) infinite}
+@keyframes frstar{50%{box-shadow:0 0 0 3px #fff,0 0 0 5px #FFC62E,0 0 10px 4px #FFE38A}}
+/* 着せ替え：さくら・レジェンド */
+body[data-theme="sakura"]{--sky:#FFE1EA;--dot:#FFC9D8}
+body[data-theme="legend"]{--sky:#2A2005;--dot:#4A3A0A;background-image:radial-gradient(#6B5410 14%,transparent 15%),radial-gradient(#6B5410 14%,transparent 15%)}
+body[data-theme="legend"] .logo small,body[data-theme="legend"] .unoff,body[data-theme="legend"] .rowsb>.h2,body[data-theme="legend"] .hrow .h2{color:#FFE38A}
+.themerow button.locked{opacity:.6}
+/* レジェンドの金色の吹き出し */
+.cmsg.lg .ctx,.cmsg.lg .stampb{background:linear-gradient(90deg,#FFE38A,#FFC62E);border:2px solid #1E1B18;border-radius:10px;padding:1px 8px}
+.cmsg.lg .cname b{background:linear-gradient(90deg,#B8860B,#FF5B45);-webkit-background-clip:text;background-clip:text;color:transparent}
+
+/* 絵で見てわかるタブ・ボタン */
+#cMode button{display:flex;flex-direction:column;align-items:center;gap:2px;padding:6px 0 5px}
+#cMode .si{display:block;width:26px;height:26px}#cMode .si svg{width:100%;height:100%;display:block}
+.quick button{padding:10px 2px 8px}
+.qi{height:40px}.qi svg{width:38px;height:38px}
+.quick button b{font-size:13px}
+.grow2 .gt.live{background:var(--live);color:#fff}
+.packrow .btn{white-space:nowrap;flex:none}
 </style>
 <div class="app">
   <header class="top">
@@ -1119,12 +1165,14 @@ const PASS_ITEMS={pass_frame:{kind:"frame",v:"pass",n:"パス会員のアイコ�
 const PASS_TITLE="スカウトパス会員";
 /* レジェンドパスだけの見た目 */
 const LEGEND_ITEMS={legend_frame:{kind:"frame",v:"legend",n:"レジェンドの動く枠",cost:0,pass:true,legend:true}};
+/* 動くアイコン枠パック（買い切り）の枠 */
+const PACK_FRAMES={pf_fire:"fire",pf_neon:"neon",pf_wave:"wave",pf_star:"star"};
 const PASS_VALS=new Set(Object.values(PASS_ITEMS).map(x=>x.v));
 /* 無料とパスの上限の差（自分だけに関係するもの） */
 const LIMITS={bells:[10,1e9],later:[30,1e9]};
 const lim=k=>LIMITS[k][S.premium?1:0];
 const itemFor=(id,sk)=>ITEMS[id]||limitedFor(sk)[id]||null;
-function ownedItem(id){if(ITEMS[id])return ITEMS[id];if(PASS_ITEMS[id])return PASS_ITEMS[id];if(LEGEND_ITEMS[id])return LEGEND_ITEMS[id];const m=/^lim_(\d{4}-\d{1,2})_(\d)$/.exec(id);return m?limitedFor(m[1])[id]:null}
+function ownedItem(id){if(ITEMS[id])return ITEMS[id];if(PASS_ITEMS[id])return PASS_ITEMS[id];if(LEGEND_ITEMS[id])return LEGEND_ITEMS[id];if(PACK_FRAMES[id])return{kind:"frame",v:PACK_FRAMES[id],pass:true,packId:"pack_frames"};const m=/^lim_(\d{4}-\d{1,2})_(\d)$/.exec(id);return m?limitedFor(m[1])[id]:null}
 const frameCls=v=>v?` fr-${String(v).replace(/[^a-z0-9]/g,"")}`:"";
 /* 球団カラーの枠は、その人の応援球団の色で描く */
 const frameSt=o=>o&&o.frame==="team"&&o.tc?`--tc:${o.tc};`:"";
@@ -1246,8 +1294,8 @@ const slotsMax=()=>5+Math.min(6,(S.bought.slot||0)+(S.extraSlots||0))+(S.premium
 const boosted=()=>Date.now()<S.boostUntil;
 function rankTitle(){let t=TITLES[0][1];for(const [p,n] of TITLES)if(S.total>=p)t=n;return t}
 /* 自分の見た目（称号・名前の色・アイコン枠）。投稿やランキングに出る */
-function myLook(){S.equip=S.equip||{};if(S.title&&!S.equip.title){S.equip.title=S.title;S.title=""}if(S.bought.frame&&S.equip.frame==null)S.equip.frame="gold";const keep=v=>v==="legend"&&!S.legend?"":v&&PASS_VALS.has(v)&&!S.premium?"":v||"";const t=S.equip.title===PASS_TITLE&&!S.premium?"":S.equip.title;
- const fr=keep(S.equip.frame);return{title:t||rankTitle(),color:keep(S.equip.color),frame:fr,tc:fr==="team"?(TEAMC[S.team]||"#1E1B18"):""}}
+function myLook(){S.equip=S.equip||{};if(S.title&&!S.equip.title){S.equip.title=S.title;S.title=""}if(S.bought.frame&&S.equip.frame==null)S.equip.frame="gold";const keep=v=>v==="legend"&&!S.legend?"":Object.values(PACK_FRAMES).includes(v)&&!(S.legend||(S.packs||[]).includes("pack_frames"))?"":v&&PASS_VALS.has(v)&&!S.premium?"":v||"";const t=S.equip.title===PASS_TITLE&&!S.premium?"":S.equip.title;
+ const fr=keep(S.equip.frame);return{title:t||rankTitle(),color:keep(S.equip.color),frame:fr,tc:fr==="team"?(TEAMC[S.team]||"#1E1B18"):"",lg:S.legend?1:0}}
 function titleOf(){return myLook().title}
 
 /* =====================================================================
@@ -1404,7 +1452,7 @@ const ERR={"already":"今日は受け取りずみです","too-fast":"続けて�
  "name-cooldown":"名前の変更は1日1回までです","not-premium":"スカウトパスの機能です","banned":"このアカウントは利用停止中です","no-profile":"最初に名前を登録してください","bad-name":"その名前は使えません","not-today":"今日の1人ではありません",
  "too-short":"もう少し書いてください","too-long":"200文字までです","ng-word":"使えない言葉が入っています","bad-meta":"項目を選んでください","bad-cat":"種類を選んでください","bad-url":"YouTubeのチャンネルのURL（https://www.youtube.com/@…）を入れてください",
  "blocked":"この投稿には返信できません","not-owner":"自分の投稿だけ操作できます","not-found":"見つかりません（消されたか、非表示になっています）","bad-choice":"選択肢を選んでください","not-scouted":"スカウトしていません",
- "update-required":"新しいバージョンにアップデートしてください","trial-used":"1日体験は7日に1回です","resource-exhausted":"操作が早すぎます。少し待ってから","not-owned":"まだ持っていません","unknown-item":"その品は今は交換できません","bad-report":"通報の内容を選んでください","bad-like":"うまくいきませんでした","bad-amount":"票の数がおかしいです","permission-denied":"このアカウントは利用停止中です","retry":"混み合っています。もう一度お試しください","internal":"サーバーでエラーが起きました。少し待ってから","unavailable":"通信できません。電波のよいところで","unauthenticated":"ログインし直してください","failed-precondition":"うまくいきませんでした"};
+ "update-required":"新しいバージョンにアップデートしてください","trial-used":"1日体験は1回だけです","resource-exhausted":"操作が早すぎます。少し待ってから","not-owned":"まだ持っていません","unknown-item":"その品は今は交換できません","bad-report":"通報の内容を選んでください","bad-like":"うまくいきませんでした","bad-amount":"票の数がおかしいです","permission-denied":"このアカウントは利用停止中です","retry":"混み合っています。もう一度お試しください","internal":"サーバーでエラーが起きました。少し待ってから","unavailable":"通信できません。電波のよいところで","unauthenticated":"ログインし直してください","failed-precondition":"うまくいきませんでした"};
 const errMsg=r=>(r&&(r.reason||ERR[r.code]))||"うまくいきませんでした。もう一度お試しください";
 const GAIN_LABEL={liveSay:"試合実況で応援",checkChannel:"ミッション",vote:"応援",checkTodayPick:"今日の1人をチェック",createPost:"投稿",reply:"返信",votePoll:"お題に投票",like:"ミッション",sync:""};
 const BOARDS={week:null,votes:null,help:null,orders:null,teams:null};let actBusy=false,SINBOX=[],lastErr="";
@@ -1693,14 +1741,14 @@ function renderMy(){const nt=TITLES.find(([p])=>p>S.total);
  renderBlocks();renderDev();$("#trackSt").textContent=S.noTrack?"オフ":"オン";$("#verLine").textContent=`${APP.full} ${APP.version}`+(DEV?`・${REAL?"データ読み込みずみ":"見本"}・${SV?"サーバー接続":"端末内"}`:"")}
 /* Pショップ */
 let shopTab="title";
-const SHOP_TABS=[["title","称号"],["color","名前の色"],["frame","アイコン枠"],["limited","今月の限定"],["pass","パス会員"],["slot","便利"]];
+const SHOP_TABS=[["title","称号"],["color","名前の色"],["frame","アイコン枠"],["limited","今月の限定"],["pass","特別"],["slot","便利"]];
 const freeLimOk=()=>S.premium&&S.freeLim!==seasonKey();
-function equipLocal(kind,id,title){S.equip=S.equip||{};if(kind==="title"){if(title===PASS_TITLE&&!S.premium)return{ok:false,code:"not-premium"};S.equip.title=title||"";return{ok:true}}const it=id&&ownedItem(id);if(it&&it.pass){if(!S.premium||(it.legend&&!S.legend))return{ok:false,code:"not-premium"};S.equip[kind]=it.v;return{ok:true}}if(id&&(!it||!S.bought[id]))return{ok:false,code:"not-owned"};S.equip[kind]=it?it.v:"";return{ok:true}}
+function equipLocal(kind,id,title){S.equip=S.equip||{};if(kind==="title"){if(title===PASS_TITLE&&!S.premium)return{ok:false,code:"not-premium"};S.equip.title=title||"";return{ok:true}}const it=id&&ownedItem(id);if(it&&it.pass){if(it.packId){if(!hasPack(it.packId))return{ok:false,code:"not-owned"}}else if(!S.premium||(it.legend&&!S.legend))return{ok:false,code:"not-premium"};S.equip[kind]=it.v;return{ok:true}}if(id&&(!it||!S.bought[id]))return{ok:false,code:"not-owned"};S.equip[kind]=it?it.v:"";return{ok:true}}
 function doEquip(kind,id,title){act("equip",{kind,id,title},()=>equipLocal(kind,id,title),r=>{if(r&&r.ok===false)return;if(SV&&r&&r.wallet&&r.wallet.equip)S.equip=r.wallet.equip;save();renderAll();toast(kind==="title"?`称号を「${title||rankTitle()}」にしました`:"見た目を変えました")})}
 function renderShop(){const sk=seasonKey();const lim=limitedFor(sk);const lk=myLook();
  const all=Object.entries(ITEMS).map(([id,it])=>({id,...it})).concat(Object.entries(lim).map(([id,it])=>({id,...it})));
  const past=Object.keys(S.bought).filter(id=>/^lim_/.test(id)&&!lim[id]).map(id=>({id,...ownedItem(id)})).filter(it=>it.kind);
- const passList=[...Object.entries(PASS_ITEMS).map(([id,it])=>({id,...it})),{id:"pass_title",kind:"title",v:PASS_TITLE,n:`称号「${PASS_TITLE}」`,pass:true},{id:"legend_frame",kind:"frame",v:"legend",n:"レジェンドの動く枠",pass:true,legend:true},{id:"legend_title",kind:"title",v:legendTitle(),n:"称号「レジェンド No.〇〇〇〇」",pass:true,legend:true}];
+ const passList=[...Object.entries(PASS_ITEMS).map(([id,it])=>({id,...it})),{id:"pass_title",kind:"title",v:PASS_TITLE,n:`称号「${PASS_TITLE}」`,pass:true},{id:"legend_frame",kind:"frame",v:"legend",n:"レジェンドの動く枠",pass:true,legend:true},{id:"legend_title",kind:"title",v:legendTitle(),n:"称号「レジェンド No.〇〇〇〇」",pass:true,legend:true},...COSME_PACKS.pack_frames.frames.map(([v,n])=>({id:"pf_"+v,kind:"frame",v,n:`動く枠（${n}）`,pass:true,packId:"pack_frames"}))];
  const list=shopTab==="pass"?passList:[...all,...past].filter(it=>shopTab==="limited"?it.limited&&lim[it.id]:it.kind===shopTab&&(!it.limited||past.some(p=>p.id===it.id)));
  const price=it=>it.limited&&(freeLimOk()||isLegend())?0:isLegend()?Math.round(it.cost*.8):it.cost;
  const pv=it=>it.kind==="color"?`<span class="sw" style="background:${it.v}"></span>`:it.kind==="frame"?`<span class="av${frameCls(it.v)}" style="${it.v==="team"?`--tc:${TEAMC[S.team]||"#1E1B18"};`:""}background:${TEAMC[S.team]||"#FF5B45"}">${esc((S.name||"ゲ")[0])}</span>`:it.kind==="title"?`<span class="title-chip" style="font-size:10px">称</span>`:`<span class="title-chip" style="font-size:10px">＋</span>`;
@@ -1708,9 +1756,9 @@ function renderShop(){const sk=seasonKey();const lim=limitedFor(sk);const lk=myL
  $("#shopP").textContent=`${S.p.toLocaleString()}P`;
  $("#shop").innerHTML=`<div class="shoptabs">${SHOP_TABS.map(([k,l])=>`<button class="${shopTab===k?"on":""}" data-stab="${k}">${l}</button>`).join("")}</div>
  ${shopTab==="limited"?`<p class="sub">${mon()}月だけ交換できます。交換したものは来月以降もずっと使えます。${S.premium?(freeLimOk()?"<b>パス会員は今月1つ無料</b>":"今月の無料分は使いました"):"スカウトパスなら毎月1つ無料"}</p>`:""}
- ${shopTab==="pass"?`<p class="sub">${S.premium?"パス会員のあいだ、いつでもつけられます（交換は不要）。":"スカウトパス会員だけが使える見た目です。"}</p>${isLegend()?`<div class="themerow"><span>着せ替え</span>${THEMES.map(([k,l])=>`<button class="${(S.theme||"")===k?"on":""}" data-theme="${k}">${l}</button>`).join("")}</div>`:`<button class="pbtn" id="shopLegend" style="align-self:flex-start">レジェンドパスの見た目を見る ▶</button>`}`:""}
+ ${shopTab==="pass"?`<p class="sub">${S.premium?"パス会員のあいだ、いつでもつけられます（交換は不要）。":"スカウトパス会員だけが使える見た目です。"}</p><div class="themerow"><span>着せ替え</span>${THEMES.map(([k,l])=>`<button class="${(S.theme||"")===k?"on":""} ${canTheme(k)?"":"locked"}" data-theme="${k}">${canTheme(k)?"":"🔒"}${l}</button>`).join("")}</div>${isLegend()?"":`<button class="pbtn" id="shopLegend" style="align-self:flex-start">レジェンドパスを見る ▶</button>`}`:""}
  ${isLegend()&&shopTab!=="pass"&&shopTab!=="slot"?'<p class="sub">レジェンド：ぜんぶ20%オフ・今月の限定は無料</p>':""}
- ${list.map(it=>{if(it.pass){const ok=it.legend?isLegend():S.premium;return`<div class="item"><span class="pv">${pv(it)}</span><div>${esc(it.n)}<span class="lim" style="background:${it.legend?"#B8860B":"var(--ink)"}">${it.legend?"レジェンド":"パス"}</span><small>${it.kind==="title"?"名前の横に出ます":"広場とランキングで表示"}</small></div>${ok?`<button class="btn sm ${on(it)?"mint":"paper"}" data-peq="${it.id}">${on(it)?"つけている":"つける"}</button>`:`<button class="btn sm" data-paywall="${it.legend?"legend":"pass"}">${it.legend?"レジェンド":"パス会員"}</button>`}</div>`}
+ ${list.map(it=>{if(it.pass){const ok=it.packId?hasPack(it.packId):it.legend?isLegend():S.premium;return`<div class="item"><span class="pv">${pv(it)}</span><div>${esc(it.n)}<span class="lim" style="background:${it.packId?"#2E7DD1":it.legend?"#B8860B":"var(--ink)"}">${it.packId?"パック":it.legend?"レジェンド":"パス"}</span><small>${it.kind==="title"?"名前の横に出ます":"広場とランキングで表示"}</small></div>${ok?`<button class="btn sm ${on(it)?"mint":"paper"}" data-peq="${it.id}">${on(it)?"つけている":"つける"}</button>`:`<button class="btn sm" data-paywall="${it.packId?"packs":it.legend?"legend":"pass"}">${it.packId?"480円":it.legend?"レジェンド":"パス会員"}</button>`}</div>`}
   const owned=(S.bought[it.id]||0)>0&&it.kind!=="slot";const maxed=it.max&&(S.bought[it.id]||0)>=it.max;
   return`<div class="item"><span class="pv">${pv(it)}</span><div>${esc(it.n)}${it.limited?'<span class="lim">限定</span>':""}<small>${it.kind==="slot"?`原石スカウトの枠（${S.bought[it.id]||0}/${it.max}）`:it.kind==="title"?"名前の横に出ます":it.kind==="color"?"広場とランキングの名前の色":it.kind==="frame"?"広場とランキングのアイコンの枠":""}</small></div>
   ${owned?`<button class="btn sm ${on(it)?"mint":"paper"}" data-eq="${it.id}">${on(it)?"つけている":"つける"}</button>`:`<button class="btn sm" data-buy="${it.id}" ${maxed||S.p<price(it)?"disabled":""}>${maxed?"上限":price(it)===0?"無料":price(it).toLocaleString()+"P"}</button>`}</div>`}).join("")}
@@ -1719,9 +1767,9 @@ function renderShop(){const sk=seasonKey();const lim=limitedFor(sk);const lk=myL
  $("#shop").querySelectorAll("[data-buy]").forEach(b=>b.onclick=()=>{const id=b.dataset.buy;const it=itemFor(id,sk);if(!it||S.p<price(it))return;const cost=price(it);
   act("buyItem",{id},()=>{S.p-=cost;if(it.limited&&cost===0)S.freeLim=seasonKey();S.bought[id]=(S.bought[id]||0)+1;if(it.kind==="title"&&!S.ownTitles.includes(it.v))S.ownTitles.push(it.v);return{ok:true}},r=>{if(r&&r.ok===false)return;save();renderAll();toast(`「${it.n}」を手に入れました。「つける」で使えます`)})});
  $("#shop").querySelectorAll("[data-paywall]").forEach(b=>b.onclick=()=>openPaywall("shop",b.dataset.paywall==="legend"?"legend":"pass"));
- $("#shop").querySelectorAll("[data-theme]").forEach(b=>b.onclick=()=>{S.theme=b.dataset.theme;save();applyTheme();renderShop();toast("着せ替えました")});
+ $("#shop").querySelectorAll("[data-theme]").forEach(b=>b.onclick=()=>{if(!canTheme(b.dataset.theme)){openPaywall("theme",LEGEND_THEMES.includes(b.dataset.theme)?"legend":"packs");return}S.theme=b.dataset.theme;save();applyTheme();renderShop();toast("着せ替えました")});
  const sl=$("#shopLegend");if(sl)sl.onclick=()=>openPaywall("shop","legend");
- $("#shop").querySelectorAll("[data-peq]").forEach(b=>b.onclick=()=>{const id=b.dataset.peq;if(id==="legend_title"){doEquip("title","",lk.title===legendTitle()?"":legendTitle());return}if(id==="legend_frame"){doEquip("frame",lk.frame==="legend"?"":"legend_frame");return}if(id==="pass_title"){doEquip("title","",lk.title===PASS_TITLE?"":PASS_TITLE);return}const it=PASS_ITEMS[id];doEquip(it.kind,lk[it.kind]===it.v?"":id)});
+ $("#shop").querySelectorAll("[data-peq]").forEach(b=>b.onclick=()=>{const id=b.dataset.peq;if(id==="legend_title"){doEquip("title","",lk.title===legendTitle()?"":legendTitle());return}if(id==="legend_frame"){doEquip("frame",lk.frame==="legend"?"":"legend_frame");return}if(/^pf_/.test(id)){doEquip("frame",lk.frame===id.slice(3)?"":id);return}if(id==="pass_title"){doEquip("title","",lk.title===PASS_TITLE?"":PASS_TITLE);return}const it=PASS_ITEMS[id];doEquip(it.kind,lk[it.kind]===it.v?"":id)});
  $("#shop").querySelectorAll("[data-eq]").forEach(b=>b.onclick=()=>{const it=ownedItem(b.dataset.eq);if(!it)return;if(it.kind==="title")doEquip("title","",on(it)?"":it.v);else doEquip(it.kind,on(it)?"":b.dataset.eq)});
  $("#shop").querySelectorAll("[data-uneq]").forEach(b=>b.onclick=()=>doEquip(b.dataset.uneq,""))}
 function openTitles(){const base=TITLES.filter(([p])=>S.total>=p).map(t=>t[1]);const all=[...new Set([...base,...S.ownTitles.filter(t=>t!=="パス会員"),...(S.premium?[PASS_TITLE]:[])])];
@@ -1737,7 +1785,7 @@ function renderPass(){const on=S.premium;const lg=isLegend();
  <p class="passlead">ゲーム実況もプロ野球も、1つのパスで</p>
  ${PASS_PERKS.map(([g,list])=>`<div class="pgroup"><span class="pg-h ${g==="プロ野球"?"y":g==="ゲーム実況"?"g":""}">${g}</span><ul>${list.map(([a,b])=>`<li><b>${a}</b><br><span style="font-size:11.5px;opacity:.85">${b}</span></li>`).join("")}</ul></div>`).join("")}
  ${on&&S.plan&&S.plan!=="pass_life"&&!lg?'<p class="sub" style="color:inherit">解約は iPhone の「設定」→ 自分の名前 →「サブスクリプション」から</p>':""}
- ${on&&!trialOn()?"":`<button class="btn yt" id="passBuy">${on?"プランを見る":"プランを選ぶ（7日間無料あり）"}</button>`}
+ ${on&&!trialOn()?"":`<button class="btn yt" id="passBuy">${on?"プランを見る":"プランを選ぶ"}</button>`}
  ${lg?"":`<button class="legendcta" id="legendBuy"><span class="lg-k">買い切り限定</span><b>レジェンドパス</b><small>パスの全部がずっと＋動く枠・着せ替え・番号つき称号</small><span class="lg-go">見る ▶</span></button>`}
  <p class="sub" style="color:rgba(255,255,255,.85)">ポイントや応援票の販売はしていません。特典はどれも自分の見た目と便利さだけで、ランキング・球団対抗・他の人には影響しません。</p></div>`;
  const b=$("#passBuy");if(b)b.onclick=()=>openPaywall("my");const l=$("#legendBuy");if(l)l.onclick=()=>openPaywall("my","legend");
@@ -1811,6 +1859,13 @@ function seedComm(){const now=Date.now(),H=36e5;const ids=CH.map(c=>c.id);const 
 /* みんなのタブ：ゲーム実況とプロ野球で中身がちがう */
 const COMM_SEGS={game:[["board","広場"],["news","速報"],["poll","お題"],["gacha","ガチャ"],["rank","ランキング"]],yakyu:[["team","ファン掲示板"],["news","速報"],["poll","お題"],["rank","ランキング"]]};
 const RANK_MODES={game:[["user","ポイント"],["order","オーダー"],["help","頼れる人"],["oshi","応援票"]],yakyu:[["teams","球団対抗"],["user","ポイント"],["oshi","応援票"]]};
+/* タブの絵（文字を読まなくてもわかるように） */
+const SEG_ICON={board:'<svg viewBox="0 0 24 24"><path d="M4 5h14a2 2 0 0 1 2 2v7a2 2 0 0 1-2 2H9l-4 3v-3H4a2 2 0 0 1-2-2V7a2 2 0 0 1 2-2z" fill="#FFC62E" stroke="#1E1B18" stroke-width="2" stroke-linejoin="round"/></svg>',
+ team:'<svg viewBox="0 0 24 24"><path d="M6 21V4" stroke="#1E1B18" stroke-width="2.2" stroke-linecap="round"/><path d="M6 4h12l-3 4 3 4H6" fill="#4ED1A5" stroke="#1E1B18" stroke-width="2" stroke-linejoin="round"/></svg>',
+ news:'<svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="3" fill="#FF0033" stroke="#1E1B18" stroke-width="2"/><path d="M10 9v6l5-3z" fill="#fff"/></svg>',
+ poll:'<svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="16" rx="3" fill="#fff" stroke="#1E1B18" stroke-width="2"/><rect x="6" y="8" width="9" height="3" rx="1.5" fill="#4ED1A5"/><rect x="6" y="13" width="6" height="3" rx="1.5" fill="#FFC62E"/></svg>',
+ gacha:'<svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="8" fill="#7A4FD0" stroke="#1E1B18" stroke-width="2"/><path d="M4 12h16" stroke="#1E1B18" stroke-width="2"/><circle cx="12" cy="12" r="2.5" fill="#fff" stroke="#1E1B18" stroke-width="1.6"/></svg>',
+ rank:'<svg viewBox="0 0 24 24"><path d="M6 4h12v4a6 6 0 0 1-12 0z" fill="#FFC62E" stroke="#1E1B18" stroke-width="2" stroke-linejoin="round"/><path d="M12 14v4M8 20h8" stroke="#1E1B18" stroke-width="2.2" stroke-linecap="round"/></svg>'};
 let SPOSTS=null,cSeg=S.world==="yakyu"?"team":"board",cCat="すべて",commLoaded=0,rMode=S.world==="yakyu"?"teams":"user";
 /* みんなの中の場所へ（その場所がある世界に切りかえてから） */
 function goComm(seg,sub){const need=seg==="team"||sub==="teams"?"yakyu":seg==="board"||seg==="gacha"||sub==="order"||sub==="help"?"game":W();if(W()!==need)setWorld(need,true);cSeg=seg;if(sub)rMode=sub;goTab("comm");renderComm()}
@@ -1864,7 +1919,7 @@ function postCard(p,flat){const c=p.ch&&chById(p.ch);const liked=S.liked["post_"
 function fanVoice(c){const ps=allPosts().filter(p=>p.ch===c.id).slice(0,3);
  return`<div><div class="rowsb"><div class="h2" style="font-size:15px">ファンの声</div><button class="btn sm paper" id="fanPost">書く</button></div><div class="posts" style="margin-top:6px">${ps.map(p=>postCard(p,1)).join("")||'<p class="sub" style="margin:0">まだ投稿がありません。最初のひとことを書いてみよう</p>'}</div></div>`}
 function renderComm(){if(!CM)cmLoad();const segs=COMM_SEGS[W()];if(!segs.some(x=>x[0]===cSeg))cSeg=segs[0][0];
- const cm=$("#cMode");cm.className=`segtabs n${segs.length}`;cm.innerHTML=segs.map(([k,l])=>`<button data-c="${k}" class="${k===cSeg?"on":""} ${k==="team"?"fan":""}">${l}</button>`).join("");
+ const cm=$("#cMode");cm.className=`segtabs n${segs.length}`;cm.innerHTML=segs.map(([k,l])=>`<button data-c="${k}" class="${k===cSeg?"on":""} ${k==="team"?"fan":""}"><span class="si">${SEG_ICON[k]||""}</span>${l}</button>`).join("");
  cm.querySelectorAll("button").forEach(b=>b.onclick=()=>{cSeg=b.dataset.c;renderComm()});
  ["board","team","news","poll","gacha","rank"].forEach(k=>$("#c"+k[0].toUpperCase()+k.slice(1)).hidden=k!==cSeg);
  const waitN=allPosts().filter(waiting).length;const unread=unreadReplies();$("#dotComm").hidden=pollState().done&&!unread;
@@ -2075,12 +2130,13 @@ function openLive(chId){const c=chById(chId);if(!c||!(c.live||c.up)){toast("こ�
 function openChat(cf){const vid=cf.vid;
  const draw=async(first)=>{const list=await loadChat(vid);if(!first&&(mKey!=="live"+vid||$("#modal").hidden))return;const scrollEnd=first;
   const log=$("#chatLog");const atEnd=!log||log.scrollHeight-log.scrollTop-log.clientHeight<40;
-  const msgs=list.map(m=>{const me=m.uid===ME();return`<div class="cmsg ${me?"me":""}"><button class="cname" data-user="${esc(m.uid)}" data-uname="${esc(m.name)}"><span class="av${frameCls(m.frame)}" style="${frameSt(m)}background:${me?"var(--tomato)":"#1E1B18"}">${esc((m.name||"?")[0])}</span><b style="${m.color?`color:${m.color}`:""}">${esc(m.name)}</b></button>${m.stamp?`<span class="stampb">${esc(m.stamp)}</span>`:`<span class="ctx">${esc(m.text)}</span>`}<small>${hhmm(m.at)}</small><button class="cmore" data-cid="${esc(m.id)}" data-cuid="${esc(m.uid)}" data-cname="${esc(m.name)}">${me?"消す":"通報"}</button></div>`}).join("")||'<p class="sub" style="text-align:center;margin:18px 0">まだ書き込みがありません。最初のひとことをどうぞ</p>';
+  const msgs=list.map(m=>{const me=m.uid===ME();return`<div class="cmsg ${me?"me":""} ${m.lg?"lg":""}"><button class="cname" data-user="${esc(m.uid)}" data-uname="${esc(m.name)}"><span class="av${frameCls(m.frame)}" style="${frameSt(m)}background:${me?"var(--tomato)":"#1E1B18"}">${esc((m.name||"?")[0])}</span><b style="${m.color?`color:${m.color}`:""}">${esc(m.name)}</b></button>${m.stamp?stampHTML(m.stamp):`<span class="ctx">${esc(m.text)}</span>`}<small>${hhmm(m.at)}</small><button class="cmore" data-cid="${esc(m.id)}" data-cuid="${esc(m.uid)}" data-cname="${esc(m.name)}">${me?"消す":"通報"}</button></div>`}).join("")||'<p class="sub" style="text-align:center;margin:18px 0">まだ書き込みがありません。最初のひとことをどうぞ</p>';
   if(!first&&$("#chatLog")){$("#chatLog").innerHTML=msgs;bindChat();if(scrollEnd||atEnd)$("#chatLog").scrollTop=1e9;return}
   modal(`<div class="rowsb" style="width:100%">${cf.head}</div>
    <div class="sub" style="margin:0">${cf.sub}</div>${cf.link||""}
    <div class="chatlog" id="chatLog">${msgs}</div>
    <div class="stamprow2">${(cf.stamps||STAMPS).map(s=>`<button data-stamp="${s}">${s}</button>`).join("")}${(cf.stampsPass||STAMPS_PASS).map(s=>`<button data-stamp="${s}" class="pass ${S.premium?"":"locked"}" title="スカウトパスのスタンプ">${S.premium?"":"🔒"}${s}</button>`).join("")}${Object.entries(PACKS).filter(([id])=>hasPack(id)).flatMap(([,p])=>p.stamps).map(s=>`<button data-stamp="${s}" class="pack">${s}</button>`).join("")}${isLegend()?LEGEND_STAMPS.map(s=>`<button data-stamp="${s}" class="legend">${s}</button>`).join(""):""}<button class="morest" id="moreSt">＋スタンプ</button></div>
+   <div class="stktray">${myStickers().map(s=>`<button data-stamp="${s}" class="stkbtn" aria-label="${esc(STICKERS[s].n)}">${STICKERS[s].svg()}</button>`).join("")}${Object.keys(STICKERS).filter(s=>!myStickers().includes(s)).slice(0,myStickers().length?3:6).map(s=>`<button data-lockst="${s}" class="stkbtn locked" aria-label="${esc(STICKERS[s].n)}">${STICKERS[s].svg()}<i>🔒</i></button>`).join("")}</div>
    <div class="frow"><input class="inp" id="chatIn" maxlength="60" placeholder="ひとこと（60字まで）" style="flex:1" enterkeyhint="send"><button class="btn sm tomato" id="chatGo">送る</button></div>
    ${LOCAL_ONLY()?LOCAL_NOTE:""}<p class="sub" style="margin:0">${cf.rule}</p>
    <button class="btn paper wide" id="mc">とじる</button>`,x=>{x.querySelector("#mc").onclick=()=>{clearInterval(chatTimer);closeModal()};
@@ -2088,6 +2144,7 @@ function openChat(cf){const vid=cf.vid;
    x.querySelector("#chatIn").onkeydown=e=>{if(e.key==="Enter"&&!e.isComposing)say({text:e.target.value.trim()})};
    x.querySelectorAll("[data-stamp]").forEach(b=>b.onclick=()=>{if(b.classList.contains("locked")){openPaywall("stamp");return}say({stamp:b.dataset.stamp})});
    x.querySelector("#moreSt").onclick=()=>openPaywall("stamp","packs");
+   x.querySelectorAll("[data-lockst]").forEach(b=>b.onclick=()=>{const s=b.dataset.lockst;openPaywall("sticker",LEGEND_STICKERS.includes(s)?"legend":PASS_STICKERS.includes(s)?"pass":"packs")});
    bindChat();const lg=x.querySelector("#chatLog");lg.scrollTop=1e9},"live"+vid)};
  const bindChat=()=>{const x=$("#mbox");x.querySelectorAll("[data-user]").forEach(b=>b.onclick=()=>openUser(b.dataset.user,b.dataset.uname,cf.reopen));
   x.querySelectorAll("[data-cid]").forEach(b=>b.onclick=()=>moreMenu("chat",b.dataset.cid,b.dataset.cuid,b.dataset.cname,cf.reopen))};
@@ -2102,7 +2159,7 @@ function openChat(cf){const vid=cf.vid;
 /* ---------- ④ 球団ルーム・試合実況（その球団のファンだけ） ---------- */
 let GAMES=[];
 /* 見本モードだけの試合日程（本番は latest.json の games） */
-if(DEMO){const d0=today(),d1=dayKeyOf(Date.now()+864e5);[["ロッテ","日本ハム","ZOZOマリン"],["ソフトバンク","西武","みずほPayPay"],["オリックス","楽天","京セラD大阪"],["巨人","阪神","東京ドーム"],["DeNA","中日","横浜"],["広島","ヤクルト","マツダスタジアム"]].forEach(([h,a,pl],i)=>{GAMES.push({day:d0,time:"18:00",home:h,away:a,place:pl});GAMES.push({day:d1,time:i%2?"14:00":"18:00",home:a,away:h,place:""})})}
+if(DEMO){const d0=today(),d1=dayKeyOf(Date.now()+864e5);[["ロッテ","日本ハム","ZOZOマリン"],["ソフトバンク","西武","みずほPayPay"],["オリックス","楽天","京セラD大阪"],["巨人","阪神","東京ドーム"],["DeNA","中日","横浜"],["広島","ヤクルト","マツダスタジアム"]].forEach(([h,a,pl],i)=>{const hr=jstHour(),sc=[(hashN(h+d0)%6)+1,(hashN(a+d0)%5)];GAMES.push(Object.assign({day:d0,time:"18:00",home:h,away:a,place:pl},hr>=21?{status:"end",score:sc}:hr>=18?{status:"live",inning:`${hr===18?3:hr===19?5:8}回${i%2?"表":"裏"}`,score:[sc[0]-1,sc[1]]}:{}));GAMES.push({day:d1,time:i%2?"14:00":"18:00",home:a,away:h,place:""})})}
 const gameVid=(day,team)=>`g_${day}_${TEAMS.indexOf(team)}`;
 const gamesOf=(team,day)=>GAMES.filter(g=>(g.home===team||g.away===team)&&(!day||g.day===day));
 function gameLine(g,team){const home=g.home===team;return`${home?"":"＠"}vs ${esc(home?g.away:g.home)}${g.time?` ${esc(g.time)}`:""}${g.place?`・${esc(g.place)}`:""}`}
@@ -2254,7 +2311,11 @@ const ART={
 /* 試合の状態（開始時刻から）：試合前 / もうすぐ / 試合中 / 試合後 */
 /* 試合の状態：NPB公式の結果（status・score）があればそれ。なければ開始時刻から（3時間半を過ぎたら「結果まち」） */
 function gameScore(g){return g&&Array.isArray(g.score)?`${g.home} ${g.score[0]}-${g.score[1]} ${g.away}`:""}
-function gameState(g){if(g&&g.status==="off")return{k:"off",t:"中止"};if(g&&g.status==="end")return{k:"post",t:`試合終了 ${g.score?g.score[0]+"-"+g.score[1]:""}`.trim()};
+/* 応援球団から見た勝ち負け */
+function gameResult(g,t){if(!g||!g.score||!t||(g.home!==t&&g.away!==t))return"";const my=g.home===t?g.score[0]:g.score[1],op=g.home===t?g.score[1]:g.score[0];return my>op?"勝ち":my<op?"負け":"引き分け"}
+function gameState(g){if(g&&g.status==="off")return{k:"off",t:"中止"};
+ if(g&&g.status==="end"){const r=gameResult(g,S.team);return{k:"post",t:`試合終了 ${g.score?g.score[0]+"-"+g.score[1]:""}${r?"・"+r:""}`.trim(),r}}
+ if(g&&g.status==="live")return{k:"on",t:`${g.inning||"試合中"}${g.score?" "+g.score[0]+"-"+g.score[1]:""}`};
  if(!g||!g.time)return{k:"",t:"今日"};const [h,m]=g.time.split(":").map(Number);const d=new Date(Date.parse(g.day+"T00:00:00+09:00"));const st=d.getTime()+(h*60+m)*6e4,now=Date.now();
  if(now<st-60*6e4)return{k:"pre",t:`${g.time} プレイボール`};if(now<st)return{k:"soon",t:"もうすぐ試合開始"};if(now<st+3.5*36e5)return{k:"on",t:"試合中"};if(now<st+5*36e5)return{k:"late",t:"終盤・結果まち"};return{k:"post",t:"試合終了"}}
 function renderJHero(){const b=$("#jHero");if(!b)return;const lives=chW().filter(c=>c.live);
@@ -2278,7 +2339,7 @@ function renderLive(){const box=$("#v-live");if(!box)return;const t=S.team,day=t
     <span class="gc-info">${g?`${esc(g.time||"")}${g.place?`・${esc(g.place)}`:""}`:"今日は試合の予定がありません（雑談もOK）"}</span>
     <span class="gc-btn">試合実況に入る ▶</span></button><button class="btn paper wide" id="toRoom" style="margin-top:8px">${esc(t)}ファンの掲示板へ</button>`
   :`<div class="gpick"><p class="sub" style="margin:0 0 8px;color:var(--ink)">応援球団を選ぶと、同じ球団のファンだけで試合を実況できます（変更は30日に1回）</p><div class="onb-teams">${TEAMS.map(x=>`<button data-pick="${x}">${x}</button>`).join("")}</div></div>`}
-  ${todays.length?`<div class="gtoday"><div class="sub" style="margin:0 0 4px">今日のプロ野球</div>${todays.map(x=>{const mine=t&&(x.home===t||x.away===t);return`<div class="grow2 ${mine?"mine":""}"><span class="gt">${x.status==="off"?"中止":x.status==="end"?"終了":esc(x.time||"")}</span><span><b>${esc(x.home)}</b> ${x.score?`<em class="sc">${x.score[0]}-${x.score[1]}</em>`:"vs"} <b>${esc(x.away)}</b></span><small>${esc(x.place||"")}</small>${mine?'<span class="gtag">あなたの球団</span>':""}</div>`}).join("")}<p class="unoff" style="margin:4px 0 0;text-align:left">日程：NPB公式サイトの公開情報をもとに自動で作成</p></div>`:""}`;
+  ${todays.length?`<div class="gtoday"><div class="sub" style="margin:0 0 4px">今日のプロ野球</div>${todays.map(x=>{const mine=t&&(x.home===t||x.away===t);return`<div class="grow2 ${mine?"mine":""}"><span class="gt ${x.status==="live"?"live":""}">${x.status==="off"?"中止":x.status==="end"?"終了":x.status==="live"?esc(x.inning||"試合中"):esc(x.time||"")}</span><span><b>${esc(x.home)}</b> ${x.score?`<em class="sc">${x.score[0]}-${x.score[1]}</em>`:"vs"} <b>${esc(x.away)}</b></span><small>${esc(x.place||"")}</small>${mine?'<span class="gtag">あなたの球団</span>':""}</div>`}).join("")}<p class="unoff" style="margin:4px 0 0;text-align:left">日程：NPB公式サイトの公開情報をもとに自動で作成</p></div>`:""}`;
  const gg=$("#gameGo");if(gg)gg.onclick=()=>openGame(t);const tr=$("#toRoom");if(tr)tr.onclick=()=>goComm("team");
  $("#gameBox").querySelectorAll("[data-pick]").forEach(b=>b.onclick=()=>chooseTeam(b.dataset.pick));
  // 配信実況
@@ -2394,91 +2455,148 @@ function renderSound(){const b=bgmCfg();const box=$("#soundBox");if(!box)return;
  $("#bgmVol").onchange=()=>save()}
 
 /* =====================================================================
+   イラストのスタンプ（すべてオリジナル。その場で描く）
+   実況スレに「st_…」のIDで送ると、絵で表示される
+   ===================================================================== */
+const SK=(inner,bg)=>`<svg viewBox="0 0 96 96" class="stk" aria-hidden="true">${bg?`<rect x="4" y="4" width="88" height="88" rx="22" fill="${bg}" stroke="#1E1B18" stroke-width="4"/>`:""}${inner}</svg>`;
+/* ボールの顔（スカウトくん）。表情だけ変える */
+const BALL=(cx,cy,r,face)=>`<circle cx="${cx}" cy="${cy}" r="${r}" fill="#fff" stroke="#1E1B18" stroke-width="4"/>
+ <path d="M${cx-r*.72} ${cy-r*.5}c${r*.25} ${r*.3} ${r*.25} ${r*.7} 0 ${r}" fill="none" stroke="#FF5B45" stroke-width="3" stroke-dasharray="4 3"/>
+ <path d="M${cx+r*.72} ${cy-r*.5}c${-r*.25} ${r*.3} ${-r*.25} ${r*.7} 0 ${r}" fill="none" stroke="#FF5B45" stroke-width="3" stroke-dasharray="4 3"/>${face}`;
+const EYES=(cx,cy)=>`<ellipse cx="${cx-8}" cy="${cy}" rx="3.4" ry="4.6" fill="#1E1B18"/><ellipse cx="${cx+8}" cy="${cy}" rx="3.4" ry="4.6" fill="#1E1B18"/>`;
+const SMILE=(cx,cy)=>`<path d="M${cx-7} ${cy}q7 8 14 0" fill="#FF5B45" stroke="#1E1B18" stroke-width="3" stroke-linejoin="round"/>`;
+const CHEEK=(cx,cy)=>`<ellipse cx="${cx-15}" cy="${cy}" rx="5" ry="3" fill="#FF9DB0" opacity=".85"/><ellipse cx="${cx+15}" cy="${cy}" rx="5" ry="3" fill="#FF9DB0" opacity=".85"/>`;
+const TXT=(t,y,c,s)=>`<text x="48" y="${y}" text-anchor="middle" font-family="Mochiy Pop One,sans-serif" font-size="${s||15}" fill="${c||"#1E1B18"}" stroke="#fff" stroke-width="4" paint-order="stroke">${t}</text>`;
+const STICKERS={
+ /* 応援イラストパック */
+ st_hr:{n:"ホームラン",svg:()=>SK(`<path d="M10 70Q48 -4 86 30" fill="none" stroke="#FFC62E" stroke-width="5" stroke-dasharray="2 7" stroke-linecap="round"/>${BALL(70,34,16,EYES(70,32)+SMILE(70,40))}${TXT("HR!",86,"#FF5B45",22)}`,"#E8F6FF")},
+ st_mega:{n:"メガホン応援",svg:()=>SK(`<path d="M22 44l38-18v44L22 54z" fill="#FF5B45" stroke="#1E1B18" stroke-width="4" stroke-linejoin="round"/><rect x="12" y="42" width="12" height="14" rx="3" fill="#FFC62E" stroke="#1E1B18" stroke-width="4"/><path d="M68 34l12-8M70 48h14M68 62l12 8" stroke="#1E1B18" stroke-width="4" stroke-linecap="round"/>${TXT("いけー!",88,"#1E1B18",14)}`,"#FFF6D6")},
+ st_banzai:{n:"ばんざい",svg:()=>SK(`<path d="M22 50L10 22M74 50l12-28" stroke="#1E1B18" stroke-width="6" stroke-linecap="round"/><circle cx="10" cy="20" r="6" fill="#fff" stroke="#1E1B18" stroke-width="4"/><circle cx="86" cy="20" r="6" fill="#fff" stroke="#1E1B18" stroke-width="4"/>${BALL(48,52,24,`<path d="M36 48q4-5 8 0M52 48q4-5 8 0" fill="none" stroke="#1E1B18" stroke-width="3.5" stroke-linecap="round"/>`+`<path d="M40 58q8 12 16 0z" fill="#FF5B45" stroke="#1E1B18" stroke-width="3" stroke-linejoin="round"/>`+CHEEK(48,58))}`,"#E8FFF4")},
+ st_naki:{n:"くやしい",svg:()=>SK(`${BALL(48,50,26,EYES(48,46)+`<path d="M40 64q8-7 16 0" fill="none" stroke="#1E1B18" stroke-width="3.5" stroke-linecap="round"/><path d="M36 52q-3 10 0 16M60 52q3 10 0 16" stroke="#4FB3FF" stroke-width="5" stroke-linecap="round"/>`)}${TXT("くやしい",90,"#2E7DD1",13)}`,"#EAF2FF")},
+ st_guts:{n:"ガッツポーズ",svg:()=>SK(`${BALL(42,54,24,`<path d="M30 50l6 3-6 3M54 50l-6 3 6 3" fill="none" stroke="#1E1B18" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/>`+SMILE(42,62))}<path d="M64 48l14-20" stroke="#1E1B18" stroke-width="6" stroke-linecap="round"/><circle cx="80" cy="24" r="9" fill="#fff" stroke="#1E1B18" stroke-width="4"/><path d="M76 14l2-6M86 16l4-4M88 26h6" stroke="#FFC62E" stroke-width="3.5" stroke-linecap="round"/>`,"#FFF0E8")},
+ st_flag:{n:"旗ふり",svg:()=>SK(`<path d="M26 86V14" stroke="#1E1B18" stroke-width="5" stroke-linecap="round"/><path d="M28 16q20-8 34 0t30 0v30q-16 8-30 0t-34 0z" fill="var(--tc,#1E7A4E)" stroke="#1E1B18" stroke-width="4" stroke-linejoin="round"/>${TXT("ファイト",78,"#1E1B18",14)}`,"#F4F4F4")},
+ /* 実況イラストパック */
+ st_kami:{n:"神引き",svg:()=>SK(`${[[20,24],[76,22],[16,66],[80,70],[48,12]].map(([x,y])=>`<path d="M${x} ${y-7}l2 5 5 2-5 2-2 5-2-5-5-2 5-2z" fill="#FFC62E" stroke="#1E1B18" stroke-width="2"/>`).join("")}${BALL(48,50,22,`<path d="M36 46l4-4 4 4M52 46l4-4 4 4" fill="none" stroke="#1E1B18" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/>`+SMILE(48,56))}${TXT("神!",90,"#B8860B",16)}`,"#FFF6D6")},
+ st_baku:{n:"爆死",svg:()=>SK(`<path d="M48 10l8 16 18-8-4 18 18 6-16 10 10 16-18-2-2 18-14-14-14 14-2-18-18 2 10-16-16-10 18-6-4-18 18 8z" fill="#FFB12E" stroke="#1E1B18" stroke-width="3.5" stroke-linejoin="round"/>${BALL(48,50,16,`<path d="M40 46l5 5M45 46l-5 5M51 46l5 5M56 46l-5 5" stroke="#1E1B18" stroke-width="3" stroke-linecap="round"/>`)}${TXT("爆死",90,"#E0301E",14)}`,"")},
+ st_gg:{n:"GG",svg:()=>SK(`${TXT("GG",58,"#1E1B18",40)}<path d="M18 72q30 12 60 0" fill="none" stroke="#FF5B45" stroke-width="5" stroke-linecap="round"/>`,"#E8F6FF")},
+ st_www:{n:"草",svg:()=>SK(`${[[22,64],[40,56],[58,62],[74,54]].map(([x,y])=>`<path d="M${x} 84q-2-${84-y} 6-${90-y}M${x+6} 84q4-${80-y} -2-${86-y}" fill="none" stroke="#1E9E73" stroke-width="5" stroke-linecap="round"/>`).join("")}${TXT("www",40,"#1E9E73",22)}`,"#E8FFF4")},
+ st_hatena:{n:"？？？",svg:()=>SK(`${BALL(48,54,24,`<circle cx="40" cy="50" r="3.5" fill="#1E1B18"/><circle cx="56" cy="50" r="3.5" fill="#1E1B18"/><path d="M42 64h12" stroke="#1E1B18" stroke-width="3.5" stroke-linecap="round"/>`)}${TXT("??",26,"#7A4FD0",22)}`,"#F3EEFF")},
+ st_clap:{n:"はくしゅ",svg:()=>SK(`<path d="M30 60l10-30a5 5 0 0 1 9 3l-4 14 12-22a5 5 0 0 1 9 4L56 52l14-14a5 5 0 0 1 7 7L56 70q-10 10-24 2z" fill="#FFD8B8" stroke="#1E1B18" stroke-width="3.5" stroke-linejoin="round"/><path d="M18 30l8 6M16 46h10M24 18l6 8" stroke="#FFC62E" stroke-width="3.5" stroke-linecap="round"/>${TXT("ぱちぱち",90,"#1E1B18",12)}`,"#FFF6D6")},
+ /* パス会員のイラスト */
+ st_p_crown:{n:"王冠",svg:()=>SK(`<path d="M20 44l12 10 16-24 16 24 12-10-4 30H24z" fill="#FFC62E" stroke="#1E1B18" stroke-width="4" stroke-linejoin="round"/>${TXT("さすが",90,"#B8860B",14)}`,"#1B2A55")},
+ st_p_star:{n:"MVP",svg:()=>SK(`<path d="M48 12l10 22 24 3-18 16 5 24-21-12-21 12 5-24-18-16 24-3z" fill="#FFC62E" stroke="#1E1B18" stroke-width="4" stroke-linejoin="round"/>${TXT("MVP",90,"#fff",16)}`,"#1B2A55")},
+ st_p_heart:{n:"推し",svg:()=>SK(`<path d="M48 80S16 60 16 38a16 16 0 0 1 32-4 16 16 0 0 1 32 4c0 22-32 42-32 42z" fill="#FF5B45" stroke="#1E1B18" stroke-width="4" stroke-linejoin="round"/>${TXT("推し!",54,"#fff",16)}`,"#1B2A55")},
+ /* レジェンドの動くスタンプ */
+ st_lg_come:{n:"レジェンド降臨",anim:1,svg:()=>SK(`<g class="lg-rays">${Array.from({length:12},(_,i)=>`<path d="M48 48L${48+46*Math.cos(i*Math.PI/6)} ${48+46*Math.sin(i*Math.PI/6)}" stroke="#FFE38A" stroke-width="6" opacity=".7"/>`).join("")}</g>${BALL(48,52,22,EYES(48,50)+SMILE(48,58))}<path d="M30 30l6 6 12-16 12 16 6-6-2 12H32z" fill="#FFC62E" stroke="#1E1B18" stroke-width="3" stroke-linejoin="round"/>${TXT("降臨",90,"#B8860B",14)}`,"#FFF6D6")},
+ st_lg_fire:{n:"花火",anim:1,svg:()=>SK(`<g class="lg-pop">${Array.from({length:10},(_,i)=>`<circle cx="${48+28*Math.cos(i*Math.PI/5)}" cy="${40+28*Math.sin(i*Math.PI/5)}" r="5" fill="${["#FF5B45","#FFC62E","#4ED1A5","#2E7DD1","#D0418A"][i%5]}"/>`).join("")}</g><circle cx="48" cy="40" r="8" fill="#FFE38A" stroke="#1E1B18" stroke-width="3"/>${TXT("おめでとう",88,"#1E1B18",12)}`,"#0B1934")},
+ st_lg_doage:{n:"胴上げ",anim:1,svg:()=>SK(`<g class="lg-jump">${BALL(48,34,16,`<path d="M40 32q3-4 6 0M50 32q3-4 6 0" fill="none" stroke="#1E1B18" stroke-width="3" stroke-linecap="round"/>`+SMILE(48,38))}</g>${[20,36,52,68,80].map(x=>`<path d="M${x} 86v-18" stroke="#1E1B18" stroke-width="5" stroke-linecap="round"/><circle cx="${x}" cy="64" r="5" fill="#FFD8B8" stroke="#1E1B18" stroke-width="2.5"/>`).join("")}`,"#FFF6D6")}
+};
+/* パック（買い切り）とパス・レジェンドのイラストスタンプ */
+const STICKER_PACKS={pack_ill_ouen:{n:"イラスト応援パック",price:250,ids:["st_hr","st_mega","st_banzai","st_naki","st_guts","st_flag"]},
+ pack_ill_game:{n:"イラスト実況パック",price:250,ids:["st_kami","st_baku","st_gg","st_www","st_hatena","st_clap"]}};
+const PASS_STICKERS=["st_p_crown","st_p_star","st_p_heart"],LEGEND_STICKERS=["st_lg_come","st_lg_fire","st_lg_doage"];
+const isSticker=s=>!!STICKERS[s];
+/* 実況スレでの表示：イラストは絵、文字のスタンプは札 */
+function stampHTML(s){const k=STICKERS[s];return k?`<span class="stkb ${k.anim?"anim":""}" title="${esc(k.n)}">${k.svg()}</span>`:`<span class="stampb">${esc(s)}</span>`}
+/* いま使えるイラストスタンプ */
+function myStickers(){const out=[];Object.entries(STICKER_PACKS).forEach(([id,p])=>{if(hasPack(id))out.push(...p.ids)});if(S.premium)out.push(...PASS_STICKERS);if(isLegend())out.push(...LEGEND_STICKERS);return out}
+
+/* =====================================================================
    課金プラン・速報・運用まわり
    ・スカウトパス：月額／年額／買い切り（どれも同じ特典）
    ・レジェンドパス：買い切りだけ（スカウトパスの全部＋レジェンド特典）
    ・スタンプパック：買い切り（だれでも）
-   ・パス1日体験：広告を1本見ると24時間（7日に1回）
+   ・パス1日体験：広告を1本見ると24時間（1人1回だけ）
    どれも「自分の見た目と便利さ」だけ。ランキング・球団対抗・応援票は増えない
    ===================================================================== */
 const PLANS=[
  {id:"pass_year",kind:"sub",n:"年額",price:3800,unit:"円/年",sub:"月あたり317円",badge:"いちばんお得"},
- {id:"pass_month",kind:"sub",n:"月額",price:480,unit:"円/月",sub:"はじめての人は7日間無料",badge:"7日間無料"},
+ {id:"pass_month",kind:"sub",n:"月額",price:480,unit:"円/月",sub:"いつでも解約できる",badge:""},
  {id:"pass_life",kind:"life",n:"買い切り",price:9800,unit:"円",sub:"一度払えばずっと（年額の約2.6年分）",badge:""}];
 const LEGEND={id:"legend_life",n:"レジェンドパス",price:14800,founders:1000};
 const PACKS={pack_ouen:{n:"応援スタンプパック",price:160,stamps:["かっとばせー！","よっしゃー！","ありがとう！","また明日！"]},
  pack_game:{n:"実況スタンプパック",price:160,stamps:["神引き！","爆死…","リアタイ勝った","完全試合"]}};
 const LEGEND_STAMPS=["レジェンド降臨","伝説の一打","殿堂入り"];
-const THEMES=[["","ふつう"],["night","ナイター"],["gold","ゴールド"],["team","球団カラー"]];
+/* 見た目のパック（買い切り・だれでも）：動くアイコン枠・着せ替え */
+const COSME_PACKS={pack_frames:{n:"動くアイコン枠パック",price:480,frames:[["fire","ほのお"],["neon","ネオン"],["wave","なみ"],["star","ほし"]]},
+ pack_themes:{n:"着せ替えパック",price:480,themes:["night","team","sakura"]}};
+const THEMES=[["","ふつう"],["night","ナイター"],["team","球団カラー"],["sakura","さくら"],["gold","ゴールド"],["legend","レジェンド"]];
+const LEGEND_THEMES=["gold","legend"];
+const canTheme=k=>!k||isLegend()||(!LEGEND_THEMES.includes(k)&&hasPack("pack_themes"));
 const isLegend=()=>!!S.legend;
 const hasPack=id=>isLegend()||!!(S.packs||[]).includes(id);
 const trialOn=()=>(S.trialUntil||0)>Date.now();
 /* 体験の期限が切れたら元に戻す（端末内モード） */
 function checkTrial(){if(!SV&&S.trialUntil&&!trialOn()&&S.premium&&!S.plan){S.premium=false;S.trialUntil=0;save();toast("スカウトパスの1日体験が終わりました")}}
-const LEGEND_PERKS=[["スカウトパスの全部がずっと","月額も更新もなし。これから増える特典も"],["レジェンドの称号と番号","「レジェンド No.0042」。早い人ほど若い番号。1000番までは「創設メンバー」"],["動くアイコン枠","キラキラ光るレジェンドだけの枠"],["アプリの着せ替え","ナイター・ゴールド・球団カラー"],["毎月の限定アイテムが全部無料","今月の称号・枠・色を毎月ぜんぶ"],["スタンプパックが全部つく","レジェンドだけのスタンプも"],["Pショップが20%オフ","ポイントで交換するものがぜんぶ2割引き"]];
+const LEGEND_PERKS=[["スカウトパスの全部がずっと","月額も更新もなし。これから増える特典も"],["課金アイテムが全部つく","イラストスタンプ・文字スタンプ・動く枠・着せ替えのパックを全部（合計1,780円分）"],["動くスタンプ","「レジェンド降臨」「花火」「胴上げ」が実況スレで動く"],["金色の吹き出し","実況スレの書き込みが金色で目立つ"],["レジェンドの称号と番号","「レジェンド No.0042」。早い人ほど若い番号。1000番までは「創設メンバー」"],["動くアイコン枠","キラキラ光るレジェンドだけの枠"],["限定の着せ替え","「ゴールド」「レジェンド」はレジェンドだけ"],["毎月の限定アイテムが全部無料","今月の称号・枠・色を毎月ぜんぶ"],["Pショップが20%オフ","ポイントで交換するものがぜんぶ2割引き"]];
 /* 課金の画面（どこから開いたかを記録して、改善に使う） */
 function openPaywall(src,tab){track("paywall_view",{src:src||""});const cur=S.plan||"";
  const planBtn=p=>`<button class="plan ${p.badge==="いちばんお得"?"best":""} ${cur===p.id?"on":""}" data-buy="${p.id}"><span class="pl-n">${p.n}</span>${p.badge?`<span class="pl-b">${p.badge}</span>`:""}<b>${p.price.toLocaleString()}<small>${p.unit}</small></b><small class="pl-s">${p.sub}</small></button>`;
  const t=tab||"pass";
- modal(`<div class="paytabs"><button class="${t==="pass"?"on":""}" data-pt="pass">スカウトパス</button><button class="${t==="legend"?"on":""}" data-pt="legend">レジェンド</button><button class="${t==="packs"?"on":""}" data-pt="packs">スタンプ</button></div>
+ modal(`<div class="paytabs"><button class="${t==="pass"?"on":""}" data-pt="pass">スカウトパス</button><button class="${t==="legend"?"on":""}" data-pt="legend">レジェンド</button><button class="${t==="packs"?"on":""}" data-pt="packs">ショップ</button></div>
  ${t==="pass"?`<div class="payhero"><b>スカウトパス</b><span>ゲーム実況もプロ野球も、1つのパスで</span></div>
   ${S.premium&&S.plan?`<p class="paynow">いま：${esc(planName(S.plan))}</p>`:trialOn()?`<p class="paynow">1日体験中（あと${Math.ceil((S.trialUntil-Date.now())/36e5)}時間）</p>`:""}
   <div class="plans">${PLANS.map(planBtn).join("")}</div>
   <ul class="payperks">${PASS_PERKS.flatMap(([g,l])=>l.slice(0,g==="共通"?5:2).map(([a])=>`<li>${a}</li>`)).join("")}</ul>
-  ${!S.premium&&!trialOn()?`<button class="btn paper wide" id="trialAd" ${trialReady()?"":"disabled"}>${trialReady()?"広告を見て24時間だけ体験する":`1日体験は ${trialNext()} からまた使えます`}</button>`:""}`
+  ${!S.premium&&!trialOn()&&trialReady()?`<button class="btn paper wide" id="trialAd">🎁 広告を見て24時間だけ体験（1回だけ）</button>`:""}`
  :t==="legend"?`<div class="legendhero"><span class="lg-k">買い切り限定</span><b>レジェンドパス</b><span class="lg-p">${LEGEND.price.toLocaleString()}<small>円</small></span><small>${S.legendSold!=null?`創設メンバーの番号 のこり${Math.max(0,LEGEND.founders-S.legendSold)}`:`No.0001〜${LEGEND.founders}は「創設メンバー」`}</small></div>
   <ul class="payperks gold">${LEGEND_PERKS.map(([a,b])=>`<li><b>${a}</b><br><small>${b}</small></li>`).join("")}</ul>
   <div class="lgprev"><span class="av fr-legend" style="background:${TEAMC[S.team]||"#FF5B45"}">${esc((S.name||"ゲ")[0])}</span><span><b>${esc(S.name)}</b><span class="title-chip legend">レジェンド No.${String(S.legendNo||42).padStart(4,"0")}</span></span></div>
   ${isLegend()?`<p class="paynow">レジェンドパスを持っています（No.${String(S.legendNo||0).padStart(4,"0")}）</p>`:`<button class="btn wide legendbtn" data-buy="${LEGEND.id}">レジェンドパスを買う（${LEGEND.price.toLocaleString()}円）</button>`}
   <p class="sub" style="margin:0">スカウトパスを持っている人も買えます（月額・年額は、App Storeの設定から解約してください）。</p>`
- :`<p class="sub" style="margin:0">だれでも買える、実況スレのスタンプです（買い切り）。レジェンドパスには全部ついています。</p>
-  ${Object.entries(PACKS).map(([id,p])=>`<div class="packrow"><div><b>${p.n}</b><div class="packst">${p.stamps.map(s=>`<span>${esc(s)}</span>`).join("")}</div></div>${hasPack(id)?'<span class="chip">持っている</span>':`<button class="btn sm tomato" data-buy="${id}">${p.price}円</button>`}</div>`).join("")}`}
+ :`<p class="sub" style="margin:0">だれでも買える買い切りのアイテムです。レジェンドパスには全部ついています。</p>
+  ${Object.entries(STICKER_PACKS).map(([id,p])=>`<div class="packrow ill"><div><b>${p.n}</b><div class="stkprev">${p.ids.map(s=>`<span>${STICKERS[s].svg()}</span>`).join("")}</div></div>${buyBtn(id,p.price)}</div>`).join("")}
+  <div class="packrow"><div><b>${COSME_PACKS.pack_frames.n}</b><div class="frprev">${COSME_PACKS.pack_frames.frames.map(([v])=>`<span class="av fr-${v}" style="background:${TEAMC[S.team]||"#FF5B45"}">${esc((S.name||"ゲ")[0])}</span>`).join("")}</div></div>${buyBtn("pack_frames",COSME_PACKS.pack_frames.price)}</div>
+  <div class="packrow"><div><b>${COSME_PACKS.pack_themes.n}</b><div class="thprev">${COSME_PACKS.pack_themes.themes.map(k=>`<span class="th-${k}">${(THEMES.find(t=>t[0]===k)||[,""])[1]}</span>`).join("")}</div></div>${buyBtn("pack_themes",COSME_PACKS.pack_themes.price)}</div>
+  ${Object.entries(PACKS).map(([id,p])=>`<div class="packrow"><div><b>${p.n}</b><div class="packst">${p.stamps.map(s=>`<span>${esc(s)}</span>`).join("")}</div></div>${buyBtn(id,p.price)}</div>`).join("")}
+  ${isLegend()?"":`<button class="btn wide legendbtn" data-pt2="legend">全部入りならレジェンドパス ▶</button>`}`}
  <p class="sub" style="margin:0">お支払いは App Store / Google Play。月額・年額は自動更新で、いつでも解約できます。特典はどれも自分の見た目と便利さだけで、ランキング・球団対抗・応援票には影響しません。</p>
  <div class="paylinks"><button data-legal="terms">利用規約</button><button data-legal="privacy">プライバシー</button>${SV&&SV.restore?'<button id="restore">購入を復元</button>':""}</div>
  <button class="btn paper wide" id="mc">とじる</button>`,x=>{x.querySelector("#mc").onclick=closeModal;
-  x.querySelectorAll("[data-pt]").forEach(b=>b.onclick=()=>openPaywall(src,b.dataset.pt));
+  x.querySelectorAll("[data-pt]").forEach(b=>b.onclick=()=>openPaywall(src,b.dataset.pt));x.querySelectorAll("[data-pt2]").forEach(b=>b.onclick=()=>openPaywall(src,b.dataset.pt2));
   x.querySelectorAll("[data-buy]").forEach(b=>b.onclick=()=>buyPlan(b.dataset.buy,src));
   const ta=x.querySelector("#trialAd");if(ta)ta.onclick=startTrialAd;
   const rs=x.querySelector("#restore");if(rs)rs.onclick=()=>SV.restore().then(()=>act("sync",{})).then(()=>{toast("購入を復元しました");closeModal()}).catch(()=>toast("復元できませんでした",1))},"pay"+t)}
+const buyBtn=(id,price)=>hasPack(id)?'<span class="chip">持っている</span>':`<button class="btn sm tomato" data-buy="${id}">${price}円</button>`;
+const isPackId=id=>!!(PACKS[id]||STICKER_PACKS[id]||COSME_PACKS[id]);
 const planName=id=>id===LEGEND.id?"レジェンドパス":(PLANS.find(p=>p.id===id)||{n:""}).n?`スカウトパス（${PLANS.find(p=>p.id===id).n}）`:"スカウトパス";
 function buyPlan(id,src){track("purchase_start",{id,src:src||""});
  if(SV&&SV.purchase){SV.purchase(id).then(()=>act("sync",{})).then(()=>{track("purchase_done",{id});closeModal();celebrate(id)}).catch(()=>toast("購入はキャンセルされました"));return}
  if(DEV){/* 開発者用：その場で買ったことにする */applyLocalPurchase(id);closeModal();celebrate(id);return}
  modal(`<div class="h2">アプリ版で買えます</div><p class="sub" style="margin:0;color:var(--ink)">スカウトパス・レジェンドパス・スタンプは、App Store / Google Play 版のアプリから買えます。いまはアプリ版の準備中です。公開したらお知らせします。</p><button class="btn wide" id="mc">とじる</button>`,x=>x.querySelector("#mc").onclick=closeModal)}
-function applyLocalPurchase(id){if(PACKS[id]){S.packs=[...new Set([...(S.packs||[]),id])]}
+function applyLocalPurchase(id){if(isPackId(id)){S.packs=[...new Set([...(S.packs||[]),id])]}
  else if(id===LEGEND.id){S.legend=true;S.premium=true;S.plan=S.plan||"pass_life";S.legendNo=S.legendNo||(hashN(S.name+Date.now())%900+42);if(!S.ownTitles.includes(legendTitle()))S.ownTitles.push(legendTitle())}
  else{S.premium=true;S.plan=id}save();renderAll()}
 const legendTitle=()=>`レジェンド No.${String(S.legendNo||0).padStart(4,"0")}`;
 function celebrate(id){const legend=id===LEGEND.id;pop(legend?"LEGEND!":"ありがとう！");
- modal(`<div class="celebrate ${legend?"gold":""}">${ART.mascot(96,"wink")}<b>${legend?"レジェンドの仲間入り！":PACKS[id]?"スタンプが増えました！":"スカウトパスへようこそ！"}</b><p>${legend?`あなたは <b>${esc(legendTitle())}</b> です。<br>マイ→Pショップ→「パス会員」で称号・枠・着せ替えをつけられます。`:PACKS[id]?"実況スレのスタンプに追加されました。":"特典はもう使えます。<br>マイ→Pショップ→「パス会員」で見た目をつけよう。"}</p></div><button class="btn tomato wide" id="mc">はじめる</button>`,x=>x.querySelector("#mc").onclick=()=>{closeModal();goTab("my");setMyGroup("points")})}
-/* パス1日体験（広告を1本見る・7日に1回） */
-const trialReady=()=>!S.trialAt||Date.now()-S.trialAt>=7*864e5;
-const trialNext=()=>{const d=new Date((S.trialAt||0)+7*864e5+JST);return`${d.getUTCMonth()+1}/${d.getUTCDate()}`};
+ modal(`<div class="celebrate ${legend?"gold":""}">${ART.mascot(96,"wink")}<b>${legend?"レジェンドの仲間入り！":isPackId(id)?"手に入れました！":"スカウトパスへようこそ！"}</b><p>${legend?`あなたは <b>${esc(legendTitle())}</b> です。<br>マイ→Pショップ→「特別」で称号・枠・着せ替えをつけられます。`:PACKS[id]||STICKER_PACKS[id]?"実況スレのスタンプに追加されました。":COSME_PACKS[id]?"マイ→Pショップ→「特別」でつけられます。":"特典はもう使えます。<br>マイ→Pショップ→「パス会員」で見た目をつけよう。"}</p></div><button class="btn tomato wide" id="mc">はじめる</button>`,x=>x.querySelector("#mc").onclick=()=>{closeModal();goTab("my");setMyGroup("points")})}
+/* パス1日体験（広告を1本見る・1人1回だけ） */
+const trialReady=()=>!S.trialAt;
 function startTrialAd(){if(!trialReady())return;watchAd("スカウトパス 1日体験","trial",()=>adReward("trial",()=>{S.trialAt=Date.now();S.trialUntil=Date.now()+864e5;S.premium=true;save();closeModal();renderAll();track("trial_start",{});toast("24時間、スカウトパスの特典が使えます！")}))}
 /* 着せ替え（レジェンドだけ） */
-function applyTheme(){const t=isLegend()?(S.theme||""):"";document.body.dataset.theme=t;document.body.style.setProperty("--themec",TEAMC[S.team]||"#1E7A4E")}
+function applyTheme(){const t=canTheme(S.theme||"")?(S.theme||""):"";document.body.dataset.theme=t;document.body.style.setProperty("--themec",TEAMC[S.team]||"#1E7A4E")}
 
 /* =====================================================================
    速報（YouTube の最新動画を話題ごとに。4時間ごとに自動）＋ 話題スレ
    ===================================================================== */
 let NEWS=[],TOPICS=[],newsTopic="";
-if(DEMO){const t0=Date.now(),H=36e5;TOPICS=[{id:"ohtani",world:"yakyu",label:"大谷翔平"},{id:"npb",world:"yakyu",label:"プロ野球"},{id:"mlbjp",world:"yakyu",label:"日本人メジャー"},{id:"draft",world:"yakyu",label:"ドラフト・移籍"},{id:"psnew",world:"game",label:"新情報"},{id:"psgacha",world:"game",label:"ガチャ"}];
+if(DEMO){const t0=Date.now(),H=36e5;TOPICS=[{id:"ohtani",world:"yakyu",label:"大谷翔平"},{id:"npb",world:"yakyu",label:"プロ野球"},{id:"mlbjp",world:"yakyu",label:"日本人メジャー"},{id:"draft",world:"yakyu",label:"ドラフト・移籍"},{id:"psnew",world:"game",label:"新情報"},{id:"psgacha",world:"game",label:"ガチャ"},{id:"official",world:"yakyu",label:"球団公式"}];
  [["ohtani","大谷翔平 第2打席でタイムリー！ 今日のハイライト",1.2],["npb","【ハイライト】ロッテ 逆転勝ちで3連勝",2],["ohtani","大谷 今季の全ホームランまとめ",5],["mlbjp","山本由伸 7回無失点の好投",3.5],["npb","阪神 延長戦を制す 試合ダイジェスト",6],["draft","ドラフト注目候補 高校生編",9],["npb","巨人 若手が躍動 二軍戦ダイジェスト",11],["mlbjp","今永昇太 奪三振ショー",14],["psnew","新シリーズ情報まとめ",1.5],["psgacha","新ガチャ 引くべき？",4],["psnew","次回イベント予想",8],["psgacha","無料ガチャの結果",12]]
-  .forEach(([tp,t,h],i)=>NEWS.push({id:"n"+i,title:`【見本】${t}`,ch:"",chName:["野球チャンネル","ハイライト部","プロ野球まとめ","ゲーム速報"][i%4],published:new Date(t0-h*H).toISOString(),topic:tp,world:TOPICS.find(x=>x.id===tp).world,thumb:"",col:COLORS[i%COLORS.length]}))}
+  .concat([["official","【公式】試合ハイライト 逆転勝利！",0.6,"ロッテ"],["official","【公式】ヒーローインタビュー",0.9,"阪神"]]).forEach(([tp,t,h,team],i)=>NEWS.push({id:"n"+i,title:`【見本】${t}`,ch:"",chName:["野球チャンネル","ハイライト部","プロ野球まとめ","ゲーム速報"][i%4],published:new Date(t0-h*H).toISOString(),topic:tp,team:team||"",world:(TOPICS.find(x=>x.id===tp)||{world:"yakyu"}).world,thumb:"",col:team?TEAMC[team]:COLORS[i%COLORS.length]}))}
 function useNews(d){NEWS=Array.isArray(d.news)?d.news:[];TOPICS=Array.isArray(d.topics)?d.topics:[]}
-const newsW=()=>NEWS.filter(n=>(n.world||"yakyu")===W()).filter(n=>Date.now()-Date.parse(n.published)<7*864e5);
+const newsW=()=>NEWS.filter(n=>(n.world||"yakyu")===W()).filter(n=>Date.now()-Date.parse(n.published)<7*864e5).sort((a,b)=>Date.parse(b.published)-Date.parse(a.published));
 const topicLabel=id=>(TOPICS.find(t=>t.id===id)||{label:""}).label;
 const newsUrl=n=>n.ch||n.thumb?`https://www.youtube.com/watch?v=${encodeURIComponent(n.id)}`:`https://www.youtube.com/results?search_query=${encodeURIComponent(n.title.replace("【見本】",""))}`;
 function newsThumb(n){const img=n.id&&!/^n\d+$/.test(n.id)?`<img src="https://i.ytimg.com/vi/${encodeURIComponent(n.id)}/mqdefault.jpg" alt="" loading="lazy" referrerpolicy="no-referrer" onerror="this.remove()">`:"";
  return`<span class="nthumb" style="background:linear-gradient(135deg,${n.col||"#1E7A4E"},#0B1934)">${img}${isFresh(n)?'<span class="nnew">NEW</span>':""}</span>`}
 const isFresh=n=>Date.now()-Date.parse(n.published)<6*36e5;
 const talkN=n=>((CM&&CM.chats)||[]).filter(m=>m.vid==="t_"+n.id&&!m.hidden).length;
-function newsCard(n,small){return`<button class="ncard ${small?"sm":""}" data-news="${esc(n.id)}">${newsThumb(n)}<span class="nbody"><span class="ntop"><span class="ntag">${esc(topicLabel(n.topic)||"速報")}</span><small>${agoTxt(Date.parse(n.published))}</small></span><b>${esc(n.title)}</b><small>${esc(n.chName||"")}・出典 YouTube</small><span class="ntalk">語る${talkN(n)?" "+talkN(n):""} ▶</span></span></button>`}
+function newsCard(n,small){return`<button class="ncard ${small?"sm":""}" data-news="${esc(n.id)}">${newsThumb(n)}<span class="nbody"><span class="ntop"><span class="ntag" ${n.team?`style="background:${TEAMC[n.team]||"#0B1934"};color:${tcText(n.team)}"`:""}>${esc(n.team||topicLabel(n.topic)||"速報")}</span><small>${agoTxt(Date.parse(n.published))}</small></span><b>${esc(n.title)}</b><small>${esc(n.chName||"")}・出典 YouTube</small><span class="ntalk">語る${talkN(n)?" "+talkN(n):""} ▶</span></span></button>`}
 function bindNews(root){root.querySelectorAll("[data-news]").forEach(b=>b.onclick=()=>openNews(b.dataset.news))}
 /* 速報の画面：話題のチップ＋一覧 */
-function renderNewsView(box){const tops=TOPICS.filter(t=>t.world===W());const list=newsW().filter(n=>!newsTopic||n.topic===newsTopic);
- box.innerHTML=`<div class="newshero"><b>${isY()?"野球の速報":"ゲームの速報"}</b><small>YouTube の新しい動画から、4時間ごとに自動で集めています。気になる話題はみんなで語ろう</small></div>
- <div class="chiprow" data-keepx="1" id="topicRow"><button class="${newsTopic?"":"on"}" data-tp="">すべて</button>${tops.map(t=>`<button class="${newsTopic===t.id?"on":""}" data-tp="${esc(t.id)}">${esc(t.label)}</button>`).join("")}</div>
+function renderNewsView(box){const tops=TOPICS.filter(t=>t.world===W());const list=newsW().filter(n=>!newsTopic||(newsTopic==="myteam"?n.team===S.team:n.topic===newsTopic));
+ box.innerHTML=`<div class="newshero"><b>${isY()?"野球の速報":"ゲームの速報"}</b><small>${isY()?"球団公式の動画は約20分ごと、話題の動画は4時間ごとに自動で集めています":"話題の動画を4時間ごとに自動で集めています"}</small></div>
+ <div class="chiprow" data-keepx="1" id="topicRow"><button class="${newsTopic?"":"on"}" data-tp="">すべて</button>${isY()&&S.team&&NEWS.some(n=>n.team===S.team)?`<button class="${newsTopic==="myteam"?"on":""}" data-tp="myteam" style="border-left:6px solid ${TEAMC[S.team]}">${esc(S.team)}</button>`:""}${tops.map(t=>`<button class="${newsTopic===t.id?"on":""}" data-tp="${esc(t.id)}">${esc(t.label)}</button>`).join("")}</div>
  ${renderTrendsHTML()}
  <div class="nlist">${list.slice(0,40).map(n=>newsCard(n)).join("")||'<div class="note"><p class="sub" style="margin:0">いまは新しい速報がありません。数時間ごとに自動で増えます</p></div>'}</div>
  <p class="unoff" style="text-align:left">動画の情報：出典 <b style="color:var(--yt)">YouTube</b>。タイトル・サムネイルは YouTube の公開情報です</p>`;
@@ -2517,7 +2635,7 @@ function openTrend(w){track("trend_open",{});const key=w.replace(/^[#＃]/,"");c
   x.querySelectorAll("[data-post]").forEach(b=>b.onclick=()=>openPost(b.dataset.post));
   x.querySelector("#trPost").onclick=()=>isY()&&S.team?openComposer({cat:"雑談",room:S.team,text:w.startsWith("#")?w+" ":"#"+w+" "}):openComposer({cat:"雑談",text:w.startsWith("#")?w+" ":"#"+w+" "})},"trend"+w)}
 /* ホームの速報（3件だけ） */
-function renderHomeNews(){const box=$("#homeNews");if(!box)return;const l=newsW().slice(0,3);
+function renderHomeNews(){const box=$("#homeNews");if(!box)return;const mine=n=>S.team&&n.team===S.team&&Date.now()-Date.parse(n.published)<12*36e5;const l=[...newsW()].sort((a,b)=>(mine(b)-mine(a))||Date.parse(b.published)-Date.parse(a.published)).slice(0,3);
  box.hidden=!l.length;if(!l.length)return;
  box.innerHTML=`<div class="rowsb"><h2 class="h2">${isY()?"速報":"ゲーム速報"}</h2><button class="pbtn" id="moreNews">もっと見る ▶</button></div>${renderTrendsHTML()}<div class="nlist" style="margin-top:8px">${l.map(n=>newsCard(n,1)).join("")}</div>`;
  bindNews(box);bindTrends(box);$("#moreNews").onclick=()=>goComm("news")}

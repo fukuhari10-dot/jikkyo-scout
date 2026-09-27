@@ -3,7 +3,7 @@
 チューバースカウト データ収集スクリプト（標準ライブラリのみ）
 
 使い方:
-  YT_API_KEY=xxxx python fetch.py --mode live       # 10分ごと: ライブ中・配信予定・新着動画
+  YT_API_KEY=xxxx python fetch.py --mode live       # 10分ごと: ライブ中・配信予定・新着動画（ついでに試合速報・球団公式チャンネルの新着）
   YT_API_KEY=xxxx python fetch.py --mode full       # 1時間ごと: 登録者数・動画の再生数・トピック・大台達成
   YT_API_KEY=xxxx python fetch.py --mode discover   # 1日1回: 新しい配信者の候補をさがす（人が確認してから channels.json に追加）
   YT_API_KEY=xxxx python fetch.py --mode news       # 4時間ごと: 速報（話題ごとの最新動画）を data/news.json に集める
@@ -21,8 +21,9 @@
   data/candidates.json         … discover で見つかった掲載候補
   data/snap/YYYY-MM-DD.json    … その日の22時台最初の更新での同時視聴者数（「今夜の1位予想」の答え合わせ用）
   data/handles.json            … @ハンドル → チャンネルID の対応（一度調べたら保存）
-  data/news.json               … 速報（話題ごとの最新動画。7日より古いものは消す）
+  data/news.json               … 速報（話題ごとの最新動画・球団公式チャンネルの新着。7日より古いものは消す）
   data/games_npb.json          … 試合日程と結果（NPB の公開日程ページから）
+  data/games_live.json         … 今日の試合の点数・回・試合終了（NPB の試合速報ページから。live のついでに約10分ごと）
 
 channels.json には "id"（UC…）か "handle"（@…）のどちらかを書けばよい。
 "genre" は "game"（ゲーム実況・プロスピ）か "fan"（プロ野球の球団ファン）。書かなければ "game"。
@@ -32,7 +33,7 @@ YouTube の規約（API Developer Policies）に合わせていること:
   - 複数チャンネルの数値を合計・集計しない（III.E.2）
   - 過去の登録者数の記録は持たない。予想用の記録も30日で消す（III.E.4）
 """
-import argparse, datetime as dt, json, os, sys, urllib.parse, urllib.request
+import argparse, datetime as dt, json, os, re, sys, time, urllib.parse, urllib.request
 import xml.etree.ElementTree as ET
 
 API = "https://www.googleapis.com/youtube/v3/"
@@ -71,8 +72,28 @@ NEWS_TOPICS = [
     {"id": "prospi_gacha", "world": "game", "q": "プロスピA ガチャ 新", "label": "ガチャ"},
 ]
 NEWS_KEEP_DAYS = 7     # 速報は7日で消す（YouTube の規約の30日より短い）
-NEWS_MAX = 120         # 速報の最大件数
+NEWS_MAX = 160         # 速報の最大件数
 NEWS_HOURS = 48        # 何時間前までの動画をさがすか
+
+# 球団・リーグの公式チャンネル：RSS で新着を見る（APIの割り当てを使わない）。live のついでに約20分ごと
+# キットの一番上に news_channels.json（同じ形）を置くと、同じ id の行は置きかえ、新しい id の行は足す（"off": true でその行を使わない）
+NEWS_CHANNELS = [
+    {"id": "UCXxg0igSYUp0tqdd6luPEnQ", "name": "読売ジャイアンツ", "team": "巨人", "label": "巨人"},
+    {"id": "UCqm35j3ustKFyXQVnX5tlXw", "name": "阪神タイガース", "team": "阪神", "label": "阪神"},
+    {"id": "UChJI9KrjSgPzv_kfX6yuqhA", "name": "横浜DeNAベイスターズ", "team": "DeNA", "label": "DeNA"},
+    {"id": "UCIEmSQYznT9cuTZzBN-x3SQ", "name": "北海道日本ハムファイターズ", "team": "日本ハム", "label": "日本ハム"},
+    {"id": "UCbDAmhyRx9bakv-0Gucglgg", "name": "福岡ソフトバンクホークス", "team": "ソフトバンク", "label": "ソフトバンク"},
+    {"id": "UC57LcTUKgjDg_K_VJXnmCTg", "name": "中日ドラゴンズ", "team": "中日", "label": "中日"},
+    {"id": "UC6qnjAoknKc6nUwhxVYL_DA", "name": "千葉ロッテマリーンズ", "team": "ロッテ", "label": "ロッテ"},
+    {"id": "UCE_pCd9bB79Tf8eC_QZHkpA", "name": "オリックス・バファローズ", "team": "オリックス", "label": "オリックス"},
+    {"id": "UCt7cNctKXoKece38M9gJV7A", "name": "東京ヤクルトスワローズ", "team": "ヤクルト", "label": "ヤクルト"},
+    {"id": "UChLK3zS3-kR21JVTaNovPIg", "name": "埼玉西武ライオンズ", "team": "西武", "label": "西武"},
+    {"id": "UC7DjQdai62xSVfCUhiP5Oiw", "name": "東北楽天ゴールデンイーグルス", "team": "楽天", "label": "楽天"},
+    {"id": "UC0VGvOEN22JcprH7pZrCwiw", "name": "広島東洋カープ", "team": "広島", "label": "広島"},
+    {"id": "UCrjlKkKTAyNn6gekRM3p0Aw", "name": "パ・リーグ（プロ野球チャンネル パ）", "team": "", "label": "パ・リーグ"},
+]
+OFFICIAL_TOPIC = {"id": "official", "world": "yakyu", "label": "球団公式"}
+RSS_EVERY = dt.timedelta(minutes=19)   # 10分ごとの live で、約20分に1回だけ読む（定期実行の小さなずれで30分にならないよう少し短め）
 
 
 # ---------------- 通信 ----------------
@@ -319,9 +340,8 @@ NPB_URL = "https://npb.jp/games/{y}/schedule_{m:02d}_detail.html"
 _TEAMS_RE = "|".join(sorted(TEAM_WORDS, key=len, reverse=True))
 
 
-def parse_npb_schedule(html, year):
-    """NPB の月別日程ページ（表）から [{day,time,home,away,place}] を取り出す。表の書き方が多少変わっても読めるよう、行ごとの文字で判断する"""
-    import re
+def table_rows(html):
+    """HTML の表を、行ごとの「セルの文字のリスト」にする（td・th どちらも1セル）"""
     from html.parser import HTMLParser
 
     class T(HTMLParser):
@@ -339,9 +359,14 @@ def parse_npb_schedule(html, year):
         def handle_data(self, d):
             if self.cell is not None: self.cell.append(d)
 
-    p = T(); p.feed(html)
+    p = T(); p.feed(html or "")
+    return p.rows
+
+
+def parse_npb_schedule(html, year):
+    """NPB の月別日程ページ（表）から [{day,time,home,away,place}] を取り出す。表の書き方が多少変わっても読めるよう、行ごとの文字で判断する"""
     out, cur = [], None
-    for cells in p.rows:
+    for cells in table_rows(html):
         text = " ".join(cells)
         dm = re.search(r"(\d{1,2})/(\d{1,2})", cells[0] if cells else "")
         if dm:
@@ -426,18 +451,166 @@ def mode_schedule(_seeds=None):
 
 
 def game_row(g):
-    """アプリに出す形：day,time,home,away,place,status と、終わった試合だけ score"""
+    """アプリに出す形：day,time,home,away,place,status と、終わった試合・試合中だけ score、試合中だけ inning"""
     st = g.get("status") or ("off" if g.get("off") else "")
     row = {k: g.get(k, "") for k in ("day", "time", "home", "away", "place")}
     row["status"] = st
-    if st == "end" and g.get("score"):
+    if st in ("end", "live") and g.get("score"):
         row["score"] = list(g["score"])
+    if st == "live" and g.get("inning"):
+        row["inning"] = g["inning"]
     return row
+
+
+# ---------- 試合中の点数・試合終了（NPB 公式の試合速報ページから。点数・回・状態という事実だけを使い、文章・画像は使わない） ----------
+# NPB のトップページに今日の試合へのリンクがある：/scores/2026/0927/m-f-23/（1つ目の記号がホーム）
+NPB_CODES = {"g": "巨人", "s": "ヤクルト", "db": "DeNA", "c": "広島", "t": "阪神", "d": "中日",
+             "m": "ロッテ", "f": "日本ハム", "h": "ソフトバンク", "b": "オリックス", "l": "西武", "e": "楽天"}
+NPB_TOP = "https://npb.jp/"
+LIVE_EVERY = dt.timedelta(minutes=9)   # 9分に1回まで（10分ごとの live で毎回読める）
+LIVE_MAX_REQ = 7                       # 1回の実行で NPB に送るのは7回まで（トップページも数える）
+
+
+def today_game_links(html, day):
+    """NPB のトップページから、その日の試合ページへのリンクを取り出す → [{home, away, url}]"""
+    md = f"{day.month:02d}{day.day:02d}"
+    out, seen = [], set()
+    for m in re.finditer(r"/scores/(\d{4})/(\d{4})/([a-z]+)-([a-z]+)-(\d+)/", html or ""):
+        y, d, h, a, n = m.groups()
+        if int(y) != day.year or d != md or h not in NPB_CODES or a not in NPB_CODES or h == a:
+            continue
+        url = f"https://npb.jp/scores/{y}/{d}/{h}-{a}-{n}/index.html"  # index.html を付けないと転送がくり返されて読めない
+        if url not in seen:
+            seen.add(url)
+            out.append({"home": NPB_CODES[h], "away": NPB_CODES[a], "url": url})
+    return out
+
+
+def team_in(text):
+    """文字の中にある球団（正式名・愛称・短い名前）。なければ空"""
+    for team, (strong, _weak) in TEAM_WORDS.items():
+        if team in text or any(w in text for w in strong):
+            return team
+    return ""
+
+
+def _status_words(t, off_words):
+    """状態を表す言葉から (status, inning) を決める。決まらなければ ("", "")"""
+    m = re.search(r"(\d{1,2})回(表|裏)", t)
+    if "試合終了" in t:
+        return "end", ""
+    if any(w in t for w in off_words):
+        return "off", ""
+    if m:
+        return "live", m.group(0)
+    if "試合中" in t:
+        return "live", ""
+    return "", ""
+
+
+def parse_game_page(html, home, away):
+    """NPB の試合速報ページ → {"status": "end"|"live"|"off"|"", "inning": "7回裏" など, "score": [ホームの点, ビジターの点] か None}
+    スコア表は「球団名, 1回…9回, 計, H, E」の行。最後の3つが数字の行の、後ろから3つ目が点"""
+    html = html or ""
+    runs, played = {}, False
+    for cells in table_rows(html):
+        if len(cells) < 4:
+            continue
+        i = 0 if cells[0] else 1
+        team = team_in(cells[i]) if i < len(cells) - 3 else ""
+        if not team or not all(re.fullmatch(r"\d+", c) for c in cells[-3:]):
+            continue
+        if team not in runs:
+            runs[team] = int(cells[-3])
+            played = played or any(c not in ("", "-") for c in cells[i + 1:-3])
+    text = re.sub(r"<(script|style)\b.*?</\1\s*>", " ", html, flags=re.S | re.I)
+    text = re.sub(r"<[^>]+>", " ", text).translate(str.maketrans("０１２３４５６７８９", "0123456789"))
+    marks = " ".join(re.findall(r"【([^】]{1,15})】", text))
+    # まず【】の中（【試合終了】【7回裏】など）で決める。なければページ全体（「中止」はメニューなどにも出るので「試合中止」だけ）
+    st, inning = _status_words(marks, ("中止", "ノーゲーム"))
+    if not st:
+        st, inning = _status_words(text, ("試合中止", "ノーゲーム"))
+    score = [runs[home], runs[away]] if home in runs and away in runs else None
+    if not st and score is not None and played:
+        st = "live"
+    return {"status": st, "inning": inning, "score": score}
+
+
+def need_live_scores(now_jst, at):
+    """13時〜23時台で、前に読んでから9分以上たっていれば True"""
+    if not (13 <= now_jst.hour <= 23):
+        return False
+    last = parse_time(at) if at else None
+    return last is None or last.tzinfo is None or now_jst - last >= LIVE_EVERY
+
+
+def mode_live_scores(now=None, sleep=time.sleep):
+    """試合の時間に、今日の試合の点数・回・試合終了を data/games_live.json に入れる。
+    NPB のトップページを1回読み、まだ終わっていない試合のページだけ読む（1回の実行で7回まで・1秒ずつあける）。失敗しても止まらない"""
+    try:
+        now = (now or dt.datetime.now(JST)).astimezone(JST)
+        path = os.path.join(DATA, "games_live.json")
+        cur = load(path, {})
+        day = now.date().isoformat()
+        if not isinstance(cur, dict) or cur.get("day") != day:  # 日が変わったら作り直す
+            cur = {"day": day, "games": {}}
+        if not need_live_scores(now, cur.get("at")):
+            return False
+        cur["at"] = now.isoformat(timespec="seconds")  # 失敗しても9分は読み直さない
+        games = cur.setdefault("games", {})
+        try:
+            links = today_game_links(get(NPB_TOP, as_json=False).decode("utf-8", "replace"), now.date())
+            sent = 1
+            for g in links:
+                key = g["home"] + "-" + g["away"]
+                old = games.get(key) or {}
+                if old.get("status") in ("end", "off"):  # 終わった・中止の試合はもう読まない
+                    continue
+                if sent >= LIVE_MAX_REQ:
+                    break
+                sleep(1)
+                sent += 1
+                try:
+                    r = parse_game_page(get(g["url"], as_json=False).decode("utf-8", "replace"), g["home"], g["away"])
+                except Exception as e:
+                    print("試合速報を読めませんでした", key, e, file=sys.stderr)
+                    continue
+                if old and not r["status"] and r["score"] is None:  # 何も読めなかったときは前の結果を残す
+                    continue
+                games[key] = dict(r, url=g["url"], at=cur["at"])
+        except Exception as e:
+            print("NPB のトップページを読めませんでした", e, file=sys.stderr)
+        dump(path, cur)
+        return True
+    except Exception as e:
+        print("試合速報の更新に失敗", e, file=sys.stderr)
+        return False
+
+
+def live_overlay(rows, today):
+    """今日の試合に、試合速報で分かった状態・点数・回を重ねる（キーは「ホーム-ビジター」）"""
+    lv = load(os.path.join(DATA, "games_live.json"), {})
+    if not isinstance(lv, dict) or lv.get("day") != today.isoformat():
+        return rows
+    games = lv.get("games") or {}
+    for row in rows:
+        g = games.get(f"{row['home']}-{row['away']}") if row.get("day") == today.isoformat() else None
+        if not g or g.get("status") not in ("end", "live", "off"):
+            continue
+        row["status"] = g["status"]
+        row.pop("inning", None)
+        if g["status"] == "off":
+            row.pop("score", None)
+        elif g.get("score"):
+            row["score"] = list(g["score"])
+        if g["status"] == "live" and g.get("inning"):
+            row["inning"] = g["inning"]
+    return rows
 
 
 def upcoming_games(today, days=7):
     """自動の日程（NPB）に、games.csv の手入力を上書きで足す（同じ日・同じ球団は手入力を優先）
-    昨日から7日先まで。中止の試合・終わった試合の点数も出す"""
+    昨日から7日先まで。中止の試合・終わった試合の点数も出す。今日の試合には試合速報（games_live.json）を重ねる"""
     auto = load(os.path.join(DATA, "games_npb.json"), {}).get("games", [])
     auto = [g for g in auto if -1 <= (dt.date.fromisoformat(g["day"]) - today).days < days]
     manual, _ = read_games(os.path.join(HERE, "games.csv"), today, days)
@@ -451,7 +624,7 @@ def upcoming_games(today, days=7):
             if "score" in a:
                 row["score"] = a["score"]
         merged[key(g)] = row
-    return sorted(merged.values(), key=lambda g: (g["day"], g["time"]))
+    return live_overlay(sorted(merged.values(), key=lambda g: (g["day"], g["time"])), today)
 
 
 # ---------- ジャンル・配信する人の自動判定（最近のプロスピ動画のタイトルから） ----------
@@ -614,6 +787,70 @@ def load_topics():
     return [dict(t) for t in NEWS_TOPICS]
 
 
+def news_topics():
+    """速報の話題の全部（さがす話題＋球団公式）。球団公式はさがさず RSS で集める"""
+    tps = load_topics()
+    if not any(t["id"] == OFFICIAL_TOPIC["id"] for t in tps):
+        tps.append(dict(OFFICIAL_TOPIC))
+    return tps
+
+
+def load_news_channels():
+    """球団・リーグの公式チャンネル。news_channels.json があれば、同じ id は置きかえ・新しい id は足す（"off": true は使わない）"""
+    by = {c["id"]: dict(c) for c in NEWS_CHANNELS}
+    rows = load(os.path.join(HERE, "news_channels.json"), None)
+    for c in rows if isinstance(rows, list) else []:
+        if not isinstance(c, dict) or not str(c.get("id", "")).startswith("UC"):
+            continue
+        if c.get("off"):
+            by.pop(c["id"], None)
+            continue
+        team = c.get("team") if c.get("team") in TEAM_WORDS else ""
+        name = str(c.get("name") or c["id"])
+        by[c["id"]] = {"id": c["id"], "name": name, "team": team, "label": str(c.get("label") or name)}
+    return list(by.values())
+
+
+def parse_feed(xml, ch, now, hours=NEWS_HOURS):
+    """YouTube の RSS（Atom）→ 速報の形。hours 時間より古い動画は入れない"""
+    ns = {"a": "http://www.w3.org/2005/Atom", "yt": "http://www.youtube.com/xml/schemas/2015", "m": "http://search.yahoo.com/mrss/"}
+    since = now - dt.timedelta(hours=hours)
+    out = []
+    for e in ET.fromstring(xml).findall("a:entry", ns):
+        vid, pub = e.findtext("yt:videoId", "", ns), parse_time(e.findtext("a:published", "", ns))
+        if not vid or pub is None or pub.tzinfo is None or pub < since:
+            continue
+        th = e.find("m:group/m:thumbnail", ns)
+        out.append({"id": vid, "title": e.findtext("a:title", "", ns), "ch": ch["id"],
+                    "chName": e.findtext("a:author/a:name", "", ns) or ch.get("name", ""),
+                    "published": pub.astimezone(dt.timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ"),
+                    "topic": OFFICIAL_TOPIC["id"], "world": "yakyu", "thumb": th.get("url", "") if th is not None else "",
+                    "team": ch.get("team", "")})
+    return out
+
+
+def mode_rss_news(now=None):
+    """球団・リーグの公式チャンネルの新着（48時間以内）を RSS で読んで data/news.json に足す（約20分に1回。APIの割り当ては使わない）"""
+    now = now or dt.datetime.now(dt.timezone.utc)
+    path = os.path.join(DATA, "news.json")
+    cur = load(path, {})
+    cur = cur if isinstance(cur, dict) else {}
+    last = parse_time(cur.get("rssAt")) if cur.get("rssAt") else None
+    if last is not None and last.tzinfo is not None and now - last < RSS_EVERY:
+        return False
+    fresh = []
+    for ch in load_news_channels():
+        try:
+            fresh += parse_feed(get(f"https://www.youtube.com/feeds/videos.xml?channel_id={ch['id']}", as_json=False), ch, now)
+        except Exception as e:  # 404 などはそのチャンネルだけ飛ばす
+            print("公式チャンネルの RSS を読めませんでした（飛ばします）", ch.get("label", ""), ch["id"], e, file=sys.stderr)
+    blocked = set(load(os.path.join(HERE, "blocked.json"), []))
+    items = merge_news(cur.get("items", []), fresh, news_topics(), blocked, now)
+    dump(path, dict(cur, updated=dt.datetime.now(JST).isoformat(timespec="minutes"), rssAt=now.isoformat(timespec="seconds"), items=items))
+    print(f"速報（公式チャンネル）：{len(items)}件（今回 {len(fresh)}件）")
+    return True
+
+
 def parse_time(s):
     """YouTube の時刻（…Z）を datetime にする。読めなければ None"""
     try:
@@ -647,6 +884,8 @@ def merge_news(prev, fresh, topics, blocked, now, keep_days=NEWS_KEEP_DAYS, limi
         cur = by.get(v["id"])
         if cur is None:
             by[v["id"]] = cur = dict(v, topics=[])
+        if not cur.get("team") and v.get("team"):  # 公式チャンネルの動画なら球団を残す
+            cur["team"] = v["team"]
         for t in tps:
             if t and t not in cur["topics"]:
                 cur["topics"].append(t)
@@ -683,10 +922,11 @@ def mode_news(now=None):
     vids = api_news_videos(all_ids) if all_ids else {}
     fresh = [dict(vids[i], topic=t["id"]) for t, ids in found for i in ids if i in vids]
     path = os.path.join(DATA, "news.json")
-    prev = load(path, {}).get("items", [])
+    cur = load(path, {})
+    cur = cur if isinstance(cur, dict) else {}
     blocked = set(load(os.path.join(HERE, "blocked.json"), []))
-    items = merge_news(prev, fresh, topics, blocked, now)
-    dump(path, {"updated": dt.datetime.now(JST).isoformat(timespec="minutes"), "items": items})
+    items = merge_news(cur.get("items", []), fresh, news_topics(), blocked, now)  # 球団公式（RSS）の分も消さない
+    dump(path, dict(cur, updated=dt.datetime.now(JST).isoformat(timespec="minutes"), items=items))  # rssAt はそのまま残す
     print(f"速報：{len(items)}件（今回見つかった {len(fresh)}件）")
 
 
@@ -698,7 +938,7 @@ def news_for_app(now=None):
     for v in load(os.path.join(DATA, "news.json"), {}).get("items", []):
         pub = parse_time(v.get("published"))
         if pub is not None and pub >= since:
-            out.append({k: v.get(k, "") for k in ("id", "title", "ch", "chName", "published", "topic", "world", "thumb")})
+            out.append({k: v.get(k, "") for k in ("id", "title", "ch", "chName", "published", "topic", "world", "thumb", "team")})
     return out
 
 
@@ -734,7 +974,7 @@ def build_latest(seed_list=None):
         "pr": load(os.path.join(HERE, "pr.json"), {}).get("id", ""),  # PR枠（{"id": "UC…"} を置くと表示）
         "games": upcoming_games(today_jst()),  # 昨日から7日先の試合（NPBの公開日程から自動＋games.csv の手入力）。結果・中止つき
         "news": news_for_app(),  # 速報（7日以内）
-        "topics": [{k: t[k] for k in ("id", "world", "label")} for t in load_topics()],
+        "topics": [{k: t[k] for k in ("id", "world", "label")} for t in news_topics()],  # 最後に「球団公式」
     }
     dump(os.path.join(DATA, "latest.json"), out)
     print(f"latest.json: {len(chans)} channels, {len(out['videos'])} videos, {len(live['live'])} live")
@@ -760,10 +1000,18 @@ def mode_live(seeds):
     recent = [v for v in vids.values() if v["state"] == "none" and shown(v, al, fi)]
     dump(os.path.join(DATA, "live.json"), {"live": live, "upcoming": upcoming, "recent": recent})
     take_snapshot(live, dt.datetime.now(JST))
-    try:  # 試合の時間帯だけ、今日の試合の結果・中止を20分ごとに読み直す（失敗しても live は止めない）
+    try:  # 試合の時間帯だけ、今日の試合の結果・中止を20分ごとに日程ページから読み直す（試合速報が読めないときの予備）
         mode_today_games()
     except Exception as e:
         print("今日の試合の更新に失敗", e, file=sys.stderr)
+    try:  # 試合の時間帯だけ、試合速報ページから点数・回・試合終了を読む（約10分ごと）
+        mode_live_scores()
+    except Exception as e:
+        print("試合速報の更新に失敗", e, file=sys.stderr)
+    try:  # 球団・リーグ公式チャンネルの新着（RSS・約20分ごと）
+        mode_rss_news()
+    except Exception as e:
+        print("公式チャンネルの速報の更新に失敗", e, file=sys.stderr)
 
 
 def take_snapshot(live, now_jst):
@@ -1115,7 +1363,8 @@ def selftest():
         lj = load(os.path.join(DATA, "latest.json"), {})
         assert {c["id"]: c["genre"] for c in lj["channels"]} == {"UC1": "game", "UC2": "fan"}, lj["channels"]
         assert [c for c in lj["channels"] if c["id"] == "UC2"][0]["tags"] == ["応援"]
-        assert lj["news"] == [] and [t["id"] for t in lj["topics"]] == [t["id"] for t in NEWS_TOPICS]
+        assert lj["news"] == [] and [t["id"] for t in lj["topics"]] == [t["id"] for t in NEWS_TOPICS] + ["official"]
+        assert lj["topics"][-1] == OFFICIAL_TOPIC, lj["topics"]
         assert set(lj["topics"][0]) == {"id", "world", "label"}
         # topics.json で話題を変える（形がおかしい行は使わない）
         HERE = DATA
@@ -1131,7 +1380,8 @@ def selftest():
         n1 = {"id": "v1", "title": "t", "ch": "C", "chName": "n", "published": rec, "topic": "ohtani", "topics": ["ohtani"], "world": "yakyu", "thumb": "u"}
         dump(os.path.join(DATA, "news.json"), {"items": [n1, dict(n1, id="v2", published=old8)]})
         nf = news_for_app()
-        assert [v["id"] for v in nf] == ["v1"] and set(nf[0]) == {"id", "title", "ch", "chName", "published", "topic", "world", "thumb"}, nf
+        assert [v["id"] for v in nf] == ["v1"] and set(nf[0]) == {"id", "title", "ch", "chName", "published", "topic", "world", "thumb", "team"}, nf
+        assert nf[0]["team"] == ""
         # 試合：昨日の結果・中止も出す。手入力が優先だが、同じ試合なら結果は残す
         td = today_jst()
         d = lambda n: (td + dt.timedelta(days=n)).isoformat()
@@ -1164,6 +1414,105 @@ def selftest():
             get = lambda *a, **k: (_ for _ in ()).throw(OSError("x"))
             assert mode_today_games(t1 + dt.timedelta(minutes=30)) is True, "失敗しても止まらない"
             assert len(load(os.path.join(DATA, "games_npb.json"), {})["games"]) == len(auto)
+            # ---- 試合速報（NPB の試合ページ。通信はしない） ----
+            Y, MD = td.year, f"{td.month:02d}{td.day:02d}"
+            top = (f'<a href="https://npb.jp/scores/{Y}/{MD}/m-f-23/">a</a><a href="/scores/{Y}/{MD}/e-b-25/">b</a>'
+                   f'<a href="/scores/{Y}/{MD}/c-d-20/">c</a><a href="/scores/{Y}/{MD}/m-f-23/">同じ</a><a href="/scores/{Y - 1}/{MD}/g-t-1/">去年</a>')
+            links = today_game_links(top, td)
+            assert [(x["home"], x["away"]) for x in links] == [("ロッテ", "日本ハム"), ("楽天", "オリックス"), ("広島", "中日")], links
+            assert links[0]["url"] == f"https://npb.jp/scores/{Y}/{MD}/m-f-23/index.html"
+            assert today_game_links(top, td + dt.timedelta(days=1)) == [] and today_game_links(None, td) == []
+            tr = lambda cells: "<tr>" + "".join(f"<td>{c}</td>" for c in cells) + "</tr>"
+            hdr = tr([""] + [str(i) for i in range(1, 10)] + ["計", "H", "E"])
+            pg = lambda mark, rows: f"<title>試合速報 | NPB.jp 日本野球機構</title><div>{mark}</div><table>{hdr}{''.join(tr(r) for r in rows)}</table>"
+            fin = pg("【試合終了】", [["北海道日本ハムファイターズ", 0, 0, 1, 0, 0, 0, 0, 0, 0, 1, 6, 1], ["千葉ロッテマリーンズ", 0, 1, 0, 2, 0, 3, 0, 0, "X", 6, 10, 0]])
+            assert parse_game_page(fin, "ロッテ", "日本ハム") == {"status": "end", "inning": "", "score": [6, 1]}
+            mid = [["オリックス・バファローズ", 0, 0, 1, 0, 0, 2, 0, "", "", 3, 7, 0], ["東北楽天ゴールデンイーグルス", 1, 0, 0, 0, 0, 0, "", "", "", 1, 4, 1]]
+            assert parse_game_page(pg("【7回裏】", mid), "楽天", "オリックス") == {"status": "live", "inning": "7回裏", "score": [1, 3]}
+            assert parse_game_page(pg("【７回表】", mid), "楽天", "オリックス")["inning"] == "7回表", "全角の数字も読む"
+            assert parse_game_page(pg("", mid), "楽天", "オリックス") == {"status": "live", "inning": "", "score": [1, 3]}, "【】がなくても回が進んでいれば試合中"
+            pre = [["オリックス・バファローズ"] + [""] * 9 + ["0", "0", "0"], ["東北楽天ゴールデンイーグルス"] + [""] * 9 + ["0", "0", "0"]]
+            assert parse_game_page(pg("【試合前】", pre) + "<a>中止試合のお知らせ</a>", "楽天", "オリックス") == {"status": "", "inning": "", "score": [0, 0]}
+            assert parse_game_page(pg("【中止】", []), "広島", "中日") == {"status": "off", "inning": "", "score": None}
+            assert parse_game_page("<p>ノーゲーム</p>", "広島", "中日")["status"] == "off" and parse_game_page("", "a", "b")["status"] == ""
+            assert team_in("横浜DeNAベイスターズ") == "DeNA" and team_in("広島東洋カープ") == "広島" and team_in("計") == ""
+            pages = {NPB_TOP: top, links[0]["url"]: fin, links[1]["url"]: pg("【7回裏】", mid), links[2]["url"]: pg("【中止】", [])}
+            calls = []
+
+            def fake(url, params=None, as_json=True):
+                calls.append(url)
+                return pages.get(url, "").encode("utf-8")
+            get = fake
+            nosleep = lambda s: None
+            t2 = dt.datetime.combine(td, dt.time(18, 0), JST)
+            assert mode_live_scores(dt.datetime.combine(td, dt.time(12, 50), JST), nosleep) is False and calls == [], "13時前は読まない"
+            assert mode_live_scores(t2, nosleep) is True and len(calls) == 4, calls
+            gl = load(os.path.join(DATA, "games_live.json"), {})
+            assert gl["day"] == td.isoformat() and set(gl["games"]) == {"ロッテ-日本ハム", "楽天-オリックス", "広島-中日"}, gl
+            assert gl["games"]["ロッテ-日本ハム"]["status"] == "end" and gl["games"]["ロッテ-日本ハム"]["score"] == [6, 1]
+            assert gl["games"]["楽天-オリックス"]["inning"] == "7回裏" and gl["games"]["広島-中日"]["status"] == "off"
+            assert mode_live_scores(t2 + dt.timedelta(minutes=5), nosleep) is False and len(calls) == 4, "9分以内は読まない"
+            assert mode_live_scores(t2 + dt.timedelta(minutes=10), nosleep) is True and calls[4:] == [NPB_TOP, links[1]["url"]], "終わった・中止の試合は読まない"
+            # アプリの games に重ねる（今日の楽天-オリックスは試合中、広島-中日は中止）
+            ug = upcoming_games(td)
+            rk = [x for x in ug if x["home"] == "楽天"][0]
+            assert rk["status"] == "live" and rk["inning"] == "7回裏" and rk["score"] == [1, 3] and rk["time"] == "14:00", rk
+            assert [x for x in ug if x["home"] == "広島"][0]["status"] == "off" and not any(x["home"] == "ロッテ" and x["day"] == d(0) for x in ug)
+            assert all("inning" not in x for x in ug if x is not rk) and ug[0]["score"] == [3, 2], "昨日の試合はそのまま"
+            get = lambda *a, **k: (_ for _ in ()).throw(OSError("x"))
+            assert mode_live_scores(t2 + dt.timedelta(minutes=20), nosleep) is True, "読めなくても止まらない"
+            assert load(os.path.join(DATA, "games_live.json"), {})["games"]["楽天-オリックス"]["status"] == "live", "前の結果は残す"
+            # 1回の実行で7回まで（トップページ＋試合6つ）。日が変わったら作り直す
+            codes = ["m-f", "e-b", "c-d", "g-t", "s-db", "h-l", "f-m"]
+            nd = td + dt.timedelta(days=1)
+            pages = {NPB_TOP: "".join(f'<a href="/scores/{nd.year}/{nd.month:02d}{nd.day:02d}/{c}-1/">x</a>' for c in codes)}
+            calls.clear()
+            get = fake
+            assert mode_live_scores(dt.datetime.combine(nd, dt.time(18, 0), JST), nosleep) is True and len(calls) == LIVE_MAX_REQ, calls
+            assert load(os.path.join(DATA, "games_live.json"), {})["day"] == nd.isoformat() and upcoming_games(td)[1]["status"] == "end", "別の日の速報は重ねない"
+            # ---- 球団・リーグ公式チャンネル（RSS。通信はしない） ----
+            nowu2 = dt.datetime.now(dt.timezone.utc).replace(microsecond=0)
+            iso = lambda t: t.isoformat()
+            feed = ('<?xml version="1.0" encoding="UTF-8"?><feed xmlns="http://www.w3.org/2005/Atom" xmlns:yt="http://www.youtube.com/xml/schemas/2015"'
+                    ' xmlns:media="http://search.yahoo.com/mrss/"><title>ch</title>'
+                    f'<entry><yt:videoId>new1</yt:videoId><title>試合ハイライト</title><published>{iso(nowu2 - dt.timedelta(hours=2))}</published>'
+                    '<author><name>千葉ロッテマリーンズ</name></author><media:group><media:thumbnail url="https://i.ytimg.com/vi/new1/hqdefault.jpg"/></media:group></entry>'
+                    f'<entry><yt:videoId>old1</yt:videoId><title>古い動画</title><published>{iso(nowu2 - dt.timedelta(hours=50))}</published></entry></feed>')
+            lotte = [c for c in NEWS_CHANNELS if c["team"] == "ロッテ"][0]
+            pf = parse_feed(feed, lotte, nowu2)
+            assert [v["id"] for v in pf] == ["new1"], pf
+            want = {"id": "new1", "title": "試合ハイライト", "ch": lotte["id"], "chName": "千葉ロッテマリーンズ", "topic": "official", "world": "yakyu",
+                    "thumb": "https://i.ytimg.com/vi/new1/hqdefault.jpg", "team": "ロッテ", "published": (nowu2 - dt.timedelta(hours=2)).strftime("%Y-%m-%dT%H:%M:%SZ")}
+            assert pf[0] == want, pf[0]
+            assert len(NEWS_CHANNELS) == 13 and all(c["team"] in TEAM_WORDS or c["team"] == "" for c in NEWS_CHANNELS)
+            calls.clear()
+
+            def fake_rss(url, params=None, as_json=True):
+                calls.append(url)
+                if lotte["id"] in url:
+                    return feed.encode("utf-8")
+                raise OSError("404")  # ほかのチャンネルは読めない（飛ばす）
+            get = fake_rss
+            assert mode_rss_news(nowu2) is True and len(calls) == 13, calls
+            nj = load(os.path.join(DATA, "news.json"), {})
+            assert [v["id"] for v in nj["items"]] == ["new1", "v1"] and nj["items"][0]["team"] == "ロッテ" and nj.get("rssAt"), nj
+            assert mode_rss_news(nowu2 + dt.timedelta(minutes=10)) is False and len(calls) == 13, "20分以内は読まない"
+            assert mode_rss_news(nowu2 + dt.timedelta(minutes=20)) is True and len(calls) == 26
+            get = lambda *a, **k: {"items": []}  # 話題さがし（4時間ごと）でも公式チャンネルの分と rssAt は消えない
+            mode_news(nowu2)
+            nj = load(os.path.join(DATA, "news.json"), {})
+            assert [v["id"] for v in nj["items"]] == ["new1", "v1"] and nj["rssAt"] == (nowu2 + dt.timedelta(minutes=20)).isoformat(), nj
+            assert [v["team"] for v in news_for_app()] == ["ロッテ", ""]
+            # news_channels.json で置きかえ・追加・使わない
+            dump(os.path.join(HERE, "news_channels.json"), [{"id": NEWS_CHANNELS[0]["id"], "off": True}, {"id": "UCnew", "name": "新しい", "team": "阪神"},
+                                                             {"id": lotte["id"], "name": "ロッテ2", "team": "?"}, {"id": "bad"}, "x"])
+            nc = {c["id"]: c for c in load_news_channels()}
+            assert len(nc) == 13 and NEWS_CHANNELS[0]["id"] not in nc and nc["UCnew"] == {"id": "UCnew", "name": "新しい", "team": "阪神", "label": "新しい"}
+            assert nc[lotte["id"]]["name"] == "ロッテ2" and nc[lotte["id"]]["team"] == "", nc[lotte["id"]]
+            os.remove(os.path.join(HERE, "news_channels.json"))
+            build_latest([{"id": "UC1"}])
+            lj = load(os.path.join(DATA, "latest.json"), {})
+            assert lj["news"][0]["team"] == "ロッテ" and lj["topics"][-1]["id"] == "official"
         finally:
             get = old_get
     finally:
