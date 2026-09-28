@@ -991,6 +991,22 @@ html.shot .modal{background:rgba(30,27,24,.18)}
 .prow{cursor:pointer}.prow b{flex:1}.prow b small{display:block;font-size:11px;color:var(--muted);font-weight:700}
 .prow input{width:22px;height:22px;accent-color:var(--tomato);flex:none}
 html.hasbanner .app{padding-bottom:calc(150px + env(safe-area-inset-bottom,0px))}
+
+/* きょうの特典・24時間おためし */
+.trialbtn{flex-direction:column;gap:2px;padding-top:10px;padding-bottom:10px}
+.trialbtn b{white-space:nowrap;font-size:17px}
+.trialbtn small{font-size:11.5px;font-weight:700;line-height:1.35}
+.perkbox{display:grid;gap:8px;background:var(--paper2);color:var(--ink);border:3px solid var(--ink);border-radius:16px;padding:12px;text-align:left}
+.perkbox .pk-h{font-family:var(--display);font-size:15px;display:flex;flex-wrap:wrap;align-items:baseline;gap:4px 8px}
+.perkbox .pk-h small{font-family:var(--body);font-size:11.5px;color:var(--muted)}
+.perkbox .pk-game{margin:0;font-size:13px;color:var(--redtx)}
+.perkbox .pk-on{margin:0;font-size:14px}
+.perkbox .pk-s{font-size:11.5px;color:var(--muted)}
+.pk-list{display:grid;gap:6px}
+.pk{display:grid;gap:1px;width:100%;text-align:left;border:2.5px solid var(--ink);border-radius:12px;background:#fff;color:var(--ink);padding:8px 10px;font:inherit;cursor:pointer;box-shadow:3px 3px 0 var(--ink)}
+.pk:active{transform:translate(3px,3px);box-shadow:none}
+.pk b{font-size:14px}.pk small{font-size:11.5px;color:var(--muted);font-weight:700}
+.pk b::before{content:"▶ ";color:var(--tomato)}
 </style>
 <div class="app">
   <header class="top">
@@ -1262,7 +1278,9 @@ const PACK_FRAMES={pf_fire:"fire",pf_neon:"neon",pf_wave:"wave",pf_star:"star"};
 const PASS_VALS=new Set(Object.values(PASS_ITEMS).map(x=>x.v));
 /* 無料とパスの上限の差（自分だけに関係するもの） */
 const LIMITS={bells:[10,1e9],later:[30,1e9]};
-const lim=k=>LIMITS[k][S.premium?1:0];
+const perkOn=k=>!!(S.perk&&S.perk.day===today()&&S.perk.k===k);/* きょうの特典（広告1本・今日だけ） */
+const passStk=()=>S.premium||perkOn("stamp");
+const lim=k=>LIMITS[k][S.premium?1:0]+(!S.premium&&perkOn("later")?20:0);
 const itemFor=(id,sk)=>ITEMS[id]||limitedFor(sk)[id]||null;
 function ownedItem(id){if(ITEMS[id])return ITEMS[id];if(PASS_ITEMS[id])return PASS_ITEMS[id];if(LEGEND_ITEMS[id])return LEGEND_ITEMS[id];if(PACK_FRAMES[id])return{kind:"frame",v:PACK_FRAMES[id],pass:true,packId:"pack_frames"};const m=/^lim_(\d{4}-\d{1,2})_(\d)$/.exec(id);return m?limitedFor(m[1])[id]:null}
 const frameCls=v=>v?` fr-${String(v).replace(/[^a-z0-9]/g,"")}`:"";
@@ -1383,7 +1401,7 @@ function mstat(k,n,id){const key=seasonKey();if(!S.mstat||S.mstat.key!==key)S.ms
 function rollover(){if(S.weekKey!==weekKey()){S.weekKey=weekKey();S.week=0;S.votes={};S.helpWeek=0}
  if(S.vDay!==today()){S.vDay=today();S.vLeft=3;S.adN=0;S.mchk={}}}
 rollover();
-const slotsMax=()=>5+Math.min(6,(S.bought.slot||0)+(S.extraSlots||0))+(S.premium?3:0);
+const slotsMax=()=>5+Math.min(6,(S.bought.slot||0)+(S.extraSlots||0))+(S.premium?3:0)+(!S.premium&&perkOn("slot")?1:0);
 const boosted=()=>Date.now()<S.boostUntil;
 function rankTitle(){let t=TITLES[0][1];for(const [p,n] of TITLES)if(S.total>=p)t=n;return t}
 /* 自分の見た目（称号・名前の色・アイコン枠）。投稿やランキングに出る */
@@ -1607,7 +1625,7 @@ const ERR={"already":"今日は受け取りずみです","too-fast":"続けて�
  "name-cooldown":"名前の変更は1日1回までです","not-premium":"スカウトパスの機能です","banned":"このアカウントは利用停止中です","no-profile":"最初に名前を登録してください","bad-name":"その名前は使えません","not-today":"今日の1人ではありません",
  "too-short":"もう少し書いてください","too-long":"200文字までです","ng-word":"使えない言葉が入っています","bad-meta":"項目を選んでください","bad-cat":"種類を選んでください","bad-url":"YouTubeのチャンネルのURL（https://www.youtube.com/@…）を入れてください",
  "blocked":"この投稿には返信できません","not-owner":"自分の投稿だけ操作できます","not-found":"見つかりません（消されたか、非表示になっています）","bad-choice":"選択肢を選んでください","not-scouted":"スカウトしていません",
- "update-required":"新しいバージョンにアップデートしてください","muted":"通報が多かったため、しばらく書き込みができません（期間がすぎると自動で戻ります）","dup":"同じ文は続けて書けません","trial-used":"1日体験は1回だけです","resource-exhausted":"操作が早すぎます。少し待ってから","not-owned":"まだ持っていません","unknown-item":"その品は今は交換できません","bad-report":"通報の内容を選んでください","bad-like":"うまくいきませんでした","bad-amount":"票の数がおかしいです","permission-denied":"このアカウントは利用停止中です","retry":"混み合っています。もう一度お試しください","internal":"サーバーでエラーが起きました。少し待ってから","unavailable":"通信できません。電波のよいところで","unauthenticated":"ログインし直してください","failed-precondition":"うまくいきませんでした"};
+ "update-required":"新しいバージョンにアップデートしてください","muted":"通報が多かったため、しばらく書き込みができません（期間がすぎると自動で戻ります）","dup":"同じ文は続けて書けません","trial-used":"24時間おためしは月に1回です","resource-exhausted":"操作が早すぎます。少し待ってから","not-owned":"まだ持っていません","unknown-item":"その品は今は交換できません","bad-report":"通報の内容を選んでください","bad-like":"うまくいきませんでした","bad-amount":"票の数がおかしいです","permission-denied":"このアカウントは利用停止中です","retry":"混み合っています。もう一度お試しください","internal":"サーバーでエラーが起きました。少し待ってから","unavailable":"通信できません。電波のよいところで","unauthenticated":"ログインし直してください","failed-precondition":"うまくいきませんでした"};
 const errMsg=r=>(r&&(r.reason||ERR[r.code]))||"うまくいきませんでした。もう一度お試しください";
 const GAIN_LABEL={liveSay:"試合実況で応援",checkChannel:"ミッション",vote:"応援",checkTodayPick:"今日の1人をチェック",createPost:"投稿",reply:"返信",votePoll:"お題に投票",like:"ミッション",sync:""};
 const BOARDS={week:null,votes:null,help:null,orders:null,teams:null};let actBusy=false,SINBOX=[],lastErr="";
@@ -1627,13 +1645,13 @@ async function act(name,data,local,after){
 async function sideCall(name,data){try{const r=await SV.call(name,Object.assign({_v:APP.version},data||{}));if(r&&r.wallet)applyWallet(r.wallet);
  if(r&&r.gained){S.hist.unshift({w:GAIN_LABEL[name]||"",v:r.gained,t:Date.now()});S.hist=S.hist.slice(0,30);pop(`+${r.gained}P`);toast(`${GAIN_LABEL[name]} +${r.gained}P`)}save();renderAll();return r}catch(e){return null}}
 function applyWallet(w){S.p=w.p;S.week=w.week;S.total=w.total;S.vLeft=w.votesLeft;S.vDay=today();S.adN=w.adVotes||0;S.boostUntil=w.boostUntil||0;S.boostDay=w.boostUsed?today():"";
- S.premium=!!w.premium;S.plan=w.plan||"";S.legend=!!w.legend;S.legendNo=w.legendNo||0;S.packs=w.packs||[];S.trialUntil=w.trialUntil||0;S.trialAt=w.trialAt||S.trialAt||0;if(w.legendSold!=null)S.legendSold=w.legendSold;if(S.legend&&w.legendNo&&!S.ownTitles.includes(legendTitle()))S.ownTitles.push(legendTitle());if(w.finds!=null)S.finds=w.finds;S.streak=w.streak||S.streak;S.extraSlots=w.extraSlots||0;S.bought=w.bought||{};if(w.name)S.name=w.name;if(w.code)S.code=w.code;S.helpWeek=w.helpWeek||0;
+ S.premium=!!w.premium;S.plan=w.plan||"";S.legend=!!w.legend;S.legendNo=w.legendNo||0;S.packs=w.packs||[];S.trialUntil=w.trialUntil||0;S.trialAt=w.trialAt||S.trialAt||0;S.perk=w.perk||null;if(w.legendSold!=null)S.legendSold=w.legendSold;if(S.legend&&w.legendNo&&!S.ownTitles.includes(legendTitle()))S.ownTitles.push(legendTitle());if(w.finds!=null)S.finds=w.finds;S.streak=w.streak||S.streak;S.extraSlots=w.extraSlots||0;S.bought=w.bought||{};if(w.name)S.name=w.name;if(w.code)S.code=w.code;S.helpWeek=w.helpWeek||0;
  if(w.mission)S.dm={day:today(),list:w.mission.list||["check","vote","newch"],prog:w.mission.prog||{},got:w.mission.got||[],bonus:!!w.mission.bonus};
  if(w.missionY)S.dmY={day:today(),list:w.missionY.list||[],prog:w.missionY.prog||{},got:w.missionY.got||[],bonus:!!w.missionY.bonus};if(w.pollDoneY!=null)S.pollDoneDayY=w.pollDoneY?today():"";if(w.teamHeat!=null)S.teamHeat=w.teamHeat;
  if(w.blocked)S.blocked=w.blocked;if(w.following)S.follow=w.following;if(w.team!=null){S.team=w.team;S.teamAt=w.teamAt||0}if(w.pollDone!=null)S.pollDoneDay=w.pollDone?today():"";
  if(w.equip)S.equip=w.equip;S.freeLim=w.freeLim||"";if(w.season)S.season=w.season;(w.titles||[]).forEach(t=>{if(!S.ownTitles.includes(t))S.ownTitles.push(t)})}
 /* 広告を見終わったら：本番は Google がサーバーに報酬を届けるので、少し待ってから最新の状態を読む */
-function adReward(type,local){if(!SV){local();return}setTimeout(()=>sideCall("sync",{}),2000)}
+function adReward(type,local,msg){if(!SV){local();return}closeModal();toast(msg||"受け取りました");setTimeout(()=>sideCall("sync",{}).then(()=>renderAll()),2500)}
 async function loadBoards(){if(!SV)return;try{const [w,v,hp,od,tm]=await Promise.all([SV.read("boards/week"),SV.read("boards/votes"),SV.read("boards/help"),SV.read("boards/orders"),SV.read("boards/teams")]);
  if(tm&&tm.key===weekKey())BOARDS.teams=tm.rows;const trd=await SV.read("boards/trends").catch(()=>null);if(trd&&trd.rows)BOARDS.trends=trd.rows;
  if(od&&od.key===weekKey())BOARDS.orders=od.rows;
@@ -1937,14 +1955,15 @@ const PASS_PERKS=[
  ["ゲーム実況",[["原石スカウトの枠 +3","最大8人まで同時にスカウト"],["お知らせON・あとで見るが上限なし","無料は10人・30本まで"],["配信実況のスタンプが増える","「確定演出！」「神回！」など"],["保存した条件の新着お知らせ","条件に合う配信者が新しく載ったらお知らせ"]]],
  ["プロ野球",[["応援球団カラーのアイコン枠","掲示板・実況で、あなたの球団の色の枠"],["試合実況のスタンプが増える","「サヨナラ！」「完封！」「神采配」など"],["試合前のお知らせ","応援球団の試合がもうすぐ始まるとお知らせに届く"]]]];
 function renderPass(){const on=S.premium;const lg=isLegend();
- $("#passBox").innerHTML=`<div class="passcard ${on?"on":""} ${lg?"lg":""}"><div class="rowsb"><div class="h2">${lg?"レジェンドパス":"スカウトパス"}</div>${lg?`<span class="chip" style="background:var(--mustard)">No.${String(S.legendNo||0).padStart(4,"0")}</span>`:on?`<span class="chip" style="background:var(--mustard)">${trialOn()&&!S.plan?"1日体験中":"加入中"}</span>`:'<span class="price"><small>月</small>480<small>円〜</small></span>'}</div>
+ $("#passBox").innerHTML=`<div class="passcard ${on?"on":""} ${lg?"lg":""}"><div class="rowsb"><div class="h2">${lg?"レジェンドパス":"スカウトパス"}</div>${lg?`<span class="chip" style="background:var(--mustard)">No.${String(S.legendNo||0).padStart(4,"0")}</span>`:on?`<span class="chip" style="background:var(--mustard)">${trialOn()&&!S.plan?"おためし中":"加入中"}</span>`:'<span class="price"><small>月</small>480<small>円〜</small></span>'}</div>
  <p class="passlead">ゲーム実況もプロ野球も、1つのパスで</p>
  ${PASS_PERKS.map(([g,list])=>`<div class="pgroup"><span class="pg-h ${g==="プロ野球"?"y":g==="ゲーム実況"?"g":""}">${g}</span><ul>${list.map(([a,b])=>`<li><b>${a}</b><br><span style="font-size:11.5px;opacity:.85">${b}</span></li>`).join("")}</ul></div>`).join("")}
  ${on&&S.plan&&S.plan!=="pass_life"&&!lg?'<p class="sub" style="color:inherit">解約は iPhone の「設定」→ 自分の名前 →「サブスクリプション」から</p>':""}
+ ${on?"":perkHTML()}
  ${on&&!trialOn()?"":`<button class="btn yt" id="passBuy">${on?"プランを見る":"プランを選ぶ"}</button>`}
  ${lg?"":`<button class="legendcta" id="legendBuy"><span class="lg-k">買い切り限定</span><b>レジェンドパス</b><small>パスの全部がずっと＋動く枠・着せ替え・番号つき称号</small><span class="lg-go">見る ▶</span></button>`}
  <p class="sub" style="color:rgba(255,255,255,.85)">ポイントや応援票の販売はしていません。特典はどれも自分の見た目と便利さだけで、ランキング・球団対抗・他の人には影響しません。</p></div>`;
- const b=$("#passBuy");if(b)b.onclick=()=>openPaywall("my");const l=$("#legendBuy");if(l)l.onclick=()=>openPaywall("my","legend");
+ bindPerk($("#passBox"));const b=$("#passBuy");if(b)b.onclick=()=>openPaywall("my");const l=$("#legendBuy");if(l)l.onclick=()=>openPaywall("my","legend");
  renderReport()}
 /* あなたの今月（パス会員の特典。無料の人には中身をぼかして見本だけ見せる） */
 function renderReport(){const box=$("#reportBox");if(!box)return;const m=S.mstat&&S.mstat.key===seasonKey()?S.mstat:{checks:0,votes:0,talk:0,room:0,gchat:0,ch:{}};ensureSeason();
@@ -2293,7 +2312,7 @@ function openChat(cf){const vid=cf.vid;
   modal(`<div class="rowsb" style="width:100%">${cf.head}</div>
    <div class="sub" style="margin:0">${cf.sub}</div>${cf.link||""}
    <div class="chatlog" id="chatLog">${msgs}</div>
-   <div class="stamprow2">${(cf.stamps||STAMPS).map(s=>`<button data-stamp="${s}">${s}</button>`).join("")}${(cf.stampsPass||STAMPS_PASS).map(s=>`<button data-stamp="${s}" class="pass ${S.premium?"":"locked"}" title="スカウトパスのスタンプ">${S.premium?"":"🔒"}${s}</button>`).join("")}${Object.entries(PACKS).filter(([id])=>hasPack(id)).flatMap(([,p])=>p.stamps).map(s=>`<button data-stamp="${s}" class="pack">${s}</button>`).join("")}${isLegend()?LEGEND_STAMPS.map(s=>`<button data-stamp="${s}" class="legend">${s}</button>`).join(""):""}<button class="morest" id="moreSt">＋スタンプ</button></div>
+   <div class="stamprow2">${(cf.stamps||STAMPS).map(s=>`<button data-stamp="${s}">${s}</button>`).join("")}${(cf.stampsPass||STAMPS_PASS).map(s=>`<button data-stamp="${s}" class="pass ${passStk()?"":"locked"}" title="スカウトパスのスタンプ">${passStk()?"":"🔒"}${s}</button>`).join("")}${Object.entries(PACKS).filter(([id])=>hasPack(id)).flatMap(([,p])=>p.stamps).map(s=>`<button data-stamp="${s}" class="pack">${s}</button>`).join("")}${isLegend()?LEGEND_STAMPS.map(s=>`<button data-stamp="${s}" class="legend">${s}</button>`).join(""):""}<button class="morest" id="moreSt">＋スタンプ</button></div>
    <div class="stktray" style="--tc:${stkTC()}">${myStickers().map(s=>`<button data-stamp="${s}" class="stkbtn" aria-label="${esc(STICKERS[s].n)}">${stickerSVG(s)}</button>`).join("")}${Object.keys(STICKERS).filter(s=>!myStickers().includes(s)).slice(0,myStickers().length?4:8).map(s=>`<button data-lockst="${s}" class="stkbtn locked" aria-label="${esc(STICKERS[s].n)}">${stickerSVG(s)}<i>🔒</i></button>`).join("")}</div>
    <div class="frow"><input class="inp" id="chatIn" maxlength="60" placeholder="ひとこと（60字まで）" style="flex:1" enterkeyhint="send"><button class="btn sm tomato" id="chatGo">送る</button></div>
    ${LOCAL_ONLY()?LOCAL_NOTE:""}<p class="sub" style="margin:0">${cf.rule}</p>
@@ -2784,14 +2803,15 @@ function stickerSVG(s){const u=STICKER_ART[s];return u?`<img class="stk" src="${
 /* 実況スレでの表示：イラストは絵、文字のスタンプは札 */
 function stampHTML(s){const k=STICKERS[s];return k?`<span class="stkb ${k.anim?"anim":""}" title="${esc(k.n)}" style="--tc:${stkTC()}">${stickerSVG(s)}</span>`:`<span class="stampb">${esc(s)}</span>`}
 /* いま使えるイラストスタンプ */
-function myStickers(){const out=[];Object.entries(STICKER_PACKS).forEach(([id,p])=>{if(hasPack(id))out.push(...p.ids)});if(S.premium)out.push(...PASS_STICKERS);if(isLegend())out.push(...LEGEND_STICKERS);return out}
+function myStickers(){const out=[];Object.entries(STICKER_PACKS).forEach(([id,p])=>{if(hasPack(id))out.push(...p.ids)});if(passStk())out.push(...PASS_STICKERS);if(isLegend())out.push(...LEGEND_STICKERS);return out}
 
 /* =====================================================================
    課金プラン・速報・運用まわり
    ・スカウトパス：月額／年額／買い切り（どれも同じ特典）
    ・レジェンドパス：買い切りだけ（スカウトパスの全部＋レジェンド特典）
    ・スタンプパック：買い切り（だれでも）
-   ・パス1日体験：広告を1本見ると24時間（1人1回だけ）
+   ・24時間おためし：広告を1本見ると24時間（月に1回）
+   ・きょうの特典：広告を1本見ると、パスの一部を今日だけ（1日1つ）
    どれも「自分の見た目と便利さ」だけ。ランキング・球団対抗・応援票は増えない
    ===================================================================== */
 const PLANS=[
@@ -2812,7 +2832,7 @@ const isLegend=()=>!!S.legend;
 const hasPack=id=>isLegend()||!!(S.packs||[]).includes(id);
 const trialOn=()=>(S.trialUntil||0)>Date.now();
 /* 体験の期限が切れたら元に戻す（端末内モード） */
-function checkTrial(){if(!SV&&S.trialUntil&&!trialOn()&&S.premium&&!S.plan){S.premium=false;S.trialUntil=0;save();toast("スカウトパスの1日体験が終わりました")}}
+function checkTrial(){if(!SV&&S.trialUntil&&!trialOn()&&S.premium&&!S.plan){S.premium=false;S.trialUntil=0;save();toast("スカウトパスの24時間おためしが終わりました")}}
 const LEGEND_PERKS=[["スカウトパスの全部がずっと","月額も更新もなし。これから増える特典も"],["課金アイテムが全部つく","イラストスタンプ・文字スタンプ・動く枠・着せ替えのパックを全部（合計2,030円分）"],["動くスタンプ","「レジェンド降臨」「花火」「胴上げ」が実況スレで動く"],["金色の吹き出し","実況スレの書き込みが金色で目立つ"],["レジェンドの称号と番号","「レジェンド No.0042」。早い人ほど若い番号。1000番までは「創設メンバー」"],["動くアイコン枠","キラキラ光るレジェンドだけの枠"],["限定の着せ替え","「ゴールド」「レジェンド」はレジェンドだけ"],["毎月の限定アイテムが全部無料","今月の称号・枠・色を毎月ぜんぶ"],["Pショップが20%オフ","ポイントで交換するものがぜんぶ2割引き"]];
 /* 課金の画面（どこから開いたかを記録して、改善に使う） */
 function openPaywall(src,tab){track("paywall_view",{src:src||""});const cur=S.plan||"";
@@ -2820,10 +2840,10 @@ function openPaywall(src,tab){track("paywall_view",{src:src||""});const cur=S.pl
  const t=tab||"pass";
  modal(`<div class="paytabs"><button class="${t==="pass"?"on":""}" data-pt="pass">スカウトパス</button><button class="${t==="legend"?"on":""}" data-pt="legend">レジェンド</button><button class="${t==="packs"?"on":""}" data-pt="packs">ショップ</button></div>
  ${t==="pass"?`<div class="payhero"><b>スカウトパス</b><span>ゲーム実況もプロ野球も、1つのパスで</span></div>
-  ${S.premium&&S.plan?`<p class="paynow">いま：${esc(planName(S.plan))}</p>`:trialOn()?`<p class="paynow">1日体験中（あと${Math.ceil((S.trialUntil-Date.now())/36e5)}時間）</p>`:""}
+  ${S.premium&&S.plan?`<p class="paynow">いま：${esc(planName(S.plan))}</p>`:trialOn()?`<p class="paynow">おためし中（あと${Math.ceil((S.trialUntil-Date.now())/36e5)}時間）</p>`:""}
   <div class="plans">${PLANS.map(planBtn).join("")}</div>
   <ul class="payperks">${PASS_PERKS.flatMap(([g,l])=>l.slice(0,g==="共通"?5:2).map(([a])=>`<li>${a}</li>`)).join("")}</ul>
-  ${!S.premium&&!trialOn()&&trialReady()?`<button class="btn paper wide" id="trialAd">🎁 24時間おためし<small style="display:block;font-size:11px;font-weight:700">広告を1本見るだけ・1人1回</small></button>`:""}`
+  ${S.premium?"":perkHTML()}${!S.premium&&!trialOn()&&trialReady()?`<button class="btn paper wide trialbtn" id="trialAd"><b>🎁 24時間おためし</b><small>広告を1本見るだけ・月に1回・パスの特典が全部</small></button>`:""}`
  :t==="legend"?`<div class="legendhero"><span class="lg-k">買い切り限定</span><b>レジェンドパス</b><span class="lg-p">${LEGEND.price.toLocaleString()}<small>円</small></span><small>${S.legendSold!=null?`創設メンバーの番号 のこり${Math.max(0,LEGEND.founders-S.legendSold)}`:`No.0001〜${LEGEND.founders}は「創設メンバー」`}</small></div>
   <ul class="payperks gold">${LEGEND_PERKS.map(([a,b])=>`<li><b>${a}</b><br><small>${b}</small></li>`).join("")}</ul>
   <div class="lgprev"><span class="av fr-legend" style="background:${TEAMC[S.team]||"#FF5B45"}">${esc((S.name||"ゲ")[0])}</span><span><b>${esc(S.name)}</b><span class="title-chip legend">レジェンド No.${String(S.legendNo||42).padStart(4,"0")}</span></span></div>
@@ -2840,7 +2860,7 @@ function openPaywall(src,tab){track("paywall_view",{src:src||""});const cur=S.pl
  <button class="btn paper wide" id="mc">とじる</button>`,x=>{x.querySelector("#mc").onclick=closeModal;
   x.querySelectorAll("[data-pt]").forEach(b=>b.onclick=()=>openPaywall(src,b.dataset.pt));x.querySelectorAll("[data-pt2]").forEach(b=>b.onclick=()=>openPaywall(src,b.dataset.pt2));
   x.querySelectorAll("[data-buy]").forEach(b=>b.onclick=()=>buyPlan(b.dataset.buy,src));
-  const ta=x.querySelector("#trialAd");if(ta)ta.onclick=startTrialAd;
+  const ta=x.querySelector("#trialAd");if(ta)ta.onclick=startTrialAd;bindPerk(x);
   const rs=x.querySelector("#restore");if(rs)rs.onclick=()=>SV.restore().then(()=>act("sync",{})).then(()=>{toast("購入を復元しました");closeModal()}).catch(()=>toast("復元できませんでした",1))},"pay"+t)}
 const buyBtn=(id,price)=>hasPack(id)?'<span class="chip">持っている</span>':`<button class="btn sm tomato" data-buy="${id}">${price}円</button>`;
 const isPackId=id=>!!(PACKS[id]||STICKER_PACKS[id]||COSME_PACKS[id]);
@@ -2855,9 +2875,18 @@ function applyLocalPurchase(id){if(isPackId(id)){S.packs=[...new Set([...(S.pack
 const legendTitle=()=>`レジェンド No.${String(S.legendNo||0).padStart(4,"0")}`;
 function celebrate(id){const legend=id===LEGEND.id;pop(legend?"LEGEND!":"ありがとう！");
  modal(`<div class="celebrate ${legend?"gold":""}">${ART.mascot(96,"wink")}<b>${legend?"レジェンドの仲間入り！":isPackId(id)?"手に入れました！":"スカウトパスへようこそ！"}</b><p>${legend?`あなたは <b>${esc(legendTitle())}</b> です。<br>マイ→Pショップ→「特別」で称号・枠・着せ替えをつけられます。`:PACKS[id]||STICKER_PACKS[id]?"実況スレのスタンプに追加されました。":COSME_PACKS[id]?"マイ→Pショップ→「特別」でつけられます。":"特典はもう使えます。<br>マイ→Pショップ→「パス会員」で見た目をつけよう。"}</p></div><button class="btn tomato wide" id="mc">はじめる</button>`,x=>x.querySelector("#mc").onclick=()=>{closeModal();goTab("my");setMyGroup("points")})}
-/* パス1日体験（広告を1本見る・1人1回だけ） */
-const trialReady=()=>!S.trialAt;
-function startTrialAd(){if(!trialReady())return;watchAd("スカウトパス 1日体験","trial",()=>adReward("trial",()=>{S.trialAt=Date.now();S.trialUntil=Date.now()+864e5;S.premium=true;save();closeModal();renderAll();track("trial_start",{});toast("24時間、スカウトパスの特典が使えます！")}))}
+/* 24時間おためし（広告を1本見る・日本時間で月に1回） */
+const trialReady=()=>!S.trialAt||dayKeyOf(S.trialAt).slice(0,7)!==today().slice(0,7);
+function startTrialAd(){if(!trialReady())return;watchAd("スカウトパス 24時間おためし","trial",()=>adReward("trial",()=>{S.trialAt=Date.now();S.trialUntil=Date.now()+864e5;S.premium=true;save();closeModal();renderAll();track("trial_start",{});toast("24時間、スカウトパスの特典が使えます！")},"24時間おためしを受け取りました"))}
+/* きょうの特典（広告1本で、パスの一部を今日だけ。1日1つ。試合の日は試合実況のスタンプ） */
+const PERK_DEF={stamp:["パス用スタンプ","文字スタンプとイラストスタンプのパス用が使える"],slot:["原石スカウトの枠 +1","今日スカウトした人は、明日からもそのまま"],later:["あとで見る・お知らせ +20","今日入れた分は、明日からもそのまま"]};
+const gameToday=()=>!!(S.team&&typeof gamesOf==="function"&&gamesOf(S.team,today()).some(g=>g.status!=="off"));
+function perkHTML(){if(S.premium)return"";const d=S.perk&&S.perk.day===today()?S.perk.k:"";
+ if(d&&PERK_DEF[d])return`<div class="perkbox"><div class="pk-h">きょうの特典</div><p class="pk-on">✓ ${PERK_DEF[d][0]}（今日の24時まで）</p><small class="pk-s">特典は1日1つ。また明日どうぞ</small></div>`;
+ const gm=gameToday(),ks=gm?["stamp"]:["stamp","slot","later"];
+ return`<div class="perkbox"><div class="pk-h">きょうの特典<small>広告を1本見ると、今日だけ・1日1つ</small></div>${gm?`<p class="pk-game">⚾ 今日は${esc(S.team)}の試合の日</p>`:""}<div class="pk-list">${ks.map(k=>`<button class="pk" data-perk="${k}"><b>${gm&&k==="stamp"?"試合実況でパス用スタンプ":PERK_DEF[k][0]}</b><small>${PERK_DEF[k][1]}</small></button>`).join("")}</div></div>`}
+function bindPerk(x){x.querySelectorAll("[data-perk]").forEach(b=>b.onclick=()=>startPerkAd(b.dataset.perk))}
+function startPerkAd(k){if(S.premium||!PERK_DEF[k]||(S.perk&&S.perk.day===today()))return;watchAd("きょうの特典","perk_"+k,()=>adReward("perk_"+k,()=>{S.perk={day:today(),k};save();closeModal();renderAll();track("perk_start",{k});toast(`今日は「${PERK_DEF[k][0]}」が使えます！`)},`今日は「${PERK_DEF[k][0]}」が使えます！`))}
 /* 着せ替え（レジェンドだけ） */
 function applyTheme(){const t=canTheme(S.theme||"")?(S.theme||""):"";document.body.dataset.theme=t;document.body.style.setProperty("--themec",TEAMC[S.team]||"#1E7A4E")}
 
@@ -3222,7 +3251,7 @@ showTitle(()=>{if(!S.onb)setTimeout(()=>onboarding(false),200);
  else{if(S.legal!==APP.legalVer)setTimeout(()=>modalLater(consentModal),200);if(SV)startServer();else setTimeout(()=>modalLater(showLoginIfNeeded),300)}});
 setInterval(()=>{if(boosted()||S.boostUntil)renderBoost()},30000);
 if(SV)setInterval(loadBoards,5*60e3);
-window.__ts={LEGAL,BGM,CH,VIDS,TEAMC,gamesOf,gameState,today,STICKERS,STICKER_PACKS,maybeInterstitial,ADS,applyTheme,renderAll,get S(){return S},save,loadBoards,get CM(){return CM}}; /* 動作テスト用 */
+window.__ts={LEGAL,BGM,openPaywall,gameToday,passStk,perkOn,slotsMax,lim,trialReady,CH,VIDS,TEAMC,gamesOf,gameState,today,STICKERS,STICKER_PACKS,maybeInterstitial,ADS,applyTheme,renderAll,get S(){return S},save,loadBoards,get CM(){return CM}}; /* 動作テスト用 */
 })();
 
 </script>
