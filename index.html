@@ -441,7 +441,7 @@ a{color:inherit}
 .guidecard{background:#FFF6D6}
 .guidecard ol{margin:6px 0 0;padding-left:1.3em;font-size:13px;line-height:1.7}
 .guidecard .rowsb{align-items:flex-start}
-.quick{display:grid;grid-template-columns:repeat(4,1fr);gap:6px;margin-top:8px}
+.quick{display:grid;grid-template-columns:repeat(3,1fr);gap:6px;margin-top:8px}
 .quick button{border:2.5px solid var(--ink);border-radius:10px;background:var(--mustard);padding:6px 2px;font-size:11.5px;line-height:1.25;display:flex;flex-direction:column;align-items:center;gap:1px;color:var(--ink)}
 .quick button b{font-family:var(--display);font-weight:400;font-size:12.5px}
 .quick button small{font-size:10px;color:var(--ink);opacity:.75}
@@ -992,7 +992,7 @@ html.shot .modal{background:rgba(30,27,24,.18)}
 .prow input{width:22px;height:22px;accent-color:var(--tomato);flex:none}
 html.hasbanner .app{padding-bottom:calc(150px + env(safe-area-inset-bottom,0px))}
 
-/* きょうの特典・24時間おためし */
+/* 今日の特典・24時間おためし */
 .trialbtn{flex-direction:column;gap:2px;padding-top:10px;padding-bottom:10px}
 .trialbtn b{white-space:nowrap;font-size:17px}
 .trialbtn small{font-size:11.5px;font-weight:700;line-height:1.35}
@@ -1013,9 +1013,9 @@ html.hasbanner .app{padding-bottom:calc(150px + env(safe-area-inset-bottom,0px))
 .top{align-items:center;margin-bottom:10px}
 .mepill{display:flex;align-items:center;gap:8px;flex:1;min-width:0;background:var(--paper);border:3px solid var(--ink);border-radius:999px;padding:3px 14px 3px 3px;box-shadow:3px 3px 0 var(--ink);font:inherit;color:var(--ink);text-align:left;cursor:pointer}
 .me-av{width:44px;height:44px;flex:none;border-radius:50%;border:3px solid var(--ink);background:var(--mtc,#22386B);overflow:hidden;display:grid;place-items:center}
-.me-av{background:#fff}.me-av img{width:100%!important;height:100%!important;object-fit:cover!important}
+.me-av.av{width:44px;height:44px;font-size:19px;border-width:3px}
 .me-t{min-width:0;display:grid;gap:2px}.me-t b{font-size:15px;line-height:1.1;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
-.me-lv{display:flex;align-items:center;gap:6px;font-size:11.5px}.me-lv i{font-style:normal}
+.me-lv{display:flex;align-items:center;gap:6px;font-size:11px;min-width:0}.me-lv i{font-style:normal;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:8em}
 .lvbar{width:78px;height:9px;border-radius:9px;background:#E4DDCC;border:2px solid var(--ink);overflow:hidden}.lvbar i{display:block;height:100%;width:0;background:var(--mustard)}
 .ptpill{display:flex;align-items:center;gap:5px;height:44px;background:var(--ink);color:#fff;border:3px solid var(--ink);border-radius:999px;padding:0 13px 0 9px;font:inherit;cursor:pointer;box-shadow:3px 3px 0 rgba(0,0,0,.25)}
 .ptpill b{font-family:var(--display);font-weight:400;font-size:17px;font-variant-numeric:tabular-nums}.ptpill small{font-size:11px}
@@ -1062,11 +1062,21 @@ img.stk{display:block;width:100%;height:100%;object-fit:contain}
 .stk-lg{animation:stkLg 1.8s ease-in-out infinite;transform-origin:50% 90%}
 @keyframes stkLg{0%,100%{transform:rotate(0) scale(1);filter:drop-shadow(0 0 0 rgba(255,198,46,0))}50%{transform:rotate(-4deg) scale(1.06);filter:drop-shadow(0 0 8px rgba(255,198,46,.9))}}
 @media (prefers-reduced-motion:reduce){.stk-lg{animation:none}}
+
+.me-av.av{overflow:visible}
+#editPref{white-space:nowrap;flex:none}
+.me-lv i{max-width:8.5em}
+.me-lv .lvbar{width:44px;flex:none}
+.me-t{flex:1}
+.me-lv{flex-direction:column;align-items:stretch;gap:2px}
+.me-lv i{max-width:none}
+.me-lv .lvbar{width:100%;height:7px}
+.me-t b{font-size:14px}
 </style>
 <div class="app">
   <header class="top">
     <h1 class="logo vh" aria-label="ヤキュトモ"><span class="lw"><span class="l1">ヤキュ</span><span class="l2">トモ</span></span><small id="logoSub">ゲーム実況もプロ野球も、みんなで</small></h1>
-    <button class="mepill" id="meBtn" aria-label="マイページ"><span class="me-av" id="meAv"></span><span class="me-t"><b id="meName">ゲスト</b><span class="me-lv">Lv.<i id="meLv">1</i><span class="lvbar"><i id="meBar"></i></span></span></span></button>
+    <button class="mepill" id="meBtn" aria-label="マイページ"><span class="me-av" id="meAv"></span><span class="me-t"><b id="meName">ゲスト</b><span class="me-lv"><i id="meLv">見習いスカウト</i><span class="lvbar"><i id="meBar"></i></span></span></span></button>
     <div class="hdr-r"><button class="ptpill" id="hudBtn" aria-label="ポイントを見る"><span class="pball" aria-hidden="true"></span><b id="hP">0</b><small>P</small><span hidden id="hV"></span><span hidden id="hS"></span></button><button class="bellbtn" id="inboxBtn" aria-label="お知らせ"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#1E1B18" stroke-width="2.4" stroke-linejoin="round"><path d="M6 17V11a6 6 0 0 1 12 0v6l2 2H4z"/><path d="M10 21h4"/></svg><span class="cnt" id="inboxN" hidden>0</span></button></div>
   </header>
   <div class="worldsw" id="worldSw" role="tablist" aria-label="見るものを切りかえる">
@@ -1331,7 +1341,7 @@ const PACK_FRAMES={pf_fire:"fire",pf_neon:"neon",pf_wave:"wave",pf_star:"star"};
 const PASS_VALS=new Set(Object.values(PASS_ITEMS).map(x=>x.v));
 /* 無料とパスの上限の差（自分だけに関係するもの） */
 const LIMITS={bells:[10,1e9],later:[30,1e9]};
-const perkOn=k=>!!(S.perk&&S.perk.day===today()&&S.perk.k===k);/* きょうの特典（広告1本・今日だけ） */
+const perkOn=k=>!!(S.perk&&S.perk.day===today()&&S.perk.k===k);/* 今日の特典（広告1本・今日だけ） */
 const passStk=()=>S.premium||perkOn("stamp");
 const lim=k=>LIMITS[k][S.premium?1:0]+(!S.premium&&perkOn("later")?20:0);
 const itemFor=(id,sk)=>ITEMS[id]||limitedFor(sk)[id]||null;
@@ -1782,7 +1792,7 @@ const GUIDES_Y={
  comm:{t:"ファン掲示板の使い方",i:["同じ球団のファンだけが読み書きできます","掲示板や試合実況に書きこむと、応援球団の「球団対抗」の熱量が上がります","応援球団はマイページで変えられます（30日に1回）"],b:null},
  live:{t:"試合実況の使い方",i:["応援球団の試合の日は、毎日自動で「試合実況スレ」ができます","書き込みは60字まで・スタンプもOK。書き込みは7日で消えます"],b:null}};
 const GUIDES={
- home:{t:"ゲーム実況でできること",i:["野球ゲームの配信者をさがして、ライブを見ながら「みんなで実況」できます","「今日やること」から、お題・質問への回答・対戦募集にすぐ行けます","気になる配信者をタップ →「チェック」でミッションが進みます","上のボタンで「プロ野球」（ファン掲示板・試合実況）に切りかえられます"],b:["配信者をさがす","search"]},
+ home:{t:"ゲーム実況でできること",i:["野球ゲームの配信者をさがして、ライブを見ながら「みんなで実況」できます","「今日のまとめ」から、お題・質問への回答・対戦募集にすぐ行けます","気になる配信者をタップ →「チェック」でミッションが進みます","上のボタンで「プロ野球」（ファン掲示板・試合実況）に切りかえられます"],b:["配信者をさがす","search"]},
  search:{t:"さがし方",i:["ジャンルや応援球団で絞りこめます（複数OK）","「登録者が少ない」順にすると、これから伸びそうな人が見つかります","見つからない配信者は「掲載の申請」から教えてください"],b:null},
  comm:{t:"広場の使い方",i:["質問やオーダー相談を書くと、みんなが答えてくれます。答えて「参考になった」をもらうとポイント","「オーダー自慢」で自分のオーダーを投稿。いいオーダーが多いと「今週のベストオーダー」に載ります","同じ球団のファンと話したいときは、上のボタンで「プロ野球」へ"],b:["質問してみる","post"]},
  live:{t:"配信実況の使い方",i:["ライブ中の配信を見ながら、みんなで話す場所。YouTubeで配信を開いて、ここで実況しよう","配信予定の人は「待機所」で始まる前から話せます","書き込みは60字まで・スタンプもOK。書き込みは7日で消えます"],b:null},
@@ -1819,7 +1829,7 @@ function renderHome(){renderNextAction();checkWin();renderHomeNews();renderBoost
  renderJHero();renderHomeHero();$("#fanCard").hidden=!isY();$("#recTitle").textContent=isY()?"おすすめのファンチャンネル":"あなたへのおすすめ";
  // 今日の1人
  const tp=todayPick();const done=S[isY()?"t1Y":"t1"]===today();
- $("#today1").innerHTML=tp?`<span class="ribbon1">${isY()?"今日のチャンネル":"今日の1人"}</span><div class="pick">${avatar(tp,true)}<div class="mid"><div class="h2" style="font-size:17px">${esc(tp.name)}</div><div class="sub" style="margin:0">${tp.handle?"@"+esc(tp.handle):""}${tp.team?"・"+esc(tp.team):""}</div><div class="tags">${tp.tags.map(t=>`<span class="tag">${esc(t)}</span>`).join("")}</div><div class="why">登録者${tp.subs.toLocaleString()}人（YouTube）。原石スカウトの候補</div></div></div>
+ $("#today1").innerHTML=tp?`<span class="ribbon1">${isY()?"今日の1人":"今日の1人"}</span><div class="pick">${avatar(tp,true)}<div class="mid"><div class="h2" style="font-size:17px">${esc(tp.name)}</div><div class="sub" style="margin:0">${tp.handle?"@"+esc(tp.handle):""}${tp.team?"・"+esc(tp.team):""}</div><div class="tags">${tp.tags.map(t=>`<span class="tag">${esc(t)}</span>`).join("")}</div><div class="why">登録者${tp.subs.toLocaleString()}人（YouTube）。原石スカウトの候補</div></div></div>
   <div style="display:flex;gap:8px;margin-top:10px;flex-wrap:wrap"><button class="btn sm tomato" data-ch="${esc(tp.id)}">${done?"チェックずみ":"チェックする +10P"}</button><span class="sub" style="align-self:center;margin:0">毎日ちがう${CHN()}が選ばれる</span></div>`:'<p class="sub">今日の1人はお休み</p>';
  // ミッション
  ensureDM();const d=dmOf(W()),ML=isY()?DMY:DM,o=dmOf(isY()?"game":"yakyu"),OL=isY()?DM:DMY;
@@ -1938,7 +1948,7 @@ function openHowto(){modal(`<div class="h2">使い方ガイド</div><div class="
  <button class="btn sm paper" id="introAgain" style="margin-top:4px">アプリの紹介をもう一度見る</button>
  <h3>ゲーム実況 と プロ野球</h3><p>上のボタンで切りかえます。<b>ゲーム実況</b>は野球ゲームの配信者・配信の実況・広場（質問やオーダー）。<b>プロ野球</b>は球団ファンのYouTuber・試合実況・同じ球団のファンだけの掲示板。ポイント・スカウトパス・マイページは共通です。</p>
  <h3>下のメニュー</h3><p>ホーム（今日のまとめ）・さがす（チャンネルと動画）・<b>実況</b>（まん中の赤いボタン）・みんな（広場／ファン掲示板・お題・ランキング）・マイ（推し活・ポイント・設定）。中身は上のボタンで入れかわります。</p>
- <h3>毎日やること（3分）</h3><p>① アプリを開いてログインボーナス → ② 今日のお題に投票 → ③ 気になる配信者を3人チェック → ④ 応援票を3票。これでミッションがだいたい終わります。</p>
+ <h3>毎日の流れ（3分）</h3><p>① アプリを開いてログインボーナス → ② 今日のお題に投票 → ③ 気になる配信者を3人チェック → ④ 応援票を3票。これでミッションがだいたい終わります。</p>
  <h3>配信者をさがす</h3><p>「さがす」でジャンルや応援球団を選ぶだけ。「登録者が少ない」順にすると、これから伸びそうな人が見つかります。</p>
  <h3>原石スカウト</h3><p>1万人未満の配信者を最大5人（パスなら8人）スカウトできます。スカウトして7日以上たってから1万人に届くと「発掘」で+500P。</p>
  <h3>みんなで実況</h3><p>ライブ中の配信の「みんなで実況」から、配信を見ながらみんなと話せます（60字まで・スタンプもOK）。配信予定の人は「待機所」で始まるのを待てます。書き込みは7日で消えます。</p>
@@ -1993,9 +2003,9 @@ function renderShop(){const sk=seasonKey();const lim=limitedFor(sk);const lk=myL
  ${shopTab==="limited"?`<p class="sub">${mon()}月だけ交換できます。交換したものは来月以降もずっと使えます。${S.premium?(freeLimOk()?"<b>パス会員は今月1つ無料</b>":"今月の無料分は使いました"):"スカウトパスなら毎月1つ無料"}</p>`:""}
  ${shopTab==="pass"?`<p class="sub">${S.premium?"パス会員のあいだ、いつでもつけられます（交換は不要）。":"スカウトパス会員だけが使える見た目です。"}</p><div class="themerow"><span>着せ替え</span>${THEMES.map(([k,l])=>`<button class="${(S.theme||"")===k?"on":""} ${canTheme(k)?"":"locked"}" data-theme="${k}">${canTheme(k)?"":"🔒"}${l}</button>`).join("")}</div>${isLegend()?"":`<button class="pbtn" id="shopLegend" style="align-self:flex-start">レジェンドパスを見る ▶</button>`}`:""}
  ${isLegend()&&shopTab!=="pass"&&shopTab!=="slot"?'<p class="sub">レジェンド：ぜんぶ20%オフ・今月の限定は無料</p>':""}
- ${list.map(it=>{if(it.pass){const ok=it.packId?hasPack(it.packId):it.legend?isLegend():S.premium;return`<div class="item"><span class="pv">${pv(it)}</span><div>${esc(it.n)}<span class="lim" style="background:${it.packId?"#2E7DD1":it.legend?"#B8860B":"var(--ink)"}">${it.packId?"パック":it.legend?"レジェンド":"パス"}</span><small>${it.kind==="title"?"名前の横に出ます":"広場とランキングで表示"}</small></div>${ok?`<button class="btn sm ${on(it)?"mint":"paper"}" data-peq="${it.id}">${on(it)?"つけている":"つける"}</button>`:`<button class="btn sm" data-paywall="${it.packId?"packs":it.legend?"legend":"pass"}">${it.packId?"480円":it.legend?"レジェンド":"パス会員"}</button>`}</div>`}
+ ${list.map(it=>{if(it.pass){const ok=it.packId?hasPack(it.packId):it.legend?isLegend():S.premium;return`<div class="item"><span class="pv">${pv(it)}</span><div>${esc(it.n)}<span class="lim" style="background:${it.packId?"#2E7DD1":it.legend?"#B8860B":"var(--ink)"}">${it.packId?"パック":it.legend?"レジェンド":"パス"}</span><small>${it.kind==="title"?"名前の横に出ます":"投稿とランキングで表示"}</small></div>${ok?`<button class="btn sm ${on(it)?"mint":"paper"}" data-peq="${it.id}">${on(it)?"つけている":"つける"}</button>`:`<button class="btn sm" data-paywall="${it.packId?"packs":it.legend?"legend":"pass"}">${it.packId?"480円":it.legend?"レジェンド":"パス会員"}</button>`}</div>`}
   const owned=(S.bought[it.id]||0)>0&&it.kind!=="slot";const maxed=it.max&&(S.bought[it.id]||0)>=it.max;
-  return`<div class="item"><span class="pv">${pv(it)}</span><div>${esc(it.n)}${it.limited?'<span class="lim">限定</span>':""}<small>${it.kind==="slot"?`原石スカウトの枠（${S.bought[it.id]||0}/${it.max}）`:it.kind==="title"?"名前の横に出ます":it.kind==="color"?"広場とランキングの名前の色":it.kind==="frame"?"広場とランキングのアイコンの枠":""}</small></div>
+  return`<div class="item"><span class="pv">${pv(it)}</span><div>${esc(it.n)}${it.limited?'<span class="lim">限定</span>':""}<small>${it.kind==="slot"?`原石スカウトの枠（${S.bought[it.id]||0}/${it.max}）`:it.kind==="title"?"名前の横に出ます":it.kind==="color"?"投稿とランキングの名前の色":it.kind==="frame"?"投稿とランキングのアイコンの枠":""}</small></div>
   ${owned?`<button class="btn sm ${on(it)?"mint":"paper"}" data-eq="${it.id}">${on(it)?"つけている":"つける"}</button>`:`<button class="btn sm" data-buy="${it.id}" ${maxed||S.p<price(it)?"disabled":""}>${maxed?"上限":price(it)===0?"無料":price(it).toLocaleString()+"P"}</button>`}</div>`}).join("")}
  ${shopTab!=="slot"&&shopTab!=="limited"&&shopTab!=="title"&&shopTab!=="pass"?`<button class="pbtn" data-uneq="${shopTab}" style="align-self:flex-start">はずす</button>`:""}`;
  $("#shop").querySelectorAll("[data-stab]").forEach(b=>b.onclick=()=>{shopTab=b.dataset.stab;renderShop()});
@@ -2008,7 +2018,7 @@ function renderShop(){const sk=seasonKey();const lim=limitedFor(sk);const lk=myL
  $("#shop").querySelectorAll("[data-eq]").forEach(b=>b.onclick=()=>{const it=ownedItem(b.dataset.eq);if(!it)return;if(it.kind==="title")doEquip("title","",on(it)?"":it.v);else doEquip(it.kind,on(it)?"":b.dataset.eq)});
  $("#shop").querySelectorAll("[data-uneq]").forEach(b=>b.onclick=()=>doEquip(b.dataset.uneq,""))}
 function openTitles(){const base=TITLES.filter(([p])=>S.total>=p).map(t=>t[1]);const all=[...new Set([...base,...S.ownTitles.filter(t=>t!=="パス会員"),...(S.premium?[PASS_TITLE]:[])])];
- modal(`<div class="h2">称号をえらぶ</div><div class="seg" style="justify-content:center">${all.map(t=>`<button class="${titleOf()===t?"on":""}" data-tt="${esc(t)}">${esc(t)}</button>`).join("")}</div><p class="sub" style="margin:0">称号は累計ポイント・Pショップ・シーズン報酬で増えます。広場とランキングで名前の横に出ます</p><button class="btn paper wide" id="mc">とじる</button>`,x=>{
+ modal(`<div class="h2">称号をえらぶ</div><div class="seg" style="justify-content:center">${all.map(t=>`<button class="${titleOf()===t?"on":""}" data-tt="${esc(t)}">${esc(t)}</button>`).join("")}</div><p class="sub" style="margin:0">称号は累計ポイント・Pショップ・シーズン報酬で増えます。投稿とランキングで名前の横に出ます</p><button class="btn paper wide" id="mc">とじる</button>`,x=>{
   x.querySelector("#mc").onclick=closeModal;x.querySelectorAll("[data-tt]").forEach(b=>b.onclick=()=>{doEquip("title","",b.dataset.tt===rankTitle()?"":b.dataset.tt);setTimeout(openTitles,50)})},"titles")}
 /* スカウトパスの特典：共通・ゲーム実況・プロ野球。どれも自分の見た目と便利さだけ（ランキング・球団対抗・他の人には影響しない） */
 const PASS_PERKS=[
@@ -2182,7 +2192,7 @@ function renderRank(){const modes=RANK_MODES[W()];if(!modes.some(x=>x[0]===rMode
  if(rMode==="user"){const all=SV&&BOARDS.week?BOARDS.week.map(r=>({n:r.name,p:r.pts,me:r.uid===SV.uid,t:r.title,c:r.color})):SV||!DEMO?[{n:S.name,p:S.week,me:1,t:titleOf(),c:myLook().color}]:[...RIVALS.map(r=>({n:r[0]+"（見本）",p:r[1]})),{n:S.name,p:S.week,me:1,t:titleOf(),c:myLook().color}].sort((a,b)=>b.p-a.p);const my=all.findIndex(r=>r.me)+1;
   body.innerHTML=`<div class="board" style="padding:12px 14px"><div class="rowsb"><span style="font-size:12px;color:#9FC4B2">今週のあなた</span><span class="led" style="font-size:12px">月曜リセット</span></div><div class="rowsb" style="margin-top:4px"><b class="led" style="font-size:32px;font-weight:400">${S.week.toLocaleString()}P</b><span style="color:#fff;font-size:14px">${my?`${all.length}人中 ${my}位`:SV&&!SV.linked?SIGNIN+"でサインインすると載ります":"100位圏外"}</span></div></div>
   <div class="note tape"><h2 class="h2">週間ポイントランキング</h2>${table(all,"P")}<p class="sub">${SV?"10分ごとに更新。名前が載るのは"+SIGNIN+"でサインインした人だけ。":DEMO?"見本のライバルと比べています。":"ランキングはアプリ版から始まります。"}ポイントはアプリの中だけのもので、景品はありません。</p></div>
-  <div class="note"><h2 class="h2">ポイントのため方</h2><p class="sub" style="margin:0 0 6px">ゲーム実況でもプロ野球でも、同じ財布にたまります。</p><div class="earn"><div><span>毎日ひらく（7日目は+100）</span><b>+20</b></div><div><span>デイリーミッション（1つ・ゲームと野球で3つずつ）</span><b>+30</b></div><div><span>ミッション3つ全部クリア（それぞれ）</span><b>+50</b></div><div><span>今日の1人・今日のチャンネルをチェック</span><b>+10</b></div><div><span>応援票を入れる（1票）</span><b>+2</b></div><div><span>今日のお題に投票（ゲーム・野球それぞれ）</span><b>+10</b></div><div><span>広場・ファン掲示板に投稿・返信（1日3〜5回まで）</span><b>+5</b></div><div><span>試合実況で応援（1日1回）</span><b>+10</b></div><div><span>「参考になった」「いいね」をもらう</span><b>+2</b></div><div><span>ベストアンサーに選ばれる（1日1回）</span><b>+30</b></div><div><span>ガチャ報告（1日1回）</span><b>+5</b></div><div><span>原石スカウトで発掘</span><b>+500</b></div><div><span>2倍タイム（1日1回・30分）</span><b>×2</b></div></div><p class="sub">YouTubeで動画を見たりチャンネル登録したりしても、ポイントは付きません（YouTubeのルール）。</p></div>`}
+  <div class="note"><h2 class="h2">ポイントのため方</h2><p class="sub" style="margin:0 0 6px">ゲーム実況でもプロ野球でも、同じ財布にたまります。</p><div class="earn"><div><span>毎日ひらく（7日目は+100）</span><b>+20</b></div><div><span>デイリーミッション（1つ・ゲームと野球で3つずつ）</span><b>+30</b></div><div><span>ミッション3つ全部クリア（それぞれ）</span><b>+50</b></div><div><span>今日の1人・今日の1人をチェック</span><b>+10</b></div><div><span>応援票を入れる（1票）</span><b>+2</b></div><div><span>今日のお題に投票（ゲーム・野球それぞれ）</span><b>+10</b></div><div><span>広場・ファン掲示板に投稿・返信（1日3〜5回まで）</span><b>+5</b></div><div><span>試合実況で応援（1日1回）</span><b>+10</b></div><div><span>「参考になった」「いいね」をもらう</span><b>+2</b></div><div><span>ベストアンサーに選ばれる（1日1回）</span><b>+30</b></div><div><span>ガチャ報告（1日1回）</span><b>+5</b></div><div><span>原石スカウトで発掘</span><b>+500</b></div><div><span>2倍タイム（1日1回・30分）</span><b>×2</b></div></div><p class="sub">YouTubeで動画を見たりチャンネル登録したりしても、ポイントは付きません（YouTubeのルール）。</p></div>`}
  else if(rMode==="teams"){const rows=teamHeat().sort((a,b)=>b.n-a.n||TEAMS.indexOf(a.t)-TEAMS.indexOf(b.t));const top=Math.max(1,rows[0].n);const my=rows.findIndex(r=>r.t===S.team)+1;
   body.innerHTML=`<div class="heathero"><span class="hh-k">今週の球団対抗</span><b>${S.team?`${esc(S.team)}は ${my}位`:"応援球団を選ぶと参加できます"}</b><small>ファン掲示板と試合実況に書きこむと、あなたの球団の熱量が上がります（1人1日${HEAT_DAY_MAX}回まで）。月曜リセット</small></div>
   <div class="note"><div class="heat">${rows.map((r,i)=>`<div class="hrow2 ${r.t===S.team?"mine":""}"><span class="n">${i+1}</span><span class="tn" style="--tc:${TEAMC[r.t]}">${esc(r.t)}</span><span class="vbar"><i style="width:${r.n/top*100}%;background:${TEAMC[r.t]}"></i></span><b>${r.n.toLocaleString()}</b></div>`).join("")}</div>
@@ -2225,8 +2235,8 @@ function renderGacha(){const list=allPosts().filter(p=>p.cat==="ガチャ報告"
  $("#gNew").onclick=()=>openComposer({cat:"ガチャ報告"})}
 /* --- 投稿を書く --- */
 const GUIDE=`<ul class="guide"><li>悪口・からかい・差別はしない</li><li>LINE・電話番号・URLなどの連絡先は書かない（書けません）</li><li>アカウントの売買・宣伝・勧誘はしない</li><li>配信者への攻撃や、なりすましはしない</li><li>ゲームの画像や動画を勝手に転載しない（文章で書こう）</li><li>困った投稿は「通報」、見たくない人は「ブロック」</li></ul><p class="sub" style="margin:0">ルールを守らない投稿は、通報が3件集まると自動で見えなくなり、利用停止になることがあります。</p>`;
-function openComposer(pre){if(!S.guideOK){modal(`<div class="h2">広場のルール</div>${GUIDE}<button class="btn tomato wide" id="gOk">守って使う</button><button class="btn paper wide" id="mc">やめる</button>`,x=>{x.querySelector("#mc").onclick=closeModal;x.querySelector("#gOk").onclick=()=>{S.guideOK=1;save();openComposer(pre)}});return}
- if(SV&&!SV.linked){modal(`<div class="h2">${SIGNIN}でサインイン</div><p class="sub" style="margin:0">広場への投稿・返信は、なりすましや荒らしを防ぐため、${SIGNIN}でサインインした人だけができます。読むのはだれでもできます。</p>${SV.signIn?`<button class="btn tomato wide" id="si">${SIGNIN}でサインイン</button>`:""}<button class="btn paper wide" id="mc">とじる</button>`,x=>{x.querySelector("#mc").onclick=closeModal;const b=x.querySelector("#si");if(b)b.onclick=()=>SV.signIn().then(()=>{closeModal();act("sync",{})}).catch(()=>{})});return}
+function openComposer(pre){if(!S.guideOK){modal(`<div class="h2">書き込みのルール</div>${GUIDE}<button class="btn tomato wide" id="gOk">守って使う</button><button class="btn paper wide" id="mc">やめる</button>`,x=>{x.querySelector("#mc").onclick=closeModal;x.querySelector("#gOk").onclick=()=>{S.guideOK=1;save();openComposer(pre)}});return}
+ if(SV&&!SV.linked){modal(`<div class="h2">${SIGNIN}でサインイン</div><p class="sub" style="margin:0">広場・掲示板への投稿・返信は、なりすましや荒らしを防ぐため、${SIGNIN}でサインインした人だけができます。読むのはだれでもできます。</p>${SV.signIn?`<button class="btn tomato wide" id="si">${SIGNIN}でサインイン</button>`:""}<button class="btn paper wide" id="mc">とじる</button>`,x=>{x.querySelector("#mc").onclick=closeModal;const b=x.querySelector("#si");if(b)b.onclick=()=>SV.signIn().then(()=>{closeModal();act("sync",{})}).catch(()=>{})});return}
  const st=Object.assign({cat:"質問",text:"",ch:"",meta:{}},pre||{});if(st.cat==="対戦募集")st.meta=Object.assign({rule:"リアタイ",when:"今から"},st.meta);if(st.cat==="ガチャ報告")st.meta=Object.assign({type:"通常",pulls:10,hits:0},st.meta);if(st.cat==="オーダー自慢"&&!(st.meta&&st.meta.order))st.meta={order:DEF_ORDER.map(pos=>({pos,name:""})),sp:""};
  const draw=()=>{const chs=CH.filter(c=>genreOf(c)==="game").sort((a,b)=>a.name.localeCompare(b.name,"ja"));
   modal(`<div class="h2">${st.room?`${esc(st.room)}ファンの掲示板に投稿`:"投稿する"}</div>${st.room?'<p class="sub" style="margin:0">見られるのは同じ球団のファンだけです</p>':""}<div class="chiprow">${(st.room?ROOM_CATS:CATS).map(k=>`<button class="${st.cat===k?"on":""}" data-k="${k}">${k}</button>`).join("")}</div>
@@ -2282,7 +2292,7 @@ async function openPost(id){const p=allPosts().find(x=>x.id===id)||EXTRA_POSTS[i
   x.querySelectorAll("[data-rmore]").forEach(b=>b.onclick=()=>moreMenu("reply",b.dataset.rmore,b.dataset.ruid,b.dataset.rname,()=>openPost(id)));
   x.querySelector("#rGo").onclick=()=>sendReply(p,x.querySelector("#rIn").value.trim())},"post"+id)}
 /* 自分の投稿を少しの間だけ上に出す（既定10分・1日1回。広告を1本見る・パス会員は広告なし） */
-function bumpMine(p){const local=()=>{const cp=CM.posts.find(x=>x.id===p.id);if(cp){cp.bumpUntil=Date.now()+ADS.bumpMin*60000;cp.bumpAt=Date.now()}S.bumpDay=today();cmSave();save();toast(`${ADS.bumpMin}分間、広場の上に出します`);renderAll();openPost(p.id)};
+function bumpMine(p){const local=()=>{const cp=CM.posts.find(x=>x.id===p.id);if(cp){cp.bumpUntil=Date.now()+ADS.bumpMin*60000;cp.bumpAt=Date.now()}S.bumpDay=today();cmSave();save();toast(`${ADS.bumpMin}分間、一覧のいちばん上に出します`);renderAll();openPost(p.id)};
  if(S.premium)act("premiumReward",{type:"bump",postId:p.id},()=>{local();return{ok:true}},r=>{if(SV&&r&&r.ok!==false){S.bumpDay=today();save();fetchPosts().then(()=>openPost(p.id))}});
  else watchAd("投稿を上に出す","bump:"+p.id,()=>{if(!SV){local();return}setTimeout(()=>{sideCall("sync",{}).then(()=>{S.bumpDay=today();save()});fetchPosts().then(()=>openPost(p.id))},2000)})}
 function sendReply(p,text){if(!text){toast("返信を書いてから送ってね");const i=document.querySelector("#rIn");if(i)i.focus();return}const why=NGW.text(text);if(why){toast(why,1);return}if(text.length>200){toast(ERR["too-long"],1);return}
@@ -2303,21 +2313,21 @@ function moreMenu(kind,id,uid,name,back){const mine=uid===ME();
   const d=x.querySelector("#del1");if(d)d.onclick=()=>act("deletePost",{kind,id},()=>{const src=kind==="post"?CM.posts:kind==="chat"?(CM.chats||[]):CM.replies;const o=src.find(z=>z.id===id);if(o)o.hidden=true;cmSave();return{ok:true}},r=>{if(!r||r.ok===false)return;if(SV&&SPOSTS){const o=SPOSTS.find(z=>z.id===id);if(o)o.hidden=true}Object.values(chatCache).forEach(l=>l.forEach(m=>{if(m.id===id)m.hidden=true}));toast("消しました");if(kind==="chat")back();else{closeModal();renderAll()}});
   x.querySelectorAll("[data-rs]").forEach(b=>b.onclick=()=>act("report",{kind,target:id,reason:+b.dataset.rs},()=>({ok:true}),r=>{if(!r||r.ok===false)return;toast("通報しました。運営が確認します");back()}));
   const bk=x.querySelector("#blk1");if(bk)bk.onclick=()=>act("block",{target:uid,on:true},()=>({ok:true}),r=>{if(!r||r.ok===false)return;S.blocked=[...new Set([...(S.blocked||[]),uid])];S.blockNames[uid]=name;save();toast(`${name}さんをブロックしました`);closeModal();renderAll()})})}
-function renderBlocks(){const b=S.blocked||[];$("#blockBox").innerHTML=`<div class="rowsb"><h2 class="h2">ブロック中の人</h2><span class="chip">${b.length}人</span></div>${b.length?b.map(u=>`<div class="rowsb" style="padding:6px 0;border-bottom:2px dashed var(--dash)"><span>${esc(S.blockNames[u]||"ユーザー")}</span><button class="pbtn" data-ub="${esc(u)}">解除</button></div>`).join(""):'<p class="sub" style="margin:4px 0 0">いません。広場の投稿の「通報・ブロック」からブロックできます。</p>'}
- <p class="sub">広場のルール：${S.guideOK?"同意ずみ":"まだ"}・困ったときは投稿の「通報・ブロック」から通報できます。</p>`;
+function renderBlocks(){const b=S.blocked||[];$("#blockBox").innerHTML=`<div class="rowsb"><h2 class="h2">ブロック中の人</h2><span class="chip">${b.length}人</span></div>${b.length?b.map(u=>`<div class="rowsb" style="padding:6px 0;border-bottom:2px dashed var(--dash)"><span>${esc(S.blockNames[u]||"ユーザー")}</span><button class="pbtn" data-ub="${esc(u)}">解除</button></div>`).join(""):'<p class="sub" style="margin:4px 0 0">いません。投稿の「通報・ブロック」からブロックできます。</p>'}
+ <p class="sub">書き込みのルール：${S.guideOK?"同意ずみ":"まだ"}・困ったときは投稿の「通報・ブロック」から通報できます。</p>`;
  $("#blockBox").querySelectorAll("[data-ub]").forEach(x=>x.onclick=()=>act("block",{target:x.dataset.ub,on:false},()=>({ok:true}),r=>{if(!r||r.ok===false)return;S.blocked=(S.blocked||[]).filter(u=>u!==x.dataset.ub);save();renderAll()}))}
 /* --- ホーム：今日のまとめ --- */
 function renderDigest(){const {info,done}=pollState();const d=new Date(Date.now()+JST);const date=`${d.getUTCMonth()+1}/${d.getUTCDate()}（${"日月火水木金土"[d.getUTCDay()]}）`;
  if(isY()){const t=S.team,day=today(),g=t&&gamesOf(t,day)[0],gs=gameState(g),todays=GAMES.filter(x=>x.day===day);const heat=teamHeat().sort((a,b)=>b.n-a.n);const my=heat.findIndex(r=>r.t===t)+1;
-  $("#digestBox").innerHTML=`<div class="rowsb"><h2 class="h2">今日やること</h2><span class="chip">${date}</span></div>
-  <div class="quick"><button data-dgo="game"><span class="qi">${ICON.ball}</span><b>試合実況</b><small>${g?esc(gs.t):"雑談OK"}</small></button><button data-dgo="room"><span class="qi">${QI.pen}</span><b>掲示板</b><small>${t?esc(t):"球団を選ぶ"}</small></button><button data-dgo="poll"><span class="qi">${QI.poll}</span><b>お題</b><small>${done?"結果を見る":"+10P"}</small></button><button data-dgo="vote"><span class="qi">${QI.heart}</span><b>応援する</b><small>残り${S.vLeft}票</small></button></div>
+  $("#digestBox").innerHTML=`<div class="rowsb"><h2 class="h2">今日のまとめ</h2><span class="chip">${date}</span></div>
+  <div class="quick"><button data-dgo="game"><span class="qi">${ICON.ball}</span><b>試合実況</b><small>${g?esc(gs.t):"雑談OK"}</small></button><button data-dgo="room"><span class="qi">${QI.pen}</span><b>掲示板</b><small>${t?esc(t):"球団を選ぶ"}</small></button><button data-dgo="vote"><span class="qi">${QI.heart}</span><b>応援する</b><small>残り${S.vLeft}票</small></button></div>
   <div class="dlist">
   <button class="dgrow" data-dgo="poll"><span class="cat" style="background:#12281F;color:#FFB12E">お題</span><span class="mid">${esc(info.q)}</span><span class="go">▶</span></button>
   <button class="dgrow" data-dgo="live"><span class="cat" style="background:#0B1934;color:#fff">試合</span><span class="mid">${todays.length?`今日のプロ野球 ${todays.length}試合`:"今日は試合がありません"}</span><span class="go">▶</span></button>
   <button class="dgrow" data-dgo="heat"><span class="cat" style="background:${t?TEAMC[t]:"#1E1B18"};color:${t?tcText(t):"#fff"}">対抗</span><span class="mid">${t?`球団対抗：${esc(t)}は今週 ${my}位`:"球団対抗ランキング"}</span><span class="go">▶</span></button></div>`}
  else{const waitN=allPosts().filter(waiting).length;const openN=allPosts().filter(matchOpen).length;const lv=CH.filter(c=>c.live&&genreOf(c)==="game").length;
- $("#digestBox").innerHTML=`<div class="rowsb"><h2 class="h2">今日やること</h2><span class="chip">${date}</span></div>
- <div class="quick"><button data-dgo="vote"><span class="qi">${QI.heart}</span><b>応援する</b><small>残り${S.vLeft}票</small></button><button data-dgo="poll"><span class="qi">${QI.poll}</span><b>お題</b><small>${done?"結果を見る":"+10P"}</small></button><button data-dgo="write"><span class="qi">${QI.pen}</span><b>書く</b><small>質問・募集</small></button><button data-dgo="live"><span class="qi">${ICON.ball}</span><b>配信実況</b><small>${lv?`ライブ${lv}件`:"予定を見る"}</small></button></div>
+ $("#digestBox").innerHTML=`<div class="rowsb"><h2 class="h2">今日のまとめ</h2><span class="chip">${date}</span></div>
+ <div class="quick"><button data-dgo="vote"><span class="qi">${QI.heart}</span><b>応援する</b><small>残り${S.vLeft}票</small></button><button data-dgo="write"><span class="qi">${QI.pen}</span><b>書く</b><small>質問・募集</small></button><button data-dgo="live"><span class="qi">${ICON.ball}</span><b>配信実況</b><small>${lv?`ライブ${lv}件`:"予定を見る"}</small></button></div>
  <div class="dlist">
  <button class="dgrow" data-dgo="poll"><span class="cat" style="background:#12281F;color:#FFB12E">お題</span><span class="mid">${esc(info.q)}</span><span class="go">▶</span></button>
  ${waitN?`<button class="dgrow" data-dgo="wait"><span class="cat" style="background:#FFC62E">質問</span><span class="mid">回答を待っている質問 ${waitN}件</span><span class="go">▶</span></button>`:""}
@@ -2346,7 +2356,7 @@ const STAMPS=["ナイス！","きたー！","うまい！","ドンマイ","わ�
 function needSignIn(){if(!(SV&&!SV.linked))return false;
  modal(`<div class="h2">${SIGNIN}でサインイン</div><p class="sub" style="margin:0">書き込みは、なりすましや荒らしを防ぐため、${SIGNIN}でサインインした人だけができます。読むのはだれでもできます。</p>${SV.signIn?`<button class="btn tomato wide" id="si">${SIGNIN}でサインイン</button>`:""}<button class="btn paper wide" id="mc">とじる</button>`,x=>{x.querySelector("#mc").onclick=closeModal;const b=x.querySelector("#si");if(b)b.onclick=()=>SV.signIn().then(()=>{closeModal();act("sync",{})}).catch(()=>{})});return true}
 /* 広場のルールに同意していなければ先に見せる */
-function needGuide(then){if(S.guideOK)return false;modal(`<div class="h2">広場のルール</div>${GUIDE}<button class="btn tomato wide" id="gOk">守って使う</button><button class="btn paper wide" id="mc">やめる</button>`,x=>{x.querySelector("#mc").onclick=closeModal;x.querySelector("#gOk").onclick=()=>{S.guideOK=1;save();then()}});return true}
+function needGuide(then){if(S.guideOK)return false;modal(`<div class="h2">書き込みのルール</div>${GUIDE}<button class="btn tomato wide" id="gOk">守って使う</button><button class="btn paper wide" id="mc">やめる</button>`,x=>{x.querySelector("#mc").onclick=closeModal;x.querySelector("#gOk").onclick=()=>{S.guideOK=1;save();then()}});return true}
 
 /* ---------- ① 実況スレ ---------- */
 const liveVid=c=>c.live?(c.live.vid||"demo_"+c.id):c.up?(c.up.vid||"demo_up_"+c.id):"";
@@ -2575,7 +2585,7 @@ function renderLive(){const box=$("#v-live");if(!box)return;const t=S.team,day=t
  $("#lives").querySelectorAll("[data-live]").forEach(b=>b.onclick=()=>openLive(b.dataset.live));
  // これからの配信
  const ups=chW().filter(c=>c.up).sort((a,b)=>a.up.start-b.up.start);
- $("#upcoming").innerHTML=ups.length?ups.map(c=>`<div class="up"><span class="tm">${esc(c.up.t)}</span>${avatar(c)}<button class="mid" data-ch="${esc(c.id)}" style="background:none;border:0;padding:0;text-align:left">${esc(c.up.title)}<small>${esc(c.name)}</small></button><span class="upbtns"><button class="bell ${S.bells[c.id]?"on":""}" data-bell="${esc(c.id)}">${S.bells[c.id]?"通知ON":"通知"}</button><button class="bell" data-wait="${esc(c.id)}">待機所</button></span></div>`).join("")
+ $("#upcoming").innerHTML=ups.length?ups.map(c=>`<div class="up"><span class="tm">${esc(c.up.t)}</span>${avatar(c)}<button class="mid" data-ch="${esc(c.id)}" style="background:none;border:0;padding:0;text-align:left">${esc(c.up.title)}<small>${esc(c.name)}</small></button><span class="upbtns"><button class="bell ${S.bells[c.id]?"on":""}" data-bell="${esc(c.id)}">${S.bells[c.id]?"お知らせON":"お知らせ"}</button><button class="bell" data-wait="${esc(c.id)}">待機所</button></span></div>`).join("")
   :'<p class="sub" style="margin:0">いまは配信予定がありません</p>';
  $("#upcoming").querySelectorAll("[data-bell]").forEach(b=>b.onclick=()=>toggleBell(b.dataset.bell));
  $("#upcoming").querySelectorAll("[data-wait]").forEach(b=>b.onclick=()=>openLive(b.dataset.wait));
@@ -2896,7 +2906,7 @@ function myStickers(){const out=[];Object.entries(STICKER_PACKS).forEach(([id,p]
    ・レジェンドパス：買い切りだけ（スカウトパスの全部＋レジェンド特典）
    ・スタンプパック：買い切り（だれでも）
    ・24時間おためし：広告を1本見ると24時間（月に1回）
-   ・きょうの特典：広告を1本見ると、パスの一部を今日だけ（1日1つ）
+   ・今日の特典：広告を1本見ると、パスの一部を今日だけ（1日1つ）
    どれも「自分の見た目と便利さ」だけ。ランキング・球団対抗・応援票は増えない
    ===================================================================== */
 const PLANS=[
@@ -2963,15 +2973,15 @@ function celebrate(id){const legend=id===LEGEND.id;pop(legend?"LEGEND!":"あり�
 /* 24時間おためし（広告を1本見る・日本時間で月に1回） */
 const trialReady=()=>!S.trialAt||dayKeyOf(S.trialAt).slice(0,7)!==today().slice(0,7);
 function startTrialAd(){if(!trialReady())return;watchAd("スカウトパス 24時間おためし","trial",()=>adReward("trial",()=>{S.trialAt=Date.now();S.trialUntil=Date.now()+864e5;S.premium=true;save();closeModal();renderAll();track("trial_start",{});toast("24時間、スカウトパスの特典が使えます！")},"24時間おためしを受け取りました"))}
-/* きょうの特典（広告1本で、パスの一部を今日だけ。1日1つ。試合の日は試合実況のスタンプ） */
-const PERK_DEF={stamp:["パス用スタンプ","文字スタンプとイラストスタンプのパス用が使える"],slot:["原石スカウトの枠 +1","今日スカウトした人は、明日からもそのまま"],later:["あとで見る・お知らせ +20","今日入れた分は、明日からもそのまま"]};
+/* 今日の特典（広告1本で、パスの一部を今日だけ。1日1つ。試合の日は試合実況のスタンプ） */
+const PERK_DEF={stamp:["パス用スタンプ","文字スタンプとイラストスタンプのパス用が使える"],slot:["原石スカウトの枠 +1","今日スカウトした人は、明日からもそのまま"],later:["お知らせON・あとで見る +20","今日入れた分は、明日からもそのまま"]};
 const gameToday=()=>!!(S.team&&typeof gamesOf==="function"&&gamesOf(S.team,today()).some(g=>g.status!=="off"));
 function perkHTML(){if(S.premium)return"";const d=S.perk&&S.perk.day===today()?S.perk.k:"";
- if(d&&PERK_DEF[d])return`<div class="perkbox"><div class="pk-h">きょうの特典</div><p class="pk-on">✓ ${PERK_DEF[d][0]}（今日の24時まで）</p><small class="pk-s">特典は1日1つ。また明日どうぞ</small></div>`;
+ if(d&&PERK_DEF[d])return`<div class="perkbox"><div class="pk-h">今日の特典</div><p class="pk-on">✓ ${PERK_DEF[d][0]}（今日の24時まで）</p><small class="pk-s">特典は1日1つ。また明日どうぞ</small></div>`;
  const gm=gameToday(),ks=gm?["stamp"]:["stamp","slot","later"];
- return`<div class="perkbox"><div class="pk-h">きょうの特典<small>広告を1本見ると、今日だけ・1日1つ</small></div>${gm?`<p class="pk-game">⚾ 今日は${esc(S.team)}の試合の日</p>`:""}<div class="pk-list">${ks.map(k=>`<button class="pk" data-perk="${k}"><b>${gm&&k==="stamp"?"試合実況でパス用スタンプ":PERK_DEF[k][0]}</b><small>${PERK_DEF[k][1]}</small></button>`).join("")}</div></div>`}
+ return`<div class="perkbox"><div class="pk-h">今日の特典<small>広告を1本見ると、今日だけ・1日1つ</small></div>${gm?`<p class="pk-game">⚾ 今日は${esc(S.team)}の試合の日</p>`:""}<div class="pk-list">${ks.map(k=>`<button class="pk" data-perk="${k}"><b>${gm&&k==="stamp"?"試合実況でパス用スタンプ":PERK_DEF[k][0]}</b><small>${PERK_DEF[k][1]}</small></button>`).join("")}</div></div>`}
 function bindPerk(x){x.querySelectorAll("[data-perk]").forEach(b=>b.onclick=()=>startPerkAd(b.dataset.perk))}
-function startPerkAd(k){if(S.premium||!PERK_DEF[k]||(S.perk&&S.perk.day===today()))return;watchAd("きょうの特典","perk_"+k,()=>adReward("perk_"+k,()=>{S.perk={day:today(),k};save();closeModal();renderAll();track("perk_start",{k});toast(`今日は「${PERK_DEF[k][0]}」が使えます！`)},`今日は「${PERK_DEF[k][0]}」が使えます！`))}
+function startPerkAd(k){if(S.premium||!PERK_DEF[k]||(S.perk&&S.perk.day===today()))return;watchAd("今日の特典","perk_"+k,()=>adReward("perk_"+k,()=>{S.perk={day:today(),k};save();closeModal();renderAll();track("perk_start",{k});toast(`今日は「${PERK_DEF[k][0]}」が使えます！`)},`今日は「${PERK_DEF[k][0]}」が使えます！`))}
 /* 着せ替え（レジェンドだけ） */
 function applyTheme(){const t=canTheme(S.theme||"")?(S.theme||""):"";document.body.dataset.theme=t;document.body.style.setProperty("--themec",TEAMC[S.team]||"#1E7A4E")}
 
@@ -3185,9 +3195,13 @@ function openFeedback(){const kinds=["不具合","こうしてほしい","使い
 /* レベル：たまったポイント（total）から。見た目だけ */
 const lvNeed=L=>25*L*(L+1);
 function lvOf(t){t=t||0;let L=1;while(lvNeed(L)<=t&&L<99)L++;const a=L>1?lvNeed(L-1):0,b=lvNeed(L);return{L,f:Math.max(0,Math.min(1,(t-a)/(b-a)))}}
-function renderMe(){const e=$("#meAv");if(!e)return;const tc=TEAMC[S.team]||"#22386B";e.style.setProperty("--mtc",tc);
- if(!e.firstChild)e.innerHTML=tomoImg(44,"tomo",1);
- $("#meName").textContent=S.name||"ゲスト";const v=lvOf(S.total);$("#meLv").textContent=v.L;$("#meBar").style.width=Math.round(v.f*100)+"%"}
+function renderMe(){const e=$("#meAv");if(!e)return;const lk=myLook();
+ /* 自分のアイコンは、マイ・投稿と同じもの（名前の1文字・球団の色・つけている枠） */
+ e.className=`me-av av${frameCls(lk.frame)}`;e.setAttribute("style",`${frameSt(lk)}background:${TEAMC[S.team]||"#FF5B45"}`);e.textContent=(S.name||"ゲ")[0];
+ $("#meName").textContent=S.name||"ゲスト";
+ /* 名前の下は、マイと同じ称号。バーは次の称号までの進み具合 */
+ const i=TITLES.findIndex(([p])=>p>S.total),a=i<0?TITLES[TITLES.length-1][0]:TITLES[i-1][0],b=i<0?a:TITLES[i][0];
+ $("#meLv").textContent=titleOf();$("#meBar").style.width=(i<0?100:Math.round(Math.max(0,Math.min(1,(S.total-a)/(b-a)))*100))+"%"}
 /* 球場の絵（昼と夜） */
 function fieldArt(night){const sky=night?["#16254A","#2B4280"]:["#8FD0F0","#D8F1FB"];
  const fans=Array.from({length:64},(_,i)=>{const x=6+(i%32)*11.6,y=128+Math.floor(i/32)*14-Math.sin(x/372*Math.PI)*22;const c=["#FFC62E","#fff","#FF8A8A","#FFE98A","#A6DBF2"][i*7%5];return`<circle cx="${x.toFixed(0)}" cy="${y.toFixed(0)}" r="3.2" fill="${c}"/>`}).join("");
@@ -3205,17 +3219,18 @@ function heroState(){const y=isY(),t=S.team,day=today();
   const say=gs.k==="on"||gs.k==="late"?`${esc(opp)}戦、試合中！<br>みんなで応援しよう！`:gs.k==="pre"||gs.k==="soon"?`今日は${esc(opp)}戦！<br>${esc(g.time||"")}からだよ`:gs.k==="post"?"試合終了！<br>感想を話そう":gs.k==="off"?"今日は中止…<br>掲示板で話そう":`今日は${esc(opp)}戦！`;
   return{say,board}}
  const lv=chW().filter(c=>c.live).length,up=chW().filter(c=>c.up).length;
- const board=`<div class="hh-board"><div class="hb-k">${lv?'<i class="dotlive"></i>':""}配信</div><div class="hb-s">ライブ <b>${lv}</b></div><div class="hb-p">予定 ${up}件</div></div>`;
+ const board=`<div class="hh-board"><div class="hb-k">${lv?'<i class="dotlive"></i>':""}配信</div><div class="hb-s">ライブ中 <b>${lv}</b>件</div><div class="hb-p">配信予定 ${up}件</div></div>`;
  return{say:lv?`いま${lv}人が配信中！<br>一緒に見よう！`:up?`今日は${up}件の<br>配信予定があるよ`:"新しい配信者を<br>さがしてみよう！",board}}
 function renderHomeHero(){const h=$("#hHero");if(!h)return;const na=$("#nextAct"),jh=$("#jHero");if(na)na.hidden=true;if(jh)jh.hidden=true;
  const hr=new Date(Date.now()+JST).getUTCHours(),night=hr>=17||hr<5,st=heroState(),y=isY(),tc=TEAMC[S.team]||"#22386B";
  ensureDM();const d=dmOf(W()),ML=y?DMY:DM,left=Math.max(0,ML.length-(d.got||[]).length);
  const perkLeft=!S.premium&&!(S.perk&&S.perk.day===today());
  h.style.setProperty("--tc",y?tc:"#22386B");h.classList.toggle("night",night);
- h.innerHTML=`${y?fieldArt(night):ART.screen("hh")}${st.board}
+ const scr=y?"":(chW().some(c=>c.live)?ART.screen("hh"):ART.screen("hh").replace(/<rect[^>]*fill="#FF0033"\/><text[^>]*>LIVE<\/text>/,""));
+ h.innerHTML=`${y?fieldArt(night):scr}${st.board}
   <div class="hh-say">${st.say}</div>
   <div class="hh-kun">${tomoImg(172,"tomo")}</div>
-  <div class="hh-side"><button class="hh-rb" data-hh="mis">${HH_IC.mis}<span>やること</span>${left?`<i class="n">${left}</i>`:""}</button>${S.premium?"":`<button class="hh-rb" data-hh="perk">${HH_IC.gift}<span>きょうの<br>特典</span>${perkLeft?'<i class="n">!</i>':""}</button>`}<button class="hh-rb" data-hh="help">${HH_IC.help}<span>使い方</span></button></div>`;
+  <div class="hh-side"><button class="hh-rb" data-hh="mis">${HH_IC.mis}<span>ミッション</span>${left?`<i class="n">${left}</i>`:""}</button>${S.premium?"":`<button class="hh-rb" data-hh="perk">${HH_IC.gift}<span>今日の<br>特典</span>${perkLeft?'<i class="n">!</i>':""}</button>`}<button class="hh-rb" data-hh="help">${HH_IC.help}<span>使い方</span></button></div>`;
  h.querySelectorAll("[data-hh]").forEach(b=>b.onclick=()=>{const k=b.dataset.hh;if(k==="mis"){const m=$("#missionBox");if(m)m.scrollIntoView({behavior:"smooth",block:"start"})}else if(k==="perk")openPaywall("perk");else openHowto()});
  const a=nextAction(),g=$("#hGo");g.className=`hgo ${a.hot?"hot":""}`;
  g.innerHTML=`<span class="hg-i">${NA_ICON[a.i]||"▶"}</span><span class="hg-m"><b>${esc(a.t)}</b><small>${a.hot?'<span class="hg-live"><i class="dotlive"></i>LIVE</span>':""}${esc(a.s)}</small></span><span class="hg-go">›</span>`;
@@ -3232,7 +3247,7 @@ function openCh(id){const c=chById(id);if(!c){toast("この配信者は見つか
  S.seenCh[id]=1;S.recent=[id,...S.recent.filter(x=>x!==id)].slice(0,8);
  if(S.chk[id]!==today()&&!(S.mchk&&S.mchk[id]===today())){S.mchk=S.mchk||{};S.mchk[id]=today();mstat("checks",1,id)}
  if(S.chk[id]!==today()){if(SV){sideCall("checkChannel",{chId:id}).then(r=>{if(r&&r.ok&&r.code!=="already"&&S.chk[id]!==today()){S.chk[id]=today();S.checkTotal++;if(c.team)S.teamSeen[c.team]=1;save()}})}else checkLocal(c)}
- const t1k=isY()?"t1Y":"t1";if(S[t1k]!==today()){const tp=todayPick();if(tp&&tp.id===id){if(SV)sideCall("checkTodayPick",{chId:id,world:W()}).then(r=>{if(r&&(r.ok||r.code==="already")){S[t1k]=today();save();renderAll()}});else{S[t1k]=today();setTimeout(()=>addP(10,isY()?"今日のチャンネルをチェック":"今日の1人をチェック"),300)}}}
+ const t1k=isY()?"t1Y":"t1";if(S[t1k]!==today()){const tp=todayPick();if(tp&&tp.id===id){if(SV)sideCall("checkTodayPick",{chId:id,world:W()}).then(r=>{if(r&&(r.ok||r.code==="already")){S[t1k]=today();save();renderAll()}});else{S[t1k]=today();setTimeout(()=>addP(10,isY()?"今日の1人をチェック":"今日の1人をチェック"),300)}}}
  save();const sc=S.scout[id];const full=Object.keys(S.scout).length>=slotsMax();const vs=VIDS.filter(v=>v.ch===id).sort((a,b)=>b.pub-a.pub);const fan=genreOf(c)==="fan";const rank=CH.filter(x=>genreOf(x)===genreOf(c)).sort((a,b)=>totalVotes(b.id)-totalVotes(a.id)).findIndex(x=>x.id===id)+1;const sim=similar(c);
  modal(`<div class="dhead">${avatar(c,true)}<div style="min-width:0"><div class="h2">${esc(c.name)} ${c.live?'<span class="livebadge">LIVE</span>':""}</div><div class="sub" style="margin:0"><span class="gchip ${fan?"y":"g"}">${fan?"球団ファン":"ゲーム実況"}</span> ${c.handle?"@"+esc(c.handle):""}${c.team?`・${esc(c.team)}ファン`:""}</div><div class="tags">${c.tags.map(t=>`<span class="tag">${esc(t)}</span>`).join("")}</div></div></div>
  <div class="board stat3"><div><small>登録者</small><b>${fmt(c.subs)}</b><em>YouTube</em></div><div><small>動画</small><b>${(c.vcount||vs.length).toLocaleString()}</b><em>YouTube</em></div><div><small>応援票</small><b>${totalVotes(id)?rank+"位":"-"}</b><em>このアプリ</em></div></div>
@@ -3275,7 +3290,7 @@ function inboxItems(){const out=[];if(typeof TRENDS!=="undefined")TRENDS.filter(
 
  if(S.premium&&S.team){const g=gamesOf(S.team,today())[0],gs=gameState(g);if(g&&(gs.k==="soon"||gs.k==="on"||gs.k==="pre"&&jstHour()>=12))out.push({k:"gm-"+today()+S.team,c:null,t:`${S.team}の試合 ${gs.k==="on"?"試合中":g.time+"から"}`,s:`${g.home===S.team?"vs":"＠"} ${g.home===S.team?g.away:g.home}・試合実況スレが開いています`,game:1,hot:gs.k==="on"?1:0})}
  if(S.premium&&S.saved){const sw=S.saved.world||"game";const nw=CH.filter(c=>genreOf(c)===(sw==="yakyu"?"fan":"game")&&chMatch(c,S.saved)&&!S.saved.seen.includes(c.id));if(nw.length)out.push({k:"sv-"+nw.map(c=>c.id).join(","),c:nw[0],t:`保存した条件に合う配信者が${nw.length}人載りました`,s:nw.map(c=>c.name).slice(0,3).join("・")})}
- if(!out.length)out.push({k:"tip",c:null,t:"スカウトした人・お知らせONの人の動きがここに届きます",s:"まずは原石スカウトか、配信予定の「通知」を押してみよう"});
+ if(!out.length)out.push({k:"tip",c:null,t:"スカウトした人・お知らせONの人の動きがここに届きます",s:"まずは原石スカウトか、配信予定の「お知らせ」を押してみよう"});
  return out.sort((a,b)=>(b.hot||0)-(a.hot||0))}
 function openInbox(){const it=inboxItems();
  modal(`<div class="rowsb" style="width:100%"><div class="h2">お知らせ</div><span class="chip">スカウト・お知らせON・投票した人</span></div><div class="inbox">${it.map(n=>`<button class="nt ${S.read[n.k]?"":"new"}" ${n.trend?`data-itr="${esc(n.trend)}"`:n.game?`data-igame="1"`:n.post?`data-ipost="${esc(n.post)}"`:n.v?`data-v="${esc(n.v)}"`:n.c?`data-ch="${esc(n.c.id)}"`:n.k==="tip"?`data-itip="1"`:""}>${n.c?avatar(n.c):`<span class="av" style="background:var(--mustard);color:var(--ink)">!</span>`}<span class="mid">${esc(n.t)}<small>${esc(n.s)}</small></span>${n.hot?'<span class="livebadge">LIVE</span>':""}</button>`).join("")}</div><button class="btn paper wide" id="mc">とじる</button>`,x=>{
