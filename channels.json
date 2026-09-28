@@ -3458,5 +3458,215 @@
   "all": false,
   "auto": true,
   "added": "2026-09-28"
+ },
+ {
+  "id": "UCMEPIVrj48JherZtn8YuKzQ",
+  "name": "グランドスラム石井",
+  "genre": "game",
+  "tags": [],
+  "team": "",
+  "streamer": false,
+  "all": false,
+  "auto": true,
+  "added": "2026-09-29"
+ },
+ {
+  "id": "UCK0nwWfsz-ynn_C0JZbm7UA",
+  "name": "メルトス",
+  "genre": "game",
+  "tags": [],
+  "team": "",
+  "streamer": false,
+  "all": true,
+  "auto": true,
+  "added": "2026-09-29"
+ },
+ {
+  "id": "UCVySzHnytV0zTkOFgvaitnA",
+  "name": "エルピス",
+  "genre": "game",
+  "tags": [],
+  "team": "",
+  "streamer": false,
+  "all": true,
+  "auto": true,
+  "added": "2026-09-29"
+ },
+ {
+  "id": "UC7dS9UoHe75GWymNaZ75Gqg",
+  "name": "いっくんゲームズ",
+  "genre": "game",
+  "tags": [],
+  "team": "",
+  "streamer": false,
+  "all": true,
+  "auto": true,
+  "added": "2026-09-29"
+ },
+ {
+  "id": "UCkPsYjKeFmvDAUzJjcjZC8A",
+  "name": "ごーやちゃんぷる",
+  "genre": "game",
+  "tags": [],
+  "team": "",
+  "streamer": false,
+  "all": true,
+  "auto": true,
+  "added": "2026-09-29"
+ },
+ {
+  "id": "UCrB5jhYvmHv9V-uWSumM5xA",
+  "name": "ガブリン部長",
+  "genre": "game",
+  "tags": [],
+  "team": "",
+  "streamer": false,
+  "all": true,
+  "auto": true,
+  "added": "2026-09-29"
+ },
+ {
+  "id": "UC7u-0oZ5iYDEkI4U8I8xyQg",
+  "name": "★SaBo☆",
+  "genre": "game",
+  "tags": [],
+  "team": "",
+  "streamer": false,
+  "all": true,
+  "auto": true,
+  "added": "2026-09-29"
+ },
+ {
+  "id": "UCgHwvQ74UyqXn9W5nklU52A",
+  "name": "ToyTuber(トイチューバー)",
+  "genre": "game",
+  "tags": [],
+  "team": "",
+  "streamer": false,
+  "all": false,
+  "auto": true,
+  "added": "2026-09-29"
+ },
+ {
+  "id": "UCUp6k_hOLB7J6MpiK1AzmHw",
+  "name": "りんごちゃん🍎🐯",
+  "genre": "fan",
+  "tags": [
+   "応援"
+  ],
+  "team": "阪神",
+  "streamer": false,
+  "all": false,
+  "auto": true,
+  "added": "2026-09-29"
+ },
+ {
+  "id": "UCDJZvNbTHpJu-nSv7KvohRw",
+  "name": "阪神応援チャンネル",
+  "genre": "fan",
+  "tags": [
+   "応援"
+  ],
+  "team": "阪神",
+  "streamer": false,
+  "all": false,
+  "auto": true,
+  "added": "2026-09-29"
+ },
+ {
+  "id": "UCBBW9q9N4eZr690dw52JbCg",
+  "name": "ライオンズ絶対応援【ベルドの雰囲気お届け】",
+  "genre": "fan",
+  "tags": [
+   "現地観戦",
+   "応援"
+  ],
+  "team": "西武",
+  "streamer": false,
+  "all": false,
+  "auto": true,
+  "added": "2026-09-29"
+ },
+ {
+  "id": "UCc4AjA5_d5b6nd7crIdLFbw",
+  "name": "Japan Scope",
+  "genre": "fan",
+  "tags": [
+   "ニュース・考察",
+   "応援"
+  ],
+  "team": "阪神",
+  "streamer": false,
+  "all": false,
+  "auto": true,
+  "added": "2026-09-29"
+ },
+ {
+  "id": "UCHYXnGRmwNlTY0_zYsuJ4-g",
+  "name": "阪神ファンのとらぞう🐯 [阪神タイガース情報発信]",
+  "genre": "fan",
+  "tags": [
+   "応援"
+  ],
+  "team": "阪神",
+  "streamer": false,
+  "all": false,
+  "auto": true,
+  "added": "2026-09-29"
+ },
+ {
+  "id": "UCSclw8QzMzg2BKeeP_CtppA",
+  "name": "Musa jat",
+  "genre": "fan",
+  "tags": [
+   "ニュース・考察",
+   "現地観戦"
+  ],
+  "team": "",
+  "streamer": false,
+  "all": false,
+  "auto": true,
+  "added": "2026-09-29"
+ },
+ {
+  "id": "UCwSfSFakqEYB-8itdBbaHTg",
+  "name": "JAPAN TODAY NEWS",
+  "genre": "fan",
+  "tags": [
+   "ニュース・考察",
+   "応援"
+  ],
+  "team": "",
+  "streamer": false,
+  "all": false,
+  "auto": true,
+  "added": "2026-09-29"
+ },
+ {
+  "id": "UCYGTsFX1RLLEuSo-uwt3udg",
+  "name": "阪神タイガースファンの反応",
+  "genre": "fan",
+  "tags": [
+   "応援",
+   "試合振り返り"
+  ],
+  "team": "阪神",
+  "streamer": false,
+  "all": false,
+  "auto": true,
+  "added": "2026-09-29"
+ },
+ {
+  "id": "UC853ix19ytVhwev6yp0_Bcw",
+  "name": "青森の猛虎",
+  "genre": "fan",
+  "tags": [
+   "応援"
+  ],
+  "team": "阪神",
+  "streamer": false,
+  "all": false,
+  "auto": true,
+  "added": "2026-09-29"
  }
 ]
