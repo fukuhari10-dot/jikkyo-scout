@@ -3655,5 +3655,62 @@
   "all": false,
   "auto": true,
   "added": "2026-09-29"
+ },
+ {
+  "id": "UCIx0cKeRu-9op4BvekPiHkw",
+  "name": "勉(べん)",
+  "genre": "game",
+  "tags": [],
+  "team": "",
+  "streamer": false,
+  "all": true,
+  "auto": true,
+  "added": "2026-09-30"
+ },
+ {
+  "id": "UCYxmEsHs5-8Sphyjx5t2Ssg",
+  "name": "めいとch / ゲーム部屋",
+  "genre": "game",
+  "tags": [],
+  "team": "",
+  "streamer": false,
+  "all": true,
+  "auto": true,
+  "added": "2026-09-30"
+ },
+ {
+  "id": "UCZh-oAzNmjPA0Ut1QsBd1hw",
+  "name": "Schill",
+  "genre": "game",
+  "tags": [],
+  "team": "",
+  "streamer": false,
+  "all": true,
+  "auto": true,
+  "added": "2026-09-30"
+ },
+ {
+  "id": "UCxK4A7zS-s69dR_WkFUqr5w",
+  "name": "さとーりー",
+  "genre": "game",
+  "tags": [],
+  "team": "",
+  "streamer": false,
+  "all": false,
+  "auto": true,
+  "added": "2026-09-30"
+ },
+ {
+  "id": "UCP576o5rysDG7l7XHzbaaGg",
+  "name": "プロ野球巨人解説ch",
+  "genre": "fan",
+  "tags": [
+   "応援"
+  ],
+  "team": "巨人",
+  "streamer": false,
+  "all": false,
+  "auto": true,
+  "added": "2026-09-30"
  }
 ]
