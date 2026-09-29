@@ -1113,6 +1113,9 @@ body:not(.w-yakyu){background-image:radial-gradient(var(--dot) 15%,transparent 1
 body:not(.w-yakyu):not([data-theme]),body:not(.w-yakyu)[data-theme=""]{--dot:#BDE5F7}
 body[data-theme="night"]{background-image:radial-gradient(#233868 12%,transparent 13%),radial-gradient(#233868 12%,transparent 13%)}
 body[data-theme="legend"]{background-image:radial-gradient(#4E3D0B 13%,transparent 14%),radial-gradient(#4E3D0B 13%,transparent 14%)}
+/* スクロールしたとき：時計の下と「ゲーム実況／プロ野球」の切りかえの後ろに文字が透けないよう、上に帯をしく */
+body::before{content:"";position:fixed;left:0;right:0;top:0;height:calc(env(safe-area-inset-top,0px) + 60px);background:linear-gradient(var(--sky) 0 calc(100% - 12px),transparent);z-index:29;pointer-events:none}
+header.top{position:relative;z-index:31}
 </style>
 <div class="app">
   <header class="top">
@@ -1963,8 +1966,9 @@ function normYtUrl(v){v=String(v||"").trim().replace(/[?#].*$/,"").replace(/\/+$
    ===================================================================== */
 function renderOshi(){$("#voteLeft").textContent=`今日の残り ${S.vLeft}票`;$("#adVote").hidden=S.premium;$("#adVote").disabled=S.adN>=3;
  $("#adLeft").textContent=S.premium?"パス会員：広告なしで+5票（1日3回）":`広告 あと${3-S.adN}回`;
- const mine=Object.entries(S.votes).filter(([,n])=>n>0).sort((a,b)=>b[1]-a[1]);const vr=voteRanking();
- $("#myVotes").innerHTML=mine.length?`<div class="sub" style="margin-bottom:4px">今週あなたが票を入れた配信者</div>`+mine.map(([id,n])=>{const c=chById(id);if(!c)return"";return`<div class="vote mine"><span class="n">${vr.findIndex(x=>x.id===id)+1}位</span>${avatar(c)}<button class="mid" data-ch="${esc(id)}" style="background:none;border:0;padding:0;text-align:left"><b>${esc(c.name)}</b></button><span class="v">+${n}票</span><button class="btn sm yt" data-vq="${esc(id)}" ${S.vLeft?"":"disabled"}>+1</button></div>`}).join(""):'<p class="sub">配信者のページやランキングから投票できます。</p>';
+ /* 今の世界（ゲーム実況／プロ野球）の配信者だけ並べる。順位はその世界のランキングでの順位 */
+ const vr=voteRanking(),inw=new Set(vr.map(x=>x.id));const mine=Object.entries(S.votes).filter(([id,n])=>n>0&&inw.has(id)).sort((a,b)=>b[1]-a[1]);
+ $("#myVotes").innerHTML=mine.length?`<div class="sub" style="margin-bottom:4px">今週あなたが票を入れた配信者</div>`+mine.map(([id,n])=>{const c=chById(id);if(!c)return"";return`<div class="vote mine"><span class="n">${(i=>i<0?"—":i+1+"位")(vr.findIndex(x=>x.id===id))}</span>${avatar(c)}<button class="mid" data-ch="${esc(id)}" style="background:none;border:0;padding:0;text-align:left"><b>${esc(c.name)}</b></button><span class="v">+${n}票</span><button class="btn sm yt" data-vq="${esc(id)}" ${S.vLeft?"":"disabled"}>+1</button></div>`}).join(""):'<p class="sub">配信者のページやランキングから投票できます。</p>';
  $("#myVotes").querySelectorAll("[data-vq]").forEach(b=>b.onclick=()=>voteFor(b.dataset.vq));
  const ids=Object.keys(S.scout);$("#slotInfo").textContent=`${ids.length}/${slotsMax()}人`;
  $("#slots").style.gridTemplateColumns=`repeat(${Math.min(slotsMax(),5)},1fr)`;
