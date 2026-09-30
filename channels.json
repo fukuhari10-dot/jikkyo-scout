@@ -3680,5 +3680,40 @@
   "all": false,
   "auto": true,
   "added": "2026-09-30"
+ },
+ {
+  "id": "UCv-gzMoic7NQJfk8XfS4GEQ",
+  "name": "シュシュ【日ハム純正】",
+  "genre": "game",
+  "tags": [],
+  "team": "",
+  "streamer": false,
+  "all": true,
+  "auto": true,
+  "added": "2026-10-01"
+ },
+ {
+  "id": "UCdtnprwnTbUHse0y61NVrLA",
+  "name": "虎吉の無課金覇王ロード【プロスピA】",
+  "genre": "game",
+  "tags": [],
+  "team": "",
+  "streamer": false,
+  "all": true,
+  "auto": true,
+  "added": "2026-10-01"
+ },
+ {
+  "id": "UCjoTkf9cvdFIDVCvGd26vrA",
+  "name": "JP Sports 3 Star ",
+  "genre": "fan",
+  "tags": [
+   "応援"
+  ],
+  "team": "阪神",
+  "streamer": false,
+  "all": false,
+  "auto": true,
+  "added": "2026-10-01"
  }
 ]
