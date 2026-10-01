@@ -1260,6 +1260,8 @@ body.w-yakyu .tl-tabs button.on{background:#4ED1A5}
 .fab{transition:transform .2s ease,opacity .2s ease}
 .fab.fab-hide{transform:scale(.6);opacity:0;pointer-events:none}
 @media (prefers-reduced-motion:reduce){.fab{transition:none}}
+/* 新しい投稿のお知らせ（押したときだけ読み込む。読んでいる途中に並びが変わらないように） */
+.tl-newpill{position:sticky;top:calc(env(safe-area-inset-top,0px) + 100px);z-index:27;align-self:center;border:3px solid var(--ink);border-radius:999px;background:var(--tomato);color:#fff;font-family:var(--display);font-size:13.5px;padding:6px 16px;box-shadow:3px 3px 0 var(--ink);margin:-4px 0}
 </style>
 <div class="app">
   <header class="top">
@@ -2153,7 +2155,7 @@ function openHowto(){modal(`<div class="h2">使い方ガイド</div><div class="
  <h3>みんなで実況</h3><p>ライブ中の配信の「みんなで実況」から、配信を見ながらみんなと話せます（60字まで・スタンプもOK）。配信予定の人は「待機所」で始まるのを待てます。書き込みは7日で消えます。</p>
  <h3>同じ球団・試合実況・球団対抗</h3><p>プロ野球の「みんな」の「同じ球団」タブに、応援球団のタグがついた投稿が並びます。試合の日は、投稿を試合にひもづけると、同じ試合の投稿をまとめて見られます。試合中は上に試合バーが出て、応援球団のファンだけの「試合実況」に入れます。応援球団のタグをつけた投稿と試合実況への書き込みの数で、12球団の「球団対抗」の熱量ランキングが決まります（1人1日10回まで数えます）。応援球団の変更は30日に1回です。</p>
  <h3>オーダー自慢・フォロー</h3><p>「みんな」の「オーダー自慢」で1〜9番のオーダーを投稿できます。「いいオーダー」が多いと、みんなのランキングの「オーダー」に載ります。気になる人は、投稿の名前やアイコンからフォローすると「フォロー中」タブでまとめて見られます。</p>
- <h3>みんな（タイムライン）</h3><p>右下の「投稿」から書けます。ゲーム実況は「ふつう・相談・募集」。相談は返信で答えてもらい、解決したら「解決済み」に。募集は「参加する」で参加を伝えられ、募集した人が締め切れます。文章を書かなくても、トモくんのリアクション（ナイス！・熱い！・わかる・ドンマイ）で参加できます。画像は1枚までつけられます。自分の投稿は広告を1本見ると10分だけ上に出せます（1日1回）。</p>
+ <h3>みんな（タイムライン）</h3><p>右下の「投稿」から書けます。ゲーム実況は「ふつう・相談・募集」。相談は返信で答えてもらい、解決したら「解決済み」に。募集は「参加する」で参加を伝えられ、募集した人が締め切れます。文章を書かなくても、トモくんのリアクション（ナイス！・熱い！・わかる・ドンマイ）で参加できます。「おすすめ」は新しい順が基本で、応援球団・今日の試合・推しの配信者の投稿を少しだけ上に出します。「フォロー中」「同じ球団」は新しい順です。新しい投稿が来ると「新しい投稿があります」が出るので、押すと読み込みます（読んでいる途中に並びは変わりません）。画像は1枚までつけられます。自分の投稿は広告を1本見ると10分だけ上に出せます（1日1回）。</p>
  <h3>ポイント</h3><p>アプリの中だけで使えます。称号・名前の色・アイコン枠・スカウト枠に交換できます（お金や景品にはなりません）。YouTubeで動画を見てもポイントは付きません。</p><h3>ことばの意味</h3><dl class="gloss"><dt>実況スレ</dt><dd>配信や試合を見ながら、みんなで短く書きこむ場所。書きこみは7日で消えます</dd><dt>待機所</dt><dd>配信が始まる前から話せる実況スレ</dd><dt>応援票</dt><dd>毎日3票。推しの配信者に入れると、みんなの推しランキングに反映されます</dd><dt>原石スカウト</dt><dd>登録者1万人未満の配信者を先に見つけておく機能。1万人に届いたら「発掘」</dd><dt>ポイント（P）</dt><dd>毎日ひらく・ミッション・投稿などでたまり、見た目やスカウト枠と交換できます</dd><dt>シーズン</dt><dd>毎月リセットされるレベル。ためたポイントに合わせて上がり、報酬がもらえます</dd><dt>ファン掲示板</dt><dd>応援球団が同じファンだけが読み書きできる場所（応援球団の変更は30日に1回）</dd><dt>球団対抗</dt><dd>その週の、各球団のファンの書き込みの数。スカウトパスやポイントでは増えません</dd></dl></div><button class="btn paper wide" id="mc">とじる</button>`,x=>{x.querySelector("#mc").onclick=closeModal;const ia=x.querySelector("#introAgain");if(ia)ia.onclick=()=>showIntro(0)},"howto")}
 $("#howto").onclick=openHowto;
 $("#tipsAgain").onclick=()=>{S.tips={};S.tipsOn=1;save();renderAll();toast("各画面の上にヒントを出しました")};
@@ -2351,7 +2353,8 @@ const myPosts=()=>allPosts().filter(p=>p.uid===ME());
 function unreadReplies(){S.seenRep=S.seenRep||{};return myPosts().reduce((n,p)=>n+Math.max(0,(p.replies||0)-(S.seenRep[p.id]||0)),0)}
 async function fetchPosts(){if(!SV)return;TEAMFEED={};await loadFeed(W(),true)}
 async function getReplies(id){const bl=blockedSet();const list=SV&&SV.replies?await SV.replies(id).catch(()=>[]):CM.replies.filter(r=>r.post===id);return list.filter(r=>!r.hidden&&!bl.has(r.uid)).sort((a,b)=>a.at-b.at)}
-function openComm(){if(SV){loadFeed(W());if(W()==="game"&&!FEED.yakyu)loadFeed("yakyu")}
+function openComm(){tlPin.forEach(id=>{const p=findPost(id);if(!p||Date.now()-p.at>5*6e4)tlPin.delete(id)}); /* 開き直したら、いま書いた投稿の固定はやめる（書いた直後は残す） */
+ if(SV){loadFeed(W());if(W()==="game"&&!FEED.yakyu)loadFeed("yakyu")}
  if(SV&&SV.read){const d=today(),y=dayKeyOf(Date.now()-864e5);
   if(S.pollDoneDay===d&&!(S.pollRes&&S.pollRes.day===d))SV.read("results/poll_"+d).then(x=>{if(x&&x.counts){S.pollRes={day:d,counts:x.counts,mine:null};renderAll()}}).catch(()=>{});
   if(!(S.pollY&&S.pollY.day===y))SV.read("results/poll_"+y).then(x=>{if(x&&x.counts){S.pollY={day:y,q:x.q,opts:x.opts,counts:x.counts};renderAll()}}).catch(()=>{})}if(SV&&!S.pollInfo)SV.call("pollToday",{}).then(p=>{S.pollInfo=p;renderAll()}).catch(()=>{});
@@ -2481,7 +2484,7 @@ function submitPost(p,done,fail){const pre=checkPostLocal(p);if(!pre.ok){toast(e
  act("createPost",p,()=>{const t=localTalk("post",talkOpt(p));if(!t.ok)return t;const now=Date.now();
   CM.posts.push({id:"m"+(CM.seq++),uid:"me",name:S.name,...myLook(),world:p.world||"game",team:p.team||"",game:p.game||"",gameInfo:p.game?parseGK(p.game):null,img:p.img||"",cat:p.cat,text:p.text,ch:p.ch,meta:p.meta,room:"",at:now,day:today(),week:weekKey(),likes:0,replies:0,best:"",hidden:false,rx:{},solved:false,closed:false,joins:0,joined:[],expireAt:p.cat==="対戦募集"?now+3*36e5:0});
   const c=cmDay();if(p.cat==="ガチャ報告"&&c.gachaP<1){c.gachaP=1;addP(5,"ガチャ報告");mprog("gacha")}if(!cmSave()&&p.img){CM.posts.pop();cmSave();return{ok:false,code:"storage-full",reason:"この端末の保存場所がいっぱいです。画像なしで投稿するか、自分の古い画像つき投稿を消してください"}}return{ok:true}},
-  r=>{if(!r||r.ok===false){fail&&fail();return}S.posted=(S.posted||0)+1;mstat(worldOf(p)==="yakyu"?"room":"talk");save();toast("投稿しました");if(SV){if(p.game)delete GAMEFEED[p.game];fetchPosts()}done&&done();renderAll();setTimeout(maybeInterstitial,600)})}
+  r=>{if(!r||r.ok===false){fail&&fail();return}const nid=SV?r.id:(CM.posts[CM.posts.length-1]||{}).id;if(nid)tlPin.add(nid);S.posted=(S.posted||0)+1;mstat(worldOf(p)==="yakyu"?"room":"talk");save();toast("投稿しました");if(SV){if(p.game)delete GAMEFEED[p.game];fetchPosts()}done&&done();renderAll();setTimeout(maybeInterstitial,600)})}
 /* --- 投稿の詳細・返信 --- */
 async function openPost(id,o){o=o||{};const p=findPost(id);if(!p||p.hidden){toast(ERR["not-found"],1);return}
  const reps=await getReplies(id);reps.forEach(r=>{r.room=p.room||"";r.world=worldOf(p)});if(p.uid===ME()){S.seenRep=S.seenRep||{};S.seenRep[id]=p.replies||reps.length;save();renderAll()}
@@ -2796,7 +2799,7 @@ document.querySelectorAll("#myTabs [data-g]").forEach(b=>b.onclick=()=>setMyGrou
    ===================================================================== */
 const INTRO=[
  {h:"2つの楽しみ方",p:"<b>ゲーム実況</b>と<b>プロ野球</b>。<br>上のボタンでいつでも切りかえられます。<br>ポイントとスカウトパスは共通です。",ill:()=>`${ART.screen("i")}${ART.mascot(88)}`},
- {h:"ゲーム実況",p:"野球ゲームの配信者をさがして、<br>ライブを見ながら<b>みんなで実況</b>。<br>「みんな」では相談・オーダー自慢・対戦募集。",ill:()=>`<span class="t-kun" style="width:130px;height:130px;--tc:#22386B">${STICKERS.st_gg.svg()}</span>`,pop:1},
+ {h:"ゲーム実況",p:"野球ゲームの配信者をさがして、<br>ライブを見ながら<b>みんなで実況</b>。<br>「みんな」では相談・オーダー自慢・対戦募集。",ill:()=>`<span class="t-kun" style="width:130px;height:130px;--tc:#22386B">${stickerSVG("st_gg")}</span>`,pop:1},
  {h:"プロ野球",p:"同じ球団のファンの<b>投稿</b>と、<br>試合の日に自動でできる<b>試合実況</b>。<br>書きこむほど「球団対抗」で球団が上がります。",ill:()=>`${ART.stadium("i2",S.team)}${ART.mascot(88)}`},
 ];
 function showIntro(i){i=i||0;const x=INTRO[i],last=i===INTRO.length-1;
@@ -3607,11 +3610,23 @@ const solvedOf=p=>!!(p.solved||p.best);
 /* タブ */
 const TL_TABS={game:[["rec","おすすめ"],["follow","フォロー中"],["consult","相談・募集"]],yakyu:[["rec","おすすめ"],["follow","フォロー中"],["team","同じ球団"]]};
 let tlTab={game:"rec",yakyu:"rec"},tlSub="",tlSubArg="",tlFilter="all";
+/* 並び順のきまり（おすすめ）
+   ・基本は新しい順。関係の深い投稿は「何時間ぶん新しい」とみなして少しだけ上に出す（古い投稿がずっと上に居座らない）
+     プロ野球：応援球団のタグ +6時間・今日の自分の試合 +3時間 ／ ゲーム：応援票・スカウト中の配信者のタグ +4時間（相談・募集は専用のタブがあるので、おすすめでは上げない）
+   ・自分がいま書いた投稿は、「みんな」を開いている間はいちばん上（確かめられるように）
+   ・広告を見て「上に出す」投稿は、10分だけいちばん上（3件まで）
+   ・読んでいる途中に勝手に並びが変わらないよう、新しい投稿は「新しい投稿があります」を押したときに読み込む
+   フォロー中・同じ球団・この試合の投稿は、新しい順だけ。相談・募集は、回答まち／募集中を先に、その中は新しい順 */
+let tlPin=new Set(),tlNew={game:false,yakyu:false};
 /* サーバーから読んだ投稿（世界ごと・球団ごと・試合ごと） */
 let FEED={game:null,yakyu:null},feedAt={game:0,yakyu:0},feedBusy={},TEAMFEED={},GAMEFEED={};
 async function loadFeed(w,force){if(!SV)return;w=w||W();if(feedBusy[w])return;if(!force&&FEED[w]&&Date.now()-feedAt[w]<60e3)return;
- feedBusy[w]=true;try{if(SV.feed)FEED[w]=keepPosts(await SV.feed({world:w}));else if(SV.posts)FEED[w]=keepPosts(await SV.posts({limit:100}));feedAt[w]=Date.now();commLoaded=Date.now()}catch(e){toast("投稿を読み込めませんでした",1)}finally{feedBusy[w]=false}
+ feedBusy[w]=true;try{if(SV.feed)FEED[w]=keepPosts(await SV.feed({world:w}));else if(SV.posts)FEED[w]=keepPosts(await SV.posts({limit:100}));feedAt[w]=Date.now();commLoaded=Date.now();tlNew[w]=false}catch(e){toast("投稿を読み込めませんでした",1)}finally{feedBusy[w]=false}
  if(S.team&&SV.teamFeed&&w==="yakyu"){try{TEAMFEED[S.team]=keepPosts(await SV.teamFeed(S.team))}catch(e){}}renderAll()}
+/* 新しい投稿が来たか：「みんな」を開いている間、60秒ごとに1件だけ読んで確かめる（サーバーのときだけ） */
+function checkNewPosts(){if(!SV||!SV.feedHead||document.hidden||$("#v-comm").hidden||tlSub)return Promise.resolve();const w=W();const list=FEED[w];if(!list)return Promise.resolve();
+ return SV.feedHead({world:w}).then(h=>{if(h&&!list.some(p=>p.id===h.id)&&!blockedSet().has(h.uid)&&!tlNew[w]){tlNew[w]=true;renderComm()}}).catch(()=>{})}
+setInterval(checkNewPosts,60e3);
 /* 見えてよい投稿だけ（非表示・ブロック・入れない球団限定の古い投稿を除く） */
 const visible=p=>p&&!p.hidden&&!blockedSet().has(p.uid)&&(!p.room||p.room===S.team);
 function postsOf(w){if(!CM)cmLoad();const src=SV?(FEED[w]||(!SV.feed&&SPOSTS)||[]):CM.posts;return src.filter(p=>visible(p)&&worldOf(p)===w)}
@@ -3622,13 +3637,13 @@ function parseGK(k){const m=/^gm_(\d{4})(\d{2})(\d{2})_(\d{1,2})_(\d{1,2})$/.exe
 const gameOfKey=k=>{const i=parseGK(k);return i?GAMES.find(g=>g.day===i.day&&g.home===i.home&&g.away===i.away)||null:null};
 const gameLabel=i=>i?`${esc(i.home)} vs ${esc(i.away)}`:"";
 const myTodayGame=()=>S.team&&typeof gamesOf==="function"?gamesOf(S.team,today())[0]||null:null;
-/* おすすめ：新しい順を基本に、好きな球団・推しの配信者・今日の試合・回答まち／募集中を少しだけ上に */
+/* おすすめ：新しい順を基本に、好きな球団・今日の試合・推しの配信者を少しだけ上に（くわしくは上の「並び順のきまり」） */
 function favChs(){return new Set([...Object.keys(S.votes||{}),...Object.keys(S.scout||{})])}
 function recList(w){const H=36e5,fav=favChs(),mg=gameKeyOf(myTodayGame());
- const score=p=>{let s=p.at;if(p.uid===ME()&&Date.now()-p.at<10*6e4)s+=48*H; /* 書いたばかりの自分の投稿は、いちばん上で確かめられるように */if(w==="yakyu"){if(S.team&&teamOf(p)===S.team)s+=6*H;if(mg&&p.game===mg)s+=3*H}else{if(p.ch&&fav.has(p.ch))s+=4*H;if(matchOpen(p)||waiting(p))s+=2*H}return s};
+ const score=p=>{let s=p.at;if(tlPin.has(p.id))s+=1e12; /* いま書いた自分の投稿 */if(w==="yakyu"){if(S.team&&teamOf(p)===S.team)s+=6*H;if(mg&&p.game===mg)s+=3*H}else{if(p.ch&&fav.has(p.ch))s+=4*H}return s};
  const list=postsOf(w).filter(p=>p.cat!=="お題"&&p.cat!=="野球のお題");
  const top=list.filter(bumped).sort((a,b)=>(b.bumpAt||0)-(a.bumpAt||0)).slice(0,ADS.bumpTop),ids=new Set(top.map(p=>p.id));
- return[...top,...list.filter(p=>!ids.has(p.id)).sort((a,b)=>score(b)-score(a))]}
+ return[...top,...list.filter(p=>!ids.has(p.id)).sort((a,b)=>score(b)-score(a)||String(b.id).localeCompare(String(a.id)))]}
 function teamList(){if(!S.team)return[];const loc=postsOf("yakyu").filter(p=>teamOf(p)===S.team);
  const srv=SV&&TEAMFEED[S.team]?TEAMFEED[S.team].filter(visible):[];const m=new Map([...srv,...loc].map(p=>[p.id,p]));return[...m.values()].filter(p=>p.cat!=="野球のお題").sort((a,b)=>b.at-a.at)}
 function consultList(){const l=postsOf("game").filter(p=>isSoudan(p)||isBoshu(p));
@@ -3727,7 +3742,9 @@ function renderFeed(){if(!CM)cmLoad();const w=W(),tabs=TL_TABS[w];if(!tabs.some(
  const head=$("#tlHead");head.innerHTML=`<div class="tl-tabs" role="tablist">${tabs.map(([k,l])=>`<button role="tab" data-tl="${k}" class="${!tlSub&&tab===k?"on":""}" aria-selected="${!tlSub&&tab===k}">${l}</button>`).join("")}</div><button class="tl-menu" id="tlMenu" aria-label="ほかのメニュー（お題・速報・ランキングなど）">${TLI.more}${unread?`<i class="newdot">${unread}</i>`:""}</button>`;
  head.querySelectorAll("[data-tl]").forEach(b=>b.onclick=()=>{const was=tlTab[w]===b.dataset.tl&&!tlSub;tlTab[w]=b.dataset.tl;tlSub="";if(b.dataset.tl==="follow"&&SV&&SV.postsBy){FOLLOW_POSTS=null;followPosts().then(renderAll)}renderComm();if(was)scrollTo({top:0,behavior:"smooth"})});
  $("#tlMenu").onclick=openTlMenu;
- const sub=$("#cSub"),feed=$("#cFeed");sub.hidden=!tlSub;feed.hidden=!!tlSub;$("#tlGame").innerHTML=tlSub?"":gameBar();
+ const sub=$("#cSub"),feed=$("#cFeed");
+ let pill=$("#tlNewPill");if(!pill){pill=document.createElement("button");pill.id="tlNewPill";pill.className="tl-newpill";head.after(pill)}
+ pill.hidden=!tlNew[w]||!!tlSub;pill.textContent="↑ 新しい投稿があります";pill.onclick=()=>{tlNew[w]=false;pill.hidden=true;TEAMFEED={};loadFeed(w,true);scrollTo({top:0,behavior:"smooth"})};sub.hidden=!tlSub;feed.hidden=!!tlSub;$("#tlGame").innerHTML=tlSub?"":gameBar();
  const tg=$("#tgChat");if(tg)tg.onclick=()=>openGame(S.team);
  $("#fabPost").onclick=()=>openComposer(tlSub==="game"?{world:"yakyu",cat:"試合の感想",game:tlSubArg,team:S.team||""}:composePreset());
  if(tlSub){renderSub();bindTlInner(sub);return}
@@ -3952,7 +3969,7 @@ showTitle(()=>{if(!S.onb)setTimeout(()=>onboarding(false),200);
  else{if(S.legal!==APP.legalVer)setTimeout(()=>modalLater(consentModal),200);if(SV)startServer();else setTimeout(()=>modalLater(showLoginIfNeeded),300)}});
 setInterval(()=>{if(boosted()||S.boostUntil)renderBoost()},30000);
 if(SV)setInterval(loadBoards,5*60e3);
-window.__ts={CMp:()=>CM,cmSave,postsOf,findPost,get FEED(){return FEED},set FEED(v){FEED=v},get TEAMFEED(){return TEAMFEED},loadFeed,worldOf,gameKeyOf,LEGAL,BGM,KUN,SK,ART,TX,stkDefs,openCard,finalGame,CARD,renderFriends,joinRoom,get FRIENDS(){return FRIENDS},set FRIENDS(v){FRIENDS=v},openPaywall,gameToday,passStk,perkOn,slotsMax,lim,trialReady,CH,VIDS,TEAMC,gamesOf,gameState,today,STICKERS,STICKER_PACKS,maybeInterstitial,ADS,applyTheme,renderAll,get S(){return S},save,loadBoards,get CM(){return CM}}; /* 動作テスト用 */
+window.__ts={checkNewPosts,CMp:()=>CM,cmSave,postsOf,findPost,get FEED(){return FEED},set FEED(v){FEED=v},get TEAMFEED(){return TEAMFEED},loadFeed,worldOf,gameKeyOf,LEGAL,BGM,KUN,SK,ART,TX,stkDefs,openCard,finalGame,CARD,renderFriends,joinRoom,get FRIENDS(){return FRIENDS},set FRIENDS(v){FRIENDS=v},openPaywall,gameToday,passStk,perkOn,slotsMax,lim,trialReady,CH,VIDS,TEAMC,gamesOf,gameState,today,STICKERS,STICKER_PACKS,maybeInterstitial,ADS,applyTheme,renderAll,get S(){return S},save,loadBoards,get CM(){return CM}}; /* 動作テスト用 */
 })();
 
 </script>
