@@ -3611,5 +3611,29 @@
   "all": false,
   "auto": true,
   "added": "2026-10-01"
+ },
+ {
+  "id": "UCYFxDMw6rlComcrcYivEe3A",
+  "name": "さめ【ゆっくり実況】",
+  "genre": "game",
+  "tags": [],
+  "team": "",
+  "streamer": false,
+  "all": true,
+  "auto": true,
+  "added": "2026-10-04"
+ },
+ {
+  "id": "UC7XoSdF4zzJzvilRmpw-YHw",
+  "name": "ゆうMULTIGAME",
+  "genre": "fan",
+  "tags": [
+   "応援"
+  ],
+  "team": "巨人",
+  "streamer": true,
+  "all": false,
+  "auto": true,
+  "added": "2026-10-04"
  }
 ]
