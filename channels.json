@@ -2034,15 +2034,6 @@
   "all": false
  },
  {
-  "id": "UC7zAMCpL51Mrh-trJvUSiIQ",
-  "name": "にしみが さき / みがチャン! (MIGA-Ch.)",
-  "genre": "fan",
-  "tags": [],
-  "team": "",
-  "streamer": false,
-  "all": false
- },
- {
   "id": "UC45IPNJXO151PN-720bIwtw",
   "name": "おたかさん(85)ホークス応援チャンネル",
   "genre": "fan",
@@ -2585,15 +2576,6 @@
  {
   "id": "UCnjXrR41azQYwjKo4bl8Ufg",
   "name": "【応援歌】ハシオト",
-  "genre": "fan",
-  "tags": [],
-  "team": "",
-  "streamer": false,
-  "all": false
- },
- {
-  "id": "UCMKpLE_3l0Qqsf7D_gWQH6w",
-  "name": "ヘベれけ野球論",
   "genre": "fan",
   "tags": [],
   "team": "",
@@ -3163,17 +3145,6 @@
  {
   "id": "UC3_qkuEg7J91DmqZyZ2G0hw",
   "name": "ヘルニア界のミスターXヘルニアン騎士4450",
-  "genre": "game",
-  "tags": [],
-  "team": "",
-  "streamer": false,
-  "all": false,
-  "auto": true,
-  "added": "2026-09-28"
- },
- {
-  "id": "UC2q1KRuEOwtG5bc7Uoj05AA",
-  "name": "がぶりえる",
   "genre": "game",
   "tags": [],
   "team": "",
