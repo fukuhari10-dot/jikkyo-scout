@@ -13,6 +13,7 @@
   YT_API_KEY=xxxx python fetch.py --mode wide --genre fan   # 球団ファンのYouTuber（現地観戦・応援・振り返りなど）を広く集める
   python curate.py                                  # 候補をブラウザで見ながら、載せる人を選ぶ（channels.json を書きかえる）
   python fetch.py --merge-proposed                  # 確認した channels.proposed.json を channels.json に足す
+  python fetch.py --mode roster                    # 12球団の選手一覧を読み直して data/npb.json を作る（6日に1回は自動。YouTube の鍵はいらない）
   python fetch.py --selftest                        # APIを使わずに計算部分だけテスト
 
 出力（アプリはこれだけ読めばよい）:
@@ -606,6 +607,278 @@ def live_overlay(rows, today):
         if g["status"] == "live" and g.get("inning"):
             row["inning"] = g["inning"]
     return rows
+
+
+# ---------- 野球ノート用：選手名簿・試合の個人成績（NPB 公式の公開ページから。名前・背番号・守備・成績の数字という事実だけを使う） ----------
+NPB_ROSTER = "https://npb.jp/bis/players/active/rst_{code}.html"
+TEAM_CODE = {v: k for k, v in NPB_CODES.items()}
+POS_WORDS = ("投手", "捕手", "内野手", "外野手")
+TEAM_FULL = ["千葉ロッテマリーンズ", "福岡ソフトバンクホークス", "北海道日本ハムファイターズ", "東北楽天ゴールデンイーグルス", "埼玉西武ライオンズ", "オリックス・バファローズ",
+             "読売ジャイアンツ", "阪神タイガース", "横浜DeNAベイスターズ", "広島東洋カープ", "東京ヤクルトスワローズ", "中日ドラゴンズ"]
+ROSTER_EVERY = dt.timedelta(days=6)   # 名簿は6日に1回（12ページ）
+BOX_MAX_REQ = 6                       # 1回の実行で読む個人成績のページは6つまで
+BOX_TRIES = 3                         # 読めなかった試合は3回まで読み直す
+BOX_KEEP_DAYS = 10                    # アプリに出すのは10日分（それより前は、利用者の端末に残した記録で見る）
+_ZEN = str.maketrans("０１２３４５６７８９．／", "0123456789./")
+
+
+def html_tables(html):
+    """HTML の表を読む → [{"before": 表の前の文字, "rows": [[{"t": 文字, "href": [リンク], "span": 横に何マス}]]}]（表の中の表は外の表に含める）"""
+    from html.parser import HTMLParser
+
+    class T(HTMLParser):
+        def __init__(self):
+            super().__init__(); self.tables = []; self.depth = 0; self.row = None; self.cell = None; self.text = []
+        def handle_starttag(self, tag, a):
+            a = dict(a)
+            if tag == "table":
+                self.depth += 1
+                if self.depth == 1:
+                    self.tables.append({"before": re.sub(r"\s+", " ", "".join(self.text)).strip(), "rows": []}); self.text = []
+            elif self.depth and tag == "tr":
+                self.row = []
+            elif self.depth and tag in ("td", "th") and self.row is not None:
+                try: span = max(1, min(20, int(a.get("colspan") or 1)))
+                except ValueError: span = 1
+                self.cell = {"t": [], "href": [], "span": span}
+            elif tag == "a" and self.cell is not None and a.get("href"):
+                self.cell["href"].append(a["href"])
+            elif tag == "br" and self.cell is not None:
+                self.cell["t"].append(" ")
+        def handle_endtag(self, tag):
+            if tag in ("td", "th") and self.cell is not None and self.row is not None:
+                self.cell["t"] = re.sub(r"\s+", " ", "".join(self.cell["t"])).strip(); self.row.append(self.cell); self.cell = None
+            elif tag == "tr" and self.row is not None:
+                if self.row: self.tables[-1]["rows"].append(self.row)
+                self.row = None
+            elif tag == "table" and self.depth:
+                self.depth -= 1
+        def handle_data(self, d):
+            if self.cell is not None: self.cell["t"].append(d)
+            elif not self.depth: self.text.append(d + " ")
+
+    p = T(); p.feed(html or "")
+    return p.tables
+
+
+def _expand(row):
+    """横に何マスかを広げて、見出しと同じ位置にそろえる"""
+    out = []
+    for c in row:
+        out += [c] * c["span"]
+    return out
+
+
+_PID = re.compile(r"/bis/players/(\d{6,10})\.html")
+
+
+def _pid(cell_or_row):
+    cells = cell_or_row if isinstance(cell_or_row, list) else [cell_or_row]
+    for c in cells:
+        for h in c["href"]:
+            m = _PID.search(h)
+            if m:
+                return m.group(1)
+    return ""
+
+
+def _num(s):
+    s = str(s or "").translate(_ZEN).strip()
+    return int(s) if re.fullmatch(r"\d{1,3}", s) else None
+
+
+def parse_roster(html, team):
+    """NPB の球団別の選手一覧 → [{id, n(名前), t(球団), no(背番号), pos(投手・捕手・内野手・外野手)}]。監督・コーチは入れない"""
+    html = html or ""
+    out, seen = [], set()
+    for m in re.finditer(r'<a[^>]+href="[^"]*?/bis/players/(\d{6,10})\.html"[^>]*>(.*?)</a>', html, re.S | re.I):
+        pid, inner = m.group(1), m.group(2)
+        if pid in seen:
+            continue
+        segs = [re.sub(r"\s+", " ", re.sub(r"&nbsp;", " ", s)).strip() for s in re.split(r"<[^>]+>", inner)]
+        segs = [s for s in segs if s]
+        txt = " ".join(segs)
+        for full in TEAM_FULL:
+            txt = txt.replace(full, " ")
+        pos = next((p for p in POS_WORDS if p in txt), "")
+        if not pos:  # 名前だけのリンクのときは、その前にある見出し（投手・捕手…）を使う
+            before = re.sub(r"<[^>]+>", " ", html[max(0, m.start() - 4000):m.start()])
+            hits = [(before.rfind(p), p) for p in POS_WORDS + ("監督", "コーチ")]
+            idx, word = max(hits)
+            pos = word if idx >= 0 and word in POS_WORDS else ""
+        if not pos:
+            continue
+        mm = re.match(r"^\s*([0-9０-９]{1,3})?\s*(?:投手|捕手|内野手|外野手)?\s*(.+?)\s*$", txt.replace(pos, " ", 1))
+        if not mm:
+            continue
+        no, name = (mm.group(1) or "").translate(_ZEN), re.sub(r"\s+", " ", mm.group(2)).strip()
+        if not name or len(name) > 20 or re.fullmatch(r"[\d\s]+", name):
+            continue
+        seen.add(pid)
+        out.append({"id": pid, "n": name, "t": team, "no": no, "pos": pos})
+    return out
+
+
+def _ip_outs(a, b=""):
+    """投球回（「6」「.1」「1/3」など）→ アウトの数"""
+    s = (str(a or "") + " " + str(b or "")).translate(_ZEN)
+    m = re.match(r"^\s*(\d+)?\s*(?:\.(\d)|(\d)/3)?\s*$", s.replace("  ", " "))
+    if not m:
+        return None
+    whole, frac = int(m.group(1) or 0), int(m.group(2) or m.group(3) or 0)
+    return whole * 3 + min(frac, 2)
+
+
+def _team_of_text(text, home, away):
+    """表の前の文字で、いちばん最後に出てくる球団（ホームかビジターのどちらか）"""
+    best, pos = "", -1
+    for t in (home, away):
+        words = [t] + list(TEAM_WORDS.get(t, ([], []))[0])
+        for w in words:
+            i = (text or "").rfind(w)
+            if i > pos:
+                best, pos = t, i
+    return best
+
+
+def parse_box(html, home, away):
+    """NPB の試合の「個人成績」ページ → {"hs","as","inn","walk","bat":{球団:[[id,名前,守備,打数,安打,本塁打,打点]]},"pit":{球団:[[id,名前,アウト数,失点,自責点,三振,勝敗]]}}
+    表の見出し（打数・投球回など）の位置で数字を読むので、列が増えたり順番が変わっても読める。読めなかったら None"""
+    tables = html_tables(html)
+    bat, pit, runs, inns = {}, {}, {}, {}
+    order = {"bat": [away, home], "pit": [away, home]}
+    for tb in tables:
+        rows = tb["rows"]
+        head_i = next((i for i, r in enumerate(rows) if any(c["t"] in ("打数", "投球回") for c in r)), None)
+        if head_i is None:
+            # スコア表：「球団, 1…, 計, H, E」
+            for r in rows:
+                cells = [c["t"] for c in r]
+                if len(cells) < 5 or not all(re.fullmatch(r"\d+", c) for c in cells[-3:]):
+                    continue
+                t = _team_of_text(cells[0] or (cells[1] if len(cells) > 1 else ""), home, away)
+                if t and t not in runs:
+                    runs[t] = int(cells[-3]); inns[t] = [c for c in cells[1:-3] if c != ""]
+            continue
+        head = [c["t"] for c in _expand(rows[head_i])]
+        kind = "bat" if "打数" in head else "pit"
+        team = _team_of_text(tb["before"], home, away) or (order[kind].pop(0) if order[kind] else "")
+        if team in order[kind]:
+            order[kind].remove(team)
+        if not team:
+            continue
+        col = lambda name: head.index(name) if name in head else -1
+        out = (bat if kind == "bat" else pit).setdefault(team, [])
+        for r in rows[head_i + 1:]:
+            pid = _pid(r)
+            if not pid:
+                continue
+            cells = [c["t"] for c in _expand(r)]
+            get_ = lambda name: cells[col(name)] if 0 <= col(name) < len(cells) else ""
+            name = next((c["t"] for c in r if _pid(c) == pid), "").strip()
+            if kind == "bat":
+                ab, h, rbi = _num(get_("打数")), _num(get_("安打")), _num(get_("打点"))
+                if ab is None or h is None:
+                    continue
+                start = max(col("盗塁"), col("打点"), col("安打")) + 1
+                hr = sum(1 for c in cells[start:] if "本" in c)
+                out.append([pid, name, get_("守備").strip("()（）"), ab, h, hr, rbi or 0])
+            else:
+                ci = col("投球回")
+                spans = [i for i, hname in enumerate(head) if hname == "投球回"]
+                outs = _ip_outs(cells[spans[0]] if spans else "", cells[spans[1]] if len(spans) > 1 and spans[1] < len(cells) else "") if ci >= 0 else None
+                r_, er, k = _num(get_("失点")), _num(get_("自責点")), _num(get_("三振"))
+                if outs is None or r_ is None:
+                    continue
+                marks = " ".join(cells)
+                dec = "勝" if ("○" in marks or "勝" in cells) else "敗" if ("●" in marks or "敗" in cells) else "S" if "S" in cells else "H" if "H" in cells else ""
+                out.append([pid, name, outs, r_, er if er is not None else r_, k or 0, dec])
+    if not bat and not pit:
+        return None
+    box = {"bat": bat, "pit": pit}
+    if home in runs and away in runs:
+        box["hs"], box["as"] = runs[home], runs[away]
+        box["inn"] = max(len(inns.get(home, [])), len(inns.get(away, [])))
+        last = (inns.get(home) or [""])[-1]
+        box["walk"] = runs[home] > runs[away] and bool(re.search(r"\d\s*[xXｘＸ]", last))
+    return box
+
+
+def mode_roster(now=None, sleep=time.sleep, force=False):
+    """12球団の選手一覧を読んで data/players_npb.json に保存（6日に1回。読めなかった球団は前のまま）"""
+    now = (now or dt.datetime.now(JST)).astimezone(JST)
+    path = os.path.join(DATA, "players_npb.json")
+    cur = load(path, {})
+    last = parse_time(cur.get("at")) if cur.get("at") else None
+    if not force and last is not None and last.tzinfo is not None and now - last < ROSTER_EVERY:
+        return False
+    old = {p["id"]: p for p in cur.get("players", [])}
+    by_team = {}
+    for p in old.values():
+        by_team.setdefault(p["t"], []).append(p)
+    got = 0
+    for team, code in TEAM_CODE.items():
+        try:
+            rows = parse_roster(get(NPB_ROSTER.format(code=code), as_json=False).decode("utf-8", "replace"), team)
+            if len(rows) >= 10:  # 少なすぎるときは読み方が合っていないので、前のままにする
+                by_team[team] = rows; got += 1
+        except Exception as e:
+            print("選手一覧を読めませんでした", team, e, file=sys.stderr)
+        sleep(1)
+    players = [p for t in TEAM_CODE for p in by_team.get(t, [])]
+    dump(path, {"at": now.isoformat(timespec="minutes"), "players": players})
+    print(f"選手一覧：{len(players)}人（{got}球団を更新）")
+    return True
+
+
+def mode_boxscores(now=None, sleep=time.sleep):
+    """試合が終わったら、その試合の個人成績ページを1回だけ読んで data/box_npb.json に入れる（読めなかったら3回まで）"""
+    try:
+        now = (now or dt.datetime.now(JST)).astimezone(JST)
+        lv = load(os.path.join(DATA, "games_live.json"), {})
+        path = os.path.join(DATA, "box_npb.json")
+        cur = load(path, {"games": {}})
+        games = cur.setdefault("games", {})
+        sent = 0
+        for key, g in (lv.get("games") or {}).items():
+            if g.get("status") != "end" or not g.get("url") or "-" not in key:
+                continue
+            home, away = key.split("-", 1)
+            k = f"{lv.get('day')}|{home}|{away}"
+            old = games.get(k) or {}
+            if old.get("bat") or old.get("tries", 0) >= BOX_TRIES:
+                continue
+            if sent >= BOX_MAX_REQ:
+                break
+            if sent:
+                sleep(1)
+            sent += 1
+            try:
+                box = parse_box(get(g["url"].replace("index.html", "box.html"), as_json=False).decode("utf-8", "replace"), home, away)
+            except Exception as e:
+                print("個人成績を読めませんでした", key, e, file=sys.stderr); box = None
+            if box:
+                if "hs" not in box and g.get("score"):
+                    box["hs"], box["as"] = g["score"]
+                games[k] = dict(box, at=now.isoformat(timespec="minutes"))
+            else:
+                games[k] = {"tries": old.get("tries", 0) + 1}
+        keep = (now.date() - dt.timedelta(days=BOX_KEEP_DAYS)).isoformat()
+        cur["games"] = {k: v for k, v in games.items() if k[:10] >= keep}
+        dump(path, cur)
+        return sent > 0
+    except Exception as e:
+        print("個人成績の更新に失敗", e, file=sys.stderr)
+        return False
+
+
+def build_npb():
+    """アプリの野球ノートが読む data/npb.json（選手一覧と、10日分の試合の個人成績）"""
+    pl = load(os.path.join(DATA, "players_npb.json"), {})
+    bx = load(os.path.join(DATA, "box_npb.json"), {}).get("games", {})
+    dump(os.path.join(DATA, "npb.json"), {"updated": dt.datetime.now(JST).isoformat(timespec="minutes"), "source": "NPB公式サイトの公開情報",
+                                          "playersAt": pl.get("at", ""), "players": pl.get("players", []),
+                                          "boxes": {k: {kk: vv for kk, vv in v.items() if kk != "tries"} for k, v in bx.items() if v.get("bat") or v.get("pit")}})
 
 
 def upcoming_games(today, days=7):
@@ -1203,6 +1476,11 @@ def mode_live(seeds):
         mode_live_scores()
     except Exception as e:
         print("試合速報の更新に失敗", e, file=sys.stderr)
+    try:  # 試合が終わったら、その試合の個人成績（野球ノート用）
+        mode_boxscores()
+        build_npb()
+    except Exception as e:
+        print("個人成績の更新に失敗", e, file=sys.stderr)
     try:  # 球団・リーグ公式チャンネルの新着（RSS・約20分ごと）
         mode_rss_news()
     except Exception as e:
@@ -1311,6 +1589,11 @@ def mode_discover(seeds):
     nf = sum(1 for c in add if c.get("genre") == "fan")
     print(f"自動で追加：{len(add)}人（ゲーム実況 {len(add) - nf}・プロ野球 {nf}）・候補：{len(cands)}")
     mode_schedule()
+    try:  # 選手一覧（6日に1回）と、野球ノート用のデータ
+        mode_roster()
+        build_npb()
+    except Exception as e:
+        print("選手一覧の更新に失敗", e, file=sys.stderr)
 
 
 def related_ratio(channel_id):
@@ -1735,17 +2018,83 @@ def selftest():
     print("selftest ok")
 
 
+def selftest_npb():
+    """野球ノート用：選手一覧・個人成績の読み取り（NPB のページの形をまねた HTML で確かめる）"""
+    global DATA, get
+    roster = """<h3>投手</h3><ul><li><a href="/bis/players/91234567.html"><span>11</span><span>投手</span><span>Ｊ．カスティーヨ</span><span>千葉ロッテマリーンズ</span></a></li>
+    <li><a href="/bis/players/51155136.html">2 捕手松川 虎生千葉ロッテマリーンズ</a></li></ul><h3>内野手</h3><a href="/bis/players/11111111.html">友杉 篤輝</a>
+    <h3>監督</h3><a href="/bis/players/99999999.html">吉井 理人</a>"""
+    rs = parse_roster(roster, "ロッテ")
+    assert [(r["id"], r["n"], r["no"], r["pos"]) for r in rs] == [("91234567", "Ｊ．カスティーヨ", "11", "投手"), ("51155136", "松川 虎生", "2", "捕手"), ("11111111", "友杉 篤輝", "", "内野手")], rs
+    box = """<table><tr><th></th><th>1</th><th>2</th><th>9</th><th>10</th><th>計</th><th>H</th><th>E</th></tr>
+    <tr><td>楽天</td><td>0</td><td>1</td><td>0</td><td>0</td><td>1</td><td>5</td><td>0</td></tr><tr><td>ロッテ</td><td>0</td><td>1</td><td>0</td><td>1x</td><td>2</td><td>8</td><td>1</td></tr></table>
+    <h4>東北楽天ゴールデンイーグルス</h4><table><tr><th>守備</th><th>選手</th><th>打数</th><th>得点</th><th>安打</th><th>打点</th><th>盗塁</th><th>1</th><th>2</th></tr>
+    <tr><td>(中)</td><td><a href="/bis/players/22222222.html">中島</a></td><td>4</td><td>0</td><td>1</td><td>1</td><td>0</td><td>右本</td><td>-</td></tr></table>
+    <h4>千葉ロッテマリーンズ</h4><table><tr><th>守備</th><th>選手</th><th>打数</th><th>得点</th><th>安打</th><th>打点</th><th>盗塁</th><th>1</th></tr>
+    <tr><td>(捕)</td><td><a href="/bis/players/51155136.html">松川</a></td><td>3</td><td>1</td><td>2</td><td>0</td><td>0</td><td>左前安</td></tr>
+    <tr><td></td><td>計</td><td>30</td><td>2</td><td>8</td><td>2</td><td>0</td><td></td></tr></table>
+    <h4>楽天</h4><table><tr><th></th><th>投手</th><th>投球数</th><th>打者</th><th colspan="2">投球回</th><th>安打</th><th>本塁打</th><th>四球</th><th>死球</th><th>三振</th><th>失点</th><th>自責点</th></tr>
+    <tr><td>●</td><td><a href="/bis/players/33333333.html">ヤフーレ</a></td><td>61</td><td>17</td><td>3</td><td>.1</td><td>6</td><td>0</td><td>1</td><td>1</td><td>1</td><td>5</td><td>5</td></tr></table>
+    <h4>ロッテ</h4><table><tr><th></th><th>投手</th><th>投球数</th><th>打者</th><th>投球回</th><th>安打</th><th>本塁打</th><th>四球</th><th>死球</th><th>三振</th><th>失点</th><th>自責点</th></tr>
+    <tr><td>○</td><td><a href="/bis/players/91234567.html">カスティーヨ</a></td><td>93</td><td>25</td><td>6 2/3</td><td>7</td><td>0</td><td>6</td><td>0</td><td>4</td><td>1</td><td>1</td></tr>
+    <tr><td>S</td><td><a href="/bis/players/44444444.html">益田</a></td><td>12</td><td>3</td><td>1</td><td>0</td><td>0</td><td>0</td><td>0</td><td>2</td><td>0</td><td>0</td></tr></table>"""
+    b = parse_box(box, "ロッテ", "楽天")
+    assert b["hs"] == 2 and b["as"] == 1 and b["inn"] == 4 and b["walk"] is True, b
+    assert b["bat"]["楽天"] == [["22222222", "中島", "中", 4, 1, 1, 1]], b["bat"]
+    assert b["bat"]["ロッテ"] == [["51155136", "松川", "捕", 3, 2, 0, 0]], b["bat"]
+    assert b["pit"]["楽天"] == [["33333333", "ヤフーレ", 10, 5, 5, 1, "敗"]], b["pit"]
+    assert b["pit"]["ロッテ"] == [["91234567", "カスティーヨ", 20, 1, 1, 4, "勝"], ["44444444", "益田", 3, 0, 0, 2, "S"]], b["pit"]
+    assert parse_box("<p>no</p>", "ロッテ", "楽天") is None
+    assert _ip_outs("6", ".2") == 20 and _ip_outs("0 1/3") == 1 and _ip_outs("x") is None
+    # 試合が終わったら1回だけ読む・読めなければ3回まで・名簿は6日に1回
+    import tempfile
+    old, old_get = DATA, get
+    DATA = tempfile.mkdtemp()
+    try:
+        now = dt.datetime(2026, 9, 29, 22, 0, tzinfo=JST)
+        dump(os.path.join(DATA, "games_live.json"), {"day": "2026-09-29", "games": {"ロッテ-楽天": {"status": "end", "score": [2, 1], "url": "https://npb.jp/scores/2026/0929/m-e-20/index.html"},
+                                                                                  "巨人-阪神": {"status": "live", "url": "https://npb.jp/x/index.html"}}})
+        calls = []
+        get = lambda url, params=None, as_json=True: (calls.append(url), box.encode("utf-8"))[1]
+        assert mode_boxscores(now, lambda s: None) is True and calls == ["https://npb.jp/scores/2026/0929/m-e-20/box.html"], calls
+        assert mode_boxscores(now, lambda s: None) is False and len(calls) == 1, "読めた試合は読み直さない"
+        build_npb()
+        nj = load(os.path.join(DATA, "npb.json"), {})
+        assert nj["boxes"]["2026-09-29|ロッテ|楽天"]["walk"] is True and nj["players"] == []
+        os.remove(os.path.join(DATA, "box_npb.json")); calls.clear()
+        get = lambda url, params=None, as_json=True: (calls.append(url), b"<p>error</p>")[1]
+        for _ in range(5):
+            mode_boxscores(now, lambda s: None)
+        assert len(calls) == BOX_TRIES, calls
+        build_npb()
+        assert load(os.path.join(DATA, "npb.json"), {})["boxes"] == {}
+        calls.clear()
+        get = lambda url, params=None, as_json=True: (calls.append(url), roster.encode("utf-8") if "rst_m" in url else b"")[1]
+        assert mode_roster(now, lambda s: None) is True and len(calls) == 12
+        pj = load(os.path.join(DATA, "players_npb.json"), {})
+        assert pj["players"] == [], "10人より少ない球団は入れない（読み方が合っていない）"
+        assert mode_roster(now + dt.timedelta(days=1), lambda s: None) is False and len(calls) == 12, "6日以内は読まない"
+        assert mode_roster(now + dt.timedelta(days=1), lambda s: None, force=True) is True
+    finally:
+        DATA, get = old, old_get
+    print("selftest npb ok")
+
+
 def main():
     ap = argparse.ArgumentParser()
-    ap.add_argument("--mode", choices=["live", "full", "discover", "seed", "wide", "schedule", "news"])
+    ap.add_argument("--mode", choices=["live", "full", "discover", "seed", "wide", "schedule", "news", "roster"])
     ap.add_argument("--genre", choices=["game", "fan"], default="game", help="--mode wide で集めるジャンル（game＝ゲーム実況、fan＝プロ野球の球団ファン）")
     ap.add_argument("--selftest", action="store_true")
     ap.add_argument("--merge-proposed", action="store_true")
     a = ap.parse_args()
     if a.selftest:
+        selftest_npb()
         return selftest()
     if a.merge_proposed:
         return merge_proposed()
+    if a.mode == "roster":  # 選手一覧と野球ノート用のデータだけ（YouTube の鍵はいらない）
+        mode_roster(force=True)
+        return build_npb()
     if not KEY:
         sys.exit("YT_API_KEY が設定されていません")
     if a.mode == "seed":

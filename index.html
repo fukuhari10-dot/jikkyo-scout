@@ -1262,6 +1262,177 @@ body.w-yakyu .tl-tabs button.on{background:#4ED1A5}
 @media (prefers-reduced-motion:reduce){.fab{transition:none}}
 /* 新しい投稿のお知らせ（押したときだけ読み込む。読んでいる途中に並びが変わらないように） */
 .tl-newpill{position:sticky;top:calc(env(safe-area-inset-top,0px) + 100px);z-index:27;align-self:center;border:3px solid var(--ink);border-radius:999px;background:var(--tomato);color:#fff;font-family:var(--display);font-size:13.5px;padding:6px 16px;box-shadow:3px 3px 0 var(--ink);margin:-4px 0}
+
+/* ===================== 野球ノート ===================== */
+.ykhome{display:flex;flex-direction:column;gap:14px}
+.yk-card{display:block;width:100%;text-align:left;background:var(--paper);color:var(--ink);border:3px solid var(--ink);border-radius:12px;box-shadow:4px 4px 0 var(--ink);padding:12px 12px 10px;font:inherit}
+.yk-ch{display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px}
+.yk-ch>b{font-family:var(--display);font-weight:400;font-size:15px}
+.yk-more{margin-left:auto;border:0;background:none;color:var(--redtx);font-weight:700;font-size:12.5px;padding:6px 2px;min-height:32px;font-family:inherit}
+.yk-s{margin:2px 0 6px;font-size:12.5px;color:var(--muted);line-height:1.6}.yk-s b{color:var(--ink)}
+.yk-s0{font-size:11px;color:var(--muted)}
+.yk-src{margin:6px 0 0;font-size:10.5px;color:var(--muted);line-height:1.6}
+.yk-new{background:var(--tomato);color:#fff;border-radius:999px;padding:0 8px;font-size:11px;font-weight:700}
+.yk-btns{display:flex;flex-wrap:wrap;gap:6px;margin-top:6px;align-items:center}
+.yk-btns .btn.sm{min-height:38px}
+.btn.danger,.pbtn.danger{color:var(--redtx)}
+.yk-l{display:inline-block;border:1.5px solid currentColor;border-radius:6px;padding:0 5px;font-size:10px;font-weight:700;line-height:1.5;white-space:nowrap;vertical-align:middle}
+.yk-l.demo{color:#7A4FD0}.yk-l.self{color:#2468B4}.yk-l.ok{color:#1A7A4E}.yk-l.fact{color:#1E1B18}.yk-l.op{color:#B8321F}.yk-l.hot{color:#B8321F;background:#FFE9E4}
+.yk-tdot{display:inline-block;width:10px;height:10px;border-radius:50%;border:1.5px solid var(--ink);flex:none;vertical-align:middle}
+.yk-ev{display:grid;grid-template-columns:1fr;gap:1px;width:100%;text-align:left;border:0;border-top:2px dashed var(--dash);background:none;padding:8px 2px;font:inherit;color:var(--ink)}
+.yk-ev.hot .yk-evf{color:var(--redtx)}
+.yk-evn{font-weight:700;display:flex;gap:6px;align-items:center}.yk-evf{font-size:13px;font-weight:700}.yk-ev small{font-size:11px;color:var(--muted)}
+.yk-newrow{background:#FFF3D6;border-radius:8px}
+.yk-gm{display:grid;grid-template-columns:1fr auto 1fr;align-items:center;gap:8px;width:100%;border:2.5px solid var(--ink);border-radius:10px;background:#fff;padding:10px 8px;font:inherit;color:var(--ink)}
+.yk-gm span{display:flex;align-items:center;gap:6px;font-size:15px}.yk-gm span:last-child{justify-content:flex-end}
+.yk-gm i{font-style:normal;font-family:var(--dotf);font-size:20px;min-width:56px;text-align:center}
+.yk-gm.big{border:0;background:none;padding:6px 0}.yk-gm.big span{font-size:17px}
+.yk-st{font-size:11.5px;font-weight:700;border-radius:999px;padding:1px 9px;background:#E8EEF4;color:var(--ink)}
+.yk-st.live{background:var(--tomato);color:#fff}.yk-st.end{background:#1E1B18;color:#fff}.yk-st.off{background:#C9C2B4}.yk-st.missing{background:#FFF3D6;color:#7A4A00}.yk-st.hide{background:#E5DDF7;color:#4A2F8A}
+.yk-hide{background:#F1ECFB;border-radius:8px;padding:6px 8px;color:#4A2F8A}
+.yk-pk{display:grid;grid-template-columns:auto 1fr auto;grid-template-areas:"d n l" "d s l" "d t t";column-gap:8px;align-items:center;width:100%;text-align:left;background:#fff;border:2px solid var(--ink);border-radius:10px;padding:7px 9px;margin-top:6px;font:inherit;color:var(--ink);min-height:44px}
+.yk-pk .yk-tdot{grid-area:d}.yk-pk b{grid-area:n;font-size:14px}.yk-pk small{grid-area:s;font-size:11px;color:var(--muted)}.yk-pk .yk-pkl{grid-area:l;font-size:12px;font-weight:700;text-align:right;max-width:52vw}.yk-pk .yk-late{grid-area:t}
+.yk-pk.on{background:#FFF3D6;box-shadow:inset 0 0 0 2px var(--mustard)}
+.yk-pkl.dnp,.yk-pkl.off,.yk-pkl.missing,.yk-pkl.none,.yk-pkl.pre{color:var(--muted)}
+.yk-late{font-style:normal;font-size:10.5px;font-weight:700;color:#7A4A00;background:#FFE9A8;border-radius:6px;padding:0 6px;justify-self:start}
+.yk-pre{font-style:normal;font-size:10.5px;color:#1A7A4E}
+.yk-stmini svg{display:block;width:100%;height:auto;border:2.5px solid var(--ink);border-radius:10px}
+.yk-row{display:flex;flex-wrap:wrap;align-items:baseline;gap:4px 8px;width:100%;text-align:left;border:0;border-top:2px dashed var(--dash);background:none;padding:8px 2px;font:inherit;color:var(--ink);text-decoration:none;min-height:40px}
+.yk-row>span{flex:1;min-width:0}.yk-row small{width:100%;font-size:11px;color:var(--muted)}.yk-row .pbtn{margin-left:auto}
+.yk-onbl{margin:0 0 4px;padding-left:20px;font-size:13px;line-height:2}.yk-onbl li.ok{color:#1A7A4E}
+.yk-x{border:0;background:none;color:var(--muted);font-size:12px;padding:6px 0;font-family:inherit}
+.yk-demo{border:2.5px dashed #7A4FD0;border-radius:12px;padding:10px;background:#F6F1FF;color:var(--ink)}
+.yk-demo>b{color:#4A2F8A;font-size:13px}.yk-demo>small{display:block;font-size:11px;color:#5A4A7A;margin:2px 0 6px}
+.yk-seg{display:flex;flex-wrap:wrap;gap:4px}.yk-seg button{flex:1 1 auto;min-width:56px;border:2px solid var(--ink);background:#fff;border-radius:8px;padding:6px 6px;font:inherit;font-size:12px;font-weight:700;color:var(--ink);min-height:36px}
+.yk-seg button.on{background:var(--ink);color:#fff}.yk-seg.sm button{min-height:32px;font-size:11.5px}
+/* ページ */
+.ykpage{position:fixed;inset:0;z-index:40;background:var(--sky);overflow-y:auto;-webkit-overflow-scrolling:touch;overscroll-behavior:contain}
+body.yk-on{overflow:hidden}
+.ykp-h{position:sticky;top:0;z-index:2;display:flex;align-items:center;gap:10px;padding:calc(8px + env(safe-area-inset-top,0px)) 16px 8px;background:var(--sky);border-bottom:3px solid var(--ink)}
+.ykp-h b{font-family:var(--display);font-weight:400;font-size:15px;color:var(--ink);overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.ykp-back{border:2.5px solid var(--ink);border-radius:10px;background:var(--paper);padding:5px 10px;font-family:var(--display);font-size:12.5px;color:var(--ink);min-height:40px;flex:none}
+.ykp-b{max-width:560px;margin:0 auto;padding:12px 16px calc(110px + env(safe-area-inset-bottom,0px));display:flex;flex-direction:column;gap:12px;color:var(--ink)}
+.ykp-b>p.yk-s{color:var(--ink)}
+.yk-sec{background:var(--paper);border:2.5px solid var(--ink);border-radius:12px;padding:10px 12px}
+.yk-sec h3{margin:0 0 6px;font-family:var(--display);font-weight:400;font-size:14px;display:flex;gap:6px;align-items:center;flex-wrap:wrap}
+.yk-h4{margin:8px 0 4px;font-size:12.5px}
+.yk-ghead{background:var(--paper);border:3px solid var(--ink);border-top:8px solid var(--tc);border-radius:12px;padding:10px 12px;display:flex;flex-direction:column;gap:6px;align-items:flex-start}
+.yk-ghead>small{font-size:11.5px;color:var(--muted)}.yk-ghead .yk-gm{width:100%}
+.yk-gst{display:flex;gap:6px;flex-wrap:wrap;align-items:center}
+.yk-phead{display:flex;gap:10px;align-items:center;background:var(--paper);border:3px solid var(--ink);border-radius:12px;padding:10px 12px}.yk-phead>div{flex:1}.yk-phead b{display:block;font-family:var(--display);font-weight:400;font-size:17px}.yk-phead small{font-size:11.5px;color:var(--muted)}
+.yk-tbl{overflow-x:auto}.yk-tbl table{border-collapse:collapse;font-family:var(--dotf);font-size:13px;min-width:100%}.yk-tbl th,.yk-tbl td{border:1.5px solid var(--ink);padding:3px 5px;text-align:center;white-space:nowrap}.yk-tbl th{text-align:left;font-family:var(--body);font-size:12px}.yk-tbl .r{background:#FFF3D6;font-weight:700}
+.yk-facts{margin:0;padding-left:18px;font-size:13px;line-height:1.7}
+details summary{cursor:pointer;font-weight:700;padding:6px 0;min-height:32px}
+.yk-empty{display:flex;flex-direction:column;align-items:center;gap:6px;text-align:center;padding:14px 8px;color:var(--ink)}.yk-empty p{margin:0;font-size:13px;line-height:1.6}
+.yk-chips{display:flex;gap:6px;overflow-x:auto;padding-bottom:4px;scrollbar-width:none}.yk-chips::-webkit-scrollbar{display:none}
+.yk-chips button{flex:none;border:2px solid var(--ink);background:#fff;border-radius:999px;padding:5px 11px;font:inherit;font-size:12px;font-weight:700;color:var(--ink);min-height:34px}.yk-chips button.on{background:var(--ink);color:#fff}
+.yk-chk{display:flex;align-items:center;gap:8px;padding:8px 2px;border-top:1.5px dashed var(--dash);font-size:13px;min-height:40px;color:var(--ink)}.yk-chk input{width:20px;height:20px;flex:none}.yk-chk small{margin-left:auto;color:var(--muted);font-size:11px}
+.yk-sel{display:flex;gap:6px;flex-wrap:wrap}.yk-sel>*{flex:1 1 30%;min-width:96px;border:2.5px dashed var(--ink);border-radius:10px;padding:8px 6px;text-align:center;font-size:12px;color:var(--muted);background:#fff;font-family:inherit;min-height:44px}
+.yk-sel button.on{border-style:solid;background:#FFF3D6;color:var(--ink);font-weight:700;display:flex;align-items:center;justify-content:center;gap:4px}
+.yk-plist{display:flex;flex-direction:column}
+.yk-sticky{position:sticky;bottom:calc(8px + env(safe-area-inset-bottom,0px));z-index:2}
+.yk-res{background:#fff;border:3px solid var(--ink);border-left:10px solid var(--tc);border-radius:12px;padding:10px 12px;display:flex;flex-direction:column;gap:6px}
+.yk-resh{display:flex;align-items:center;gap:6px}.yk-resh b{font-family:var(--display);font-weight:400;font-size:16px}.yk-resh small{color:var(--muted);font-size:11px}
+.yk-resb b{display:block;font-family:var(--dotf);font-size:22px}.yk-resb small{display:block;font-size:12.5px;font-weight:700}
+.yk-res.dnp .yk-resb b,.yk-res.off .yk-resb b,.yk-res.missing .yk-resb b,.yk-res.none .yk-resb b,.yk-res.pre .yk-resb b{font-family:var(--body);font-size:16px;color:var(--muted)}
+.yk-resf{display:flex;flex-wrap:wrap;gap:6px;align-items:center;font-size:12px}
+.yk-mem{display:flex;flex-wrap:wrap;gap:4px 6px;align-items:center;padding:8px 0;border-top:2px dashed var(--dash)}.yk-mem>div{flex:1 1 60%}
+.yk-mem>div{min-width:0}.yk-mem b{display:block;font-size:13px}.yk-mem small{font-size:11px;color:var(--muted)}.yk-memi{font-size:22px}
+.yk-mem .pbtn{margin-right:4px}
+.pbtn.on{background:var(--ink);color:#fff}
+/* 写真 */
+.yk-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:6px}
+.yk-ph{position:relative;padding:0;border:2px solid var(--ink);border-radius:8px;overflow:hidden;background:#ddd;aspect-ratio:4/3;font:inherit}
+.yk-ph img{width:100%;height:100%;object-fit:cover;display:block}
+.yk-ph span{position:absolute;left:3px;top:3px;background:rgba(255,255,255,.9);border-radius:5px;font-size:9.5px;font-weight:700;padding:0 4px;color:var(--ink)}
+.yk-ph small{position:absolute;left:0;right:0;bottom:0;background:rgba(30,27,24,.72);color:#fff;font-size:9.5px;padding:1px 4px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.yk-ph.me{box-shadow:inset 0 0 0 3px var(--mustard)}
+.yk-pieces{display:flex;gap:4px;flex-wrap:wrap}.yk-pieces span{border:2px dashed var(--ink);border-radius:8px;padding:2px 7px;font-size:11px;color:var(--muted);background:#fff}.yk-pieces span.on{border-style:solid;color:var(--ink);background:#E3F6EA}.yk-pieces span.me{background:#FFF3D6}
+.yk-phinfo{display:flex;flex-direction:column;gap:2px}.yk-phinfo small{font-size:11.5px;color:var(--muted)}.yk-old{color:#7A4A00!important}
+.yk-file{display:flex;align-items:center;justify-content:center;min-height:140px;border:3px dashed var(--ink);border-radius:12px;background:#fff;font-weight:700;cursor:pointer;overflow:hidden}.yk-file img{width:100%;max-height:260px;object-fit:contain}
+.yk-scard{background:#fff;border:3px solid var(--ink);border-radius:12px;box-shadow:4px 4px 0 var(--ink);overflow:hidden}
+.yk-scg{display:grid;grid-template-columns:repeat(6,1fr);grid-auto-rows:64px;gap:3px;padding:3px;background:var(--ink)}
+.yk-scp{background:#EFE9DC;display:flex;align-items:center;justify-content:center;overflow:hidden;font-size:11px;color:var(--muted)}.yk-scp img{width:100%;height:100%;object-fit:cover}
+.yk-scp.ground{grid-column:span 4;grid-row:span 2}.yk-scp.cheer{grid-column:span 2}.yk-scp.food{grid-column:span 2}.yk-scp.pre{grid-column:span 3}.yk-scp.outside{grid-column:span 3}
+.yk-scf{display:flex;flex-wrap:wrap;gap:2px 10px;align-items:baseline;padding:8px 10px}.yk-scf b{font-family:var(--display);font-weight:400;width:100%}.yk-scf span{font-size:12px}.yk-scf em{margin-left:auto;font-style:normal;font-family:var(--dotf);color:var(--redtx)}
+/* 球場 */
+.yk-edsvg svg,.yk-mysvg svg{display:block;width:100%;height:auto;border:3px solid var(--ink);border-radius:12px;background:#fff}
+.yk-stadium .st-hit{cursor:pointer}.yk-stadium .st-hit:hover{fill:rgba(255,255,255,.18)}
+@media (prefers-reduced-motion:no-preference){.yk-stadium .st-tomo{animation:ykBob 2.4s ease-in-out infinite;transform-origin:center bottom;transform-box:fill-box}}
+@keyframes ykBob{0%,100%{transform:translateY(0)}50%{transform:translateY(-3px)}}
+.yk-prev{display:flex;align-items:center;gap:6px;flex-wrap:wrap;background:#FFF3D6;border:2.5px solid var(--ink);border-radius:10px;padding:6px 8px}.yk-prev span{flex:1;font-size:12.5px}
+.yk-opts{display:grid;grid-template-columns:repeat(auto-fill,minmax(98px,1fr));gap:6px}.yk-opts.col{grid-template-columns:repeat(6,1fr)}
+.yk-opt{border:2.5px solid var(--ink);background:#fff;border-radius:10px;padding:7px 6px;font:inherit;color:var(--ink);text-align:left;min-height:52px;display:flex;flex-direction:column;gap:2px}
+.yk-opt b{font-size:12.5px}.yk-opt small{font-size:10px;color:var(--muted);line-height:1.35}.yk-opt.on{background:var(--mustard)}.yk-opt.lock{background:#EDEAE3;border-style:dashed;opacity:.85}
+.yk-sw{aspect-ratio:1;border:3px solid var(--ink);border-radius:10px;min-height:40px}.yk-sw.on{box-shadow:0 0 0 3px #fff,0 0 0 6px var(--ink)}
+.yk-trial{background:#F6F1FF;border:2.5px dashed #7A4FD0;border-radius:10px;padding:6px 10px;font-size:12px;color:#4A2F8A;display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+.yk-sgrid{display:grid;grid-template-columns:repeat(2,1fr);gap:10px}
+.yk-sitem{background:var(--paper);border:2.5px solid var(--ink);border-radius:12px;padding:6px;display:flex;flex-direction:column;gap:3px;align-items:flex-start;min-width:0}
+.yk-sitem svg{display:block;width:100%;height:auto;border-radius:8px;border:2px solid var(--ink)}.yk-sitem b{font-size:12.5px}.yk-sitem small{font-size:10.5px;color:var(--muted)}
+.yk-grx{display:flex;flex-wrap:wrap;gap:4px;width:100%}.yk-grx .pbtn{flex:1 1 auto;min-height:32px;font-size:11px;padding:3px 6px}.yk-grx span{font-size:11px}
+/* 記録 */
+.yk-tiles{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
+.yk-tiles button{background:var(--paper);border:3px solid var(--ink);border-radius:12px;box-shadow:3px 3px 0 var(--ink);padding:10px 4px;font:inherit;color:var(--ink);display:flex;flex-direction:column;align-items:center;gap:2px;min-height:76px}
+.yk-tiles b{font-family:var(--dotf);font-size:18px}.yk-tiles span{font-size:11.5px;font-weight:700;text-align:center}
+.yk-zk{display:grid;grid-template-columns:repeat(2,1fr);gap:8px}
+.yk-zi{border:2.5px dashed var(--ink);border-radius:12px;background:#F2EEE6;padding:8px;text-align:left;font:inherit;color:var(--ink);display:flex;flex-direction:column;gap:2px;min-height:76px}
+.yk-zi b{font-size:13px}.yk-zi small{font-size:10.5px;color:var(--muted)}.yk-zi span{font-size:11px;font-weight:700;margin-top:auto}
+.yk-zi.got{border-style:solid;background:#fff;box-shadow:3px 3px 0 var(--ink)}.yk-zi.got span{color:#1A7A4E}
+.yk-nums{display:grid;grid-template-columns:repeat(3,1fr);gap:6px}.yk-nums>div{background:#fff;border:2.5px solid var(--ink);border-radius:10px;padding:8px 4px;text-align:center}.yk-nums b{display:block;font-family:var(--dotf);font-size:22px}.yk-nums small{font-size:11px}
+.yk-big{margin:0;font-family:var(--dotf);font-size:26px}
+.yk-bars{display:flex;align-items:flex-end;gap:6px;height:120px;overflow-x:auto}.yk-bars>div{flex:0 0 40px;display:flex;flex-direction:column;align-items:center;justify-content:flex-end;height:100%;gap:2px}
+.yk-bars i{display:block;width:70%;background:var(--tomato);border:2px solid var(--ink);border-radius:4px 4px 0 0;min-height:4px}.yk-bars b{font-size:11px}.yk-bars small{font-size:10px;color:var(--muted)}
+.yk-set{display:flex;flex-direction:column;gap:4px;padding:10px 0 4px;border-top:2px dashed var(--dash)}.yk-set>span{font-weight:700;font-size:13px}.yk-set small{font-size:11px;color:var(--muted)}.yk-set .pbtn{align-self:flex-start}
+#ykSetBox{display:flex;flex-direction:column;gap:2px}#ykSetBox[hidden]{display:none}
+#myTabs.n5{grid-template-columns:repeat(5,1fr)}#myTabs.n5 button{font-size:12px;padding-left:2px;padding-right:2px}
+/* シェア・記録カード */
+.yk-prevbox{background:#fff;border:3px solid var(--ink);border-radius:12px;padding:10px}
+.yk-rc{display:flex;flex-direction:column;gap:3px;background:#F3FBF5;border:2px solid #1A8C5A;border-radius:10px;padding:8px 10px;color:var(--ink)}
+.yk-rc.in{margin-top:6px}.yk-rck{font-size:10.5px;font-weight:700;color:#1A7A4E}.yk-rch{font-weight:700;font-size:14px}
+.yk-rc ul{margin:0;padding-left:18px;font-size:13px}.yk-rcl{font-size:12.5px}.yk-rc svg{display:block;width:100%;max-width:280px;height:auto;border-radius:8px;border:2px solid var(--ink)}
+.yk-rcgo,.yk-rcsv{align-self:flex-start;font-size:12px;font-weight:700;color:var(--redtx);padding:6px 0;cursor:pointer}
+.yk-rcsv{border:2px solid var(--ink);border-radius:8px;padding:3px 10px;color:var(--ink);background:#fff}.yk-rcsv.on{background:var(--ink);color:#fff}
+.yk-rcown{font-size:11px;color:var(--muted)}
+.tp-why{display:inline-block;margin-left:auto;font-size:10.5px;color:var(--muted);border:1.5px solid var(--dash);border-radius:999px;padding:0 7px;cursor:pointer}
+/* 気持ちのボタン */
+.yk-live{margin-top:10px;display:flex;flex-direction:column;gap:6px}
+.yk-pad{display:flex;flex-direction:column;gap:6px}
+.yk-stand{position:relative;display:flex;flex-wrap:wrap;gap:4px;justify-content:center;align-items:flex-end;background:linear-gradient(#22386B,#2F4E8F);border:2.5px solid var(--ink);border-radius:10px;padding:8px 52px 6px 8px;min-height:56px}
+.yk-stand i{width:14px;height:14px;border-radius:50% 50% 4px 4px;border:1.5px solid var(--ink);display:block}
+.yk-stand .yk-tomo{position:absolute;right:4px;bottom:0}
+.yk-padb{display:grid;grid-template-columns:repeat(4,1fr);gap:6px}
+.yk-padb button{border:2.5px solid var(--ink);border-radius:12px;background:#fff;padding:4px 2px;font:inherit;color:var(--ink);display:flex;flex-direction:column;align-items:center;gap:0;min-height:72px;box-shadow:2px 2px 0 var(--ink)}
+.yk-padb button:active{transform:translate(2px,2px);box-shadow:none}
+.yk-padb img{width:36px;height:36px;object-fit:contain}.yk-padb b{font-size:12px}.yk-padb small{font-size:9.5px;color:var(--muted);min-height:12px}
+.yk-pad.go .yk-stand i{animation:ykWave .6s ease-out var(--d) 1}.yk-pad.go .yk-tomo img{animation:ykJump .5s ease-out 1}
+.yk-pad.go.k-kuyashii .yk-stand i{animation:ykSink .6s ease-out var(--d) 1}
+@keyframes ykWave{0%{transform:none}40%{transform:translateY(-8px)}100%{transform:none}}
+@keyframes ykSink{0%{transform:none}40%{transform:translateY(4px) scaleY(.8)}100%{transform:none}}
+@keyframes ykJump{0%{transform:none}40%{transform:translateY(-10px) rotate(-6deg)}100%{transform:none}}
+.yk-fest{display:flex;flex-direction:column;align-items:center;gap:4px;text-align:center}.yk-fest img{width:140px;height:140px;object-fit:contain}.yk-fest b{font-family:var(--display);font-weight:400;font-size:22px;color:var(--redtx)}
+.yk-fest.anim img{animation:ykJump .8s ease-out 2}
+@media (min-width:700px){.yk-sgrid{grid-template-columns:repeat(3,1fr)}.yk-zk{grid-template-columns:repeat(3,1fr)}}
+.ykp-b .pbtn,.yk-mem .pbtn{min-height:34px}
+body.yk-on .nav{z-index:42}
+.ykpage,.ykp-h{background:#CDEBF6;color:#1E1B18}.ykpage .yk-empty p,.ykpage .yk-src,.ykpage .ykp-h b{color:#1E1B18}.ykpage .yk-src{color:#4A535C}
+/* 野球ノート：使いやすく（ボタンを少なく・大きく） */
+#myTabs.n4{grid-template-columns:repeat(4,1fr)}
+.yk-two{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:8px}.yk-two .btn{min-height:50px;font-size:14px;padding:6px 4px}
+.btn.grow{flex:1;min-height:44px}
+.yk-done{display:flex;align-items:center;gap:6px;margin-top:8px;background:#E3F6EA;border:2px solid #1A8C5A;border-radius:10px;padding:6px 10px;font-weight:700;font-size:13.5px;color:#11603B}.yk-done .yk-more{color:#11603B}
+.yk-oshirow{display:flex;align-items:center;gap:8px;width:100%;margin-top:8px;border:2px solid var(--ink);border-radius:10px;background:#fff;padding:7px 10px;font:inherit;color:var(--ink);text-align:left;min-height:48px}
+.yk-oshirow>b{flex:none;font-size:12px;background:var(--ink);color:#fff;border-radius:6px;padding:1px 6px}
+.yk-oshirow>span{display:flex;flex-direction:column;font-size:13px;font-weight:700;line-height:1.2;min-width:0}.yk-oshirow>span small{font-size:10.5px;font-weight:400;color:var(--muted)}
+.yk-oshirow>span.yk-s0{font-weight:400;font-size:12px;color:var(--muted)}
+.yk-oshirow>i{margin-left:auto;font-style:normal;font-size:18px;color:var(--muted)}
+.yk-spoil{display:block;margin:8px auto 0;border:0;background:none;color:#4A2F8A;font-size:12px;font-weight:700;padding:6px;min-height:34px;font-family:inherit}
+.yk-memo{display:block;margin-top:6px;font-size:12px;color:var(--ink)}
+.yk-warn{margin:0;background:#FFF3D6;border:2px solid #E0A800;border-radius:8px;padding:6px 8px;font-size:12px;color:#5A4000}
+.yk-nlist{display:flex;flex-direction:column;background:var(--paper);border:3px solid var(--ink);border-radius:12px;box-shadow:4px 4px 0 var(--ink);overflow:hidden}
+.yk-nrow{display:flex;align-items:center;gap:10px;border:0;border-bottom:2px dashed var(--dash);background:none;padding:12px 12px;font:inherit;color:var(--ink);text-align:left;min-height:52px}
+.yk-nrow:last-child{border-bottom:0}.yk-nrow span{font-size:20px;width:26px;text-align:center}.yk-nrow b{font-size:14px}.yk-nrow em{margin-left:auto;font-style:normal;font-size:12px;color:var(--muted)}.yk-nrow i{font-style:normal;color:var(--muted);font-size:18px}
+.yk-btns.sub{margin-top:10px}.yk-pieces b{margin-left:auto;font-size:12px}
+.yk-ev .yk-evn small{font-weight:400;font-size:11px;color:var(--muted);margin-left:6px}
 </style>
 <div class="app">
   <header class="top">
@@ -1279,6 +1450,7 @@ body.w-yakyu .tl-tabs button.on{background:#4ED1A5}
     <div id="g-home"></div>
     <div class="hhero" id="hHero"></div>
     <button class="hgo" id="hGo"></button>
+    <div class="ykhome" id="ykHome" hidden></div>
     <button class="samplebar" id="dataBar" style="border:0;width:100%;cursor:pointer">見本のデータで表示中・タップで本物のデータを読み込む</button><input type="file" id="dataFile" accept=".json,application/json" hidden>
     <button class="nextact" id="nextAct" hidden></button>
     <div class="note tape" id="digestBox"></div>
@@ -1375,7 +1547,8 @@ body.w-yakyu .tl-tabs button.on{background:#4ED1A5}
   <section id="v-my" class="view" hidden>
     <div id="g-my"></div>
     <div class="note tape"><div class="prof" id="prof"></div></div>
-    <div class="segtabs" id="myTabs"><button class="on" data-g="oshi">推し活</button><button data-g="points">ポイント</button><button data-g="settings">設定</button></div>
+    <div class="segtabs" id="myTabs"><button data-g="note" data-yk hidden>ノート</button><button class="on" data-g="oshi">推し活</button><button data-g="points">ポイント</button><button data-g="settings">設定</button></div>
+    <div class="mygroup view" data-group="note" hidden><div class="view" id="ykNote"></div></div>
     <div class="mygroup view" data-group="oshi" id="oshiTop">
     <div id="g-oshi"></div>
     <div class="note tape" id="friendsBox"></div>
@@ -1414,6 +1587,7 @@ body.w-yakyu .tl-tabs button.on{background:#4ED1A5}
     </div>
     </div>
     <div class="mygroup view" data-group="settings" hidden>
+    <div class="note" id="ykSetBox" hidden></div>
     <div class="note" id="soundBox"></div>
     <div class="note" id="blockBox"></div>
     <div class="note">
@@ -1450,6 +1624,7 @@ body.w-yakyu .tl-tabs button.on{background:#4ED1A5}
   <button class="t-bgm" id="tBgm" type="button">♪ BGM ON</button>
   <p class="t-foot">非公式のファンアプリです<br><span id="tVer"></span></p>
 </div>
+<div class="ykpage" id="ykPage" hidden></div>
 <nav class="nav" aria-label="メニュー"><div class="barx">
   <button data-tab="home" aria-current="page"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linejoin="round"><path d="M4 10l8-6 8 6v10a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1z"/><path d="M10 21v-6h4v6"/></svg>ホーム</button>
   <button data-tab="search"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"><circle cx="10.5" cy="10.5" r="6.5"/><path d="M15.5 15.5L21 21"/></svg>さがす</button>
@@ -1979,7 +2154,7 @@ function renderWorld(){const w=W();document.body.classList.toggle("w-yakyu",w===
  document.querySelectorAll("#worldSw [data-w]").forEach(b=>{const on=b.dataset.w===w;b.classList.toggle("on",on);b.setAttribute("aria-selected",on?"true":"false")});
  const ls=$("#logoSub");if(ls)ls.textContent=w==="yakyu"?"プロ野球をファンみんなで":"ゲーム実況をみんなで"}
 document.querySelectorAll("#worldSw [data-w]").forEach(b=>b.onclick=()=>{setWorld(b.dataset.w);scrollTo({top:0})});
-function goTab(t){checkTrial();track("tab",{t});if(t==="oshi"){goTab("my");setMyGroup("oshi");const o=$("#oshiTop");if(o)setTimeout(()=>o.scrollIntoView({behavior:"smooth",block:"start"}),50);return}
+function goTab(t){checkTrial();if(typeof YKP!=="undefined"&&YKP.stack.length)ykCloseAll();track("tab",{t});if(t==="oshi"){goTab("my");setMyGroup("oshi");const o=$("#oshiTop");if(o)setTimeout(()=>o.scrollIntoView({behavior:"smooth",block:"start"}),50);return}
  const cur=TABS.find(v=>!$("#v-"+v).hidden);if(cur===t){scrollTo({top:0,behavior:"smooth"});return}if(cur)tabY[cur]=scrollY;
  document.querySelectorAll(".nav button").forEach(b=>{if(b.dataset.tab===t)b.setAttribute("aria-current","page");else b.removeAttribute("aria-current")});
  TABS.forEach(v=>$("#v-"+v).hidden=v!==t);document.body.classList.toggle("on-comm",t==="comm");scrollTo(0,tabY[t]||0);nativeBanner(t);if(t==="comm")openComm();if(t==="live")renderLive();if(t==="my"&&typeof loadFriends==="function"&&SV&&SV.call)loadFriends(true).then(()=>renderFriends())}
@@ -2007,7 +2182,7 @@ function renderGuides(){S.tips=S.tips||{};for(const k0 in GUIDES){const yk=isY()
  el.querySelector("[data-tipmore]").onclick=()=>{tipOpen[k]=!tipOpen[k];renderGuides()};
  const go=el.querySelector("[data-tipgo]");if(go)go.onclick=()=>{S.tips[k]=1;save();if(go.dataset.tipgo==="post")openComposer({cat:"質問"});else if(go.dataset.tipgo==="room")goComm("team");else goTab(go.dataset.tipgo);renderGuides()}}}
 function renderAllNow(){rafId=0;const sx={};document.querySelectorAll(".recs[id],.hscroll[id],[data-keepx]").forEach(e=>{if(e.id&&e.scrollLeft)sx[e.id]=e.scrollLeft});
- rollover();checkTrial();applyTheme();renderWorld();renderGuides();renderHeader();renderHome();renderLive();renderDigest();renderFilters();renderResults();renderComm();renderOshi();renderMy();
+ rollover();checkTrial();applyTheme();renderWorld();renderGuides();renderHeader();renderHome();renderLive();renderDigest();renderFilters();renderResults();renderComm();renderOshi();renderMy();if(typeof renderYk==="function")renderYk();
  for(const id in sx){const e=document.getElementById(id);if(e)e.scrollLeft=sx[id]}}
 
 /* =====================================================================
@@ -2024,7 +2199,7 @@ function renderSeasonBar(){ensureSeason();const lv=sLv();const into=S.season.pts
 function recScore(c){if(!inW(c))return-99;let s=0;if(S.team&&c.team===S.team)s+=3;s+=c.tags.filter(t=>(S.likes||[]).includes(t)).length*2;if(c.live)s+=1;if(S.scout[c.id])s-=10;if(S.seenCh[c.id])s-=1;return s+(hashN(today()+c.id)%10)/20}
 function recWhy(c){if(S.team&&c.team===S.team)return`同じ${c.team}ファン`;const t=c.tags.find(t=>(S.likes||[]).includes(t));if(t)return`#${t}`;if(c.live)return"いまライブ中";return c.subs<SCOUT_MAX?"原石候補":"人気の配信者"}
 /* 応援球団が勝った日：お祝い（＋アプリの評価のお願いを出してよい、うれしい瞬間） */
-function checkWin(){const t=S.team,g=t&&gamesOf(t,today())[0];if(!g||g.status!=="end"||!g.score||S.winDay===today())return;const mine=g.home===t?g.score[0]:g.score[1],opp=g.home===t?g.score[1]:g.score[0];if(mine<=opp)return;S.winDay=today();save();pop("勝った！");toast(`${t} 勝利！ ${gameScore(g)}`);maybeReview("win")}
+function checkWin(){const t=S.team,g=t&&gamesOf(t,today())[0];if(!g||g.status!=="end"||!g.score||S.winDay===today())return;const mine=g.home===t?g.score[0]:g.score[1],opp=g.home===t?g.score[1]:g.score[0];if(mine<=opp)return;S.winDay=today();save();pop("勝った！");toast(`${t} 勝利！ ${gameScore(g)}`);maybeReview("win");if(isY()&&typeof ykMaybeFest==="function")setTimeout(ykMaybeFest,900)}
 function renderHome(){renderNextAction();checkWin();renderHomeNews();renderBoost();renderFanCard();renderSeasonBar();$("#bannerAd").hidden=S.premium||!!(SV&&SV.shell);if(!$("#v-home").hidden)nativeBanner("home");
  renderJHero();renderHomeHero();$("#fanCard").hidden=!isY();$("#recTitle").textContent=isY()?"おすすめのファンチャンネル":"あなたへのおすすめ";
  // 今日の1人
@@ -2263,14 +2438,14 @@ function openSeason(){ensureSeason();const lv=sLv();const rows=[];for(let i=1;i<
    端末内モードではこの端末の中だけで動く（見本の投稿つき）。サーバーにつなぐと、みんなの投稿が表示される
    ===================================================================== */
 const CATS=["質問","オーダー相談","オーダー自慢","対戦募集","ガチャ報告","配信の感想","雑談"];
-const ROOM_CATS=["雑談","試合の感想","選手の話","観戦・遠征","補強・ドラフト"]; /* プロ野球の投稿の種類 */
+const ROOM_CATS=["雑談","試合の感想","選手の話","観戦・遠征","補強・ドラフト","観戦記録"]; /* 観戦記録：野球ノートの「シェア」からだけ作る */ /* プロ野球の投稿の種類 */
 /* オーダー自慢：1〜9番の守備位置と選手名（サーバーの validatePost と同じ決まり） */
 const POSITIONS=["捕","一","二","三","遊","左","中","右","指"],DEF_ORDER=["中","二","右","一","三","左","指","捕","遊"];
 function checkOrder(meta){const o=meta&&meta.order;if(!o||o.length!==9)return"1番から9番まで入れてください";
  for(const x of o){const n=String(x.name||"").normalize("NFKC").trim();if(!POSITIONS.includes(x.pos)||!n||n.length>12)return"守備位置と選手名（12文字まで）を入れてください";const w=NGW.text(n);if(w)return w}
  if(new Set(o.map(x=>x.pos)).size!==9)return"守備位置が重なっています";if(meta.sp){const w=NGW.text(meta.sp);if(w)return w}return""}
 function lineupHTML(m){if(!m||!m.order)return"";return`<div class="lineup">${m.order.map((x,i)=>`<div><i>${i+1}</i><span class="pos">${esc(x.pos)}</span><b>${esc(x.name)}</b></div>`).join("")}${m.sp?`<div class="spl"><span class="pos">投</span><b>${esc(m.sp)}</b><small>先発</small></div>`:""}</div>`}
-const CATC={"質問":["#FFC62E","#1E1B18"],"オーダー相談":["#4ED1A5","#1E1B18"],"オーダー自慢":["#1E1B18","#FFC62E"],"対戦募集":["#D93A28","#fff"],"ガチャ報告":["#7A4FD0","#fff"],"配信の感想":["#2468B4","#fff"],"雑談":["#FFF8EC","#1E1B18"],"試合の感想":["#D93A28","#fff"],"選手の話":["#2468B4","#fff"],"観戦・遠征":["#4ED1A5","#1E1B18"],"補強・ドラフト":["#7A4FD0","#fff"],"お題":["#12281F","#FFB12E"]};
+const CATC={"観戦記録":["#1A8C5A","#fff"],"質問":["#FFC62E","#1E1B18"],"オーダー相談":["#4ED1A5","#1E1B18"],"オーダー自慢":["#1E1B18","#FFC62E"],"対戦募集":["#D93A28","#fff"],"ガチャ報告":["#7A4FD0","#fff"],"配信の感想":["#2468B4","#fff"],"雑談":["#FFF8EC","#1E1B18"],"試合の感想":["#D93A28","#fff"],"選手の話":["#2468B4","#fff"],"観戦・遠征":["#4ED1A5","#1E1B18"],"補強・ドラフト":["#7A4FD0","#fff"],"お題":["#12281F","#FFB12E"]};
 const GTYPES=["通常","OB","限定","イベント","その他"],MRULES=["リアタイ","ルーム戦","純正しばり","初心者歓迎"],MWHEN=["今から","今夜"];
 const REASONS=["悪口・いやがらせ","なりすまし","変な名前","宣伝・勧誘","不正","その他"];
 const POLLS=[["今日いちばん時間を使うのは？",["リアタイ","イベント周回","育成","ガチャ"]],["リアタイで一番大事だと思うのは？",["配球","ミート打ち","オーダー","メンタル"]],["ガチャはどう回す派？",["10連ずつ","貯めて一気に","無料分だけ","その日の気分"]],["純正にこだわる？",["完全に純正","ほぼ純正","こだわらない","迷い中"]],["配信を見る時間帯は？",["朝・通勤中","昼休み","夜","深夜"]],["好きな配信者のタイプは？",["ガチ勢の解説","エンジョイ系","視聴者参加型","ガチャ配信"]],["新シリーズが出たら？",["すぐ全力で引く","評価を見てから","引かない","無課金で待つ"]],["遊んでいる歴は？",["1年未満","1〜3年","3〜5年","5年以上"]],["課金スタイルは？",["無課金","微課金","パスだけ","しっかり課金"]],["イベントは完走する？",["毎回完走","欲しい報酬まで","たまに","やらない"]],["選手を選ぶとき重視するのは？",["能力","フォーム・見た目","好きな選手","純正かどうか"]],["リアタイで負けたあとは？",["すぐもう1戦","配信で研究","オーダー見直し","今日は終わり"]],["初心者にまずすすめるのは？",["イベント","リアタイ","育成","配信を見る"]],["推しの配信者を見つけたきっかけは？",["YouTubeのおすすめ","検索","友だち","このアプリ"]],["いちばんテンションが上がる瞬間は？",["確定演出","サヨナラ勝ち","ランクが上がる","限界突破"]],["ちょうどいい配信の長さは？",["30分","1時間","2時間","耐久配信"]],["打順で一番こだわるのは？",["1番","4番","9番","こだわらない"]],["投手起用のこだわりは？",["先発重視","中継ぎ重視","抑え重視","バランス"]],["特訓の優先は？",["打者から","投手から","推しから","決めてない"]],["ガチャ動画、見るのは？",["当たり回だけ","全部","たまに","見ない"]],["リアタイの目標は？",["ランク上位","勝率アップ","楽しめればOK","まだやってない"]],["オーダーを変える頻度は？",["毎日","週1くらい","新シリーズごと","ほぼ変えない"]],["配信のコメント欄に書き込む？",["よく書く","たまに","見るだけ","見ない"]],["応援している球団で遊ぶ？",["いつも","ほとんど","たまに","関係なし"]],["スタミナ（体力）の使い方は？",["すぐ使い切る","イベント用に貯める","気づいたら満タン","気にしない"]],["動画を見るならどれ？",["解説・攻略","ガチャ","リアタイ実況","雑談"]],["週末に遊ぶ時間は？",["1時間未満","1〜3時間","3時間以上","平日と同じ"]],["今の自分のオーダー、何点？",["100点","80点","60点","作り直したい"]],["一緒に遊ぶ仲間はいる？",["リアルにいる","ネットにいる","探している","ひとりが好き"]],["このアプリで一番使う機能は？",["ライブ・予定","みんな","原石スカウト","ランキング"]]].map(([q,opts])=>({q,opts}));
@@ -2365,7 +2540,7 @@ const likeWord=p=>p.cat==="オーダー自慢"?"いいオーダー":p.room||p.ca
 const matchOpen=p=>p.cat==="対戦募集"&&p.expireAt>Date.now();
 const waiting=p=>(p.cat==="質問"||p.cat==="オーダー相談")&&!p.best;
 function catChip(cat){const c=CATC[cat]||["#fff","#1E1B18"];return`<span class="cat" style="background:${c[0]};color:${c[1]}">${esc(cat)}</span>`}
-function metaHTML(p){if(p.cat==="オーダー自慢")return lineupHTML(p.meta);if(p.cat==="対戦募集"&&p.meta&&p.meta.rule)return`<div class="pmeta"><span>${esc(p.meta.rule)}</span><span>${esc(p.meta.when)}</span><span class="${matchOpen(p)?"open":"closed"}">${matchOpen(p)?"募集中":"締め切り"}</span></div>`;
+function metaHTML(p){if(p.cat==="観戦記録"&&typeof recMetaHTML==="function")return recMetaHTML(p);if(p.cat==="オーダー自慢")return lineupHTML(p.meta);if(p.cat==="対戦募集"&&p.meta&&p.meta.rule)return`<div class="pmeta"><span>${esc(p.meta.rule)}</span><span>${esc(p.meta.when)}</span><span class="${matchOpen(p)?"open":"closed"}">${matchOpen(p)?"募集中":"締め切り"}</span></div>`;
  if(p.cat==="ガチャ報告"&&p.meta&&p.meta.pulls)return`<div class="pmeta"><span>${esc(p.meta.type)}</span><b>${p.meta.pulls}連</b><span>→ 当たり</span><b>${p.meta.hits}</b><span>（${(p.meta.hits/p.meta.pulls*100).toFixed(1)}%）</span></div>`;return""}
 function fanVoice(c){const ps=allPosts().filter(p=>p.ch===c.id).slice(0,3);
  return`<div><div class="rowsb"><div class="h2" style="font-size:15px">ファンの声</div><button class="btn sm paper" id="fanPost">書く</button></div><div class="posts" style="margin-top:6px">${ps.map(p=>postCard(p,1)).join("")||'<p class="sub" style="margin:0">まだ投稿がありません。最初のひとことを書いてみよう</p>'}</div></div>`}
@@ -2432,10 +2607,10 @@ function openComposer(pre){if(!S.guideOK){modal(`<div class="h2">書き込みの
  if(SV&&!SV.linked){modal(`<div class="h2">${SIGNIN}でサインイン</div><p class="sub" style="margin:0">投稿・返信・リアクション・募集への参加は、なりすましや荒らしを防ぐため、${SIGNIN}でサインインした人だけができます。読むのはだれでもできます。</p>${SV.signIn?`<button class="btn tomato wide" id="si">${SIGNIN}でサインイン</button>`:""}<button class="btn paper wide" id="mc">とじる</button>`,x=>{x.querySelector("#mc").onclick=closeModal;const b=x.querySelector("#si");if(b)b.onclick=()=>SV.signIn().then(()=>{closeModal();act("sync",{})}).catch(()=>{})});return}
  pre=Object.assign({},pre||{});if(pre.room){pre.world="yakyu";pre.team=pre.room;delete pre.room}
  const st=Object.assign({world:W(),cat:"",text:"",ch:"",meta:{},game:"",img:"",imgBlob:null},pre);const y=st.world==="yakyu";
- if(y){if(!ROOM_CATS.includes(st.cat))st.cat="雑談";if(pre.team===undefined)st.team=S.team||""}else{if(!CATS.includes(st.cat))st.cat="雑談";st.team=""}
+ if(y){if(!ROOM_CATS.includes(st.cat)||st.cat==="観戦記録")st.cat="雑談";if(pre.team===undefined)st.team=S.team||""}else{if(!CATS.includes(st.cat))st.cat="雑談";st.team=""}
  st.meta=Object.assign(metaFor(st.cat),st.meta||{});
  const todays=()=>{const d=today(),h=new Date(Date.now()+JST).getUTCHours();const mine=g=>S.team&&(g.home===S.team||g.away===S.team)?0:1;return GAMES.filter(g=>g.day===d||(h<6&&g.day===dayKeyOf(Date.now()-864e5))).sort((a,b)=>mine(a)-mine(b)||b.day.localeCompare(a.day)).slice(0,8)};
- const draw=()=>{const chs=CH.filter(c=>genreOf(c)==="game").sort((a,b)=>a.name.localeCompare(b.name,"ja"));const ty=typeOfCat(st.cat),subs=y?ROOM_CATS:GAME_TYPES.find(t=>t[0]===ty)[2];const gs=y?todays():[];
+ const draw=()=>{const chs=CH.filter(c=>genreOf(c)==="game").sort((a,b)=>a.name.localeCompare(b.name,"ja"));const ty=typeOfCat(st.cat),subs=y?ROOM_CATS.filter(c=>c!=="観戦記録"):GAME_TYPES.find(t=>t[0]===ty)[2];const gs=y?todays():[];
   modal(`<div class="rowsb"><div class="h2">投稿する</div><span class="chip">${y?"⚾ プロ野球":"🎮 ゲーム実況"}</span></div>
   ${y?"":`<div class="ctype" role="group" aria-label="投稿の種類">${GAME_TYPES.map(([k,l])=>`<button class="${ty===k?"on":""}" data-ty="${k}">${l}</button>`).join("")}</div>`}
   ${subs.length>1?`<div class="chiprow">${subs.map(k=>`<button class="${st.cat===k?"on":""}" data-k="${k}">${k}</button>`).join("")}</div>`:""}
@@ -2474,8 +2649,8 @@ function cmDay(){const d=today();if(!S.cmd||S.cmd.day!==d)S.cmd={day:d,posts:0,r
 /* opt.mission：ミッションの種類（プロ野球は room）・opt.heat：球団対抗に数えるか（自分の応援球団のタグ） */
 function localTalk(kind,opt){opt=opt||{};const c=cmDay();
  if(c.last&&Date.now()-c.last<30000)return{ok:false,code:"too-fast",reason:"続けて書くときは30秒あけてください"};if(kind==="post"&&c.posts>=10)return{ok:false,code:"daily-limit"};if(kind==="reply"&&c.replies>=50)return{ok:false,code:"daily-limit"};
- c.last=Date.now();if(kind==="post"){c.posts++;if(c.postP<3){c.postP++;addP(5,"投稿")}}else{c.replies++;if(c.replyP<5){c.replyP++;addP(5,"返信")}}mprog(opt.mission||"talk");if(opt.heat)addHeat();return{ok:true}}
-const talkOpt=p=>{const y=worldOf(p)==="yakyu",t=teamOf(p);return{mission:y?"room":"talk",heat:y&&!!t&&t===S.team}};
+ c.last=Date.now();if(kind==="post"){c.posts++;if(c.postP<3&&!opt.noP){c.postP++;addP(5,"投稿")}}else{c.replies++;if(c.replyP<5){c.replyP++;addP(5,"返信")}}mprog(opt.mission||"talk");if(opt.heat)addHeat();return{ok:true}}
+const talkOpt=p=>{const y=worldOf(p)==="yakyu",t=teamOf(p);const rec=p.cat==="観戦記録";return{mission:rec?"none":y?"room":"talk",heat:!rec&&y&&!!t&&t===S.team,noP:rec}}; /* 記録のシェアはポイント・ミッション・球団対抗に数えない */
 function checkPostLocal(p){if(p.img&&!p.text&&p.cat!=="オーダー自慢"&&p.cat!=="ガチャ報告")return{ok:true};if(p.cat==="オーダー自慢"){const w=checkOrder(p.meta);if(w)return{ok:false,code:"bad-meta",reason:w};if(p.text&&p.text.length>200)return{ok:false,code:"too-long"};if(p.text){const t=NGW.text(p.text);if(t)return{ok:false,code:"ng-word",reason:t}}return{ok:true}}
  if(!p.text&&p.cat!=="ガチャ報告")return{ok:false,code:"too-short"};if(p.text&&p.text.length<2&&!p.img)return{ok:false,code:"too-short"};if(p.text.length>200)return{ok:false,code:"too-long"};
  const why=p.text?NGW.text(p.text):"";if(why)return{ok:false,code:"ng-word",reason:why};
@@ -2484,7 +2659,7 @@ function submitPost(p,done,fail){const pre=checkPostLocal(p);if(!pre.ok){toast(e
  act("createPost",p,()=>{const t=localTalk("post",talkOpt(p));if(!t.ok)return t;const now=Date.now();
   CM.posts.push({id:"m"+(CM.seq++),uid:"me",name:S.name,...myLook(),world:p.world||"game",team:p.team||"",game:p.game||"",gameInfo:p.game?parseGK(p.game):null,img:p.img||"",cat:p.cat,text:p.text,ch:p.ch,meta:p.meta,room:"",at:now,day:today(),week:weekKey(),likes:0,replies:0,best:"",hidden:false,rx:{},solved:false,closed:false,joins:0,joined:[],expireAt:p.cat==="対戦募集"?now+3*36e5:0});
   const c=cmDay();if(p.cat==="ガチャ報告"&&c.gachaP<1){c.gachaP=1;addP(5,"ガチャ報告");mprog("gacha")}if(!cmSave()&&p.img){CM.posts.pop();cmSave();return{ok:false,code:"storage-full",reason:"この端末の保存場所がいっぱいです。画像なしで投稿するか、自分の古い画像つき投稿を消してください"}}return{ok:true}},
-  r=>{if(!r||r.ok===false){fail&&fail();return}const nid=SV?r.id:(CM.posts[CM.posts.length-1]||{}).id;if(nid)tlPin.add(nid);S.posted=(S.posted||0)+1;mstat(worldOf(p)==="yakyu"?"room":"talk");save();toast("投稿しました");if(SV){if(p.game)delete GAMEFEED[p.game];fetchPosts()}done&&done();renderAll();setTimeout(maybeInterstitial,600)})}
+  r=>{if(!r||r.ok===false){fail&&fail();return}const nid=SV?r.id:(CM.posts[CM.posts.length-1]||{}).id;if(nid)tlPin.add(nid);LAST_POST_ID=nid||"";S.posted=(S.posted||0)+1;mstat(worldOf(p)==="yakyu"?"room":"talk");save();toast("投稿しました");if(SV){if(p.game)delete GAMEFEED[p.game];fetchPosts()}done&&done();renderAll();setTimeout(maybeInterstitial,600)})}
 /* --- 投稿の詳細・返信 --- */
 async function openPost(id,o){o=o||{};const p=findPost(id);if(!p||p.hidden){toast(ERR["not-found"],1);return}
  const reps=await getReplies(id);reps.forEach(r=>{r.room=p.room||"";r.world=worldOf(p)});if(p.uid===ME()){S.seenRep=S.seenRep||{};S.seenRep[id]=p.replies||reps.length;save();renderAll()}
@@ -2529,7 +2704,8 @@ function likeIt(kind,t,then){if(!t)return;const k=kind+"_"+t.id;if(S.liked[k])re
   r=>{if(!r||(r.ok===false&&r.code!=="already"))return;S.liked[k]=1;if(SV&&r.ok!==false)t.likes=(t.likes||0)+1;save();pop(kind==="post"?(isSoudan(t)?"参考になった":"ナイス！"):isSoudan(findPost(t.post)||{})?"参考になった":"いいね");then&&then()})}
 function chooseBest(p,r){if(!r)return;act("setBest",{postId:p.id,replyId:r.id},()=>{const cp=CM.posts.find(x=>x.id===p.id);const cr=CM.replies.find(x=>x.id===r.id);if(cp)cp.best=r.id;if(cr)cr.best=true;cmSave();return{ok:true}},
  x=>{if(!x||x.ok===false)return;eachCopy(p.id,y=>{y.best=r.id;y.solved=true});const cp=CM.posts.find(y=>y.id===p.id);if(cp)cp.solved=true;cmSave();toast("この回答で解決にしました");renderAll();openPost(p.id)})}
-const KIND_W={post:"投稿",reply:"返信",chat:"書き込み",user:""};
+const KIND_W={post:"投稿",reply:"返信",chat:"書き込み",user:"",stadium:"球場"};
+let LAST_POST_ID="";
 function moreMenu(kind,id,uid,name,back){const mine=uid===ME();
  modal(`<div class="h2">${mine?"自分の"+KIND_W[kind]:esc(name)+"さん"+(KIND_W[kind]?"の"+KIND_W[kind]:"")}</div>
  ${mine?`<button class="btn paper wide" id="del1">消す</button>`:`<div class="h2" style="font-size:14px">通報する理由</div><div class="chiprow" style="flex-wrap:wrap">${REASONS.map((r,i)=>`<button data-rs="${i}">${r}</button>`).join("")}</div>
@@ -2543,7 +2719,7 @@ function renderBlocks(){const b=S.blocked||[];$("#blockBox").innerHTML=`<div cla
  $("#blockBox").querySelectorAll("[data-ub]").forEach(x=>x.onclick=()=>act("block",{target:x.dataset.ub,on:false},()=>({ok:true}),r=>{if(!r||r.ok===false)return;S.blocked=(S.blocked||[]).filter(u=>u!==x.dataset.ub);save();renderAll()}))}
 /* --- ホーム：今日のまとめ --- */
 function renderDigest(){const {info,done}=pollState();const d=new Date(Date.now()+JST);const date=`${d.getUTCMonth()+1}/${d.getUTCDate()}（${"日月火水木金土"[d.getUTCDay()]}）`;
- if(isY()){const t=S.team,day=today(),g=t&&gamesOf(t,day)[0],gs=gameState(g),todays=GAMES.filter(x=>x.day===day);const heat=teamHeat().sort((a,b)=>b.n-a.n);const my=heat.findIndex(r=>r.t===t)+1;
+ if(isY()){const t=S.team,day=today(),g=t&&gamesOf(t,day)[0],gs=gameState(g),todays=GAMES.filter(x=>x.day===day).map(gView);const heat=teamHeat().sort((a,b)=>b.n-a.n);const my=heat.findIndex(r=>r.t===t)+1;
   $("#digestBox").innerHTML=`<div class="rowsb"><h2 class="h2">今日のまとめ</h2><span class="chip">${date}</span></div>
   <div class="quick"><button data-dgo="game"><span class="qi">${ICON.ball}</span><b>試合実況</b><small>${g?esc(gs.t):"雑談OK"}</small></button><button data-dgo="room"><span class="qi">${QI.pen}</span><b>みんな</b><small>${t?esc(t)+"の投稿":"球団を選ぶ"}</small></button><button data-dgo="vote"><span class="qi">${QI.heart}</span><b>応援する</b><small>残り${S.vLeft}票</small></button></div>
   <div class="dlist">
@@ -2634,7 +2810,10 @@ let GAMES=[];
 /* 見本モードだけの試合日程（本番は latest.json の games） */
 if(DEMO){const d0=today(),d1=dayKeyOf(Date.now()+864e5);[["ロッテ","日本ハム","ZOZOマリン"],["ソフトバンク","西武","みずほPayPay"],["オリックス","楽天","京セラD大阪"],["巨人","阪神","東京ドーム"],["DeNA","中日","横浜"],["広島","ヤクルト","マツダスタジアム"]].forEach(([h,a,pl],i)=>{const hr=jstHour(),sc=[(hashN(h+d0)%6)+1,(hashN(a+d0)%5)];GAMES.push(Object.assign({day:d0,time:"18:00",home:h,away:a,place:pl},hr>=21?{status:"end",score:sc}:hr>=18?{status:"live",inning:`${hr===18?3:hr===19?5:8}回${i%2?"表":"裏"}`,score:[sc[0]-1,sc[1]]}:{}));GAMES.push({day:d1,time:i%2?"14:00":"18:00",home:a,away:h,place:""})})}
 const gameVid=(day,team)=>`g_${day}_${TEAMS.indexOf(team)}`;
-const gamesOf=(team,day)=>GAMES.filter(g=>(g.home===team||g.away===team)&&(!day||g.day===day));
+/* 「あとで見る」の試合は、スコア・結果を消したコピーで見せる（ネタバレ防止） */
+const ykHideG=g=>{try{return!!(g&&typeof ykHidden==="function"&&ykHidden(gameKeyOf(g)))}catch(e){return false}};
+const gView=g=>{if(!ykHideG(g))return g;const c=Object.assign({},g,{ykHide:true});["score","status","inning","walkoff"].forEach(k=>delete c[k]);return c};
+const gamesOf=(team,day)=>GAMES.filter(g=>(g.home===team||g.away===team)&&(!day||g.day===day)).map(gView);
 function gameLine(g,team){const home=g.home===team;return`${home?"":"＠"}vs ${esc(home?g.away:g.home)}${g.time?` ${esc(g.time)}`:""}${g.place?`・${esc(g.place)}`:""}`}
 const TEAM_STAMPS=["いけー！","打った！","ナイスピッチ！","ナイス守備！","まだいける","勝ったー！"],TEAM_STAMPS_PASS=["サヨナラ！","完封！","神采配","胴上げ！"];
 function seedGame(team,vid){if(!DEMO||(CM.chats||[]).some(m=>m.vid===vid))return;CM.chats=CM.chats||[];const now=Date.now();
@@ -2742,7 +2921,7 @@ const ART={
 function gameScore(g){return g&&Array.isArray(g.score)?`${g.home} ${g.score[0]}-${g.score[1]} ${g.away}`:""}
 /* 応援球団から見た勝ち負け */
 function gameResult(g,t){if(!g||!g.score||!t||(g.home!==t&&g.away!==t))return"";const my=g.home===t?g.score[0]:g.score[1],op=g.home===t?g.score[1]:g.score[0];return my>op?"勝ち":my<op?"負け":"引き分け"}
-function gameState(g){if(g&&g.status==="off")return{k:"off",t:"中止"};
+function gameState(g){if(g&&g.ykHide&&Date.now()>=Date.parse(g.day+"T00:00:00+09:00")+((parseInt(g.time)||18)*60)*6e4)return{k:"hide",t:"結果をかくし中"};if(g&&g.forcePre)return{k:"pre",t:`${g.time||"18:00"} プレイボール`};if(g&&g.status==="off")return{k:"off",t:"中止"};
  if(g&&g.status==="end"){const r=gameResult(g,S.team);return{k:"post",t:`試合終了 ${g.score?g.score[0]+"-"+g.score[1]:""}${r?"・"+r:""}`.trim(),r}}
  if(g&&g.status==="live")return{k:"on",t:`${g.inning||"試合中"}${g.score?" "+g.score[0]+"-"+g.score[1]:""}`};
  if(!g||!g.time)return{k:"",t:"今日"};const [h,m]=g.time.split(":").map(Number);const d=new Date(Date.parse(g.day+"T00:00:00+09:00"));const st=d.getTime()+(h*60+m)*6e4,now=Date.now();
@@ -2761,7 +2940,7 @@ function renderLive(){const box=$("#v-live");if(!box)return;const t=S.team,day=t
   :`${ART.screen("l")}<div class="lh-body">${ART.mascot(64)}<div><h2 class="lh-title">配信実況</h2><p class="lh-sub">ライブを見ながらみんなで</p></div></div>`;
  $("#gameBox").hidden=!y;$("#liveHead").textContent=y?"ファンのライブ配信":"いまライブ中";$("#liveSub").textContent=y?"同時視聴・試合後の反省会など":"ライブ配信を見ながら、みんなで話そう";$("#upHead").textContent=y?"ファンの配信予定":"これからの配信";
  // 試合実況
- const todays=GAMES.filter(g=>g.day===day);const g=t&&gamesOf(t,day)[0];const gs=gameState(g);
+ const todays=GAMES.filter(g=>g.day===day).map(gView);const g=t&&gamesOf(t,day)[0];const gs=gameState(g);
  $("#gameBox").innerHTML=`${t?`<button class="gcard ${tcText(t)!=="#fff"?"lt":""}" id="gameGo" style="--tc:${TEAMC[t]||"#1E1B18"}"><span class="gc-top"><span class="gc-team">${esc(t)}</span><span class="gc-state ${gs.k}">${gs.k==="on"?'<i class="dotlive"></i>':""}${esc(gs.t)}</span></span>
     <span class="gc-match">${g?`<b>${esc(g.home)}</b><i>${g.score?`${g.score[0]} - ${g.score[1]}`:"vs"}</i><b>${esc(g.away)}</b>`:`<b>${day.slice(5).replace("-","/")}の実況スレ</b>`}</span>
     <span class="gc-info">${g?`${esc(g.time||"")}${g.place?`・${esc(g.place)}`:""}`:"今日は試合の予定がありません（雑談もOK）"}</span>
@@ -3632,15 +3811,27 @@ const visible=p=>p&&!p.hidden&&!blockedSet().has(p.uid)&&(!p.room||p.room===S.te
 function postsOf(w){if(!CM)cmLoad();const src=SV?(FEED[w]||(!SV.feed&&SPOSTS)||[]):CM.posts;return src.filter(p=>visible(p)&&worldOf(p)===w)}
 const postsAny=()=>[...postsOf("game"),...postsOf("yakyu")];
 /* 試合のキー（サーバーの R.gameKey と同じ）："gm_20260930_7_6"（日付・ホーム・ビジター） */
+const ykHideK=k=>{try{return!!(k&&typeof ykHidden==="function"&&ykHidden(k))}catch(e){return false}};
+const postHid=p=>ykHideK(p.game)||ykHideK(p.meta&&p.meta.rec&&p.meta.rec.gid);
 const gameKeyOf=g=>g?`gm_${g.day.replace(/-/g,"")}_${TEAMS.indexOf(g.home)}_${TEAMS.indexOf(g.away)}`:"";
 function parseGK(k){const m=/^gm_(\d{4})(\d{2})(\d{2})_(\d{1,2})_(\d{1,2})$/.exec(k||"");return m&&TEAMS[+m[4]]&&TEAMS[+m[5]]?{day:`${m[1]}-${m[2]}-${m[3]}`,home:TEAMS[+m[4]],away:TEAMS[+m[5]]}:null}
-const gameOfKey=k=>{const i=parseGK(k);return i?GAMES.find(g=>g.day===i.day&&g.home===i.home&&g.away===i.away)||null:null};
+const gameOfKey=k=>{const i=parseGK(k);return i?gView(GAMES.find(g=>g.day===i.day&&g.home===i.home&&g.away===i.away)||null):null};
 const gameLabel=i=>i?`${esc(i.home)} vs ${esc(i.away)}`:"";
 const myTodayGame=()=>S.team&&typeof gamesOf==="function"?gamesOf(S.team,today())[0]||null:null;
 /* おすすめ：新しい順を基本に、好きな球団・今日の試合・推しの配信者を少しだけ上に（くわしくは上の「並び順のきまり」） */
 function favChs(){return new Set([...Object.keys(S.votes||{}),...Object.keys(S.scout||{})])}
-function recList(w){const H=36e5,fav=favChs(),mg=gameKeyOf(myTodayGame());
- const score=p=>{let s=p.at;if(tlPin.has(p.id))s+=1e12; /* いま書いた自分の投稿 */if(w==="yakyu"){if(S.team&&teamOf(p)===S.team)s+=6*H;if(mg&&p.game===mg)s+=3*H}else{if(p.ch&&fav.has(p.ch))s+=4*H}return s};
+/* おすすめの理由（カードに短く出す）。好み（もっと見たい／減らしたい）は野球ノートの設定に保存 */
+const REC_WHY=new Map();
+function recList(w){const H=36e5,fav=favChs(),mg=gameKeyOf(myTodayGame());REC_WHY.clear();const pf=w==="yakyu"&&typeof YKS==="function"?YKS().prefs:{kind:{},team:{}};
+ const fol=w==="yakyu"&&typeof YKS==="function"?YKS().follow.map(id=>(playerById(id)||{}).name).filter(Boolean):[];const td=today();
+ const score=p=>{let s=p.at;const why=[];if(tlPin.has(p.id))s+=1e12; /* いま書いた自分の投稿 */
+  if(w==="yakyu"){if(S.team&&teamOf(p)===S.team){s+=6*H;why.push("同じ球団")}if(mg&&p.game===mg){s+=3*H;why.push("今日の試合")}
+   if(fol.some(n=>String(p.text||"").includes(n)||JSON.stringify(p.meta||{}).includes(n))){s+=3*H;why.push("追いかけている選手")}
+   const k=pf.kind[p.cat]||0,t=pf.team[teamOf(p)]||0;if(k||t){s+=(k+t)*4*H;why.push(k+t>0?"もっと見たい":"")}
+   /* 速報（試合の感想）は試合の日が過ぎたら下げる。観戦記録などの長く読めるものは下げない */
+   if(p.cat==="試合の感想"&&p.game&&gk2day(p.game)<td)s-=6*H}
+  else{if(p.ch&&fav.has(p.ch)){s+=4*H;why.push("よく見る配信者")}}
+  if(why.filter(Boolean).length)REC_WHY.set(p.id,why.filter(Boolean)[0]);return s};
  const list=postsOf(w).filter(p=>p.cat!=="お題"&&p.cat!=="野球のお題");
  const top=list.filter(bumped).sort((a,b)=>(b.bumpAt||0)-(a.bumpAt||0)).slice(0,ADS.bumpTop),ids=new Set(top.map(p=>p.id));
  return[...top,...list.filter(p=>!ids.has(p.id)).sort((a,b)=>score(b)-score(a)||String(b.id).localeCompare(String(a.id)))]}
@@ -3677,7 +3868,7 @@ function tlCard(p,o){o=o||{};const me=p.uid===ME();const nr=me?Math.max(0,(p.rep
  <button class="tp-av av${frameCls(p.frame)}" data-tuser="${esc(p.uid)}" data-uname="${esc(p.name)}" style="${frameSt(p)}background:${me?"var(--tomato)":"#1E1B18"}" aria-label="${esc(p.name)}さんのページ">${esc((p.name||"?")[0])}</button>
  <div class="tp-main">
   <${o.detail?"div":"button"} class="tp-open" ${o.detail?"":`data-open="${esc(p.id)}"`}>
-   <span class="tp-h"><b style="${p.color?`color:${p.color}`:""}">${esc(p.name)}${me?"（あなた）":""}</b><small>${agoTxt(p.at)}${p.title?"・"+esc(p.title):""}</small>${onTop(p)?'<span class="bumpchip">上げ中</span>':""}${p.sample?'<span class="samplechip">見本</span>':""}${catChip(p.cat)}</span>
+   <span class="tp-h"><b style="${p.color?`color:${p.color}`:""}">${esc(p.name)}${me?"（あなた）":""}</b><small>${agoTxt(p.at)}${p.title?"・"+esc(p.title):""}</small>${onTop(p)?'<span class="bumpchip">上げ中</span>':""}${p.sample?'<span class="samplechip">見本</span>':""}${catChip(p.cat)}</span>${o.why?`<span class="tp-why" data-why="${esc(p.id)}">おすすめ：${esc(o.why)} ･･･</span>`:""}
    ${p.text?`<span class="tp-tx">${esc(p.text)}</span>`:""}${meta}
    ${p.img&&!o.detail?`<span class="tp-img"><img src="${esc(p.img)}" alt="投稿の画像" loading="lazy"></span>`:""}
   </${o.detail?"div":"button"}>${p.img&&o.detail?`<button class="tp-img" data-zoom="1" aria-label="画像を大きく見る"><img src="${esc(p.img)}" alt="投稿の画像"></button>`:""}
@@ -3688,6 +3879,11 @@ function tlCard(p,o){o=o||{};const me=p.uid===ME();const nr=me?Math.max(0,(p.rep
 function postCard(p,flat){return tlCard(p)}
 
 /* ---------- カードの操作（どの画面のカードでも効くように、まとめて受ける） ---------- */
+document.addEventListener("click",e=>{const t=e.target.closest(".tp [data-why]");if(!t)return;e.stopPropagation();e.preventDefault();const p=findPost(t.dataset.why);if(p)prefMenu(p)},true);
+/* 「もっと見たい／減らしたい」：投稿の種類・球団ごと（この端末に保存。設定からリセットできる） */
+function prefMenu(p){const pf=YKS().prefs,t=teamOf(p);const row=(lab,obj,key)=>key?`<div class="yk-set"><span>${lab}</span><div class="yk-seg sm"><button class="${obj[key]>0?"on":""}" data-pv="1">もっと見たい</button><button class="${!obj[key]?"on":""}" data-pv="0">ふつう</button><button class="${obj[key]<0?"on":""}" data-pv="-1">減らしたい</button></div></div>`:"";
+ modal(`<div class="h2">おすすめの調整</div><p class="sub" style="margin:0">おすすめは、新しい順に「同じ球団・今日の試合・追いかけている選手・あなたの好み」で少し上げ下げしています。コメントの数では上げません。</p><div data-k="kind">${row("「"+esc(p.cat)+"」の投稿",pf.kind,p.cat)}</div><div data-k="team">${row(esc(t)+"の投稿",pf.team,t)}</div><button class="btn paper wide" id="mc">とじる</button>`,x=>{
+  x.querySelector("#mc").onclick=closeModal;x.querySelectorAll("[data-k]").forEach(box=>box.querySelectorAll("[data-pv]").forEach(b=>b.onclick=()=>{const obj=pf[box.dataset.k],key=box.dataset.k==="kind"?p.cat:t;const v=+b.dataset.pv;if(v)obj[key]=v;else delete obj[key];ykSave();closeModal();toast("おすすめを調整しました");renderAll()}))})}
 document.addEventListener("click",e=>{const t=e.target.closest(".tp [data-rx],.tp [data-join],.tp [data-close],.tp [data-gk],.tp [data-tuser],.tp [data-tch],.tp [data-open],.tp [data-zoom]");if(!t)return;
  const card=t.closest(".tp");const id=card&&card.dataset.tp;const p=findPost(id);e.stopPropagation();
  if(t.dataset.rx){if(p)react(p,t.dataset.rx);return}
@@ -3753,13 +3949,15 @@ function renderFeed(){if(!CM)cmLoad();const w=W(),tabs=TL_TABS[w];if(!tabs.some(
  else if(tab==="follow"){list=followList(w);empty=(S.follow||[]).length?"フォロー中の人の投稿はまだありません":"まだだれもフォローしていません。投稿の名前やアイコンを押して「フォロー」すると、ここに並びます"}
  else if(tab==="team"){list=teamList();empty=S.team?`${esc(S.team)}の投稿はまだありません。${esc(S.team)}ファンに向けて最初のひとことを`:""}
  else{list=consultList();empty=tlFilter==="wait"?"回答を待っている相談はありません":tlFilter==="open"?"いま募集中の対戦はありません。自分で募集してみよう":"まだ相談・募集がありません。困っていることを相談してみよう"}
+ const hidN=list.filter(postHid).length;if(hidN)list=list.filter(p=>!postHid(p));
  const pre=[];
+ if(hidN)pre.push(`<p class="tl-local">🙈 「あとで見る」の試合の投稿 ${hidN}件をかくしています（試合のページで「見終わった」を押すと表示）</p>`);
  if(tab==="team"&&!S.team)pre.push(`<div class="tl-pick"><b>応援球団をえらぶと、同じ球団のファンの投稿が並びます</b><div class="tl-teams">${TEAMS.map(x=>`<button data-pick="${x}" style="--tc:${TEAMC[x]||"#1E1B18"}">${x}</button>`).join("")}</div><small>変更は30日に1回。選ばなくても「おすすめ」で読めます</small></div>`);
  if(tab==="rec"&&w==="yakyu"&&!S.team)pre.push(`<button class="tl-hint" data-tl-go="team">⚾ 応援球団をえらぶと、同じ球団の投稿が上に出ます ›</button>`);
  if(tab==="consult")pre.push(`<div class="chiprow tl-filter" id="tlFilter" data-keepx="1">${[["all","すべて"],["wait","回答まち"],["open","募集中"],["soudan","相談"],["boshu","募集"]].map(([k,l])=>`<button class="${tlFilter===k?"on":""}" data-tf="${k}">${l}</button>`).join("")}</div>`);
  if(LOCAL_ONLY())pre.push(`<p class="tl-local">ウェブのお試し版：書いた内容はこの端末の中だけに保存され、ほかの人には見えません（みんなとつながるのはアプリ版）</p>`);
  const items=[];let ads=0;
- list.slice(0,60).forEach((p,i)=>{items.push(tlCard(p));
+ list.slice(0,60).forEach((p,i)=>{items.push(tlCard(p,{why:tab==="rec"&&w==="yakyu"?REC_WHY.get(p.id)||"":""}));
   if(tab==="rec"){if(i===1)items.push(pollCardTL());if(i===6){const nc=newsCardTL();if(nc)items.push(nc)}}
   if(i+1>ADS.feedSkip&&(i+1)%ADS.feedEvery===0){const a=adCard();if(a){items.push(a);ads++}}});
  if(tab==="rec"){if(list.length<2)items.push(pollCardTL());if(list.length<7){const nc=newsCardTL();if(nc)items.push(nc)}}
@@ -3777,10 +3975,10 @@ function bindTlInner(root){root.querySelectorAll("[data-tlpoll]").forEach(b=>b.o
  root.querySelectorAll("[data-tl-go]").forEach(b=>b.onclick=()=>{tlTab[W()]=b.dataset.tlGo;renderComm()});
  bindNews(root)}
 /* 「…」メニュー：お題・速報・ガチャ報告・ランキング・自分の投稿など（機能はそのまま、場所だけ移す） */
-const SUB_DEF={poll:["今日のお題","poll"],news:["速報","news"],gacha:["ガチャ報告","gacha"],rank:["ランキング","rank"],mine:["自分の投稿","board"],game:["この試合の投稿","team"],rules:["書き込みのルール","flag"]};
-function openTlMenu(){const y=isY(),unread=unreadReplies();const items=["poll","news",...(y?[]:["gacha"]),"rank","mine","rules"];
+const SUB_DEF={poll:["今日のお題","poll"],news:["速報","news"],gacha:["ガチャ報告","gacha"],rank:["ランキング","rank"],mine:["自分の投稿","board"],game:["この試合の投稿","team"],rules:["書き込みのルール","flag"],gallery:["球場ギャラリー","rank"]};
+function openTlMenu(){const y=isY(),unread=unreadReplies();const items=["poll","news",...(y?["gallery"]:["gacha"]),"rank","mine","rules"];
  modal(`<div class="h2">メニュー</div><div class="tlm">${items.map(k=>`<button data-m="${k}"><span class="si">${SEG_ICON[SUB_DEF[k][1]]||QI.flag}</span><b>${SUB_DEF[k][0]}</b>${k==="mine"&&unread?`<i class="newdot">${unread}</i>`:""}<span class="go">›</span></button>`).join("")}</div><button class="btn paper wide" id="mc">とじる</button>`,x=>{
-  x.querySelector("#mc").onclick=closeModal;x.querySelectorAll("[data-m]").forEach(b=>b.onclick=()=>{closeModal();if(b.dataset.m==="rules"){openRules();return}openSub(b.dataset.m)})})}
+  x.querySelector("#mc").onclick=closeModal;x.querySelectorAll("[data-m]").forEach(b=>b.onclick=()=>{closeModal();if(b.dataset.m==="rules"){openRules();return}if(b.dataset.m==="gallery"){ykOpen("gallery");return}openSub(b.dataset.m)})})}
 function openRules(){modal(`<div class="h2">書き込みのルール</div>${GUIDE}<button class="btn paper wide" id="mc">とじる</button>`,x=>{x.querySelector("#mc").onclick=closeModal})}
 function openSub(k,arg){tlSub=k;tlSubArg=arg||"";goTab("comm");renderComm();scrollTo(0,0)}
 function closeSub(){tlSub="";tlSubArg="";renderComm();scrollTo(0,0)}
@@ -3798,6 +3996,7 @@ function renderSub(){const k=tlSub;$("#subBar").innerHTML=`<button class="subbac
 function openGamePosts(gk){if(!parseGK(gk))return;if(W()!=="yakyu")setWorld("yakyu",true);tlSub="game";tlSubArg=gk;goTab("comm");renderComm();scrollTo(0,0);
  if(SV&&SV.gamePosts)SV.gamePosts(gk).then(l=>{GAMEFEED[gk]=keepPosts(l||[]);if(tlSub==="game"&&tlSubArg===gk)renderComm()}).catch(()=>{})}
 function renderGamePosts(){const gk=tlSubArg,gi=parseGK(gk),g=gameOfKey(gk);if(!gi){closeSub();return}
+ if(ykHideK(gk)){$("#cGamePosts").innerHTML=`<div class="tl-empty">${ART.mascot(64)}<p>この試合は「あとで見る」で、結果と投稿をかくしています。</p><button class="btn tomato" id="gpShow">見終わった（表示する）</button></div>`;$("#gpShow").onclick=()=>{ykSpoil(gk,false);renderAll()};return}
  const loc=postsOf("yakyu").filter(p=>p.game===gk),srv=(GAMEFEED[gk]||[]).filter(visible);const m=new Map([...srv,...loc].map(p=>[p.id,p]));const list=[...m.values()].sort((a,b)=>b.at-a.at);
  const gs=g&&g.day===today()?gameState(g):null;const mine=S.team&&(gi.home===S.team||gi.away===S.team)&&gi.day===today();
  const sc=g&&Array.isArray(g.score)?`${g.score[0]} - ${g.score[1]}`:"vs";
@@ -3811,6 +4010,838 @@ function renderGamePosts(){const gk=tlSubArg,gi=parseGK(gk),g=gameOfKey(gk);if(!
 (()=>{let y0=0,tmr=0;addEventListener("scroll",()=>{const f=$("#fabPost");if(!f)return;const y=scrollY;
  if(y>y0+8&&y>120)f.classList.add("fab-hide");else if(y<y0-8)f.classList.remove("fab-hide");y0=y;
  clearTimeout(tmr);tmr=setTimeout(()=>f.classList.remove("fab-hide"),1200)},{passive:true})})();
+
+/* =====================================================================
+   ヤキュトモ 野球ノート（プロ野球モードの「観戦の記録」と「自分の球場」）── 共通データ
+   ・試合・選手・球団・球場は安定したIDでつなぐ
+     球団 t_xxx ／ 球場 v_xxx ／ 選手 p_<NPBの選手番号> ／ 試合 gm_YYYYMMDD_<ホーム>_<ビジター>（投稿の game と同じ）
+   ・試合の日程と結果は latest.json（GAMES）、選手一覧と試合の個人成績は npb.json（データ収集キットが NPB 公式の公開ページから作る）
+   ・データは「取り出し口」（npbLoad / ykBox など）を通して読む。読めないとき・まだ無いときは、その状態をそのまま返す
+   ・npb.json に入っているのは10日分。それより前の試合は、利用者の記録に残した控え（YKS().gsnap）で見る
+   ===================================================================== */
+const YK_TEAM_IDS=["t_marines","t_hawks","t_fighters","t_eagles","t_lions","t_buffaloes","t_giants","t_tigers","t_baystars","t_carp","t_swallows","t_dragons"];
+const teamId=t=>YK_TEAM_IDS[TEAMS.indexOf(t)]||"";
+const teamOfId=id=>TEAMS[YK_TEAM_IDS.indexOf(id)]||"";
+/* 球場（名前は公開されている事実だけ。ロゴや写真は使わない） */
+const YK_VENUES=[
+ {id:"v_marine",name:"ZOZOマリンスタジアム",short:"ZOZOマリン",area:"千葉",home:"ロッテ",alias:["ZOZOマリン","マリン"]},
+ {id:"v_fukuoka",name:"みずほPayPayドーム福岡",short:"みずほPayPay",area:"福岡",home:"ソフトバンク",alias:["みずほPayPay","PayPay"]},
+ {id:"v_escon",name:"エスコンフィールドHOKKAIDO",short:"エスコンF",area:"北海道",home:"日本ハム",alias:["エスコン"]},
+ {id:"v_miyagi",name:"楽天モバイル 最強パーク宮城",short:"楽天モバイル宮城",area:"宮城",home:"楽天",alias:["宮城","楽天モバイル"]},
+ {id:"v_belluna",name:"ベルーナドーム",short:"ベルーナD",area:"埼玉",home:"西武",alias:["ベルーナ"]},
+ {id:"v_kyocera",name:"京セラドーム大阪",short:"京セラD大阪",area:"大阪",home:"オリックス",alias:["京セラ"]},
+ {id:"v_tokyodome",name:"東京ドーム",short:"東京ドーム",area:"東京",home:"巨人",alias:["東京ドーム"]},
+ {id:"v_koshien",name:"阪神甲子園球場",short:"甲子園",area:"兵庫",home:"阪神",alias:["甲子園"]},
+ {id:"v_yokohama",name:"横浜スタジアム",short:"横浜",area:"神奈川",home:"DeNA",alias:["横浜"]},
+ {id:"v_mazda",name:"MAZDA Zoom-Zoom スタジアム広島",short:"マツダスタジアム",area:"広島",home:"広島",alias:["マツダ"]},
+ {id:"v_jingu",name:"明治神宮野球場",short:"神宮",area:"東京",home:"ヤクルト",alias:["神宮"]},
+ {id:"v_vantelin",name:"バンテリンドーム ナゴヤ",short:"バンテリンD",area:"愛知",home:"中日",alias:["バンテリン","ナゴヤ"]}];
+const venueById=id=>YK_VENUES.find(v=>v.id===id)||(/^v_x_/.test(id||"")?{id,name:id.slice(4),short:id.slice(4),area:"",home:""}:null);
+/* 本拠地以外の球場（地方球場など）は名前のまま扱う（id は v_x_<名前>） */
+const venueOfGame=g=>{if(!g)return null;const p=String(g.place||"");const v=p&&YK_VENUES.find(v=>v.name===p||v.short===p||v.alias.some(a=>p.includes(a)));
+ if(v)return v;if(p)return{id:"v_x_"+p.slice(0,20),name:p,short:p,area:"",home:""};return YK_VENUES.find(v=>v.home===g.home)||null};
+
+/* ---------- 選手一覧・個人成績（npb.json） ---------- */
+const NPB={players:[],boxes:{},updated:"",at:0,ok:false,err:"",loading:false,tried:0};
+const NPBKEY="yakyutomo-npb";
+const npbUrl=()=>typeof DATA_URL!=="undefined"&&DATA_URL?DATA_URL.replace(/[^/]*$/,"")+"npb.json":"";
+let YK_PL=null,YK_PLMAP=null;const YK_BOXC={};
+function useNpb(d,at){NPB.players=Array.isArray(d&&d.players)?d.players:[];NPB.boxes=d&&d.boxes&&typeof d.boxes==="object"?d.boxes:{};NPB.updated=String(d&&d.updated||"");NPB.at=at||Date.now();NPB.ok=true;NPB.err="";
+ YK_PL=null;YK_PLMAP=null;Object.keys(YK_BOXC).forEach(k=>delete YK_BOXC[k])}
+(function(){try{const c=JSON.parse(localStorage.getItem(NPBKEY)||"null");if(c&&c.d)useNpb(c.d,c.at)}catch(e){}})();
+/* 10分に1回まで読み直す（プロ野球を見ているときだけ）。読めなかったら前のデータのまま */
+function npbLoad(force){const u=npbUrl();if(!u){NPB.err=NPB.ok?"":"nourl";return Promise.resolve(false)}
+ if(NPB.loading||(!force&&Date.now()-NPB.tried<10*6e4))return Promise.resolve(false);NPB.loading=true;NPB.tried=Date.now();
+ return fetch(u,{cache:"no-store"}).then(r=>{if(!r.ok)throw new Error(r.status);return r.json()}).then(d=>{useNpb(d);try{localStorage.setItem(NPBKEY,JSON.stringify({at:Date.now(),d}))}catch(e){}
+  NPB.loading=false;if(typeof ykSnapAll==="function")ykSnapAll();renderAll();return true}).catch(()=>{NPB.loading=false;NPB.err="load";renderAll();return false})}
+const POSN={投手:"投手",捕手:"捕手",内野手:"内野手",外野手:"外野手"};
+/* 選手：名簿＋試合に出た選手（名簿にいない選手も、成績に出てきたら入れる） */
+function ykPlayers(){if(YK_PL)return YK_PL;const m=new Map();
+ NPB.players.forEach(p=>{if(p&&p.id&&TEAMS.includes(p.t))m.set("p_"+p.id,{id:"p_"+p.id,name:String(p.n||""),team:p.t,no:String(p.no||""),pos:POSN[p.pos]||"",pitcher:p.pos==="投手"})});
+ Object.values(NPB.boxes).forEach(b=>{["bat","pit"].forEach(kind=>Object.entries(b[kind]||{}).forEach(([t,rows])=>(rows||[]).forEach(r=>{const id="p_"+r[0];if(!m.has(id)&&TEAMS.includes(t))m.set(id,{id,name:String(r[1]||""),team:t,no:"",pos:kind==="pit"?"投手":"",pitcher:kind==="pit"})})))});
+ /* 前に記録した選手（名簿から外れても名前は残す） */
+ try{Object.values(YKS().pnames||{}).forEach(p=>{if(p&&p.id&&!m.has(p.id))m.set(p.id,Object.assign({},p,{gone:true}))})}catch(e){}
+ YK_PL=[...m.values()];YK_PLMAP=m;return YK_PL}
+const playerById=id=>{ykPlayers();return YK_PLMAP.get(id)||null};
+const playersOf=t=>ykPlayers().filter(p=>p.team===t&&!p.gone);
+const posN=p=>p.pos||(p.pitcher?"投手":"野手");
+
+/* ---------- 試合 ---------- */
+const gk2day=k=>{const m=/^gm_(\d{4})(\d{2})(\d{2})_/.exec(k||"");return m?`${m[1]}-${m[2]}-${m[3]}`:""};
+/* その日の試合（本物の日程 GAMES だけ）。あとで見る（ネタバレ防止）の試合も、ここでは元のまま返す（表示する側でかくす） */
+function ykGamesOn(day){return(typeof GAMES!=="undefined"?GAMES:[]).filter(g=>g.day===day).map(g=>Object.assign({},g,{id:gameKeyOf(g)}))}
+/* 試合：日程にあればそれ、なければ記録に残した控え */
+function ykGame(id){const d=gk2day(id);if(!d)return null;const g=ykGamesOn(d).find(g=>g.id===id);if(g)return g;const s=(YKS().gsnap||{})[id];return s?Object.assign({},s.g,{id,fromSnap:true}):null}
+function ykTeamGame(team,day){return ykGamesOn(day).find(g=>g.home===team||g.away===team)||null}
+const ykStartMs=g=>{const [h,m]=String(g&&g.time||"18:00").split(":").map(Number);return Date.parse(g.day+"T00:00:00+09:00")+((h||18)*60+(m||0))*6e4};
+/* 試合の状態：pre（前）/ live（中）/ end（終了）/ off（中止）/ missing（結果未取得） */
+function ykStatus(g){if(!g)return"none";if(g.status==="off")return"off";if(g.status==="end")return Array.isArray(g.score)?"end":"missing";if(g.status==="live")return"live";
+ const st=ykStartMs(g),now=Date.now();if(now<st)return"pre";if(now<st+4*36e5)return"live";return"missing"}
+/* 個人成績：npb.json の形 → 画面で使う形 */
+const boxKey=g=>`${g.day}|${g.home}|${g.away}`;
+function ykBox(id){const g=ykGame(id);if(!g)return{status:"none",g:null};const st=ykStatus(g);
+ if(st!=="end")return{status:st,g,hs:g.score?g.score[0]:null,as:g.score?g.score[1]:null};
+ const raw=NPB.boxes[boxKey(g)];const snap=(YKS().gsnap||{})[id];
+ const ck=id+"|"+(raw?raw.at||"r":"")+"|"+(snap&&snap.box?"s":"");if(YK_BOXC[ck])return YK_BOXC[ck];
+ const src=raw||(snap&&snap.box)||null;
+ const hs=g.score?g.score[0]:src&&src.hs,as=g.score?g.score[1]:src&&src.as;
+ const box={status:"end",g,hs,as,inn:src&&src.inn||9,extra:!!(src&&src.inn>9),walkoff:!!(src&&src.walk),noBox:!src,bat:{},pit:{},hrs:[],src:"npb",updatedAt:src&&src.at?Date.parse(src.at)||0:0};
+ if(src){[g.home,g.away].forEach(t=>{box.bat[t]=((src.bat||{})[t]||[]).map(r=>({pid:"p_"+r[0],name:r[1],pos:r[2],ab:r[3],h:r[4],hr:r[5],rbi:r[6],played:true}));
+  box.pit[t]=((src.pit||{})[t]||[]).map(r=>({pid:"p_"+r[0],name:r[1],outs:r[2],r:r[3],er:r[4],k:r[5],dec:r[6],played:true}))});
+  box.hrs=[g.home,g.away].flatMap(t=>box.bat[t].filter(x=>x.hr).map(x=>({team:t,pid:x.pid,n:x.hr})));
+  box.partial=!!src.partial;box.teamHr=src.hr||Object.fromEntries([g.home,g.away].map(t=>[t,box.bat[t].reduce((a,x)=>a+(x.hr||0),0)]))}
+ YK_BOXC[ck]=box;return box}
+/* 選手のその試合の成績 */
+function ykLine(pid,id){const p=playerById(pid),b=ykBox(id);if(!p)return{st:"none"};if(b.status!=="end")return{st:b.status};if(b.noBox)return{st:"missing"};
+ const x=[...(b.bat[p.team]||[]),...(b.pit[p.team]||[])].filter(o=>o.pid===pid);if(!x.length)return{st:b.partial?"missing":"dnp"};
+ const bt=x.find(o=>o.ab!==undefined),pt=x.find(o=>o.outs!==undefined);
+ return Object.assign({st:"ok",pitcher:!!pt&&(p.pitcher||!bt)},bt||{},pt?{outs:pt.outs,r:pt.r,er:pt.er,k:pt.k,dec:pt.dec}:{})}
+const ipTxt=o=>`${Math.floor(o/3)}回${o%3?` ${o%3}/3`:""}`;
+function lineText(l,p){if(!l)return"";if(l.st==="pre")return"試合前";if(l.st==="live")return"試合中";if(l.st==="off")return"中止";if(l.st==="missing")return"結果未取得";if(l.st==="none")return"この日は試合なし";if(l.st==="dnp")return"出場なし";
+ if(l.pitcher)return`${ipTxt(l.outs)} ${l.r}失点 ${l.k}奪三振${l.dec?` ${{勝:"勝ち",敗:"負け",S:"セーブ",H:"ホールド"}[l.dec]||""}`:""}`;
+ return`${l.ab}打数${l.h}安打${l.hr?` ${l.hr}本塁打`:""}${l.rbi?` ${l.rbi}打点`:""}`}
+const ykResultFor=(b,team)=>{if(!b||b.status!=="end"||!team||b.hs==null||(b.g.home!==team&&b.g.away!==team))return"";const my=b.g.home===team?b.hs:b.as,op=b.g.home===team?b.as:b.hs;return my>op?"勝ち":my<op?"負け":"引き分け"};
+const YKSRC_NOTE="NPB公式サイトの公開情報";
+
+/* =====================================================================
+   野球ノート：自分の記録（この端末に保存）
+   ・記録は localStorage（文字だけ）、写真は IndexedDB（端末の中のデータベース）に分けて保存する
+   ・記念品・図鑑・観戦データは、元の記録（観戦記録・推し3人）と試合のデータから毎回計算する
+     → 元の記録を消すと、関係する画面からも自動で消える（同じ情報を複製しない）
+   ・試合のデータ（npb.json）は10日分しかないので、自分が記録した試合だけ、結果と推しの成績の控え（gsnap）を残す
+   ・書き出し／読み込みで、記録をいつでも持ち出せる
+   ===================================================================== */
+const YKKEY="yakyutomo-note-v1";
+let YKST=null;
+function ykDefault(){return{v:2,follow:[],oshi:{},watches:[],photos:[],mem:{},stadium:null,gal:{saved:{}},spoil:{},seen:{home:0},savedEv:{},cheer:{},gsnap:{},pnames:{},prefs:{kind:{},team:{}},
+ settings:{motion:"auto",fest:true,vib:false},created:Date.now()}}
+function YKS(){if(YKST)return YKST;let x=null;try{x=JSON.parse(localStorage.getItem(YKKEY)||"null")}catch(e){x=null}const d=ykDefault();
+ if(x&&x.v===2)YKST=Object.assign(d,x,{settings:Object.assign(d.settings,x.settings||{}),prefs:Object.assign(d.prefs,x.prefs||{}),gal:Object.assign(d.gal,x.gal||{})});
+ else{YKST=d;if(x&&x.stadium)YKST.stadium=x.stadium;if(x&&x.settings)["motion","fest"].forEach(k=>{if(x.settings[k]!==undefined)YKST.settings[k]=x.settings[k]})} /* 試作版（架空の選手）の記録は引きつがない */
+ return YKST}
+function ykSave(){try{localStorage.setItem(YKKEY,JSON.stringify(YKS()));return true}catch(e){toast("この端末の保存場所がいっぱいです。写真や古い記録を消してください",1);return false}}
+const ykId=pfx=>pfx+"_"+Date.now().toString(36)+Math.random().toString(36).slice(2,7);
+const ykMotion=()=>{const m=YKS().settings.motion;return m==="off"?false:m==="on"?true:!(window.matchMedia&&matchMedia("(prefers-reduced-motion: reduce)").matches)};
+
+/* ---------- 写真（IndexedDB） ---------- */
+const YKIMG={db:null,urls:{},mem:{}};
+function ykDB(){return new Promise((res,rej)=>{if(YKIMG.db)return res(YKIMG.db);if(!window.indexedDB)return rej(new Error("no-idb"));
+ let r;try{r=indexedDB.open("yakyutomo-img",1)}catch(e){return rej(e)}r.onupgradeneeded=()=>r.result.createObjectStore("img");r.onsuccess=()=>{YKIMG.db=r.result;res(r.result)};r.onerror=()=>rej(r.error)})}
+async function ykPutImg(id,blob){try{const db=await ykDB();await new Promise((res,rej)=>{const t=db.transaction("img","readwrite");t.objectStore("img").put(blob,id);t.oncomplete=res;t.onerror=()=>rej(t.error)})}catch(e){YKIMG.mem[id]=blob}
+ YKIMG.urls[id]=URL.createObjectURL(blob)}
+async function ykGetImg(id){if(YKIMG.urls[id])return YKIMG.urls[id];let b=YKIMG.mem[id]||null;
+ if(!b){try{const db=await ykDB();b=await new Promise((res,rej)=>{const q=db.transaction("img").objectStore("img").get(id);q.onsuccess=()=>res(q.result);q.onerror=()=>rej(q.error)})}catch(e){b=null}}
+ if(!b)return"";return YKIMG.urls[id]=URL.createObjectURL(b)}
+async function ykGetBlob(id){if(YKIMG.mem[id])return YKIMG.mem[id];try{const db=await ykDB();return await new Promise((res,rej)=>{const q=db.transaction("img").objectStore("img").get(id);q.onsuccess=()=>res(q.result||null);q.onerror=()=>rej(q.error)})}catch(e){return null}}
+async function ykDelImg(id){delete YKIMG.mem[id];if(YKIMG.urls[id]){URL.revokeObjectURL(YKIMG.urls[id]);delete YKIMG.urls[id]}try{const db=await ykDB();await new Promise(res=>{const t=db.transaction("img","readwrite");t.objectStore("img").delete(id);t.oncomplete=res;t.onerror=res})}catch(e){}}
+function ykHydrate(root){(root||document).querySelectorAll("img[data-yki]:not([data-done])").forEach(im=>{im.dataset.done="1";ykGetImg(im.dataset.yki).then(u=>{if(u)im.src=u})})}
+new MutationObserver(()=>ykHydrate()).observe(document.documentElement,{subtree:true,childList:true});
+const imgTag=(ref,alt,cls)=>/^yki:/.test(ref||"")?`<img data-yki="${esc(ref.slice(4))}" alt="${esc(alt||"写真")}" class="${cls||""}">`:`<img src="${esc(ref)}" alt="${esc(alt||"写真")}" class="${cls||""}" loading="lazy">`;
+const YK_PIECES=[["ground","グラウンド"],["cheer","応援席"],["food","グルメ"],["pre","試合前"],["outside","外観"]];
+const pieceName=k=>(YK_PIECES.find(x=>x[0]===k)||["","写真"])[1];
+/* 写真の一覧：自分の写真（この端末だけ）＋「みんな」に公開された写真の投稿（投稿者名と元の投稿へのリンクつき） */
+function ykPhotosOf(f){f=f||{};const mine=YKS().photos.map(p=>Object.assign({},p,{owner:"me",ownerName:S.name||"あなた",src:"yki:"+p.id}));
+ const seen=new Set();const posts=[...(typeof postsOf==="function"?postsOf("yakyu"):[]),...(f.gameId&&typeof GAMEFEED!=="undefined"&&GAMEFEED[f.gameId]?GAMEFEED[f.gameId]:[])]
+  .filter(p=>p&&p.img&&p.meta&&p.meta.rec&&p.meta.rec.kind==="photo"&&!p.hidden&&!(typeof blockedSet==="function"&&blockedSet().has(p.uid))&&!seen.has(p.id)&&seen.add(p.id))
+  .map(p=>({id:"post_"+p.id,postId:p.id,kind:p.meta.rec.piece,gameId:p.meta.rec.gid||p.game||"",owner:p.uid===ME()?"me-post":p.uid,ownerName:p.name,src:p.img,postedAt:p.at,takenAt:0}));
+ return[...mine,...posts].filter(p=>(!f.gameId||p.gameId===f.gameId)&&(!f.kind||p.kind===f.kind)&&(!f.venueId||p.venueId===f.venueId))}
+
+/* ---------- 試合の控え（記録した試合だけ。10日たってデータが消えても見られるように） ---------- */
+function ykKeepPlayer(pid){const p=playerById(pid);if(p&&!p.gone)YKS().pnames[pid]={id:p.id,name:p.name,team:p.team,no:p.no,pos:p.pos,pitcher:p.pitcher}}
+function ykSnap(gid,pids){const Y=YKS();const d=gk2day(gid);const g=d&&ykGamesOn(d).find(x=>x.id===gid);const cur=Y.gsnap[gid]||{};let ch=false;
+ if(g){const gg={day:g.day,home:g.home,away:g.away,time:g.time||"",place:g.place||"",status:g.status||"",score:g.score||null};if(JSON.stringify(gg)!==JSON.stringify(cur.g)){cur.g=gg;ch=true}
+  const raw=NPB.boxes[boxKey(g)];
+  if(raw&&(!cur.box||cur.box.at!==raw.at||(pids||[]).some(pid=>!(cur.pids||[]).includes(pid)))){const want=new Set([...(cur.pids||[]),...(pids||[])].map(x=>x.slice(2)));
+   const pick=o=>Object.fromEntries(Object.entries(o||{}).map(([t,rows])=>[t,(rows||[]).filter(r=>want.has(String(r[0])))]));
+   const hr={};Object.entries(raw.bat||{}).forEach(([t,rows])=>hr[t]=(rows||[]).reduce((a,r)=>a+(r[5]||0),0));
+   cur.box={hs:raw.hs,as:raw.as,inn:raw.inn,walk:!!raw.walk,at:raw.at||"",bat:pick(raw.bat),pit:pick(raw.pit),hr,partial:true};cur.pids=[...want].map(x=>"p_"+x);ch=true}}
+ if(ch&&cur.g){Y.gsnap[gid]=cur}return ch}
+/* 記録している試合を、まとめて控えに入れる（データを読んだあと・記録したあと） */
+function ykSnapAll(){const Y=YKS();let ch=false;
+ Y.watches.forEach(w=>{if(w.gameId&&!w.manual)ch=ykSnap(w.gameId,[])||ch});
+ Object.values(Y.oshi).forEach(o=>(o.picks||[]).forEach(pk=>{if(pk.gameId){ch=ykSnap(pk.gameId,[pk.pid])||ch}if(!Y.pnames[pk.pid]){ykKeepPlayer(pk.pid);ch=true}}));
+ Y.follow.forEach(pid=>{if(!Y.pnames[pid]){ykKeepPlayer(pid);ch=true}});
+ if(ch)ykSave()}
+
+/* ---------- 今日の推し3人 ---------- */
+function ykOshi(day){return YKS().oshi[day||today()]||null}
+function ykLastOshi(before){const ds=Object.keys(YKS().oshi).filter(d=>d<(before||today())&&(YKS().oshi[d].picks||[]).length).sort();return ds.length?YKS().oshi[ds[ds.length-1]]:null}
+/* 選ぶ：選んだ時刻と、確定した時刻を残す。試合が始まった後に選んだ選手は「途中から」 */
+function ykSetOshi(pids,from){const day=today(),now=Date.now();const cur=ykOshi(day);const old=new Map((cur&&cur.picks||[]).map(p=>[p.pid,p]));
+ const picks=[...new Set(pids)].filter(pid=>playerById(pid)).slice(0,3).map(pid=>{if(old.has(pid))return old.get(pid);const p=playerById(pid);const g=ykTeamGame(p.team,day);const st=g?ykStatus(g):"none";
+  return{pid,selAt:now,gameId:g?g.id:"",late:!!g&&st!=="pre"&&st!=="off"}});
+ if(!picks.length){delete YKS().oshi[day];ykSave();return null}
+ YKS().oshi[day]={picks,confirmedAt:now,from:from||"pick"};picks.forEach(pk=>ykKeepPlayer(pk.pid));ykSnapAll();ykSave();return YKS().oshi[day]}
+
+/* ---------- 観戦記録 ---------- */
+const ykWatchOf=gid=>YKS().watches.find(w=>w.gameId===gid&&w.mode!=="plan")||null;
+const ykPlanOf=gid=>YKS().watches.find(w=>w.gameId===gid&&w.mode==="plan")||null;
+function ykStartWatch(gid,mode){const g=ykGame(gid);if(!g)return null;let w=ykWatchOf(gid);const pl=ykPlanOf(gid);
+ if(w){w.mode=mode||w.mode;ykSave();return w}
+ w={id:ykId("w"),gameId:gid,day:g.day,mode:mode||"home",team:S.team||"",venueId:(venueOfGame(g)||{}).id||"",createdAt:Date.now(),note:"",photoIds:[]};
+ if(pl)YKS().watches=YKS().watches.filter(x=>x!==pl);YKS().watches.push(w);ykSnap(gid,[]);ykSave();return w}
+function ykPlan(gid,on){const g=ykGame(gid);if(!g)return;const pl=ykPlanOf(gid);if(on&&!pl){YKS().watches.push({id:ykId("w"),gameId:gid,day:g.day,mode:"plan",team:S.team||"",venueId:(venueOfGame(g)||{}).id||"",createdAt:Date.now()});ykSnap(gid,[])}if(!on&&pl)YKS().watches=YKS().watches.filter(x=>x!==pl);ykSave()}
+/* 前の試合（日程のデータがない日）を手で記録：対戦・球場・結果は自己申告 */
+function ykAddPast(o){const g={day:o.day,home:o.home,away:o.away,time:"",place:o.place||"",status:o.hs!=null&&o.as!=null?"end":"",score:o.hs!=null&&o.as!=null?[o.hs,o.as]:null};
+ const gid=gameKeyOf(g);if(ykWatchOf(gid))return null;const Y=YKS();if(!Y.gsnap[gid])Y.gsnap[gid]={g,manual:true};
+ const w={id:ykId("w"),gameId:gid,day:o.day,mode:o.mode||"stadium",team:S.team||"",venueId:(venueOfGame(g)||{}).id||"",createdAt:Date.now(),note:o.note||"",photoIds:[],manual:{res:o.res||""}};
+ Y.watches.push(w);ykSave();return w}
+function ykDelWatch(id){YKS().watches=YKS().watches.filter(x=>x.id!==id);ykSave()}
+function ykAddMemory(title,note,year){const w={id:ykId("w"),gameId:"",day:"",mode:"memory",title:String(title||"").slice(0,40),note:String(note||"").slice(0,400),year:year||"",createdAt:Date.now(),photoIds:[]};YKS().watches.push(w);ykSave();return w}
+const ykHidden=gid=>!!(gid&&YKS().spoil[gid]);
+function ykSpoil(gid,on){if(on)YKS().spoil[gid]=Date.now();else delete YKS().spoil[gid];ykSave()}
+/* 観戦記録から見た試合の結果（データ → 控え → 手で入れた結果の順） */
+function ykWInfo(w){const b=ykBox(w.gameId);const res=w.manual&&w.manual.res?w.manual.res:ykResultFor(b,w.team);
+ const hrTeam=w.team&&b.teamHr?b.teamHr[w.team]||0:0;
+ return{b,g:b.g,status:b.status==="end"||res?"end":b.status,res,walk:b.walkoff&&res==="勝ち",extra:!!b.extra,hrTeam,hasBox:!b.noBox}}
+
+/* ---------- 記念品（元の記録から計算。表示するか・最初に手に入れた日だけ保存） ---------- */
+function ykMementos(){const Y=YKS(),out=[];const add=(key,o)=>{const m=Y.mem[key]||(Y.mem[key]={at:Date.now(),show:true});out.push(Object.assign({key,at:m.at,show:m.show!==false},o))};
+ const days=Object.keys(Y.oshi).sort();const first={},count={};
+ days.forEach(d=>(Y.oshi[d].picks||[]).forEach(pk=>{const p=playerById(pk.pid);if(!p)return;count[pk.pid]=(count[pk.pid]||0)+1;
+  if(!first[pk.pid]){first[pk.pid]=d;add(`card_${pk.pid}`,{type:"card",title:"初めて選んだ日のカード",sub:`${p.name}・${d.replace(/-/g,"/")}`,day:d,pid:pk.pid,gameId:pk.gameId})}
+  [3,10,30].forEach(n=>{if(count[pk.pid]===n)add(`pen_${pk.pid}_${n}`,{type:"pennant",title:`応援ペナント（${n}日）`,sub:`${p.name}を${n}日えらんだ`,day:d,pid:pk.pid})});
+  /* ホームラン記念ボール：試合の前から選んでいた選手が打ったときだけ（途中から選んだときは、記録は残すが記念品はなし） */
+  if(pk.gameId&&!pk.late&&!ykHidden(pk.gameId)){const l=ykLine(pk.pid,pk.gameId);if(l.st==="ok"&&l.hr)add(`ball_${d}_${pk.pid}`,{type:"ball",title:"ホームラン記念ボール",sub:`${p.name}・${d.replace(/-/g,"/")}`,day:d,pid:pk.pid,gameId:pk.gameId})}}));
+ Y.watches.filter(w=>w.mode==="stadium"&&w.gameId&&!ykHidden(w.gameId)).forEach(w=>{const i=ykWInfo(w);if(i.walk&&i.g)add(`sayo_${w.gameId}`,{type:"sayonara",title:"現地で見たサヨナラの記念品",sub:`${i.g.home} vs ${i.g.away}・${w.day.replace(/-/g,"/")}`,day:w.day,gameId:w.gameId,watchId:w.id})});
+ return out.sort((a,b)=>b.day.localeCompare(a.day))}
+const YK_MEM_ICON={card:"🃏",pennant:"🚩",ball:"⚾",sayonara:"🎉"};
+
+/* ---------- 図鑑（観戦記録と試合のデータから計算） ---------- */
+const YK_ZUKAN=[
+ {id:"first",n:"初観戦",d:"はじめて観戦を記録する",home:true,f:c=>c.ws},
+ {id:"stadium1",n:"はじめての現地",d:"球場で観戦する",f:c=>c.ws.filter(w=>w.mode==="stadium")},
+ {id:"home1",n:"おうち応援デビュー",d:"家で観戦を記録する",home:true,f:c=>c.ws.filter(w=>w.mode==="home")},
+ {id:"win",n:"勝利を見届けた",d:"応援球団の勝ちを見届ける",home:true,f:c=>c.ws.filter(w=>c.i(w).res==="勝ち")},
+ {id:"sayonara",n:"サヨナラ勝ち",d:"応援球団のサヨナラ勝ち",home:true,f:c=>c.ws.filter(w=>c.i(w).walk)},
+ {id:"extra",n:"延長戦",d:"延長戦を最後まで",home:true,f:c=>c.ws.filter(w=>c.i(w).extra)},
+ {id:"shutout",n:"完封勝ち",d:"相手を0点におさえて勝つ",home:true,f:c=>c.ws.filter(w=>{const i=c.i(w);return i.res==="勝ち"&&i.g&&(i.g.home===w.team?i.b.as:i.b.hs)===0})},
+ {id:"hr3",n:"ホームラン祭り",d:"応援球団が1試合3本以上のホームラン",home:true,f:c=>c.ws.filter(w=>c.i(w).hrTeam>=3)},
+ {id:"oshihit",n:"推しのヒット",d:"推し3人の誰かのヒットを見届ける",home:true,f:c=>c.ws.filter(w=>c.oshi(w).some(l=>l.st==="ok"&&!l.pitcher&&l.h>0))},
+ {id:"oshihr",n:"推しのホームラン",d:"推し3人のホームランを見届ける",home:true,f:c=>c.ws.filter(w=>c.oshi(w).some(l=>l.st==="ok"&&l.hr>0))},
+ {id:"oshiwin",n:"推しの勝ち投手",d:"推し3人の投手が勝ち投手",home:true,f:c=>c.ws.filter(w=>c.oshi(w).some(l=>l.st==="ok"&&l.dec==="勝"))},
+ {id:"away",n:"ビジター遠征",d:"相手の本拠地の球場で観戦",f:c=>c.ws.filter(w=>{const v=venueById(w.venueId);return w.mode==="stadium"&&w.team&&v&&v.home&&v.home!==w.team})},
+ {id:"venues3",n:"球場巡り（3球場）",d:"3つの球場で観戦",f:c=>{const seen={};c.ws.filter(w=>w.mode==="stadium"&&w.venueId).forEach(w=>{if(!seen[w.venueId])seen[w.venueId]=w});return Object.keys(seen).length>=3?Object.values(seen):[]}},
+ {id:"day",n:"デーゲーム",d:"昼の試合を観戦",home:true,f:c=>c.ws.filter(w=>{const g=c.i(w).g;return g&&g.time&&parseInt(g.time)<17})},
+ {id:"ten",n:"10試合観戦",d:"観戦を10試合記録",home:true,f:c=>c.ws.length>=10?c.ws:[]}];
+function ykZukan(){const all=YKS().watches.filter(w=>w.gameId&&(w.mode==="stadium"||w.mode==="home")&&!ykHidden(w.gameId));const cache=new Map();
+ const c={ws:all,i:w=>cache.get(w.id)||cache.set(w.id,ykWInfo(w)).get(w.id),oshi:w=>((ykOshi(w.day)||{}).picks||[]).filter(pk=>pk.gameId===w.gameId).map(pk=>ykLine(pk.pid,pk.gameId))};
+ return YK_ZUKAN.map(z=>{const hits=z.f(c)||[];return Object.assign({},z,{hits,got:hits.length>0})})}
+
+/* ---------- 観戦データ（元の記録があるものだけ。ない数字は作らない） ---------- */
+function ykStats(year){const ws=YKS().watches.filter(w=>w.gameId&&(w.mode==="stadium"||w.mode==="home")&&!ykHidden(w.gameId)&&(!year||w.day.startsWith(year)));
+ const inf=ws.map(w=>[w,ykWInfo(w)]);const st=inf.filter(([w])=>w.mode==="stadium");const wld={勝ち:0,負け:0,引き分け:0};st.forEach(([,i])=>{if(i.res)wld[i.res]++});
+ const known=inf.filter(([,i])=>i.hasBox);
+ const ven={};st.forEach(([w])=>{if(w.venueId)ven[w.venueId]=(ven[w.venueId]||0)+1});
+ const pick={};Object.entries(YKS().oshi).filter(([d])=>!year||d.startsWith(year)).forEach(([,o])=>(o.picks||[]).forEach(p=>pick[p.pid]=(pick[p.pid]||0)+1));
+ const month={};ws.forEach(w=>{const m=w.day.slice(0,7);month[m]=(month[m]||0)+1});
+ return{n:ws.length,stadium:st.length,home:ws.length-st.length,wld,hr:known.reduce((a,[,i])=>a+i.hrTeam,0),hrN:known.length,extra:inf.filter(([,i])=>i.extra).length,walk:inf.filter(([,i])=>i.walk).length,
+  venues:Object.entries(ven).sort((a,b)=>b[1]-a[1]).slice(0,3),picks:Object.entries(pick).sort((a,b)=>b[1]-a[1]).slice(0,3),month,unknown:st.filter(([,i])=>!i.res).length,memories:YKS().watches.filter(w=>w.mode==="memory").length}}
+const ykYears=()=>[...new Set([...YKS().watches.map(w=>(w.day||"").slice(0,4)),...Object.keys(YKS().oshi).map(d=>d.slice(0,4))].filter(Boolean))].sort().reverse();
+
+/* ---------- 推しの更新（追いかけている選手が出た試合。NPB の試合の記録から。同じ試合は1つにまとめる） ---------- */
+function ykEvents(){const Y=YKS(),out=[];const from=dayKeyOf(Date.now()-7*864e5);
+ Object.entries(NPB.boxes).forEach(([k,raw])=>{const [day,home,away]=k.split("|");if(day<from)return;const gid=gameKeyOf({day,home,away});if(ykHidden(gid))return;
+  Y.follow.forEach(pid=>{const p=playerById(pid);if(!p||(p.team!==home&&p.team!==away))return;const l=ykLine(pid,gid);if(l.st!=="ok")return;
+   const facts=[lineText(l,p)];if(l.hr)facts.push("ホームラン");if(!l.pitcher&&l.h>=3)facts.push("猛打賞");
+   out.push({id:`ev_${gid}_${pid}`,pid,gameId:gid,day,at:Date.parse(raw.at||"")||ykStartMs({day,time:"18:00"})+3.5*36e5,facts,hot:!!(l.hr||l.h>=3||l.dec==="勝"||l.dec==="S")})})});
+ return out.sort((a,b)=>b.at-a.at)}
+
+/* ---------- 書き出し・読み込み（記録はいつでも持ち出せる） ---------- */
+async function ykExport(){const Y=YKS();const images={};for(const p of Y.photos){try{const b=await ykGetBlob(p.id);if(!b)continue;images[p.id]=await new Promise(r=>{const fr=new FileReader();fr.onload=()=>r(fr.result);fr.readAsDataURL(b)})}catch(e){}}
+ return JSON.stringify({app:"yakyutomo",kind:"baseball-note",v:2,exportedAt:new Date().toISOString(),data:Y,images})}
+async function ykImport(text){const j=JSON.parse(text);if(!j||j.app!=="yakyutomo"||j.kind!=="baseball-note"||!j.data||j.data.v!==2)throw new Error("ヤキュトモの記録のファイルではありません");
+ for(const [id,du] of Object.entries(j.images||{})){if(!/^data:image\//.test(du))continue;const b=await (await fetch(du)).blob();await ykPutImg(id,b)}
+ YKST=null;localStorage.setItem(YKKEY,JSON.stringify(j.data));YKS();YK_PL=null;return true}
+
+/* =====================================================================
+   自分の球場：固定視点の2Dの球場（SVG）。決められた場所のパーツを入れかえて育てる
+   ・グラウンド・内外野・スタンド・スコアボードの位置関係がわかる1枚の絵
+   ・パーツの解放条件は下の設定データ（YK_PARTS の need）で変えられる
+   ・見本（初期・地方球場風・都市型・ドーム風…）も、同じ描画のしくみで描く
+   ===================================================================== */
+const YK_SEATC=["#2E6FB7","#D93A28","#1A8C5A","#E8C300","#F07A1A","#7A4FD0","#1E1B18","#8C1C2B","#15294F","#4ED1A5","#C9B9A0","#FFFFFF"];
+/* need：解放の条件。watch=観戦の記録数 stadium=現地の観戦数 oshi=推し3人をえらんだ日数 zukan=図鑑の数 photo=写真の数 food=グルメ写真 mem=記念品の数 */
+const YK_PARTS={
+ bg:{n:"背景",opts:[["mount","山"],["sea","海"],["city","街"],["field","田園"]]},
+ sky:{n:"空",opts:[["day","青空"],["dusk","夕焼け",{watch:1}],["night","ナイター",{watch:3}]]},
+ out:{n:"外野席",opts:[["bank","芝生席の土手"],["trees","林"],["stand","外野スタンド",{watch:2}],["two","2層の外野席",{stadium:3}]]},
+ inf:{n:"内野席",opts:[["bench","ベンチ席"],["small","小さなスタンド",{oshi:1}],["big","大きなスタンド",{watch:3}],["two","2層スタンド",{stadium:2}],["three","3層スタンド",{zukan:6}]]},
+ seat:{n:"座席の色",color:true,opts:YK_SEATC.map(c=>[c,""])},
+ roof:{n:"屋根",opts:[["none","なし"],["canopy","内野の屋根",{watch:5}],["dome","ドーム",{zukan:8}]]},
+ board:{n:"スコアボード",opts:[["chalk","手書きの板"],["panel","パネル式",{oshi:3}],["led","電光掲示板",{watch:4}],["vision","大型ビジョン",{mem:3}]]},
+ turf:{n:"芝",opts:[["plain","天然芝"],["stripe","しま模様",{watch:1}],["check","チェック",{photo:3}],["arti","人工芝",{zukan:4}]]},
+ dirt:{n:"土",opts:[["black","黒土"],["red","赤土"],["grass","内野も芝",{stadium:1}]]},
+ fence:{n:"フェンス",opts:[["green","緑"],["navy","紺"],["brick","レンガ",{photo:1}],["ivy","ツタ",{stadium:3}]]},
+ lights:{n:"照明",opts:[["none","なし"],["two","2基",{watch:2}],["four","4基",{watch:6}],["ring","LEDリング",{zukan:8}]]},
+ stall:{n:"屋台",opts:[["none","なし"],["one","屋台",{food:1}],["street","屋台通り",{stadium:4}]]},
+ flower:{n:"花壇",opts:[["none","なし"],["bed","花壇",{oshi:5}],["arch","花のアーチ",{mem:5}]]},
+ show:{n:"展示",toggle:true,opts:[["ball","記念ボール"],["flag","応援旗"],["card","観戦カード"]]}};
+const YK_SLOT_ORDER=["bg","sky","out","inf","seat","roof","board","turf","dirt","fence","lights","stall","flower","show"];
+const YK_NEED_W={watch:"観戦を記録",stadium:"現地で観戦",oshi:"推し3人をえらんだ日",zukan:"図鑑の項目",photo:"写真",food:"グルメの写真",mem:"記念品"};
+const YK_INIT={name:"わたしの球場",bg:"mount",sky:"day",out:"bank",inf:"bench",seat:"#2E6FB7",roof:"none",board:"chalk",turf:"plain",dirt:"black",fence:"green",lights:"none",stall:"none",flower:"none",show:{ball:true,flag:true,card:true}};
+/* 見本（共通の描画で描く。デモ） */
+const YK_SAMPLES=[
+ {id:"s_init",n:"はじまりの球場（初期）",theme:"地方",lay:Object.assign({},YK_INIT,{name:"はじまり球場"})},
+ {id:"s_local",n:"地方球場風",theme:"地方",lay:Object.assign({},YK_INIT,{name:"山あい市民球場",out:"bank",inf:"small",board:"panel",lights:"two",flower:"bed",seat:"#1A8C5A",turf:"stripe"})},
+ {id:"s_retro",n:"レトロ",theme:"レトロ",lay:Object.assign({},YK_INIT,{name:"れんが通り球場",bg:"city",out:"stand",inf:"big",board:"chalk",fence:"ivy",dirt:"black",seat:"#8C1C2B",lights:"four",sky:"dusk"})},
+ {id:"s_sea",n:"海沿い",theme:"海辺",lay:Object.assign({},YK_INIT,{name:"みなと浜風スタジアム",bg:"sea",out:"bank",inf:"big",roof:"canopy",board:"led",seat:"#2E6FB7",turf:"stripe",stall:"one",fence:"navy"})},
+ {id:"s_city",n:"都市型",theme:"都市",lay:Object.assign({},YK_INIT,{name:"シティパーク球場",bg:"city",sky:"night",out:"two",inf:"two",board:"vision",lights:"four",seat:"#1E1B18",turf:"check",fence:"navy",stall:"street"})},
+ {id:"s_dome",n:"ドーム風",theme:"ドーム",lay:Object.assign({},YK_INIT,{name:"ほしぞらドーム",roof:"dome",inf:"three",out:"two",board:"vision",turf:"arti",dirt:"grass",lights:"ring",seat:"#7A4FD0",bg:"city"})}];
+/* いまの進み具合（解放条件と比べる数） */
+function ykProgress(){const Y=YKS();const ws=Y.watches.filter(w=>w.gameId&&(w.mode==="stadium"||w.mode==="home"));
+ return{watch:ws.length,stadium:ws.filter(w=>w.mode==="stadium").length,oshi:Object.values(Y.oshi).filter(o=>(o.picks||[]).length).length,zukan:ykZukan().filter(z=>z.got).length,
+  photo:Y.photos.length,food:Y.photos.filter(p=>p.kind==="food").length,mem:ykMementos().length}}
+function ykUnlocked(need,prog){if(!need)return true;prog=prog||ykProgress();return Object.entries(need).every(([k,n])=>(prog[k]||0)>=n)}
+const ykNeedText=(need,prog)=>Object.entries(need||{}).map(([k,n])=>`${YK_NEED_W[k]} ${Math.min(prog[k]||0,n)}/${n}`).join("・");
+const ykLayout=()=>Object.assign({},YK_INIT,YKS().stadium||{},{show:Object.assign({},YK_INIT.show,(YKS().stadium||{}).show||{})});
+
+/* ---------- 描く ----------
+   見る位置：ホームの後ろの高いところから、センター方向を見下ろす（固定）
+   ホーム(200,262)・左右のポール(30,160)(370,160)・フェンスの頂点はセンター(200,104) */
+function ykStadiumSVG(L,o){o=o||{};L=Object.assign({},YK_INIT,L||{});L.show=Object.assign({},YK_INIT.show,L.show||{});const id="st"+(o.id||"");const mem=o.mem||[];
+ const W=400,Hh=320,home=[200,262],pl=[30,160],pr=[370,160];
+ const dome=L.roof==="dome";const night=L.sky==="night"&&!dome;
+ const sky=dome?["#BFCBDD","#E8EEF6"]:({day:["#7FC8F0","#D8F1FB"],dusk:["#F59A5B","#FFE3A3"],night:["#0E1A3A","#2B4280"]}[L.sky]||["#7FC8F0","#D8F1FB"]);
+ const p=[];
+ p.push(`<defs><linearGradient id="${id}sk" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="${sky[0]}"/><stop offset="1" stop-color="${sky[1]}"/></linearGradient>
+  <clipPath id="${id}gr"><path d="M${home} L${pl} Q200 48 ${pr} Z"/></clipPath>
+  <clipPath id="${id}sd"><path d="M0 161 L192 276 L208 276 L400 161 L400 320 L0 320 Z"/></clipPath>
+  <clipPath id="${id}bk"><circle cx="200" cy="318" r="74"/></clipPath>
+  <linearGradient id="${id}tf" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="${L.turf==="arti"?"#3FAF6A":"#62C478"}"/><stop offset="1" stop-color="${L.turf==="arti"?"#2E9A58":"#46A85F"}"/></linearGradient></defs>`);
+ /* 空と背景 */
+ p.push(`<rect width="${W}" height="${Hh}" fill="url(#${id}sk)"/>`);
+ if(!dome){if(night)p.push(`<g fill="#fff" opacity=".8">${[[40,20],[90,40],[150,14],[260,30],[330,18],[370,48],[210,10]].map(([x,y])=>`<circle cx="${x}" cy="${y}" r="1.4"/>`).join("")}</g>`);
+  if(L.sky==="dusk")p.push(`<circle cx="330" cy="54" r="20" fill="#FFD27A" opacity=".9"/>`);
+  if(L.bg==="mount")p.push(`<path d="M0 108L60 50L110 92L170 38L240 96L300 46L360 88L400 64V170H0Z" fill="${night?"#1D2E57":"#6FA88A"}"/><path d="M0 120L80 84L150 112L230 76L320 110L400 90V170H0Z" fill="${night?"#24386B":"#5C9A72"}"/>`);
+  if(L.bg==="sea")p.push(`<rect y="84" width="${W}" height="90" fill="${night?"#14305E":"#3A93D6"}"/><path d="M0 92h400M0 102h400" stroke="#fff" stroke-opacity=".35" stroke-dasharray="14 10"/><path d="M318 80l14 -16v16zM314 80h22" stroke="#1E1B18" stroke-width="1.5" fill="#fff"/>`);
+  if(L.bg==="city")p.push(`<g fill="${night?"#22335F":"#8EA3BE"}">${[[0,60,34],[30,36,26],[60,70,22],[86,30,30],[118,52,22],[284,44,24],[306,64,30],[338,36,26],[364,58,36]].map(([x,h,w])=>`<rect x="${x}" y="${100-h}" width="${w}" height="${h+80}"/>`).join("")}</g>${night?`<g fill="#FFE38A">${Array.from({length:22},(_,i)=>`<rect x="${(i*37)%360+6}" y="${(i*23)%50+44}" width="3" height="3"/>`).join("")}</g>`:""}`);
+  if(L.bg==="field")p.push(`<path d="M0 100Q200 84 400 100V170H0Z" fill="${night?"#2A3D2A":"#B8D98A"}"/><path d="M0 110Q200 94 400 110M0 122Q200 106 400 122" stroke="${night?"#3A5A3A":"#9CC46E"}" stroke-width="3" fill="none"/><path d="M40 98h16v-10l8-6 8 6v10z" fill="#fff" stroke="#1E1B18" stroke-width="1.5"/><path d="M340 94h16v-10l8-6 8 6v10z" fill="#fff" stroke="#1E1B18" stroke-width="1.5"/>`)}
+ /* 照明（スタンドの後ろ） */
+ const tower=(x,y,h)=>`<rect x="${x-2}" y="${y}" width="4" height="${h}" fill="#555"/><rect x="${x-12}" y="${y-12}" width="24" height="14" rx="2" fill="${night?"#FFF6C8":"#E8E8E8"}" stroke="#1E1B18" stroke-width="2"/>${night?`<circle cx="${x}" cy="${y-5}" r="26" fill="#FFF6C8" opacity=".25"/>`:""}`;
+ if(!dome&&(L.lights==="two"||L.lights==="four"))p.push(tower(52,56,110)+tower(348,56,110)+(L.lights==="four"?tower(118,34,80)+tower(282,34,80):""));
+ /* 球場の地面（ファウルゾーン） */
+ p.push(`<path d="M0 150 L${pl} Q200 48 ${pr} L400 150 V320 H0 Z" fill="${L.turf==="arti"?"#2E8A50":"#4E9E62"}"/>`);
+ /* 外野席（フェンスの後ろ） */
+ const fenceD=`M${pl} Q200 48 ${pr}`;
+ if(L.out==="trees")p.push(`<g fill="${night?"#1E4A33":"#3E8E5A"}" stroke="#1E1B18" stroke-width="2">${[46,80,116,156,200,244,284,320,354].map((x,i)=>{const y=162-Math.sin((x-30)/340*Math.PI)*58;return`<circle cx="${x}" cy="${y-10}" r="${15+(i%2)*4}"/>`}).join("")}</g>`);
+ if(L.out==="bank")p.push(`<path d="M14 158 Q200 14 386 158 L${pr} Q200 48 ${pl} Z" fill="${night?"#2F6B45":"#7BC46A"}" stroke="#1E1B18" stroke-width="2.5"/>${Array.from({length:26},(_,i)=>{const t=(i+.5)/26,x=30+t*340,y=160-Math.sin(t*Math.PI)*92;return`<circle cx="${x.toFixed(0)}" cy="${(y-15).toFixed(0)}" r="2.6" fill="${["#FFC62E","#fff","#FF8A8A",L.seat][i%4]}"/>`}).join("")}`);
+ const band=(lift,depth)=>`<path d="M${pl[0]-8} ${pl[1]-lift} Q200 ${48-lift*2} ${pr[0]+8} ${pr[1]-lift} L${pr[0]+8} ${pr[1]-lift-depth} Q200 ${48-lift*2-depth*2} ${pl[0]-8} ${pl[1]-lift-depth} Z" fill="${L.seat}" stroke="#1E1B18" stroke-width="2.5"/>`+
+  Array.from({length:3},(_,i)=>{const l=lift+depth*(i+1)/4;return`<path d="M${pl[0]-6} ${pl[1]-l} Q200 ${48-l*2} ${pr[0]+6} ${pr[1]-l}" fill="none" stroke="#fff" stroke-opacity=".35" stroke-width="1.5"/>`}).join("");
+ if(L.out==="stand")p.push(band(2,28));
+ if(L.out==="two")p.push(band(2,24)+band(30,22)+`<path d="M${pl[0]-8} ${pl[1]-28} Q200 ${48-56} ${pr[0]+8} ${pr[1]-28}" stroke="#1E1B18" stroke-width="5" fill="none"/>`);
+ /* スコアボード（センターの後ろ） */
+ const nm=esc(String(L.name||"").slice(0,12));const nmLen=String(L.name||"").slice(0,12).length;const fit=(cap,w)=>nmLen>cap?` textLength="${w}" lengthAdjust="spacingAndGlyphs"`:"";
+ if(L.board==="chalk")p.push(`<g><path d="M200 74v14" stroke="#6B4A2A" stroke-width="4"/><rect x="172" y="44" width="56" height="32" rx="2" fill="#2F4A3A" stroke="#6B4A2A" stroke-width="4"/><text x="200" y="58" font-size="7" fill="#F2F2E6" text-anchor="middle" font-family="sans-serif"${fit(7,48)}>${nm}</text><text x="200" y="70" font-size="7" fill="#F2F2E6" text-anchor="middle" font-family="monospace">PLAY BALL</text></g>`);
+ if(L.board==="panel")p.push(`<g><rect x="158" y="34" width="84" height="40" rx="3" fill="#12281F" stroke="#1E1B18" stroke-width="3"/><text x="200" y="47" font-size="8" fill="#FFB12E" text-anchor="middle" font-family="sans-serif"${fit(9,74)}>${nm}</text>${Array.from({length:9},(_,i)=>`<rect x="${166+i*7.6}" y="${52}" width="5" height="6" fill="#F2F2E6"/><rect x="${166+i*7.6}" y="${61}" width="5" height="6" fill="#F2F2E6"/>`).join("")}</g>`);
+ if(L.board==="led")p.push(`<g><rect x="148" y="22" width="104" height="46" rx="3" fill="#0A1426" stroke="#1E1B18" stroke-width="3"/><text x="200" y="36" font-size="9" fill="#FFD84D" text-anchor="middle" font-family="sans-serif"${fit(10,94)}>${nm}</text>${Array.from({length:10},(_,i)=>`<circle cx="${157+i*9.6}" cy="48" r="2.2" fill="${i<4?"#FF5B45":"#2E4A3C"}"/><circle cx="${157+i*9.6}" cy="58" r="2.2" fill="${i>6?"#4ED1A5":"#2E4A3C"}"/>`).join("")}</g>`);
+ if(L.board==="vision")p.push(`<g><rect x="128" y="6" width="144" height="60" rx="4" fill="#0A1426" stroke="#1E1B18" stroke-width="3"/><rect x="134" y="12" width="90" height="48" fill="#5FB0E6"/><image href="${TOMO_IMG}" x="156" y="12" width="48" height="48"/><text x="249" y="30" font-size="7.5" fill="#FFD84D" text-anchor="middle" font-family="sans-serif"${fit(5,40)}>${nm}</text><text x="249" y="48" font-size="8" fill="#fff" text-anchor="middle" font-family="monospace">WELCOME</text></g>`);
+ /* グラウンド（フェア） */
+ p.push(`<path d="M${home} L${pl} Q200 48 ${pr} Z" fill="url(#${id}tf)"/>`);
+ if(L.turf==="stripe")p.push(`<g clip-path="url(#${id}gr)" fill="#fff" opacity=".1">${Array.from({length:8},(_,i)=>`<rect x="0" y="${70+i*26}" width="400" height="13"/>`).join("")}</g>`);
+ if(L.turf==="check")p.push(`<g clip-path="url(#${id}gr)" fill="#fff" opacity=".1">${Array.from({length:60},(_,i)=>(Math.floor(i/10)+i)%2?"":`<rect x="${(i%10)*40}" y="${60+Math.floor(i/10)*36}" width="40" height="36"/>`).join("")}</g>`);
+ if(L.turf==="arti")p.push(`<g clip-path="url(#${id}gr)" stroke="#fff" stroke-opacity=".12">${Array.from({length:10},(_,i)=>`<path d="M${i*44} 40 L${200+(i*44-200)*.3} 300"/>`).join("")}</g>`);
+ p.push(`<path d="M${pl[0]+8} ${pl[1]-5} Q200 60 ${pr[0]-8} ${pr[1]-5}" fill="none" stroke="#C99668" stroke-width="7" opacity=".85"/>`); /* ウォーニングトラック */
+ const dirtC=L.dirt==="red"?"#C8774A":"#8A6A4A";
+ if(L.dirt!=="grass")p.push(`<path d="M200 278 L118 216 Q200 136 282 216 Z" fill="${dirtC}"/><path d="M200 252 L156 214 L200 184 L244 214 Z" fill="url(#${id}tf)"/>`);
+ else p.push(`<path d="M200 270 L140 216 M200 270 L260 216" stroke="${dirtC}" stroke-width="6"/><circle cx="200" cy="268" r="14" fill="${dirtC}"/>`);
+ p.push(`<ellipse cx="200" cy="218" rx="11" ry="6" fill="${dirtC}" stroke="#fff" stroke-opacity=".3"/><rect x="197" y="216" width="6" height="2" fill="#fff"/>`);
+ p.push(`<path d="M${home} L${pl} M${home} L${pr}" stroke="#fff" stroke-width="2"/>`);
+ p.push([[248,214],[200,182],[152,214]].map(([x,y])=>`<rect x="${x-4}" y="${y-4}" width="8" height="8" fill="#fff" stroke="#1E1B18" stroke-width="1" transform="rotate(45 ${x} ${y})"/>`).join("")+`<path d="M195 260h10v4l-5 4-5-4z" fill="#fff"/>`);
+ /* フェンス */
+ const fc={green:"#1E5A3A",navy:"#22386B",brick:"#9A4A32",ivy:"#2F7A3A"}[L.fence]||"#1E5A3A";
+ p.push(`<path d="${fenceD}" fill="none" stroke="#1E1B18" stroke-width="9"/><path d="${fenceD}" fill="none" stroke="${fc}" stroke-width="6"/>`);
+ if(L.fence==="brick")p.push(`<path d="${fenceD}" fill="none" stroke="#E8C2A8" stroke-width="1" stroke-dasharray="4 6"/>`);
+ if(L.fence==="ivy")p.push(`<path d="${fenceD}" fill="none" stroke="#7BD389" stroke-width="4" stroke-dasharray="2 5"/>`);
+ p.push(`<path d="M${pl} v-26 M${pr} v-26" stroke="#FFD84D" stroke-width="3"/>`); /* ポール */
+ /* 内野席：ファウルラインの外側（左右とホームの後ろ）。座席の列はファウルラインと平行 */
+ const rowL=d=>`M0 ${(161+1.166*d).toFixed(1)} L240 ${(161+0.6*240+1.166*d).toFixed(1)}`,rowR=d=>`M400 ${(161+1.166*d).toFixed(1)} L160 ${(161+0.6*240+1.166*d).toFixed(1)}`;
+ const SD=`M0 161 L192 276 L208 276 L400 161 L400 320 L0 320 Z`;
+ if(L.inf==="bench"){p.push(`<path d="${SD}" fill="${night?"#2F6B45":"#7BC46A"}" stroke="#1E1B18" stroke-width="2.5"/><g clip-path="url(#${id}sd)" fill="#C9B9A0" stroke="#1E1B18" stroke-width="1.5">${[14,36,58].map(d=>[60,110,150].map(x=>`<rect x="${x-12}" y="${(161+0.6*x+1.166*d-3).toFixed(0)}" width="24" height="5" rx="2" transform="rotate(31 ${x} ${(161+0.6*x+1.166*d).toFixed(0)})"/><rect x="${400-x-12}" y="${(161+0.6*x+1.166*d-3).toFixed(0)}" width="24" height="5" rx="2" transform="rotate(-31 ${400-x} ${(161+0.6*x+1.166*d).toFixed(0)})"/>`).join("")).join("")}</g>`)}
+ else{const tiers=L.inf==="three"?3:L.inf==="two"?2:1;const small=L.inf==="small";
+  if(small)p.push(`<path d="${SD}" fill="${night?"#2F6B45":"#7BC46A"}" stroke="#1E1B18" stroke-width="2.5"/>`);
+  p.push(`<g clip-path="url(#${id}${small?"bk":"sd"})"><path d="${SD}" fill="${L.seat}" stroke="#1E1B18" stroke-width="2.5"/>`);
+  p.push(`<g stroke="#fff" stroke-opacity=".3" stroke-width="1.4" fill="none">${Array.from({length:12},(_,i)=>{const d=14+i*11;return`<path d="${rowL(d)}"/><path d="${rowR(d)}"/>`}).join("")}</g>`);
+  if(tiers>=2)p.push(`<g clip-path="url(#${id}sd)"><path d="M0 ${161+1.166*60} L240 ${161+144+1.166*60} L400 ${161+1.166*60} V320 H0 Z" fill="#000" opacity=".12"/></g><path d="${rowL(60)}" stroke="#1E1B18" stroke-width="5"/><path d="${rowR(60)}" stroke="#1E1B18" stroke-width="5"/>`);
+  if(tiers>=3)p.push(`<path d="M0 ${161+1.166*100} L240 ${161+144+1.166*100} L400 ${161+1.166*100} V320 H0 Z" fill="#000" opacity=".12"/><path d="${rowL(100)}" stroke="#1E1B18" stroke-width="5"/><path d="${rowR(100)}" stroke="#1E1B18" stroke-width="5"/>`);
+  p.push(`</g>`);if(small)p.push(`<circle cx="200" cy="318" r="74" fill="none" stroke="#1E1B18" stroke-width="2.5" clip-path="url(#${id}sd)"/>`)}
+ /* ベンチ（ダグアウト） */
+ p.push(`<rect x="128" y="232" width="28" height="8" rx="2" fill="#1E1B18" transform="rotate(31 142 236)"/><rect x="244" y="232" width="28" height="8" rx="2" fill="#1E1B18" transform="rotate(-31 258 236)"/>`);
+ /* 屋根・ドーム */
+ if(L.roof==="canopy")p.push(`<g clip-path="url(#${id}sd)"><path d="M0 ${161+1.166*78} L240 ${161+144+1.166*78} L400 ${161+1.166*78} V320 H0 Z" fill="#E6E9EE" opacity=".86"/>${[30,90,150,250,310,370].map(x=>`<path d="M${x} ${x<200?161+0.6*x+90:161+0.6*(400-x)+90} v80" stroke="#9AA4B0" stroke-width="2"/>`).join("")}</g><path d="${rowL(78)}" stroke="#1E1B18" stroke-width="3"/><path d="${rowR(78)}" stroke="#1E1B18" stroke-width="3"/>`);
+ if(dome)p.push(`<path d="M-20 214 Q200 -96 420 214" fill="none" stroke="#1E1B18" stroke-width="7"/><path d="M-20 214 Q200 -96 420 214" fill="none" stroke="#F4F7FB" stroke-width="4"/><path d="M-6 180 Q200 -60 406 180" fill="none" stroke="#fff" stroke-opacity=".6" stroke-width="2"/>`);
+ if(L.lights==="ring")p.push(`<g fill="#FFF6C8" stroke="#1E1B18" stroke-width="1">${Array.from({length:16},(_,i)=>{const t=(i+.5)/16;const x=-20+t*440,y=dome?214-(1-(2*t-1)**2)*155:150-(1-(2*t-1)**2)*110;return`<circle cx="${x.toFixed(0)}" cy="${y.toFixed(0)}" r="3.2"/>`}).join("")}</g>`);
+ /* 屋台（外野の後ろ）・花壇（ファウルゾーン） */
+ const stall=(x,y,c)=>`<g><rect x="${x-12}" y="${y}" width="24" height="14" fill="#fff" stroke="#1E1B18" stroke-width="2"/><path d="M${x-15} ${y}l3 -8h24l3 8z" fill="${c}" stroke="#1E1B18" stroke-width="2"/><path d="M${x-12} ${y}h24" stroke="#fff" stroke-width="2" stroke-dasharray="4 4"/></g>`;
+ if(L.stall!=="none"){p.push(stall(18,132,"#D93A28"));if(L.stall==="street")p.push(stall(382,132,"#2E6FB7")+stall(42,118,"#E8C300")+stall(358,118,"#1A8C5A"))}
+ if(L.flower!=="none")p.push(`<g>${[[166,256,31],[234,256,-31]].map(([x,y,r],i)=>`<g transform="rotate(${r} ${x} ${y})"><rect x="${x-13}" y="${y-3}" width="26" height="7" rx="3" fill="#6B4A2A"/>${[-8,0,8].map((d,j)=>`<circle cx="${x+d}" cy="${y-3}" r="3.2" fill="${["#FF8AB0","#FFD84D","#FF5B45"][(i+j)%3]}"/>`).join("")}</g>`).join("")}${L.flower==="arch"?`<path d="M184 300 Q200 272 216 300" fill="none" stroke="#3E8E5A" stroke-width="5"/>${[0,1,2,3,4].map(i=>`<circle cx="${186+i*7}" cy="${289-Math.sin(i/4*Math.PI)*12}" r="3" fill="#FF8AB0"/>`).join("")}`:""}</g>`);
+ /* 記念品の展示（ホームの後ろの展示コーナー。数は記念品から） */
+ const balls=mem.filter(m=>m.type==="ball"&&m.show),flags=mem.filter(m=>(m.type==="pennant"||m.type==="sayonara")&&m.show),cards=mem.filter(m=>m.type==="card"&&m.show);
+ if(L.show.ball||L.show.card)p.push(`<rect x="132" y="290" width="136" height="30" rx="4" fill="#FFFBF0" stroke="#1E1B18" stroke-width="2.5"/>`);
+ if(L.show.ball)p.push(`<g data-disp="ball"><rect x="208" y="294" width="54" height="22" rx="3" fill="#E9F6FF" stroke="#1E1B18" stroke-width="1.6"/>${balls.slice(0,8).map((m,i)=>`<circle cx="${215+(i%4)*13}" cy="${300+Math.floor(i/4)*10}" r="4" fill="#fff" stroke="#D93A28" stroke-width="1.2"/>`).join("")}${balls.length?"":`<text x="235" y="309" font-size="7" text-anchor="middle" fill="#7A8A9A" font-family="sans-serif">ボール 0</text>`}</g>`);
+ if(L.show.card)p.push(`<g data-disp="card"><rect x="138" y="294" width="62" height="22" rx="2" fill="#6B4A2A" stroke="#1E1B18" stroke-width="1.6"/>${cards.slice(0,6).map((m,i)=>`<rect x="${142+(i%3)*19}" y="${297+Math.floor(i/3)*9}" width="16" height="7" fill="#FFFBF0" stroke="#1E1B18" stroke-width=".8"/>`).join("")}${cards.length?"":`<text x="169" y="309" font-size="7" text-anchor="middle" fill="#E8D8C0" font-family="sans-serif">カード 0</text>`}</g>`);
+ if(L.show.flag){const fy=L.out==="two"?58:L.out==="stand"?84:L.out==="bank"?92:112;p.push(`<g data-disp="flag">${(flags.length?flags.slice(0,6):[null,null]).map((m,i)=>{const x=i%2?262+Math.floor(i/2)*24:138-Math.floor(i/2)*24;return`<path d="M${x} ${fy}v-24" stroke="#1E1B18" stroke-width="2"/><path d="M${x} ${fy-24}l18 5-18 5z" fill="${m?["#D93A28","#FFC62E","#2E6FB7","#1A8C5A"][i%4]:"#fff"}" ${m?"":'fill-opacity=".5" stroke-dasharray="2 2"'} stroke="#1E1B18" stroke-width="1.2"/>`}).join("")}</g>`)}
+ /* トモくん */
+ p.push(`<image href="${TOMO_IMG}" x="${o.small?214:212}" y="${o.small?218:210}" width="${o.small?36:46}" height="${o.small?40:50}" class="${o.anim&&ykMotion()?"st-tomo":""}"/>`);
+ if(night)p.push(`<rect width="${W}" height="${Hh}" fill="#0A1426" opacity=".06"/>`);
+ /* さわれる場所（編集のとき） */
+ if(o.edit){const hit=(k,x,y,w,h)=>`<rect data-slot="${k}" x="${x}" y="${y}" width="${w}" height="${h}" fill="transparent" class="st-hit"/>`;
+  p.push(hit("bg",0,0,120,40)+hit("sky",280,0,120,30)+hit("board",130,6,140,70)+hit("out",20,78,100,62)+hit("out",280,78,100,62)+hit("fence",110,96,180,24)+hit("turf",120,124,160,50)+hit("dirt",160,190,80,60)+hit("inf",0,190,110,130)+hit("inf",290,190,110,130)+hit("lights",36,30,40,50)+hit("lights",324,30,40,50)+hit("show",132,290,136,30))}
+ return`<svg class="yk-stadium" viewBox="0 0 ${W} ${Hh}" role="img" aria-label="${esc(L.name||"球場")}の絵">${p.join("")}</svg>`}
+
+/* =====================================================================
+   野球ノートの画面（プロ野球モード）
+   使い方はシンプルに：
+   ・ホームは「今日の試合」1枚が中心（見ている → 球場／家 の2択。推し3人はえらんでもえらばなくてもいい）
+   ・推しの更新は、新しいことがあるときだけ出す
+   ・記録・図鑑・写真・自分の球場は マイ →「ノート」にまとめる
+   ・ページは上に重ねて開き、「もどる」で前へ（下のタブはいつでも使える）
+   ===================================================================== */
+const ykDay=d=>d?d.slice(5).replace("-","/"):"";
+const ykDayFull=d=>{if(!d)return"";const x=new Date(Date.parse(d+"T12:00:00+09:00"));return`${x.getUTCFullYear()}/${x.getUTCMonth()+1}/${x.getUTCDate()}（${"日月火水木金土"[x.getUTCDay()]}）`};
+const ykL=(t,c)=>`<span class="yk-l ${c||""}">${t}</span>`;
+const ykSelf=()=>ykL("自己申告","self");
+const ykTime=ms=>{const d=new Date(ms+JST);return`${d.getUTCMonth()+1}/${d.getUTCDate()} ${d.getUTCHours()}:${String(d.getUTCMinutes()).padStart(2,"0")}`};
+const ykMatch=g=>g?`${esc(g.home)} <i>vs</i> ${esc(g.away)}`:"";
+const ykEmpty=(t,btn)=>`<div class="yk-empty">${tomoImg(54,"tomo")}<p>${t}</p>${btn||""}</div>`;
+const ykTeamDot=t=>`<span class="yk-tdot" style="background:${TEAMC[t]||"#888"}"></span>`;
+const ykStarted=g=>Date.now()>=ykStartMs(g);
+/* 試合の状態の文字（結果をかくしているときは出さない） */
+function ykStateTxt(g){if(!g)return"";const b=ykBox(g.id);if(ykHidden(g.id)&&ykStarted(g))return"結果をかくし中";
+ return b.status==="pre"?`${esc(g.time||"")} 開始`:b.status==="live"?`${esc(g.inning||"試合中")}${b.hs!=null?` ${b.hs}-${b.as}`:""}`:b.status==="end"?`試合終了 ${b.hs}-${b.as}${b.extra?`（延長${b.inn}回）`:""}`:b.status==="off"?"中止":b.status==="missing"?"結果まち":""}
+const ykStCls=g=>ykHidden(g.id)&&ykStarted(g)?"hide":ykBox(g.id).status;
+const ykScore=g=>{const b=ykBox(g.id);return!ykHidden(g.id)&&b.hs!=null&&(b.status==="end"||b.status==="live")?`${b.hs} - ${b.as}`:"vs"};
+/* 選手データの状態（読めないとき・まだ無いとき） */
+function npbNote(){if(NPB.err==="nourl"&&!NPB.ok)return"選手のデータは、Webサイト版・アプリ版で読み込まれます";if(NPB.err==="load")return NPB.ok?`選手のデータを更新できませんでした（${ykTime(NPB.at)}の時点のデータ）`:"選手のデータを読み込めませんでした。電波のよいところで開きなおしてください";
+ if(NPB.ok&&!NPB.players.length)return"選手の一覧はまだ届いていません（データの準備中）";return""}
+
+/* ---------- ページの重ね開き ---------- */
+const YKP={stack:[],pages:{}};
+function ykOpen(kind,arg){if(!$("#modal").hidden)closeModal();YKP.stack.push([kind,arg]);ykShow(true)}
+function ykBack(){YKP.stack.pop();ykShow(true)}
+function ykCloseAll(){if(!YKP.stack.length)return;YKP.stack=[];ykShow(true)}
+function ykShow(top){const el=$("#ykPage");const cur=YKP.stack[YKP.stack.length-1];
+ if(!cur){el.hidden=true;el.innerHTML="";document.body.classList.remove("yk-on");return}
+ const keep=top?0:el.scrollTop;const [k,a]=cur;let r;try{r=YKP.pages[k](a)}catch(e){console.error(e);r={t:"",h:ykEmpty("この画面を表示できませんでした")}}
+ el.innerHTML=`<header class="ykp-h"><button class="ykp-back" data-ykback aria-label="もどる">‹ もどる</button><b>${r.t}</b></header><div class="ykp-b">${r.h}</div>`;
+ el.hidden=false;document.body.classList.add("yk-on");el.scrollTop=keep;bindYk(el);r.ready&&r.ready(el)}
+function ykRefresh(){if(YKP.stack.length)ykShow(false);renderAll()}
+document.addEventListener("click",e=>{const t=e.target.closest("[data-ykback],[data-yko]");if(!t)return;
+ if(t.dataset.ykback!==undefined){ykBack();return}
+ const [k,...a]=t.dataset.yko.split("|");e.preventDefault();ykOpen(k,a.join("|"))});
+
+/* =====================================================================
+   ホーム（プロ野球）：今日の試合 → 推しの更新（新しいときだけ）→ 自分の球場
+   ===================================================================== */
+function renderYkHome(){const box=$("#ykHome");if(!box)return;box.hidden=!isY();if(!isY()){box.innerHTML="";return}
+ const Y=YKS(),t=S.team,day=today();const parts=[];
+ if(!t)parts.push(`<div class="yk-card"><div class="yk-ch"><b>今日の試合</b></div><p class="yk-s">応援球団をえらぶと、ここに今日の試合が出ます。</p><button class="btn sm tomato" data-yka="team">球団をえらぶ</button></div>`);
+ else{const g=ykTeamGame(t,day);if(g)parts.push(todayCard(g));
+  else{const nx=(typeof GAMES!=="undefined"?GAMES:[]).filter(x=>x.day>day&&(x.home===t||x.away===t)).sort((a,b)=>a.day.localeCompare(b.day))[0];
+   parts.push(`<div class="yk-card"><div class="yk-ch"><b>今日の試合</b></div><p class="yk-s">今日は${esc(t)}の試合はありません。${nx?`次は <b>${ykDay(nx.day)}（${esc(nx.home===t?nx.away:nx.home)}戦）</b>`:""}</p></div>`)}}
+ /* 推しの更新：新しいことがあるときだけ */
+ const nw=ykEvents().filter(e=>e.at>Y.seen.home);
+ if(nw.length)parts.push(`<div class="yk-card"><div class="yk-ch"><b>推しの更新</b><span class="yk-new">${nw.length}</span><button class="yk-more" data-yko="events">すべて ›</button></div>${nw.slice(0,2).map(evRow).join("")}</div>`);
+ /* 自分の球場（タップでマイのノートへ） */
+ const md=day.slice(5);const past=Y.watches.find(w=>w.day&&w.day<day&&w.day.slice(5)===md&&(w.mode==="stadium"||w.mode==="home"));
+ parts.push(`<button class="yk-card yk-stmini" data-yka="note"><div class="yk-ch"><b>${esc(ykLayout().name)}</b><span class="yk-more">ノート ›</span></div>${ykStadiumSVG(ykLayout(),{id:"hm",mem:ykMementos(),small:true})}
+  ${past?`<span class="yk-memo">📅 ${past.day.slice(0,4)}年の今日、${past.mode==="stadium"?"球場":"家"}で観戦していました</span>`:""}</button>`);
+ box.innerHTML=parts.join("");bindYk(box)}
+function todayCard(g){const hid=ykHidden(g.id),w=ykWatchOf(g.id),pl=ykPlanOf(g.id),st=ykBox(g.id).status,v=venueOfGame(g);const o=ykOshi();
+ const watch=w?`<div class="yk-done">✔ ${w.mode==="stadium"?"球場":"家"}で観戦${st==="end"?"":"中"} <button class="yk-more" data-yko="game|${g.id}">記録・写真 ›</button></div>`
+  :st==="pre"?`<div class="yk-btns"><button class="btn sm ${pl?"paper":"tomato"} grow" data-ykplan="${g.id}">${pl?"✔ 観戦予定（取り消す）":"見に行く・見る予定"}</button></div>`
+  :st==="off"?"":`<div class="yk-two"><button class="btn tomato" data-ykw="${g.id}|stadium">🏟 球場で見てる</button><button class="btn" data-ykw="${g.id}|home">🏠 家で見てる</button></div>`;
+ const picks=o&&(o.picks||[]).length?`<button class="yk-oshirow" data-yko="oshires|${today()}"><b>推し</b>${o.picks.map(pk=>{const p=playerById(pk.pid);if(!p)return"";const l=pk.gameId?ykLine(pk.pid,pk.gameId):{st:"none"};
+   return`<span>${esc(p.name.split(" ")[0])}<small>${pk.gameId&&ykHidden(pk.gameId)&&ykStarted(g)?"―":esc(l.st==="ok"?(l.pitcher?ipTxt(l.outs):`${l.h}安打${l.hr?"・HR":""}`):lineText(l,p))}</small></span>`}).join("")}<i>›</i></button>`
+  :`<button class="yk-oshirow empty" data-yko="oshi"><b>推し</b><span class="yk-s0">今日応援する3人をえらぶ（任意）</span><i>›</i></button>`;
+ return`<div class="yk-card yk-game" style="--tc:${TEAMC[S.team]||"#22386B"}"><div class="yk-ch"><b>今日の試合</b><span class="yk-st ${ykStCls(g)}">${ykStateTxt(g)}</span></div>
+  <button class="yk-gm" data-yko="game|${g.id}"><span>${ykTeamDot(g.home)}<b>${esc(g.home)}</b></span><i>${ykScore(g)}</i><span><b>${esc(g.away)}</b>${ykTeamDot(g.away)}</span></button>
+  <p class="yk-s">${esc(g.time||"")}・${esc(v?v.short:g.place||"")}</p>${watch}${picks}
+  ${ykStarted(g)&&st!=="off"?`<button class="yk-spoil" data-ykspoil="${g.id}">${hid?"🙈 結果をかくし中 → 見終わったら表示":"あとで見る（結果をかくす）"}</button>`:""}</div>`}
+function evRow(e){const p=playerById(e.pid),g=ykGame(e.gameId);if(!p||!g)return"";return`<button class="yk-ev ${e.hot?"hot":""}" data-yko="event|${e.id}"><span class="yk-evn">${ykTeamDot(p.team)}${esc(p.name)}<small>${ykDay(g.day)} ${ykMatch(g)}</small></span><span class="yk-evf">${e.facts.map(esc).join("・")}</span></button>`}
+
+/* ---------- まとめて受ける操作 ---------- */
+function bindYk(root){
+ root.querySelectorAll("[data-ykw]").forEach(b=>b.onclick=()=>{const [gid,mode]=b.dataset.ykw.split("|");ykWatchNow(gid,mode)});
+ root.querySelectorAll("[data-ykplan]").forEach(b=>b.onclick=()=>{const gid=b.dataset.ykplan;ykPlan(gid,!ykPlanOf(gid));toast(ykPlanOf(gid)?"観戦予定にしました（自分だけに見えます）":"予定を取り消しました");ykRefresh()});
+ root.querySelectorAll("[data-ykspoil]").forEach(b=>b.onclick=()=>{const gid=b.dataset.ykspoil,on=!ykHidden(gid);ykSpoil(gid,on);toast(on?"結果・推しの成績・関係する投稿をかくしました":"結果を表示します");TEAMFEED={};ykRefresh()});
+ root.querySelectorAll("[data-yka]").forEach(b=>b.onclick=()=>YKA[b.dataset.yka]&&YKA[b.dataset.yka](b))}
+const YKA={
+ team:()=>{goTab("my");setMyGroup("oshi");setTimeout(()=>{const s=$("#pTeam");if(s){s.focus();s.scrollIntoView({block:"center"})}},80)},
+ note:()=>{goTab("my");setMyGroup("note");scrollTo(0,0)}};
+function ykWatchNow(gid,mode){const w=ykStartWatch(gid,mode);if(!w)return;toast(mode==="stadium"?"球場での観戦を記録しました":"家での観戦を記録しました");ykRefresh()}
+
+/* =====================================================================
+   試合のページ
+   ===================================================================== */
+YKP.pages.game=gid=>{const g=ykGame(gid);if(!g)return{t:"試合",h:ykEmpty("この試合のデータがありません")};
+ const b=ykBox(gid),hid=ykHidden(gid)&&ykStarted(g),w=ykWatchOf(gid),v=venueOfGame(g);const show=!hid&&(b.status==="end"||b.status==="live");
+ const o=ykOshi(g.day);const mine=(o&&o.picks||[]).filter(pk=>pk.gameId===gid);const snap=YKS().gsnap[gid];
+ if(SV&&SV.gamePosts&&!GAMEFEED[gid])SV.gamePosts(gid).then(l=>{GAMEFEED[gid]=keepPosts(l||[]);if(YKP.stack.length)ykShow(false)}).catch(()=>{});
+ const h=[];
+ h.push(`<div class="yk-ghead" style="--tc:${TEAMC[g.home]||"#22386B"}"><small>${ykDayFull(g.day)} ${esc(g.time||"")}・${esc(v?v.name:g.place||"")}</small>
+  <div class="yk-gm big"><span>${ykTeamDot(g.home)}<b>${esc(g.home)}</b></span><i>${ykScore(g)}</i><span><b>${esc(g.away)}</b>${ykTeamDot(g.away)}</span></div>
+  <div class="yk-gst"><span class="yk-st ${ykStCls(g)}">${ykStateTxt(g)}</span>${show&&b.walkoff?ykL("サヨナラ","hot"):""}</div>
+  ${ykStarted(g)&&b.status!=="off"?`<button class="yk-spoil" data-ykspoil="${gid}">${hid?"見終わった（結果を表示）":"あとで見る（結果をかくす）"}</button>`:""}</div>`);
+ /* 観戦の記録 */
+ h.push(`<section class="yk-sec"><h3>観戦の記録</h3>${w?`<p class="yk-s"><b>${w.mode==="stadium"?"🏟 球場で観戦":"🏠 家で観戦"}</b> ${ykSelf()}</p>
+   <textarea class="ta" id="ykNote" maxlength="400" placeholder="ひとことメモ（自分だけ）">${esc(w.note||"")}</textarea>
+   <div class="yk-btns"><button class="btn sm" id="ykNoteSave">メモを保存</button><button class="btn sm paper" data-yko="photoadd|${gid}">📷 写真を追加</button></div>
+   <div class="yk-btns sub"><button class="pbtn" data-ykw="${gid}|${w.mode==="stadium"?"home":"stadium"}">${w.mode==="stadium"?"家で見たに変える":"球場で見たに変える"}</button><button class="pbtn danger" id="ykDelW">記録を消す</button></div>`
+  :b.status==="pre"?`<div class="yk-btns"><button class="btn sm ${ykPlanOf(gid)?"paper":"tomato"}" data-ykplan="${gid}">${ykPlanOf(gid)?"✔ 観戦予定（取り消す）":"見に行く・見る予定"}</button></div>`
+  :b.status==="off"?`<p class="yk-s">この試合は中止になりました。</p>`
+  :`<div class="yk-two"><button class="btn tomato" data-ykw="${gid}|stadium">🏟 球場で見た</button><button class="btn" data-ykw="${gid}|home">🏠 家で見た</button></div>`}</section>`);
+ /* 推し */
+ if(mine.length)h.push(`<section class="yk-sec"><h3>この試合の推し</h3>${mine.map(oshiRow).join("")}</section>`);
+ /* 応援（今日の試合中だけ） */
+ if(!hid&&b.status==="live"&&g.day===today())h.push(`<section class="yk-sec"><h3>応援する</h3>${padHTML(gid)}</section>`);
+ /* 結果 */
+ if(show&&b.status==="end"){h.push(`<section class="yk-sec"><h3>試合のふりかえり</h3>${b.noBox?`<p class="yk-s">${b.hs}-${b.as}で試合終了。選手ごとの成績はまだ届いていません（試合後しばらくすると出ます）。</p>`:recapHTML(b)}</section>`);
+  if(!b.noBox&&!b.partial){const pl=t=>[...b.bat[t],...b.pit[t]].map(x=>{const p=playerById(x.pid)||{name:x.name,team:t};const l=ykLine(x.pid,gid);return`<button class="yk-pk" data-yko="player|${x.pid}">${ykTeamDot(t)}<b>${esc(p.name)}</b><small>${esc(x.pos||(x.outs!==undefined?"投手":""))}</small><span class="yk-pkl ok">${esc(lineText(l,p))}</span></button>`}).join("");
+   h.push(`<section class="yk-sec"><details><summary>選手の成績</summary><h4 class="yk-h4">${esc(g.home)}</h4>${pl(g.home)}<h4 class="yk-h4">${esc(g.away)}</h4>${pl(g.away)}</details></section>`)}}
+ else if(!hid&&b.status==="missing")h.push(`<section class="yk-sec"><h3>結果</h3><p class="yk-s">結果をまだ取得できていません。しばらくしてから見てください。</p></section>`);
+ /* 写真 */
+ h.push(`<section class="yk-sec"><h3>写真</h3>${albumHTML(gid)}</section>`);
+ /* みんな */
+ h.push(`<section class="yk-sec"><h3>みんなの話題</h3>${hid?`<p class="yk-s">結果をかくしている間は、この試合の投稿もかくしています。</p>`:`<div class="yk-btns"><button class="btn sm paper" id="ykGP">この試合の投稿</button>${S.team&&(g.home===S.team||g.away===S.team)&&g.day===today()?`<button class="btn sm paper" id="ykGL">試合実況に入る</button>`:""}${w&&!hid?`<button class="btn sm paper" data-yko="share|watch|${gid}">観戦カードをシェア</button>`:""}</div>`}</section>`);
+ h.push(`<p class="yk-src">日程・結果・成績：${YKSRC_NOTE}${snap&&snap.manual?"（この試合は手で入れた記録です）":""}</p>`);
+ return{t:`${esc(g.home)} vs ${esc(g.away)}`,h:h.join(""),ready:el=>{bindPad(el);bindAlbum(el);
+  const ns=el.querySelector("#ykNoteSave");if(ns)ns.onclick=()=>{const ww=ykWatchOf(gid);if(!ww)return;const tx=el.querySelector("#ykNote").value.slice(0,400);const why=tx?NGW.text(tx):"";if(why){toast(why,1);return}ww.note=tx;ykSave();toast("メモを保存しました")};
+  const dw=el.querySelector("#ykDelW");if(dw)dw.onclick=()=>ykConfirm("この観戦記録を消しますか？　図鑑・観戦データ・記念品からも消えます（写真は残ります）","消す",()=>{ykDelWatch(ykWatchOf(gid).id);toast("記録を消しました");ykRefresh()});
+  const gp=el.querySelector("#ykGP");if(gp)gp.onclick=()=>{ykCloseAll();openGamePosts(gid)};
+  const gl=el.querySelector("#ykGL");if(gl)gl.onclick=()=>{ykCloseAll();openGame(S.team)}}}};
+function recapHTML(b){const g=b.g,win=b.hs>b.as?g.home:g.away,lose=b.hs>b.as?g.away:g.home;const hi=Math.max(b.hs,b.as),lo=Math.min(b.hs,b.as);
+ const nm=x=>(playerById(x.pid)||{name:x.name}).name;
+ const dec=[g.home,g.away].flatMap(t=>b.pit[t].filter(x=>x.dec==="勝"||x.dec==="S"||x.dec==="敗").map(x=>`${{勝:"勝ち投手",S:"セーブ",敗:"負け投手"}[x.dec]}：${nm(x)}`));
+ const hrs=b.hrs.map(x=>`${nm(x)}（${x.team}）${x.n>1?` ${x.n}本`:""}`);
+ const L=[b.hs===b.as?`${b.hs}-${b.as}で引き分け`:`${esc(win)}が${hi}-${lo}で${esc(lose)}に勝ち${b.walkoff?"（サヨナラ）":""}`+(b.extra?`・延長${b.inn}回`:""),hrs.length?`ホームラン：${hrs.map(esc).join("、")}`:"ホームランはなし",...dec.map(esc)];
+ return`<ul class="yk-facts">${L.map(x=>`<li>${x}</li>`).join("")}</ul>`}
+function ykConfirm(msg,ok,fn){modal(`<p style="margin:0;font-weight:700">${msg}</p><button class="btn tomato wide" id="ykOk">${ok}</button><button class="btn paper wide" id="mc">やめる</button>`,x=>{x.querySelector("#mc").onclick=closeModal;x.querySelector("#ykOk").onclick=()=>{closeModal();fn()}})}
+
+/* =====================================================================
+   選手・推しの更新・出来事
+   ===================================================================== */
+YKP.pages.player=pid=>{const p=playerById(pid);if(!p)return{t:"選手",h:ykEmpty("選手が見つかりません")};const Y=YKS(),fol=Y.follow.includes(pid);
+ const rows=[];for(let i=0;i<10;i++){const d=dayKeyOf(Date.now()-i*864e5);const g=ykTeamGame(p.team,d);if(!g)continue;const l=ykLine(pid,g.id);if(l.st==="pre"||l.st==="none")continue;
+  rows.push(`<button class="yk-row" data-yko="game|${g.id}"><b>${ykDay(d)}</b><span>${ykMatch(g)}</span><small>${ykHidden(g.id)?"結果をかくし中":esc(lineText(l,p))}</small></button>`)}
+ const picked=Object.values(Y.oshi).filter(o=>(o.picks||[]).some(x=>x.pid===pid)).length;
+ return{t:esc(p.name),h:`<div class="yk-phead">${ykTeamDot(p.team)}<div><b>${esc(p.name)}</b><small>${esc(p.team)}${p.no?`・背番号${esc(p.no)}`:""}・${esc(posN(p))}</small></div></div>
+  <button class="btn wide ${fol?"paper":"tomato"}" id="ykFol">${fol?"✔ 追いかけ中（やめる）":"この選手を追いかける"}</button>
+  <p class="yk-s">追いかけると、試合に出た日の成績がホームの「推しの更新」に出ます。</p>
+  <section class="yk-sec"><h3>最近の試合</h3>${rows.join("")||`<p class="yk-s">最近の出場はありません</p>`}</section>
+  <section class="yk-sec"><h3>自分の応援</h3><p class="yk-s">推し3人にえらんだ日：<b>${picked}日</b></p></section>
+  <p class="yk-src">成績：${YKSRC_NOTE}</p>`,
+  ready:el=>{el.querySelector("#ykFol").onclick=()=>{const Y=YKS();Y.follow=fol?Y.follow.filter(x=>x!==pid):[...Y.follow,pid].slice(0,30);if(!fol)ykKeepPlayer(pid);ykSave();toast(fol?"追いかけるのをやめました":"追いかけます");ykRefresh()}}}};
+/* 選手さがし（推し3人・追いかける選手で共通） */
+function pickList(st,sel,max){const q=(st.q||"").trim().replace(/\s/g,"");const list=ykPlayers().filter(p=>!p.gone&&(!st.team||p.team===st.team)&&(!q||p.name.replace(/\s/g,"").includes(q)));
+ const note=npbNote();
+ return`${note?`<p class="yk-warn">${note}</p>`:""}<input class="inp" id="ykQ" placeholder="名前でさがす" value="${esc(st.q||"")}" style="width:100%">
+  <div class="yk-chips" data-keepx="1"><button class="${st.team?"":"on"}" data-ot="">全球団</button>${TEAMS.map(t=>`<button class="${st.team===t?"on":""}" data-ot="${t}">${t}</button>`).join("")}</div>
+  <div class="yk-plist">${list.slice(0,60).map(p=>`<button class="yk-pk ${sel.includes(p.id)?"on":""}" data-sel="${p.id}">${ykTeamDot(p.team)}<b>${esc(p.name)}</b><small>${esc(p.team)}${p.no?`・${esc(p.no)}`:""}・${esc(posN(p))}</small><span class="yk-pkl">${sel.includes(p.id)?"✔":""}</span></button>`).join("")||(ykPlayers().length?ykEmpty("見つかりません"):"")}</div>
+  ${list.length>60?`<p class="yk-s">ほか${list.length-60}人。名前か球団でしぼってね</p>`:""}`}
+function bindPick(el,st,onSel){const q=el.querySelector("#ykQ");q.oninput=()=>{st.q=q.value;clearTimeout(st.t);st.t=setTimeout(()=>{ykShow(false);const n=$("#ykQ");if(n){n.focus();n.setSelectionRange(n.value.length,n.value.length)}},250)};
+ el.querySelectorAll("[data-ot]").forEach(b=>b.onclick=()=>{st.team=b.dataset.ot;ykShow(false)});el.querySelectorAll("[data-sel]").forEach(b=>b.onclick=()=>onSel(b.dataset.sel))}
+let YKF=null;
+YKP.pages.follow=()=>{const Y=YKS();if(!YKF)YKF={q:"",team:S.team||""};
+ return{t:"追いかける選手",h:`<p class="yk-s">えらんだ選手が試合に出ると、ホームの「推しの更新」に成績が出ます。何人でもOK。</p>
+  ${Y.follow.length?`<div class="yk-sel">${Y.follow.map(id=>{const p=playerById(id);return p?`<button class="on" data-unf="${id}">${ykTeamDot(p.team)}${esc(p.name)} ×</button>`:""}).join("")}</div>`:""}${pickList(YKF,Y.follow)}`,
+  ready:el=>{bindPick(el,YKF,id=>{const Y=YKS();Y.follow=Y.follow.includes(id)?Y.follow.filter(x=>x!==id):[...Y.follow,id].slice(0,30);ykKeepPlayer(id);ykSave();ykShow(false);renderAll()});
+   el.querySelectorAll("[data-unf]").forEach(b=>b.onclick=()=>{const Y=YKS();Y.follow=Y.follow.filter(x=>x!==b.dataset.unf);ykSave();ykShow(false);renderAll()})}}};
+YKP.pages.events=()=>{const Y=YKS(),last=YKP.evLast!==undefined?YKP.evLast:(YKP.evLast=Y.seen.home);const evs=ykEvents();Y.seen.home=Date.now();ykSave();setTimeout(renderAll,0);
+ return{t:"推しの更新",h:`${!Y.follow.length?ykEmpty("まだ選手をえらんでいません",`<button class="btn sm tomato" data-yko="follow">選手をえらぶ</button>`):evs.length?evs.map(e=>`<div class="${e.at>last?"yk-newrow":""}">${evRow(e)}</div>`).join(""):ykEmpty("この7日間、追いかけている選手の出場はありません")}
+  <p class="yk-src">試合の記録（${YKSRC_NOTE}）から自動で作っています。</p><button class="btn sm paper" data-yko="follow">追いかける選手を変える</button>`,ready:()=>{}}};
+YKP.pages.event=id=>{const m=/^ev_(gm_.+)_(p_\d+)$/.exec(id||"");if(!m)return{t:"出来事",h:ykEmpty("見つかりません")};const [,gid,pid]=m;
+ const g=ykGame(gid),p=playerById(pid);if(!g||!p)return{t:"出来事",h:ykEmpty("この出来事は見つかりません")};if(ykHidden(gid))return{t:esc(p.name),h:ykEmpty("この試合は結果をかくしています",`<button class="btn sm paper" data-ykspoil="${gid}">見終わった（表示する）</button>`)};
+ const l=ykLine(pid,gid);const posts=postsOf("yakyu").filter(x=>(x.game===gid||(x.meta&&x.meta.rec&&x.meta.rec.gid===gid))&&!postHid(x)).slice(0,3);const ph=ykPhotosOf({gameId:gid}).filter(x=>x.owner!=="me");const saved=YKS().savedEv[id];
+ return{t:esc(p.name),h:`<section class="yk-sec"><h3>概要 ${ykL("事実","fact")}</h3><p><b>${esc(p.name)}</b>（${esc(p.team)}）<br>${ykDayFull(g.day)} ${ykMatch(g)}</p><ul class="yk-facts"><li>${esc(lineText(l,p))}</li>${l.hr?"<li>ホームラン</li>":""}</ul><p class="yk-src">出典：${YKSRC_NOTE}</p></section>
+  <section class="yk-sec"><h3>関連リンク</h3><div class="yk-btns"><button class="btn sm paper" data-yko="game|${gid}">試合のページ</button><button class="btn sm paper" data-yko="player|${pid}">選手のページ</button></div></section>
+  <section class="yk-sec"><h3>現地写真</h3>${ph.length?`<div class="yk-grid">${ph.map(photoTile).join("")}</div>`:`<p class="yk-s">まだありません</p>`}</section>
+  <section class="yk-sec"><h3>ファンの反応 ${ykL("意見","op")}</h3>${posts.length?posts.map(x=>tlCard(x)).join(""):`<p class="yk-s">まだ投稿はありません</p>`}</section>
+  <button class="btn ${saved?"paper":"tomato"} wide" id="ykSaveEv">${saved?"✔ 自分の記録に保存ずみ（外す）":"自分の記録へ保存"}</button>`,
+  ready:el=>{bindAlbum(el);el.querySelector("#ykSaveEv").onclick=()=>{const Y=YKS();if(Y.savedEv[id])delete Y.savedEv[id];else{Y.savedEv[id]=Date.now();ykSnap(gid,[pid]);ykKeepPlayer(pid)}ykSave();toast(Y.savedEv[id]?"保存しました（マイ → ノート → 観戦記録）":"外しました");ykShow(false)}}}};
+
+/* =====================================================================
+   今日の推し3人
+   ===================================================================== */
+let YKO=null;
+YKP.pages.oshi=()=>{const cur=ykOshi();if(!YKO)YKO={sel:(cur&&cur.picks||[]).map(p=>p.pid),q:"",team:S.team||""};const last=ykLastOshi();
+ return{t:"今日の推し3人",h:`<p class="yk-s">今日応援する選手を3人まで。試合が始まってからえらんだ選手は「途中から応援」になります。</p>
+  <div class="yk-sel">${[0,1,2].map(i=>{const p=playerById(YKO.sel[i]);return p?`<button class="on" data-unsel="${p.id}">${ykTeamDot(p.team)}${esc(p.name)} ×</button>`:`<span>${i+1}人目</span>`}).join("")}</div>
+  ${last?`<button class="btn sm paper" id="ykSame">前回と同じ3人</button>`:""}${pickList(YKO,YKO.sel)}
+  <div class="yk-sticky"><button class="btn tomato wide" id="ykOk" ${YKO.sel.length?"":"disabled"}>${YKO.sel.length?`この${YKO.sel.length}人で決定`:"選手をえらんでね"}</button></div>`,
+  ready:el=>{bindPick(el,YKO,id=>{if(YKO.sel.includes(id))YKO.sel=YKO.sel.filter(x=>x!==id);else if(YKO.sel.length>=3){toast("3人までです。外してからえらんでね");return}else YKO.sel.push(id);ykShow(false)});
+   el.querySelectorAll("[data-unsel]").forEach(b=>b.onclick=()=>{YKO.sel=YKO.sel.filter(x=>x!==b.dataset.unsel);ykShow(false)});
+   const sm=el.querySelector("#ykSame");if(sm)sm.onclick=()=>{YKO.sel=ykLastOshi().picks.map(p=>p.pid).filter(id=>playerById(id)).slice(0,3);ykShow(false)};
+   el.querySelector("#ykOk").onclick=()=>{const o=ykSetOshi(YKO.sel,"pick");YKO=null;YKP.stack.pop();if(!o){ykRefresh();return}const late=o.picks.filter(p=>p.late).length;toast(late?`決定！${late}人は途中から応援です`:"今日の推し3人を決めました");YKP.stack.push(["oshires",today()]);ykRefresh()}}}};
+function oshiRow(pk){const p=playerById(pk.pid);if(!p)return"";const g=pk.gameId&&ykGame(pk.gameId);const hid=g&&ykHidden(pk.gameId)&&ykStarted(g);const l=pk.gameId?ykLine(pk.pid,pk.gameId):{st:"none"};
+ return`<button class="yk-pk" data-yko="player|${p.id}">${ykTeamDot(p.team)}<b>${esc(p.name)}</b><small>${esc(p.team)}・${esc(posN(p))}</small><span class="yk-pkl ${l.st}">${hid?"結果をかくし中":esc(lineText(l,p))}</span>${pk.late?`<em class="yk-late">途中から応援・成績は試合全体</em>`:""}</button>`}
+YKP.pages.oshires=day=>{const o=ykOshi(day);if(!o||!(o.picks||[]).length)return{t:"推し3人",h:ykEmpty("この日はえらんでいません",day===today()?`<button class="btn sm tomato" data-yko="oshi">えらぶ</button>`:"")};
+ const cards=o.picks.map(pk=>{const p=playerById(pk.pid);if(!p)return"";const g=pk.gameId&&ykGame(pk.gameId);const hid=g&&ykHidden(pk.gameId)&&ykStarted(g);const l=pk.gameId?ykLine(pk.pid,pk.gameId):{st:"none"};
+  const big=hid?"結果をかくし中":l.st==="ok"?(l.pitcher?`${ipTxt(l.outs)} ${l.r}失点`:`${l.ab}打数 ${l.h}安打`):lineText(l,p);
+  const sub=hid?"":l.st==="ok"?(l.pitcher?`${l.k}奪三振${l.dec?"・"+({勝:"勝ち投手",敗:"負け投手",S:"セーブ",H:"ホールド"}[l.dec]||""):""}`:`${l.hr?l.hr+"本塁打・":""}${l.rbi||0}打点`):"";
+  return`<div class="yk-res ${l.st}" style="--tc:${TEAMC[p.team]||"#22386B"}"><div class="yk-resh">${ykTeamDot(p.team)}<b>${esc(p.name)}</b><small>${esc(posN(p))}</small></div>
+   <div class="yk-resb"><b>${esc(big)}</b>${sub?`<small>${esc(sub)}</small>`:""}</div>
+   <div class="yk-resf">${g?`<button class="pbtn" data-yko="game|${g.id}">${ykMatch(g)}</button>`:"<span>この日は試合なし</span>"}${pk.late?`<em class="yk-late">途中から応援・成績は試合全体</em>`:""}</div></div>`}).join("");
+ const mems=ykMementos().filter(m=>m.day===day);const any=o.picks.some(pk=>pk.gameId&&ykLine(pk.pid,pk.gameId).st==="ok");
+ return{t:`推し3人 ${ykDay(day)}`,h:`${cards}${mems.length?`<section class="yk-sec"><h3>この日の記念品</h3>${mems.map(memRow).join("")}</section>`:""}
+  <div class="yk-btns">${any?`<button class="btn sm tomato" data-yko="share|oshi3|${day}">結果をシェア</button>`:""}${day===today()?`<button class="btn sm paper" data-yko="oshi">えらびなおす</button>`:""}</div>
+  <p class="yk-src">えらんだ時刻：${o.picks.map(pk=>ykTime(pk.selAt)).join("・")}　成績：${YKSRC_NOTE}</p>`,ready:el=>bindMem(el)}};
+function memRow(m){return`<div class="yk-mem"><span class="yk-memi">${YK_MEM_ICON[m.type]}</span><div><b>${esc(m.title)}</b><small>${esc(m.sub)}</small></div>${m.gameId?`<button class="pbtn" data-yko="game|${m.gameId}">元の試合</button>`:m.pid?`<button class="pbtn" data-yko="player|${m.pid}">選手</button>`:""}<button class="pbtn ${m.show?"on":""}" data-ykshow="${esc(m.key)}">${m.show?"球場に飾り中":"飾る"}</button></div>`}
+function bindMem(el){el.querySelectorAll("[data-ykshow]").forEach(b=>b.onclick=()=>{const Y=YKS(),k=b.dataset.ykshow;Y.mem[k]=Y.mem[k]||{at:Date.now()};Y.mem[k].show=Y.mem[k].show===false;ykSave();ykRefresh()})}
+YKP.pages.history=()=>{const Y=YKS();const ys=ykYears();const yr=YKP.hyear&&ys.includes(YKP.hyear)?YKP.hyear:ys[0]||today().slice(0,4);
+ const days=Object.keys(Y.oshi).filter(d=>d.startsWith(yr)&&(Y.oshi[d].picks||[]).length).sort().reverse();const mems=ykMementos().filter(m=>m.day.startsWith(yr));
+ return{t:"推し3人・記念品",h:`${ys.length>1?`<div class="yk-chips">${ys.map(y=>`<button class="${y===yr?"on":""}" data-hy="${y}">${y}年</button>`).join("")}</div>`:""}
+  <section class="yk-sec"><h3>記念品 ${mems.length}</h3>${mems.length?mems.map(memRow).join(""):`<p class="yk-s">推し3人をえらぶと「初めて選んだ日のカード」、試合前からえらんだ推しがホームランを打つと「記念ボール」。球場の展示コーナーに飾れます。</p>`}</section>
+  <section class="yk-sec"><h3>推し3人の履歴 ${days.length}日</h3>${days.map(d=>`<button class="yk-row" data-yko="oshires|${d}"><b>${ykDay(d)}</b><span>${Y.oshi[d].picks.map(p=>esc((playerById(p.pid)||{}).name||"")).join("・")}</span></button>`).join("")||`<p class="yk-s">まだありません</p>`}</section>`,
+  ready:el=>{bindMem(el);el.querySelectorAll("[data-hy]").forEach(b=>b.onclick=()=>{YKP.hyear=b.dataset.hy;ykShow(false)})}}};
+
+/* =====================================================================
+   写真：自分の写真はこの端末だけ。「みんなに公開」すると、投稿（試合・ピースつき）になり、試合のアルバムにも出る
+   5つのピース（グラウンド・応援席・グルメ・試合前・外観）がそろうと、その試合の「球場カード」が完成
+   ===================================================================== */
+function photoTile(p){return`<button class="yk-ph ${p.owner==="me"?"me":""}" data-ykph="${esc(p.id)}">${imgTag(p.src,pieceName(p.kind))}<span>${esc(pieceName(p.kind))}</span><small>${p.owner==="me"||p.owner==="me-post"?"あなた":esc(p.ownerName)}</small></button>`}
+function piecesOf(gid,mineOnly){const have={};ykPhotosOf({gameId:gid}).filter(p=>!mineOnly||p.owner==="me").forEach(p=>{if(!have[p.kind])have[p.kind]=p});return have}
+function albumHTML(gid){const all=ykPhotosOf({gameId:gid});const mine=all.filter(p=>p.owner==="me"),pub=all.filter(p=>p.owner!=="me");
+ const have=piecesOf(gid),n=Object.keys(have).length;
+ return`<div class="yk-pieces">${YK_PIECES.map(([k,l])=>`<span class="${have[k]?"on":""}">${l}</span>`).join("")}<b>${n}/5</b></div>
+  ${n?`<button class="btn sm paper" data-yko="card|${gid}">球場カード${n>=5?"（完成！）":""}</button>`:`<p class="yk-s">写真を入れると球場カードができます</p>`}
+  ${mine.length?`<h4 class="yk-h4">あなたの写真（自分だけ）</h4><div class="yk-grid">${mine.map(photoTile).join("")}</div>`:""}
+  ${pub.length?`<h4 class="yk-h4">みんなの写真</h4><div class="yk-grid">${pub.map(photoTile).join("")}</div>`:""}
+  <button class="btn sm tomato" data-yko="photoadd|${gid}">📷 写真を追加</button>`}
+function bindAlbum(el){el.querySelectorAll("[data-ykph]").forEach(b=>b.onclick=()=>openPhoto(b.dataset.ykph))}
+function photoFind(id){const m=YKS().photos.find(p=>p.id===id);if(m)return Object.assign({},m,{owner:"me",ownerName:S.name||"あなた",src:"yki:"+m.id});return ykPhotosOf({}).find(p=>p.id===id)||null}
+function openPhoto(id){const p=photoFind(id);if(!p)return;const g=ykGame(p.gameId);const mine=p.owner==="me";
+ modal(`<div class="imgview">${imgTag(p.src,pieceName(p.kind))}</div><div class="yk-phinfo"><b>${esc(pieceName(p.kind))}</b>
+  <small>${g?`${esc(g.home)} vs ${esc(g.away)}（${ykDay(g.day)}）・`:""}${mine?"撮った日":"投稿"} ${ykTime(p.takenAt||p.postedAt)}</small>
+  <small>${mine?(p.postId?"あなたの写真・みんなに公開ずみ":"あなたの写真・自分だけ"):`${esc(p.ownerName)}さんの投稿の写真`}</small>
+  <small class="yk-old">${ykTime(p.takenAt||p.postedAt)}ごろのようすです。いまの混み具合ではありません</small></div>
+  <div class="yk-btns">${mine?`${p.postId?"":`<button class="btn sm tomato" id="phPub">みんなに公開</button>`}<button class="btn sm paper danger" id="phDel">写真を消す</button>`:`<button class="btn sm paper" id="phPost">元の投稿を見る</button>`}</div>
+  <button class="btn paper wide" id="mc">とじる</button>`,x=>{x.querySelector("#mc").onclick=closeModal;
+  const pb=x.querySelector("#phPub");if(pb)pb.onclick=()=>{closeModal();ykOpen("share","photo|"+id)};
+  const po=x.querySelector("#phPost");if(po)po.onclick=()=>{closeModal();openPost(p.postId)};
+  const db=x.querySelector("#phDel");if(db)db.onclick=()=>{closeModal();ykConfirm(p.postId?"この写真を消しますか？　みんなに公開した投稿も消えます":"この写真を消しますか？","消す",async()=>{
+   if(p.postId)await act("deletePost",{kind:"post",id:p.postId},()=>{const o=CM.posts.find(z=>z.id===p.postId);if(o)o.hidden=true;cmSave();return{ok:true}});
+   YKS().photos=YKS().photos.filter(q=>q.id!==id);YKS().watches.forEach(w=>{w.photoIds=(w.photoIds||[]).filter(q=>q!==id)});ykSave();await ykDelImg(id);toast("写真を消しました");ykRefresh()})}})}
+YKP.pages.photoadd=gid=>{const g=ykGame(gid);if(!g)return{t:"写真",h:ykEmpty("試合が見つかりません")};const st=YKP.pa&&YKP.pa.gid===gid?YKP.pa:(YKP.pa={gid,kind:"",blob:null,url:""});
+ return{t:"写真を追加",h:`<p class="yk-s">${ykMatch(g)}（${ykDay(g.day)}）。写真はこの端末の中だけに保存されます。</p>
+  <label class="yk-file">${st.url?`<img src="${st.url}" alt="えらんだ写真">`:"＋ 写真をえらぶ"}<input type="file" id="paF" accept="image/*" hidden></label>
+  <p class="yk-s">何の写真？</p><div class="yk-seg">${YK_PIECES.map(([k,l])=>`<button class="${st.kind===k?"on":""}" data-pk="${k}">${l}</button>`).join("")}</div>
+  <button class="btn tomato wide" id="paOk" ${st.blob&&st.kind?"":"disabled"}>追加する</button>`,
+  ready:el=>{el.querySelectorAll("[data-pk]").forEach(b=>b.onclick=()=>{st.kind=b.dataset.pk;ykShow(false)});
+   el.querySelector("#paF").onchange=e=>{const f=e.target.files&&e.target.files[0];if(!f)return;shrinkImage(f,1280,.82).then(r=>{st.blob=r.blob;st.url=r.dataUrl;ykShow(false)}).catch(()=>toast("この画像は使えません。JPEG・PNG の写真をえらんでください",1))};
+   el.querySelector("#paOk").onclick=async()=>{const id=ykId("ph");await ykPutImg(id,st.blob);const v=venueOfGame(g);
+    YKS().photos.push({id,gameId:gid,venueId:v?v.id:"",kind:st.kind,takenAt:Date.now(),postedAt:Date.now()});const w=ykWatchOf(gid);if(w)w.photoIds=[...(w.photoIds||[]),id];
+    if(!ykSave()){YKS().photos.pop();await ykDelImg(id);return}YKP.pa=null;toast("写真を追加しました");ykBack();renderAll()}}}};
+YKP.pages.card=gid=>{const g=ykGame(gid);if(!g)return{t:"球場カード",h:ykEmpty("試合が見つかりません")};const have=piecesOf(gid);const v=venueOfGame(g);const n=Object.keys(have).length;const others=Object.values(have).some(p=>p.owner!=="me");
+ return{t:"球場カード",h:`<div class="yk-scard"><div class="yk-scg">${YK_PIECES.map(([k,l])=>`<div class="yk-scp ${k}">${have[k]?imgTag(have[k].src,l):`<span>${l}</span>`}</div>`).join("")}</div>
+  <div class="yk-scf"><b>${esc(v?v.name:g.place||"")}</b><span>${ykDayFull(g.day)}</span><span>${esc(g.home)} vs ${esc(g.away)}</span><em>${n>=5?"COMPLETE":`${n}/5`}</em></div></div>
+  ${others?`<p class="yk-s">みんなの写真も使っています。写真はそれぞれの投稿者のものです（あなたの写真としては出しません）。</p>`:""}
+  <div class="yk-btns"><button class="btn sm paper" data-yko="photoadd|${gid}">📷 写真を追加</button>${n?`<button class="btn sm paper" data-yko="share|card|${gid}">カードをシェア</button>`:""}</div>`}};
+YKP.pages.album=()=>{const ps=YKS().photos.map(p=>photoFind(p.id)).filter(Boolean);const groups={};ps.forEach(p=>{(groups[p.gameId]=groups[p.gameId]||[]).push(p)});
+ return{t:"写真",h:ps.length?Object.entries(groups).sort((a,b)=>b[0].localeCompare(a[0])).map(([k,l])=>{const g=ykGame(k);return`<section class="yk-sec"><h3>${g?`${ykDay(g.day)} ${esc(g.home)} vs ${esc(g.away)}`:"試合"}<button class="pbtn" data-yko="card|${k}">球場カード</button></h3><div class="yk-grid">${l.map(photoTile).join("")}</div></section>`}).join("")
+  :ykEmpty("まだ写真がありません。試合のページの「写真を追加」から入れられます"),ready:el=>bindAlbum(el)}};
+
+/* =====================================================================
+   自分の球場：模様替え（場所をタップ → 候補 → プレビュー → 確定／キャンセル）
+   ===================================================================== */
+let YKE=null;
+function ykEd(){if(!YKE)YKE={lay:JSON.parse(JSON.stringify(ykLayout())),slot:"bg",prev:null};return YKE}
+function ykEdView(){const e=ykEd();const L=JSON.parse(JSON.stringify(e.lay));if(e.prev)L[e.prev[0]]=e.prev[1];return L}
+YKP.pages.stadium=()=>{const e=ykEd(),prog=ykProgress(),P=YK_PARTS[e.slot],L=ykEdView();
+ const optBtn=([v,l,need])=>{const lock=!ykUnlocked(need,prog);const cur=e.slot==="show"?L.show[v]:L[e.slot]===v;
+  return P.color?`<button class="yk-sw ${cur?"on":""}" data-opt="${v}" style="background:${v}" aria-label="色"></button>`
+  :`<button class="yk-opt ${cur?"on":""} ${lock?"lock":""}" data-opt="${v}" ${lock?"disabled":""}><b>${l}</b>${e.slot==="show"?`<small>${cur?"表示中":"かくし中"}</small>`:lock?`<small>🔒 ${ykNeedText(need,prog)}</small>`:""}</button>`};
+ return{t:"模様替え",h:`<div class="yk-edsvg">${ykStadiumSVG(L,{id:"ed",mem:ykMementos(),edit:true,anim:true})}</div>
+  ${e.prev?`<div class="yk-prev"><span>これでいい？</span><button class="btn sm tomato" id="edOk">決定</button><button class="btn sm paper" id="edNo">やめる</button></div>`:`<p class="yk-s">変えたい場所を、絵か下のボタンでえらんでね。</p>`}
+  <div class="yk-chips" data-keepx="1">${YK_SLOT_ORDER.map(k=>`<button class="${e.slot===k?"on":""}" data-slot2="${k}">${YK_PARTS[k].n}</button>`).join("")}</div>
+  <div class="yk-opts ${P.color?"col":""}">${P.opts.map(optBtn).join("")}</div>
+  <div class="frow"><label>名前</label><input class="inp" id="edName" maxlength="12" value="${esc(e.lay.name)}" style="flex:1"><button class="btn sm" id="edNameOk">決める</button></div>
+  <p class="yk-src">🔒のパーツは、観戦の記録や推し3人で使えるようになります。しばらく開かなくても、球場が古くなったり減ったりはしません。</p>`,
+  ready:el=>{const re=()=>ykShow(false);const saveLay=()=>{YKS().stadium=JSON.parse(JSON.stringify(e.lay));ykSave();renderAll()};
+   el.querySelectorAll("[data-slot]").forEach(r=>r.addEventListener("click",()=>{e.slot=r.dataset.slot;e.prev=null;re()}));
+   el.querySelectorAll("[data-slot2]").forEach(b=>b.onclick=()=>{e.slot=b.dataset.slot2;e.prev=null;re()});
+   el.querySelectorAll("[data-opt]").forEach(b=>b.onclick=()=>{const v=b.dataset.opt;if(e.slot==="show"){e.lay.show[v]=!e.lay.show[v];saveLay();re();return}e.prev=v===e.lay[e.slot]?null:[e.slot,v];re()});
+   const ok=el.querySelector("#edOk");if(ok)ok.onclick=()=>{e.lay[e.prev[0]]=e.prev[1];e.prev=null;saveLay();toast("模様替えしました");re()};
+   const no=el.querySelector("#edNo");if(no)no.onclick=()=>{e.prev=null;re()};
+   el.querySelector("#edNameOk").onclick=()=>{const nm=cleanName(el.querySelector("#edName").value)||"わたしの球場";const why=NGW.text(nm);if(why){toast(why,1);return}e.lay.name=nm.slice(0,12);saveLay();toast("名前を決めました");re()}}}};
+/* 画像として保存（SVG → PNG）。アプリでは共有シート、ブラウザでは長押しで保存 */
+async function ykSvgPng(svg,w,h){const s=svg.replace("<svg ",`<svg xmlns="http://www.w3.org/2000/svg" width="${w}" height="${h}" `);const url=URL.createObjectURL(new Blob([s],{type:"image/svg+xml"}));
+ try{const im=new Image();await new Promise((r,j)=>{im.onload=r;im.onerror=j;im.src=url});const c=document.createElement("canvas");c.width=w;c.height=h;const x=c.getContext("2d");x.fillStyle="#fff";x.fillRect(0,0,w,h);x.drawImage(im,0,0,w,h);
+  return await new Promise(r=>c.toBlob(r,"image/png"))}finally{URL.revokeObjectURL(url)}}
+async function ykSaveImage(svg,name){let b;try{b=await ykSvgPng(svg,1200,960)}catch(e){b=null}if(!b){toast("画像を作れませんでした",1);return}
+ const f=new File([b],(name||"yakyutomo")+".png",{type:"image/png"});
+ if(navigator.canShare&&navigator.canShare({files:[f]})){try{await navigator.share({files:[f],title:name});return}catch(e){if(e&&e.name==="AbortError")return}}
+ const u=URL.createObjectURL(b);modal(`<div class="h2">画像を保存</div><div class="imgview"><img src="${u}" alt="${esc(name)}"></div><p class="sub" style="margin:0">画像を長押しして保存してください。</p><a class="btn wide" href="${u}" download="${esc(name)}.png">ダウンロード</a><button class="btn paper wide" id="mc">とじる</button>`,x=>{x.querySelector("#mc").onclick=closeModal})}
+
+/* =====================================================================
+   球場ギャラリー（サーバーに公開された球場。豪華さ・課金・使った期間で有利にならない）
+   ===================================================================== */
+const YK_THEMES=["地方","レトロ","海辺","都市","ドーム"];
+const ykTheme=L=>L.roof==="dome"?"ドーム":L.bg==="sea"?"海辺":L.bg==="city"&&L.sky==="night"?"都市":L.fence==="brick"||L.fence==="ivy"||L.sky==="dusk"?"レトロ":L.bg==="city"?"都市":"地方";
+const ykGalOn=()=>!!(SV&&SV.call&&SV.linked);
+const YKG={list:null,key:"",busy:false};
+function ykGalLoad(){const tab=YKP.gtab||"pop",th=YKP.gth||"地方",key=tab+"|"+th;if(YKG.busy)return;YKG.busy=true;
+ SV.call("listStadiums",{tab,theme:th}).then(r=>{YKG.busy=false;YKG.key=key;YKG.list=r&&r.ok?r.list:[];YKG.err=!(r&&r.ok);ykShow(false)}).catch(()=>{YKG.busy=false;YKG.key=key;YKG.list=[];YKG.err=true;ykShow(false)})}
+YKP.pages.gallery=()=>{if(!ykGalOn())return{t:"球場ギャラリー",h:ykEmpty(SV&&SV.signIn?"ギャラリーを見る・公開するには、サインインしてください":"球場ギャラリーは、アプリ版で使えます",SV&&SV.signIn?`<button class="btn sm tomato" id="gSi">サインイン</button>`:""),ready:el=>{const b=el.querySelector("#gSi");if(b)b.onclick=()=>SV.signIn().then(()=>{act("sync",{});ykShow(false)}).catch(()=>{})}};
+ const tab=YKP.gtab||"pop",th=YKP.gth||"地方";if(YKG.key!==tab+"|"+th){YKG.list=null;ykGalLoad()}
+ const L=YKG.list;
+ return{t:"球場ギャラリー",h:`<div class="yk-chips" data-keepx="1">${[["pop","今週の人気"],["new","新着"],["small","小さな名球場"],["theme","テーマ別"],["saved","保存した"]].map(([k,l])=>`<button class="${tab===k?"on":""}" data-gt="${k}">${l}</button>`).join("")}</div>
+  ${tab==="theme"?`<div class="yk-chips">${YK_THEMES.map(t=>`<button class="${th===t?"on":""}" data-gth="${t}">${t}</button>`).join("")}</div>`:""}
+  ${tab==="small"?`<p class="yk-s">はじめから使えるパーツだけで作った球場の部門です。</p>`:""}
+  ${L===null?`<p class="yk-s">読み込み中…</p>`:YKG.err?ykEmpty("読み込めませんでした",`<button class="btn sm paper" id="gRe">もう一度</button>`):L.length?`<div class="yk-sgrid">${L.map((x,i)=>`<div class="yk-sitem">${ykStadiumSVG(Object.assign({},YK_INIT,x.lay,{name:x.name,show:{ball:false,flag:false,card:false}}),{id:"gl"+i,small:true})}<b>${esc(x.name)}</b><small>${esc(x.owner)}${x.mine?"（あなた）":""}・${esc(x.theme)}</small>${x.comment?`<small>${esc(x.comment)}</small>`:""}
+   <div class="yk-grx">${x.mine?`<span>いいね ${x.counts.like}・行ってみたい ${x.counts.go}・保存 ${x.counts.saves}<br><small>あなたにだけ表示</small></span>`:`<button class="pbtn ${x.my.like?"on":""}" data-grx="${esc(x.id)}|like" ${x.my.like?"disabled":""}>いいね</button><button class="pbtn ${x.my.go?"on":""}" data-grx="${esc(x.id)}|go" ${x.my.go?"disabled":""}>行ってみたい</button><button class="pbtn ${x.saved?"on":""}" data-gsv="${esc(x.id)}">${x.saved?"保存ずみ":"保存"}</button><button class="pbtn" data-grep="${esc(x.id)}">通報</button>`}</div></div>`).join("")}</div>`
+  :ykEmpty(tab==="saved"?"保存した球場はまだありません":tab==="pop"?"今週はまだ反応がありません。「新着」を見てみよう":"まだありません")}
+  <p class="yk-src">順位は今週の反応の数だけで決めています。球場の大きさ・課金・使った期間は関係ありません。</p>`,
+  ready:el=>{el.querySelectorAll("[data-gt]").forEach(b=>b.onclick=()=>{YKP.gtab=b.dataset.gt;ykShow(false)});el.querySelectorAll("[data-gth]").forEach(b=>b.onclick=()=>{YKP.gth=b.dataset.gth;ykShow(false)});
+   const re=el.querySelector("#gRe");if(re)re.onclick=()=>{YKG.key="";ykShow(false)};
+   el.querySelectorAll("[data-grx]").forEach(b=>b.onclick=()=>{const [id,k]=b.dataset.grx.split("|");act("reactStadium",{target:id,k},()=>({ok:false}),r=>{if(r&&r.ok){const x=YKG.list.find(s=>s.id===id);if(x)x.my[k]=true;ykShow(false)}})});
+   el.querySelectorAll("[data-gsv]").forEach(b=>b.onclick=()=>{const id=b.dataset.gsv;const x=YKG.list.find(s=>s.id===id);act("saveStadium",{target:id,on:!x.saved},()=>({ok:false}),r=>{if(r&&r.ok){x.saved=!x.saved;ykShow(false)}})});
+   el.querySelectorAll("[data-grep]").forEach(b=>b.onclick=()=>{const x=YKG.list.find(s=>s.id===b.dataset.grep);moreMenu("stadium",x.id,x.id,x.owner,()=>{closeModal();YKG.key="";ykShow(false)})})}}};
+function ykPublish(){const L=ykLayout();modal(`<div class="h2">ギャラリーに公開</div>${ykStadiumSVG(L,{id:"pb",small:true})}<p class="sub" style="margin:0">「${esc(L.name)}」を、みんなが見られるギャラリーに公開します。名前（${esc(S.name||"")}）が表示されます。いつでもやめられます。</p>
+ <input class="inp" id="pbC" maxlength="60" placeholder="ひとこと（なくてもOK）"><button class="btn tomato wide" id="pbOk">公開する</button><button class="btn paper wide" id="mc">やめる</button>`,x=>{x.querySelector("#mc").onclick=closeModal;
+ x.querySelector("#pbOk").onclick=()=>{const c=x.querySelector("#pbC").value.trim();const why=c?NGW.text(c):"";if(why){toast(why,1);return}const lay=ykLayLite(L);
+  act("publishStadium",{lay,comment:c},()=>({ok:false}),r=>{if(r&&r.ok){YKS().gal.pub={at:Date.now()};ykSave();closeModal();toast("ギャラリーに公開しました");YKG.key="";renderAll()}})}})}
+const ykLayLite=L=>{const o={};YK_SLOT_ORDER.forEach(k=>{if(k!=="show")o[k]=L[k]});o.name=L.name;return o};
+
+/* =====================================================================
+   観戦記録・図鑑・観戦データ
+   ===================================================================== */
+YKP.pages.watches=()=>{const Y=YKS();const ws=Y.watches.filter(w=>w.mode!=="memory").sort((a,b)=>(b.day||"").localeCompare(a.day||""));const mems=Y.watches.filter(w=>w.mode==="memory");const sv=Object.keys(Y.savedEv);
+ return{t:"観戦記録",h:`<div class="yk-btns"><button class="btn sm tomato" data-yko="past">＋ 前に見た試合を記録</button><button class="btn sm paper" data-yko="memory">＋ 日付のない思い出</button></div>
+  <section class="yk-sec"><h3>試合 ${ws.filter(w=>w.mode!=="plan").length}</h3>${ws.length?ws.map(w=>{const g=ykGame(w.gameId);return`<button class="yk-row" data-yko="game|${w.gameId}"><b>${ykDay(w.day)}</b><span>${g?ykMatch(g):"試合"}</span><small>${w.mode==="plan"?"観戦予定（自分だけ）":w.mode==="stadium"?"🏟 球場":"🏠 家"}${w.manual?"・手で入れた記録":""}</small></button>`}).join(""):`<p class="yk-s">まだありません。ホームの「今日の試合」で「見てる」を押すと記録されます。</p>`}</section>
+  ${mems.length?`<section class="yk-sec"><h3>日付のない思い出 ${mems.length}</h3><p class="yk-s">観戦データの数字には入れていません。</p>${mems.map(w=>`<div class="yk-row"><b>${esc(w.year||"いつか")}</b><span>${esc(w.title)}</span><small>${esc(w.note||"")}</small><button class="pbtn danger" data-delm="${w.id}">消す</button></div>`).join("")}</section>`:""}
+  ${sv.length?`<section class="yk-sec"><h3>保存した出来事 ${sv.length}</h3>${sv.map(id=>{const m=/^ev_(gm_.+)_(p_\d+)$/.exec(id);const p=m&&playerById(m[2]),g=m&&ykGame(m[1]);return p&&g?`<button class="yk-row" data-yko="event|${id}"><b>${ykDay(g.day)}</b><span>${esc(p.name)}</span><small>${ykMatch(g)}</small></button>`:""}).join("")}</section>`:""}`,
+  ready:el=>el.querySelectorAll("[data-delm]").forEach(b=>b.onclick=()=>ykConfirm("この思い出を消しますか？","消す",()=>{ykDelWatch(b.dataset.delm);ykRefresh()}))}};
+/* 前に見た試合：日程のデータがある日はそこから選ぶ。ない日は、相手・球場・結果を手で入れる（自己申告） */
+YKP.pages.past=()=>{const st=YKP.pst||(YKP.pst={day:dayKeyOf(Date.now()-864e5),mode:"stadium",opp:"",home:true,place:"",res:""});const gs=ykGamesOn(st.day);const t=S.team;
+ const vOpts=[...YK_VENUES.map(v=>v.name),"その他の球場"];
+ return{t:"前に見た試合",h:`<div class="frow"><label>日付</label><input class="inp" type="date" id="pdD" value="${st.day}" max="${today()}" min="1950-01-01"></div>
+  <div class="yk-seg"><button class="${st.mode==="stadium"?"on":""}" data-pm="stadium">🏟 球場で</button><button class="${st.mode==="home"?"on":""}" data-pm="home">🏠 家で</button></div>
+  ${gs.length?gs.map(g=>{const w=ykWatchOf(g.id);return`<div class="yk-row"><b>${esc(g.time||"")}</b><span>${ykMatch(g)}</span><small>${esc(g.place||"")}</small>${w?`<span class="yk-l ok">記録ずみ</span>`:`<button class="pbtn" data-ykw="${g.id}|${st.mode}">この試合</button>`}</div>`}).join("")
+  :`<p class="yk-s">この日の日程データはありません。わかる範囲で入れてね（自己申告）。</p>
+   ${t?"":`<p class="yk-warn">先に応援球団をえらんでください（マイ → 推し活）</p>`}
+   <div class="frow"><label>相手</label><select class="inp" id="pdO" style="flex:1"><option value="">えらぶ</option>${TEAMS.filter(x=>x!==t).map(x=>`<option ${st.opp===x?"selected":""}>${x}</option>`).join("")}</select></div>
+   <div class="frow"><label>球場</label><select class="inp" id="pdP" style="flex:1"><option value="">えらぶ</option>${vOpts.map(x=>`<option ${st.place===x?"selected":""}>${x}</option>`).join("")}</select></div>
+   <div class="yk-seg">${["勝ち","負け","引き分け","おぼえていない"].map(r=>`<button class="${st.res===r?"on":""}" data-pr="${r}">${r}</button>`).join("")}</div>
+   <button class="btn tomato wide" id="pdOk" ${t&&st.opp&&st.res?"":"disabled"}>記録する</button>`}`,
+  ready:el=>{const sync=()=>{const o=el.querySelector("#pdO"),p=el.querySelector("#pdP");if(o)st.opp=o.value;if(p)st.place=p.value};
+   el.querySelector("#pdD").onchange=e=>{if(e.target.value&&e.target.value<=today()){st.day=e.target.value;ykShow(false)}};
+   el.querySelectorAll("[data-pm]").forEach(b=>b.onclick=()=>{sync();st.mode=b.dataset.pm;ykShow(false)});
+   el.querySelectorAll("[data-pr]").forEach(b=>b.onclick=()=>{sync();st.res=b.dataset.pr;ykShow(false)});
+   ["#pdO","#pdP"].forEach(s=>{const x=el.querySelector(s);if(x)x.onchange=()=>{sync();ykShow(false)}});
+   const ok=el.querySelector("#pdOk");if(ok)ok.onclick=()=>{sync();const v=YK_VENUES.find(x=>x.name===st.place);const home=v?v.home===t||v.home!==st.opp?(v.home===st.opp?st.opp:t):t:t;
+    const w=ykAddPast({day:st.day,home,away:home===t?st.opp:t,place:st.place==="その他の球場"?"":st.place,mode:st.mode,res:st.res==="おぼえていない"?"":st.res});
+    if(!w){toast("この試合はもう記録しています",1);return}YKP.pst=null;toast("記録しました");ykBack();renderAll()}}}};
+YKP.pages.memory=()=>({t:"日付のない思い出",h:`<p class="yk-s">いつだったか思い出せない観戦も、思い出として残せます（観戦データの数字には入れません）。</p>
+ <div class="frow"><label>タイトル</label><input class="inp" id="mmT" maxlength="40" placeholder="はじめて行った球場" style="flex:1"></div><div class="frow"><label>だいたいの年</label><input class="inp" id="mmY" maxlength="8" placeholder="2010年ごろ" style="flex:1"></div>
+ <textarea class="ta" id="mmN" maxlength="400" placeholder="覚えていること（自分だけ）"></textarea><button class="btn tomato wide" id="mmOk">残す</button>`,
+ ready:el=>el.querySelector("#mmOk").onclick=()=>{const t=el.querySelector("#mmT").value.trim(),n=el.querySelector("#mmN").value.trim(),y=el.querySelector("#mmY").value.trim();if(!t){toast("タイトルを入れてください",1);return}const why=NGW.text(t+" "+n+" "+y);if(why){toast(why,1);return}ykAddMemory(t,n,y);toast("思い出を残しました");ykBack();renderAll()}});
+YKP.pages.zukan=()=>{const Z=ykZukan(),n=Z.filter(z=>z.got).length;
+ return{t:`図鑑 ${n}/${Z.length}`,h:`<p class="yk-s">観戦の記録からそろう図鑑です。🏠 は家で見た試合でもそろいます。</p>
+  <div class="yk-zk">${Z.map(z=>`<button class="yk-zi ${z.got?"got":""}" data-yko="zitem|${z.id}"><b>${esc(z.n)}</b><small>${esc(z.d)}</small><span>${z.got?`✔ ${z.hits.length}`:"まだ"}${z.home?" 🏠":""}</span></button>`).join("")}</div>
+  <p class="yk-src">球場で見たかどうかは自己申告です。試合の結果・成績：${YKSRC_NOTE}</p>`}};
+YKP.pages.zitem=id=>{const z=ykZukan().find(x=>x.id===id);if(!z)return{t:"図鑑",h:ykEmpty("見つかりません")};
+ return{t:esc(z.n),h:`<p class="yk-s">${esc(z.d)}${z.home?"（家で見た試合でもOK）":""}</p>${z.got?z.hits.map(w=>{const g=ykGame(w.gameId);return g?`<button class="yk-row" data-yko="game|${g.id}"><b>${ykDay(g.day)}</b><span>${ykMatch(g)}</span><small>${w.mode==="stadium"?"🏟 球場":"🏠 家"}</small></button>`:""}).join(""):ykEmpty("まだありません")}`}};
+YKP.pages.stats=()=>{const ys=ykYears();const yr=YKP.syear&&ys.includes(YKP.syear)?YKP.syear:"";const s=ykStats(yr);const mx=Math.max(1,...Object.values(s.month));const tot=s.wld.勝ち+s.wld.負け;
+ return{t:"観戦データ",h:`${ys.length?`<div class="yk-chips"><button class="${yr?"":"on"}" data-sy="">ぜんぶ</button>${ys.map(y=>`<button class="${y===yr?"on":""}" data-sy="${y}">${y}年</button>`).join("")}</div>`:""}
+  ${!s.n?ykEmpty("まだ観戦の記録がありません。記録すると、ここに数字が出ます",`<button class="btn sm tomato" data-yko="past">前に見た試合を記録</button>`):`
+  <div class="yk-nums"><div><b>${s.n}</b><small>観戦した試合</small></div><div><b>${s.stadium}</b><small>🏟 球場</small></div><div><b>${s.home}</b><small>🏠 家</small></div></div>
+  <section class="yk-sec"><h3>球場での勝ち負け</h3>${s.wld.勝ち+s.wld.負け+s.wld.引き分け?`<p class="yk-big">${s.wld.勝ち}勝 ${s.wld.負け}敗${s.wld.引き分け?` ${s.wld.引き分け}分`:""}</p>${tot?`<p class="yk-s">勝率 ${(s.wld.勝ち/tot).toFixed(3).replace(/^0/,"")}</p>`:""}`:`<p class="yk-s">結果がわかっている試合はまだありません</p>`}${s.unknown?`<p class="yk-s">結果がわからない試合 ${s.unknown}件は入れていません</p>`:""}</section>
+  <section class="yk-sec"><h3>見た試合で</h3><div class="yk-nums"><div><b>${s.hrN?s.hr:"―"}</b><small>応援球団の本塁打</small></div><div><b>${s.extra}</b><small>延長戦</small></div><div><b>${s.walk}</b><small>サヨナラ勝ち</small></div></div>${s.hrN<s.n?`<p class="yk-s">本塁打は、選手の成績がある試合（${s.hrN}試合）だけで数えています</p>`:""}</section>
+  ${s.venues.length?`<section class="yk-sec"><h3>よく行く球場</h3>${s.venues.map(([v,n])=>`<div class="yk-row"><span>${esc((venueById(v)||{}).name||"")}</span><b>${n}回</b></div>`).join("")}</section>`:""}
+  ${s.picks.length?`<section class="yk-sec"><h3>よくえらぶ推し</h3>${s.picks.map(([p,n])=>`<button class="yk-row" data-yko="player|${p}"><span>${esc((playerById(p)||{}).name||"")}</span><b>${n}日</b></button>`).join("")}</section>`:""}
+  <section class="yk-sec"><h3>月ごと</h3><div class="yk-bars">${Object.entries(s.month).sort().map(([m,n])=>`<div><i style="height:${Math.round(n/mx*100)}%"></i><b>${n}</b><small>${+m.slice(5)}月</small></div>`).join("")}</div></section>`}`,
+  ready:el=>el.querySelectorAll("[data-sy]").forEach(b=>b.onclick=()=>{YKP.syear=b.dataset.sy;ykShow(false)})}};
+
+/* =====================================================================
+   シェア：投稿する前に、かならず見た目を確かめる（自動で投稿しない。ポイントはつかない）
+   kind: oshi3（推し3人の結果）/ watch（観戦カード）/ card（球場カード）/ photo（写真）
+   ===================================================================== */
+function shareData(kind,arg){
+ if(kind==="oshi3"){const o=ykOshi(arg);if(!o)return null;const ls=o.picks.map(pk=>{const p=playerById(pk.pid);const g=pk.gameId&&ykGame(pk.gameId);const hid=g&&ykHidden(pk.gameId)&&ykStarted(g);const l=pk.gameId?ykLine(pk.pid,pk.gameId):{st:"none"};return p?`${p.name}：${hid?"結果をかくし中":lineText(l,p)}${pk.late?"（途中から）":""}`:""}).filter(Boolean);
+  const g=o.picks.map(p=>p.gameId).find(Boolean);return{title:`${ykDay(arg)}の推し3人`,lines:ls,gid:g||"",text:"今日の推し3人"}}
+ if(kind==="watch"){const g=ykGame(arg);const w=ykWatchOf(arg);if(!g||!w)return null;const b=ykBox(arg);const hid=ykHidden(arg);
+  return{title:`${ykDay(g.day)} ${g.home} vs ${g.away}`,lines:[w.mode==="stadium"?"球場で観戦":"家で観戦",hid?"":b.status==="end"?`${b.hs}-${b.as}${b.walkoff?"・サヨナラ":""}`:"",(venueOfGame(g)||{}).name||""].filter(Boolean),gid:arg,text:"観戦の記録"}}
+ if(kind==="card"){const g=ykGame(arg);if(!g)return null;const n=Object.keys(piecesOf(arg,true)).length;return{title:`球場カード ${(venueOfGame(g)||{}).short||""}`,lines:[`${ykDay(g.day)} ${g.home} vs ${g.away}`,`自分の写真 ${n}/5`],gid:arg,text:"球場カード"}}
+ if(kind==="photo"){const p=YKS().photos.find(x=>x.id===arg);if(!p)return null;const g=ykGame(p.gameId);return{title:pieceName(p.kind),lines:g?[`${ykDay(g.day)} ${g.home} vs ${g.away}`]:[],gid:p.gameId,piece:p.kind,photo:p,text:""}}
+ return null}
+YKP.pages.share=a=>{const [kind,arg]=String(a).split("|");const r=shareData(kind,arg);if(!r)return{t:"シェア",h:ykEmpty("シェアできる内容がありません")};
+ return{t:"シェアの確認",h:`<p class="yk-s">「みんな」にこの内容で投稿します（ポイントはつきません）。</p>
+  <div class="yk-prevbox">${r.photo?`<div class="imgview">${imgTag("yki:"+r.photo.id,r.title)}</div>`:""}<div class="yk-rc"><span class="yk-rch">${esc(r.title)}</span>${r.lines.map(l=>`<span class="yk-rcl">${esc(l)}</span>`).join("")}</div></div>
+  <textarea class="ta" id="shT" maxlength="200" placeholder="ひとこと（なくてもOK）"></textarea>
+  <p class="yk-s">だれでも読めます。名前と投稿時刻がつきます。あとから消せます。</p>
+  <button class="btn tomato wide" id="shOk">投稿する</button><button class="btn paper wide" data-ykback>やめる</button>`,
+  ready:el=>{el.querySelector("#shOk").onclick=async()=>{const btn=el.querySelector("#shOk");const text=(el.querySelector("#shT").value.trim()||r.text||r.title).slice(0,200);
+   const near=r.gid&&Math.abs(Date.parse(gk2day(r.gid))-Date.parse(today()))<=864e5&&!!(typeof GAMES!=="undefined"&&GAMES.some(g=>gameKeyOf(g)===r.gid));
+   const rec={kind,title:r.title.slice(0,40),lines:r.lines.slice(0,4).map(x=>String(x).slice(0,40)),gid:r.gid||""};if(r.piece)rec.piece=r.piece;
+   const post={world:"yakyu",cat:"観戦記録",text,ch:"",meta:{rec},team:S.team||"",game:near?r.gid:"",img:""};
+   if(r.photo){const blob=await ykGetBlob(r.photo.id);if(!blob){toast("写真を読めませんでした",1);return}
+    if(SV){if(!SV.uploadImage){toast("写真の投稿は、いまは使えません",1);return}btn.disabled=true;btn.textContent="写真を送っています…";try{post.img=await SV.uploadImage(blob)}catch(e){btn.disabled=false;btn.textContent="投稿する";toast("写真を送れませんでした",1);return}}
+    else post.img=await new Promise(res=>{const fr=new FileReader();fr.onload=()=>res(fr.result);fr.readAsDataURL(blob)})}
+   submitPost(post,()=>{if(r.photo){const p=YKS().photos.find(x=>x.id===r.photo.id);const np=SV?null:CM.posts[CM.posts.length-1];if(p){p.postId=np?np.id:(LAST_POST_ID||"");ykSave()}}ykCloseAll();afterPost(post)},()=>{btn.disabled=false;btn.textContent="投稿する"})}}}};
+/* 「みんな」の記録カード（観戦記録の投稿の中身） */
+function recMetaHTML(p){const r=p.meta&&p.meta.rec;if(!r)return"";
+ return`<span class="yk-rc in"><span class="yk-rck">${{oshi3:"推し3人の結果",watch:"観戦カード",card:"球場カード",photo:"写真："+pieceName(r.piece),zukan:"図鑑",stadium:"自分の球場"}[r.kind]||"記録"}</span><span class="yk-rch">${esc(r.title||"")}</span>${(r.lines||[]).map(l=>`<span class="yk-rcl">${esc(l)}</span>`).join("")}${r.gid&&ykGame(r.gid)?`<span class="yk-rcgo" data-ykgo="${esc(r.gid)}">試合のページ ›</span>`:""}</span>`}
+document.addEventListener("click",e=>{const t=e.target.closest("[data-ykgo]");if(!t)return;e.stopPropagation();e.preventDefault();if(!$("#modal").hidden)closeModal();ykOpen("game",t.dataset.ykgo)},true);
+
+/* =====================================================================
+   気持ちのボタン（熱い！／頼む！／しびれた／悔しい）。押してもポイントはなし・音も出さない
+   ===================================================================== */
+const YK_PAD=[["atsui","熱い！","st_guts"],["tanomu","頼む！","st_shinji"],["shibire","しびれた","st_kami"],["kuyashii","悔しい","st_gunu"]];
+function padHTML(gid){return`<div class="yk-pad" data-pad="${gid}"><div class="yk-stand" aria-hidden="true">${Array.from({length:14},(_,i)=>`<i style="--d:${(i*53)%400}ms;background:${["#FF8A8A","#FFC62E","#7FC8F0","#4ED1A5"][i%4]}"></i>`).join("")}<span class="yk-tomo">${tomoImg(44,"tomo")}</span></div>
+  <div class="yk-padb">${YK_PAD.map(([k,l,s])=>`<button data-padk="${k}"><img src="${(typeof STICKER_IMG!=="undefined"&&STICKER_IMG[s])||""}" alt=""><b>${l}</b></button>`).join("")}</div></div>`}
+function bindPad(root){root.querySelectorAll("[data-pad]").forEach(pd=>pd.querySelectorAll("[data-padk]").forEach(b=>b.onclick=()=>{const k=b.dataset.padk;
+ if(ykMotion()){pd.classList.remove("go","k-atsui","k-tanomu","k-shibire","k-kuyashii");void pd.offsetWidth;pd.classList.add("go","k-"+k)}else pop(b.querySelector("b").textContent);
+ if(YKS().settings.vib&&navigator.vibrate)navigator.vibrate(12)}))}
+
+/* =====================================================================
+   勝利のお祭り（勝った日に1回。スキップできる。見たら記録に残せる）
+   ===================================================================== */
+function ykMaybeFest(){const t=S.team;if(!t||!YKS().settings.fest)return;const g=ykTeamGame(t,today());if(!g||ykHidden(g.id))return;const b=ykBox(g.id);if(b.status!=="end"||ykResultFor(b,t)!=="勝ち")return;
+ const k="fest_"+g.id;if(YKS().seen[k])return;YKS().seen[k]=1;ykSave();
+ modal(`<div class="yk-fest ${ykMotion()?"anim":""}"><img src="${(typeof TOMO_POSE!=="undefined"&&TOMO_POSE.win)||TOMO_IMG}" alt=""><b>${esc(t)} 勝利！</b><span>${b.hs}-${b.as}${b.walkoff?"・サヨナラ":""}</span></div>
+  ${ykWatchOf(g.id)?"":`<div class="yk-two"><button class="btn tomato" id="fsS">🏟 球場で見た</button><button class="btn" id="fsH">🏠 家で見た</button></div>`}<button class="btn paper wide" id="mc">とじる</button>`,x=>{
+  x.querySelector("#mc").onclick=closeModal;const s=x.querySelector("#fsS"),h=x.querySelector("#fsH");if(s)s.onclick=()=>{closeModal();ykWatchNow(g.id,"stadium")};if(h)h.onclick=()=>{closeModal();ykWatchNow(g.id,"home")}})}
+
+/* =====================================================================
+   マイ →「ノート」：自分の球場と、記録の入り口
+   ===================================================================== */
+function renderYkMy(){const y=isY();document.querySelectorAll("#myTabs [data-yk]").forEach(b=>b.hidden=!y);$("#myTabs").classList.toggle("n4",y);
+ if(!y&&myGroup==="note")setMyGroup("oshi");
+ const sb=$("#ykNote");if(sb&&y){const L=ykLayout(),Y=YKS();const mem=ykMementos(),Z=ykZukan(),s=ykStats("");const pub=!!Y.gal.pub;
+  const row=(k,ic,t,v)=>`<button class="yk-nrow" data-yko="${k}"><span>${ic}</span><b>${t}</b><em>${v}</em><i>›</i></button>`;
+  sb.innerHTML=`<div class="yk-card"><div class="yk-mysvg">${ykStadiumSVG(L,{id:"my",mem,anim:true})}</div>
+   <div class="yk-btns"><button class="btn sm tomato" id="myEd">模様替え</button><button class="btn sm paper" id="mySave">画像を保存</button>${ykGalOn()?`<button class="btn sm paper" id="myPub">${pub?"公開を更新":"ギャラリーに公開"}</button>`:""}</div></div>
+   <div class="yk-nlist">${row("watches","📒","観戦記録",`${s.n}試合`)}${row("zukan","📖","図鑑",`${Z.filter(z=>z.got).length}/${Z.length}`)}${row("stats","📊","観戦データ",s.n?`${s.wld.勝ち}勝${s.wld.負け}敗`:"")}
+    ${row("album","📷","写真",`${Y.photos.length}枚`)}${row("history","🃏","推し3人・記念品",`${mem.length}個`)}${row("follow","👀","追いかける選手",`${Y.follow.length}人`)}${ykGalOn()?row("gallery","🏟","球場ギャラリー",""):""}</div>
+   <p class="yk-src">記録はこの端末に保存されています。機種変更のときは「設定」→「記録を書き出す」。</p>`;
+  sb.querySelector("#myEd").onclick=()=>{YKE=null;ykOpen("stadium")};sb.querySelector("#mySave").onclick=()=>ykSaveImage(ykStadiumSVG(L,{id:"sv",mem}),L.name);
+  const pb=sb.querySelector("#myPub");if(pb)pb.onclick=ykPublish}
+ const st=$("#ykSetBox");if(st){st.hidden=!y;if(y)renderYkSet(st)}}
+function renderYkSet(box){const s=YKS().settings;
+ box.innerHTML=`<h2 class="h2">野球ノート</h2>
+ <label class="yk-chk"><input type="checkbox" id="ysMo" ${s.motion==="off"?"checked":""}>動きをへらす</label>
+ <label class="yk-chk"><input type="checkbox" id="ysFest" ${s.fest?"checked":""}>勝った日に「勝利！」の画面を出す</label>
+ <div class="yk-btns"><button class="btn sm" id="ysExp">記録を書き出す</button><label class="btn sm paper">記録を読み込む<input type="file" id="ysImp" accept=".json,application/json" hidden></label></div>
+ <p class="yk-src">記録と写真はこの端末の中に保存しています。書き出したファイルで、別の端末に移せます。</p>`;
+ box.querySelector("#ysMo").onchange=e=>{s.motion=e.target.checked?"off":"auto";ykSave();renderAll()};
+ box.querySelector("#ysFest").onchange=e=>{s.fest=e.target.checked;ykSave()};
+ box.querySelector("#ysExp").onclick=async()=>{const txt=await ykExport();const blob=new Blob([txt],{type:"application/json"});const f=new File([blob],`yakyutomo-note-${today()}.json`,{type:"application/json"});
+  if(navigator.canShare&&navigator.canShare({files:[f]})){try{await navigator.share({files:[f]});return}catch(e){if(e&&e.name==="AbortError")return}}
+  const u=URL.createObjectURL(blob);modal(`<div class="h2">記録を書き出す</div><p class="sub" style="margin:0">記録と写真を1つのファイルにまとめました（${Math.ceil(txt.length/1024)}KB）。</p><a class="btn wide" href="${u}" download="yakyutomo-note-${today()}.json">ファイルを保存</a><button class="btn paper wide" id="mc">とじる</button>`,x=>{x.querySelector("#mc").onclick=closeModal})};
+ box.querySelector("#ysImp").onchange=e=>{const f=e.target.files&&e.target.files[0];if(!f)return;const r=new FileReader();r.onload=()=>ykConfirm("読み込むと、この端末の記録は置きかわります。よいですか？","読み込む",async()=>{try{await ykImport(String(r.result));toast("記録を読み込みました");renderAll()}catch(err){toast(err.message||"読み込めませんでした",1)}});r.readAsText(f)}}
+
+/* =====================================================================
+   実況タブ：応援球団の試合中だけ、気持ちのボタンと「見てる」
+   ===================================================================== */
+function renderYkLive(){const box=$("#gameBox");if(!box)return;let el=$("#ykLive");const g=isY()&&S.team?ykTeamGame(S.team,today()):null;
+ const show=g&&ykBox(g.id).status==="live"&&!ykHidden(g.id);if(!show){if(el)el.remove();return}
+ if(!el){el=document.createElement("div");el.id="ykLive";el.className="yk-live";box.appendChild(el)}
+ el.innerHTML=`${padHTML(g.id)}${ykWatchOf(g.id)?"":`<div class="yk-two"><button class="btn sm tomato" data-ykw="${g.id}|stadium">🏟 球場で見てる</button><button class="btn sm" data-ykw="${g.id}|home">🏠 家で見てる</button></div>`}`;bindYk(el);bindPad(el)}
+
+/* ---------- アプリ全体の描き直しのときに呼ぶ ---------- */
+function renderYk(){try{if(isY())npbLoad();renderYkHome();renderYkMy();renderYkLive();if(YKP.stack.length&&!isY())ykCloseAll()}catch(e){console.error(e)}}
+document.addEventListener("visibilitychange",()=>{if(!document.hidden&&isY())npbLoad()});
 
 /* =====================================================================
    配信者・動画
@@ -3907,7 +4938,7 @@ const LEGAL={
   <h3>非公式のファンアプリです</h3><p>${APP.full}は、${esc(APP.operator)}が運営する非公式のファンアプリです。野球ゲームの開発・運営会社（株式会社コナミデジタルエンタテインメント）、YouTube（Google LLC）、一般社団法人日本野球機構および各球団とは関係がなく、承認や協賛を受けたものではありません。</p>
   <p>ゲームの名前、球団名、選手名などは、それぞれの権利者の商標または登録商標です。このアプリでは説明のために文字で書くことがありますが、ロゴやゲームの画像は使っていません。</p>
   <h3>データの出典</h3><p>チャンネル・配信者の名前、登録者数、動画のタイトル・再生回数・サムネイル、ライブの同時視聴者数は、YouTube API サービスを使って YouTube から取得した公開情報です。数値は YouTube の公開値をそのまま表示しています（1,000人以上の登録者数は YouTube 側で上3桁に丸められています）。</p>
-  <p>応援票・ポイント・ランキング・球団対抗・「みんな」の投稿・ガチャ報告は、このアプリの利用者によるもので、YouTube のデータではありません。試合日程は NPB 公式サイトの公開情報（日時・対戦・球場）をもとに作っています。</p>
+  <p>応援票・ポイント・ランキング・球団対抗・「みんな」の投稿・ガチャ報告は、このアプリの利用者によるもので、YouTube のデータではありません。試合日程・結果と、野球ノートの選手一覧・個人成績は、NPB 公式サイトの公開情報（日時・対戦・球場・点数・選手名・成績の数字）をもとに作っています。</p>
   <h3>掲載について</h3><p>載っているのは、野球ゲームの動画・配信をしている YouTube チャンネルと、プロ野球の球団ファンとして動画を出している YouTube チャンネルの公開情報だけです。表示する動画・ライブは、野球ゲームまたはプロ野球に関するものだけです。球団・リーグ・テレビ局などの公式チャンネルは載せていません。掲載をやめたい配信者の方は「お問い合わせ・掲載の停止」からご連絡ください。確認のうえ、すみやかに削除します。</p>
   <p class="meta">${APP.full} ${APP.version}</p></div>`,
  terms:()=>`<div class="h2">利用規約</div><div class="legal"><p class="meta">最終更新：2026年10月（版 ${APP.legalVer}）</p>
@@ -3928,7 +4959,7 @@ const LEGAL={
   <h3>3. YouTube API サービス</h3><p>本アプリは、配信者や動画の公開情報を表示するために YouTube API サービスを使っています。利用者の YouTube や Google のアカウントにはアクセスしません。Google のプライバシーポリシー：${A("https://policies.google.com/privacy")}。Google アカウントの接続の管理：${A("https://security.google.com/settings/security/permissions")}</p>
   <h3>4. 外部への送信（利用者情報の外部送信）</h3><ul><li>Google LLC（Firebase）：ログイン、データの保存、不正防止、使い方の分析（Google Analytics for Firebase）のため。識別子・操作の記録・投稿</li><li>Google LLC（AdMob）：広告の配信・報酬の確認のため。広告識別子（許可した場合）・端末情報</li><li>RevenueCat, Inc.：サブスクリプションの管理のため。購入状況・識別子</li><li>Apple Inc.：サインイン・購入のため</li></ul>
   <h3>5. 第三者への提供</h3><p>法令にもとづく場合を除き、本人の同意なく第三者に個人情報を提供しません。上記の委託先には、目的の範囲内で必要な情報を渡します。</p>
-  <h3>6. 保存期間と削除</h3><p>アカウントがあるあいだ保存します（配信・試合の実況の書き込みは7日で自動で消えます。参加中の実況ルームの記録は5分で消えます）。今日の応援カードの画像は端末の中で作り、サーバーには送りません。マイ →「アカウントを削除」から、いつでも削除できます。削除すると、ポイント・スカウト・設定は消え、投稿は「退会したユーザー」として見えなくなります。</p>
+  <h3>6. 保存期間と削除</h3><p>アカウントがあるあいだ保存します（配信・試合の実況の書き込みは7日で自動で消えます。参加中の実況ルームの記録は5分で消えます）。今日の応援カードの画像は端末の中で作り、サーバーには送りません。「野球ノート」の観戦記録・推し3人・写真・自分の球場は端末の中だけに保存し、サーバーには送りません（「みんな」に公開した写真・記録カードは投稿として、ギャラリーに公開した球場はサーバーに保存し、公開をやめる・消すと削除します）。マイ →「アカウントを削除」から、いつでも削除できます。削除すると、ポイント・スカウト・設定は消え、投稿は「退会したユーザー」として見えなくなります。</p>
   <h3>7. お問い合わせ</h3><p>${esc(APP.operator)}　${esc(APP.contact)}</p></div>`,
  contact:()=>`<div class="h2">お問い合わせ・掲載の停止</div><div class="legal">
   <h3>お問い合わせ</h3><p><b style="user-select:all">${esc(APP.contact)}</b> までメールでご連絡ください。</p>
@@ -3969,7 +5000,7 @@ showTitle(()=>{if(!S.onb)setTimeout(()=>onboarding(false),200);
  else{if(S.legal!==APP.legalVer)setTimeout(()=>modalLater(consentModal),200);if(SV)startServer();else setTimeout(()=>modalLater(showLoginIfNeeded),300)}});
 setInterval(()=>{if(boosted()||S.boostUntil)renderBoost()},30000);
 if(SV)setInterval(loadBoards,5*60e3);
-window.__ts={checkNewPosts,CMp:()=>CM,cmSave,postsOf,findPost,get FEED(){return FEED},set FEED(v){FEED=v},get TEAMFEED(){return TEAMFEED},loadFeed,worldOf,gameKeyOf,LEGAL,BGM,KUN,SK,ART,TX,stkDefs,openCard,finalGame,CARD,renderFriends,joinRoom,get FRIENDS(){return FRIENDS},set FRIENDS(v){FRIENDS=v},openPaywall,gameToday,passStk,perkOn,slotsMax,lim,trialReady,CH,VIDS,TEAMC,gamesOf,gameState,today,STICKERS,STICKER_PACKS,maybeInterstitial,ADS,applyTheme,renderAll,get S(){return S},save,loadBoards,get CM(){return CM}}; /* 動作テスト用 */
+window.__ts={setGames:a=>{GAMES=a},RN:{renderAllNow,renderYkHome,renderYkMy,renderYkLive,renderHome,renderComm,renderMy,renderResults,renderLive},NPB,useNpb,ykAddPast,ykSnapAll,ykLine,ykOshi,ykOpen,ykCloseAll,ykSpoil,ykHidden,ykGame,ykPhotosOf,ykStadiumSVG,YK_SAMPLES,YKS,ykSave,ykBox,ykGamesOn,ykPlayers,ykZukan,ykStats,ykMementos,ykEvents,ykSetOshi,ykStartWatch,checkNewPosts,CMp:()=>CM,cmSave,postsOf,findPost,get FEED(){return FEED},set FEED(v){FEED=v},get TEAMFEED(){return TEAMFEED},loadFeed,worldOf,gameKeyOf,LEGAL,BGM,KUN,SK,ART,TX,stkDefs,openCard,finalGame,CARD,renderFriends,joinRoom,get FRIENDS(){return FRIENDS},set FRIENDS(v){FRIENDS=v},openPaywall,gameToday,passStk,perkOn,slotsMax,lim,trialReady,CH,VIDS,TEAMC,gamesOf,gameState,today,STICKERS,STICKER_PACKS,maybeInterstitial,ADS,applyTheme,renderAll,get S(){return S},save,loadBoards,get CM(){return CM}}; /* 動作テスト用 */
 })();
 
 </script>
