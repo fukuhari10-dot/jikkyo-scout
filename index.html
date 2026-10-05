@@ -1433,6 +1433,106 @@ body.yk-on .nav{z-index:42}
 .yk-nrow:last-child{border-bottom:0}.yk-nrow span{font-size:20px;width:26px;text-align:center}.yk-nrow b{font-size:14px}.yk-nrow em{margin-left:auto;font-style:normal;font-size:12px;color:var(--muted)}.yk-nrow i{font-style:normal;color:var(--muted);font-size:18px}
 .yk-btns.sub{margin-top:10px}.yk-pieces b{margin-left:auto;font-size:12px}
 .yk-ev .yk-evn small{font-weight:400;font-size:11px;color:var(--muted);margin-left:6px}
+/* ===================== 野球ノート：観戦手帳のデザイン ===================== */
+.yki{width:22px;height:22px;flex:none;display:inline-block;vertical-align:middle}
+.ykp-back{display:inline-flex;align-items:center;gap:4px}.ykp-back::before{content:"";width:8px;height:8px;border-left:3px solid var(--ink);border-bottom:3px solid var(--ink);transform:rotate(45deg);margin-left:2px}
+.yk-gm i s,.yk-gm i{text-decoration:none}.yk-gm i s{display:inline-block;margin:0 6px;font-size:.7em;color:var(--muted)}
+/* 今日の試合：大きい2択 */
+.yk-two{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:10px}
+.yk-big{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px;min-height:74px;border:3px solid var(--ink);border-radius:14px;font:inherit;color:var(--ink);box-shadow:3px 3px 0 var(--ink);padding:8px 4px}
+.yk-big .yki{width:34px;height:34px}.yk-big b{font-family:var(--display);font-weight:400;font-size:14px}
+.yk-big.st{background:#E3F6EA}.yk-big.hm{background:#FFF1C9}
+.yk-big:active{transform:translate(2px,2px);box-shadow:1px 1px 0 var(--ink)}
+.yk-plan{display:flex;align-items:center;gap:8px;width:100%;margin-top:10px;border:3px dashed var(--ink);border-radius:12px;background:#fff;padding:10px 12px;font:inherit;font-weight:700;color:var(--ink);min-height:52px;text-align:left}
+.yk-plan.on{border-style:solid;background:#E3F6EA;color:#11603B}.yk-plan.on .yki{color:#1A8C5A}.yk-plan small{margin-left:auto;font-weight:400;font-size:11.5px;color:var(--muted);text-decoration:underline}
+.yk-done{display:flex;align-items:center;gap:8px;width:100%;margin-top:10px;border:2.5px solid #1A8C5A;border-radius:12px;background:#E3F6EA;padding:8px 12px;font:inherit;font-weight:700;color:#11603B;min-height:48px;text-align:left}
+.yk-done .yki{width:28px;height:28px}.yk-done em{margin-left:auto;font-style:normal;font-size:12px;text-decoration:underline}.yk-done.static{margin-top:0}.yk-done .yk-l{margin-left:auto}
+.yk-tag{flex:none;font-size:11px;background:var(--ink);color:#fff;border-radius:6px;padding:2px 7px;font-family:var(--display);font-weight:400}
+.yk-oshirow{position:relative;padding-right:12px}.yk-oshirow>i{display:none}
+.yk-pts{margin-left:auto;font-style:normal;font-family:var(--dotf);font-size:22px;color:var(--redtx);line-height:1;flex:none}.yk-pts small{font-size:11px;margin-left:1px}
+.yk-spoil{display:flex;align-items:center;gap:6px;margin:10px 0 0;width:100%;border:0;border-top:2px dashed var(--dash);background:none;color:#4A2F8A;font-size:12.5px;font-weight:700;padding:10px 2px 2px;min-height:40px;font-family:inherit;text-align:left}
+.yk-spoil small{font-weight:400;color:var(--muted);margin-left:auto}.yk-spoil b{margin-left:auto;background:#4A2F8A;color:#fff;border-radius:8px;padding:3px 10px}
+.yk-spoil.on{background:#F1ECFB;border:2px solid #4A2F8A;border-radius:10px;padding:8px 10px}
+.yk-ghead .yk-spoil{border-top:0;padding-top:4px}
+.yk-off .yk-s b{color:var(--ink)}
+.yk-memo{display:flex;align-items:center;gap:6px;margin-top:8px;font-size:12px;color:var(--ink)}
+.yk-place{font-size:11.5px;color:var(--muted);margin-left:auto}
+.yk-ghead{border-top-width:3px;background:linear-gradient(90deg,var(--tc) 0 50%,var(--tc2) 50% 100%) top/100% 8px no-repeat,var(--paper);padding-top:16px}
+/* 選手さがし */
+.yk-search{position:sticky;top:calc(env(safe-area-inset-top,0px) + 60px);z-index:1}
+.yk-search .inp{width:100%;font-size:16px;padding:10px 12px;border-width:3px;border-radius:12px;background:#fff}
+.yk-hint{margin:8px 0;font-size:13px;color:var(--ink);background:#fff;border:2px dashed var(--dash);border-radius:10px;padding:12px;text-align:center}
+.yk-grp{display:flex;align-items:baseline;gap:6px;margin:14px 0 2px;font-family:var(--display);font-weight:400;font-size:13px;border-bottom:2.5px solid var(--ink);padding-bottom:2px}
+.yk-grp small{font-family:var(--body);font-size:11px;color:var(--muted)}
+.yk-pk{grid-template-areas:"d n l" "d s l" "d f f"}.yk-form{grid-area:f;font-style:normal;font-size:11px;color:#1A7A4E;font-weight:700;margin-top:1px}
+.yk-pk .yk-pkl .yki{color:var(--tomato);width:24px;height:24px}
+.yk-sel button.on{justify-content:space-between}.yk-sel button.on i{font-style:normal;color:var(--muted)}
+/* 背番号（ユニフォームの数字） */
+.yk-no{display:inline-flex;align-items:center;justify-content:center;min-width:34px;height:30px;padding:0 4px;border:2.5px solid var(--ink);border-radius:8px;background:var(--tc,#22386B);color:#fff;font-family:var(--display);font-size:15px;line-height:1;-webkit-text-stroke:.6px var(--ink);flex:none}
+.yk-phead{border-left:10px solid var(--tc)}.yk-phead .yk-no{height:46px;min-width:50px;font-size:24px}.yk-phead em{display:block;font-style:normal;font-size:12px;color:#1A7A4E;font-weight:700;margin-top:2px}
+.yk-resh .yk-no{min-width:28px;height:26px;font-size:13px}.yk-resh .yk-pts{font-size:26px}
+.yk-line{margin:4px 0;font-family:var(--display);font-size:18px}
+/* 推し点のボード */
+.yk-ptsboard{display:grid;grid-template-columns:1fr auto;align-items:center;background:#12281F;border:3px solid var(--ink);border-radius:12px;padding:10px 14px;color:#F2F2E6;box-shadow:3px 3px 0 var(--ink)}
+.yk-ptsboard span{font-size:12px}.yk-ptsboard b{grid-row:span 2;font-family:var(--dotf);font-size:40px;color:#FFB12E;line-height:1}.yk-ptsboard small{font-size:11px;color:#9FC4B2}
+.yk-rule summary{font-size:12px;color:var(--muted);min-height:32px}.yk-rule p{margin:4px 0 0;font-size:12px;line-height:1.7}
+/* 観戦の半券 */
+.tk-list{display:flex;flex-direction:column;gap:8px}
+.tk{position:relative;display:grid;grid-template-columns:1fr 78px;width:100%;padding:0;border:0;background:none;font:inherit;color:var(--ink);text-align:left;filter:drop-shadow(3px 3px 0 var(--ink))}
+.tk-main{display:flex;flex-direction:column;gap:2px;background:#FFF6E0;border:2.5px solid var(--ink);border-right:0;border-radius:10px 0 0 10px;padding:9px 10px 9px 16px;position:relative;min-width:0}
+.tk-main::before{content:"";position:absolute;left:0;top:0;bottom:0;width:7px;background:var(--tc);border-radius:7px 0 0 7px}
+.tk-main small{font-family:var(--dotf);font-size:11.5px;color:var(--muted)}.tk-main b{font-family:var(--display);font-weight:400;font-size:16px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.tk-main b i{font-style:normal;font-family:var(--dotf);margin:0 7px;color:var(--redtx)}
+.tk-main span{font-size:11.5px;color:var(--muted);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.tk-stub{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px;background:#FFF6E0;border:2.5px solid var(--ink);border-left:2.5px dashed var(--ink);border-radius:0 10px 10px 0;position:relative;
+ -webkit-mask:radial-gradient(circle 7px at 0 0,transparent 98%,#000) top left/100% 51% no-repeat,radial-gradient(circle 7px at 0 100%,transparent 98%,#000) bottom left/100% 51% no-repeat;mask:radial-gradient(circle 7px at 0 0,transparent 98%,#000) top left/100% 51% no-repeat,radial-gradient(circle 7px at 0 100%,transparent 98%,#000) bottom left/100% 51% no-repeat}
+.tk-mode{display:flex;align-items:center;gap:2px;font-size:11px;font-weight:700}.tk-mode .yki{width:18px;height:18px}
+.tk-hanko{display:inline-flex;align-items:center;justify-content:center;width:34px;height:34px;border-radius:50%;border:2.5px solid currentColor;font-family:var(--display);font-size:17px;transform:rotate(-12deg);box-shadow:inset 0 0 0 2px #FFF6E0,inset 0 0 0 3.5px currentColor}
+.tk-hanko.w{color:#C8302A}.tk-hanko.l{color:#3E5A86}.tk-hanko.d{color:#7A7262}.tk-q{font-family:var(--display);color:#4A2F8A}
+.tk.plan .tk-main,.tk.plan .tk-stub{background:#fff;border-style:dashed}
+/* 球場スタンプ */
+.yk-stamps{display:grid;grid-template-columns:repeat(4,1fr);gap:8px 6px;margin:4px 0}
+.yk-stamps.sm{grid-template-columns:repeat(6,1fr);gap:4px}
+.stp{aspect-ratio:1;display:flex;flex-direction:column;align-items:center;justify-content:center;border-radius:50%;border:2px dashed #CFC6B2;color:#B3A98F;font-size:10.5px;line-height:1.15;text-align:center;padding:2px}
+.stp b{font-weight:700}.stp small{font-size:9px;font-family:var(--dotf)}
+.stp.on{border:3px double #C8302A;color:#C8302A;transform:rotate(var(--r));background:radial-gradient(circle,#fff 55%,#FBE9E6);font-family:var(--display)}
+.stp.on b{font-weight:400}
+.yk-stamps.sm .stp{font-size:8.5px;border-width:1.6px}.yk-stamps.sm .stp small{display:none}.yk-stamps.sm .stp.on{border-width:2.4px}
+/* スコアボード */
+.yk-led{display:grid;grid-template-columns:repeat(3,1fr);width:100%;gap:2px;background:#12281F;border:3px solid var(--ink);border-radius:12px;padding:10px 6px;box-shadow:4px 4px 0 var(--ink);font:inherit;color:#F2F2E6;text-align:center}
+.yk-led span{display:flex;flex-direction:column;align-items:center;gap:1px;border-right:1.5px dashed #2E4A3C}.yk-led span:nth-child(3){border-right:0}
+.yk-led small{font-size:10.5px;color:#9FC4B2}.yk-led b{font-family:var(--dotf);font-size:24px;color:#FFB12E;line-height:1.1}.yk-led b s{text-decoration:none;font-size:12px;margin:0 2px;color:#F2F2E6}
+.yk-led em{grid-column:1/-1;font-style:normal;font-size:12px;color:#FF7B6B;margin-top:6px;font-weight:700}
+.yk-board{background:#12281F;border:3px solid var(--ink);border-radius:12px;box-shadow:4px 4px 0 var(--ink);color:#F2F2E6;padding:12px 14px;display:flex;flex-direction:column;gap:10px}
+.bd-row{display:flex;align-items:baseline;gap:6px;flex-wrap:wrap;font-size:12px;color:#9FC4B2}.bd-row b{font-family:var(--dotf);font-size:22px;color:#FFB12E;margin-right:10px}
+.bd-big{display:flex;flex-direction:column}.bd-big span{font-size:12px;color:#9FC4B2}.bd-big b{font-family:var(--dotf);font-size:34px;color:#FFB12E;line-height:1.15}.bd-big em{font-style:normal;font-family:var(--dotf);font-size:15px}
+.bd-streak{font-size:13px;font-weight:700;color:#FF7B6B;border-top:1.5px dashed #2E4A3C;padding-top:8px}
+/* ノートのまとまり */
+.yk-nb{display:flex;flex-direction:column;gap:6px}
+.nb-h{display:flex;align-items:baseline;gap:8px;margin:0;font-family:var(--display);font-weight:400;font-size:15px}.nb-h small{font-family:var(--dotf);font-size:13px;color:var(--redtx)}.nb-h .yk-more{margin-left:auto}
+.yk-sec h3 small{font-family:var(--dotf);font-size:13px;color:var(--redtx);margin-left:2px}
+.yk-nrow{gap:12px}.yk-nrow .yki{width:28px;height:28px}.yk-nrow::after{content:"";width:8px;height:8px;border-right:2.5px solid var(--muted);border-top:2.5px solid var(--muted);transform:rotate(45deg);margin-left:6px;flex:none}
+.yk-nrow em{margin-left:auto}
+.yk-mycard{padding:10px}
+/* 図鑑：はんこ */
+.yk-zi{position:relative;padding-right:40px}.zi-seal{position:absolute;right:6px;top:8px;width:30px;height:30px}.zi-seal .yki{width:30px;height:30px;transform:rotate(-10deg)}
+.yk-zi em{font-style:normal;font-size:10px;color:var(--muted);margin-top:auto}
+.yk-zi:not(.got) .zi-seal{border:2px dashed #CFC6B2;border-radius:50%}
+/* そのほか */
+.yk-pieces span{display:inline-flex;align-items:center;gap:2px}.yk-pieces .yki{width:14px;height:14px;color:#1A8C5A}
+.yk-file{flex-direction:column;gap:6px}.yk-file .yki{width:40px;height:40px}
+.yk-scard.done{box-shadow:4px 4px 0 var(--ink),0 0 0 4px var(--mustard)}
+.yk-opt small{display:flex;align-items:center;gap:3px}.yk-opt small .yki{width:14px;height:14px}
+.yk-row em{margin-left:auto;font-style:normal;font-family:var(--dotf);color:var(--redtx)}
+.yk-bars>div{justify-content:flex-end}.yk-bars b{order:-1}
+.yk-memi .yki{width:30px;height:30px}
+
+.vid .got.laterb{display:inline-block;margin-top:2px;background:#E3F6EA;color:#11603B;border-radius:6px;padding:0 6px;font-weight:700}
+.laterlist{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:10px;margin-top:8px}
+.lateritem{display:flex;flex-direction:column;gap:6px}.lateritem .pbtn{min-height:36px}
+.lateritem a.vid{text-decoration:none;color:inherit}
+.tk-hanko{box-shadow:none;width:36px;height:36px;font-size:19px;border-width:3px;background:rgba(255,255,255,.4)}
+.yk-zi b{font-size:12.5px;line-break:strict;word-break:keep-all}
+.lateritem .laterb{display:none}
 </style>
 <div class="app">
   <header class="top">
@@ -2130,14 +2230,14 @@ function thumb(v,extra){const short=String(v.title||"").replace(/【[^】]*】/g
 function chCard(c,pr){const sc=S.scout[c.id];const tags=c.tags.map(t=>`<span class="tag">${esc(t)}</span>`).join("")+(c.team?`<span class="tag team">${esc(c.team)}</span>`:"");
  return`<button class="ch ${pr?"pr":""}" data-ch="${esc(c.id)}">${avatar(c)}<span class="mid"><span class="nm">${esc(c.name)}${c.live?'<span class="livebadge">LIVE</span>':""}${pr?'<span class="prtag">PR</span>':""}${sc?'<span class="tag" style="background:var(--mustard)">スカウト中</span>':""}</span><span class="hd">${c.handle?"@"+esc(c.handle)+"・":""}${c.last===0?"今日":c.last>=30?"30日以上前":c.last+"日前"}に投稿</span><span class="tags">${tags}</span></span><span class="rt"><span class="subs">${fmt(c.subs)}</span><span class="grow" style="color:var(--muted)">登録者</span></span></button>`}
 function vidCard(v){const c=chById(v.ch)||{name:"",id:""};
- return`<button class="vid" data-v="${esc(v.id)}">${thumb(v,`<span class="dur">${esc(v.dur)}</span>`)}<span class="info"><span>${esc(v.title)}</span><small>${esc(c.name)}・${fmt(v.views)}回・${v.ago===0?"今日":v.ago+"日前"}</small>${S.scout[c.id]?'<span class="got" style="color:var(--tomato)">スカウト中の配信者</span>':""}${isLater(v.id)?'<span class="got">あとで見る</span>':""}</span></button>`}
+ return`<button class="vid" data-v="${esc(v.id)}">${thumb(v,`<span class="dur">${esc(v.dur)}</span>`)}<span class="info"><span>${esc(v.title)}</span><small>${esc(c.name)}・${fmt(v.views)}回・${v.ago===0?"今日":v.ago+"日前"}</small>${S.scout[c.id]?'<span class="got" style="color:var(--tomato)">スカウト中の配信者</span>':""}${isLater(v.id)?'<span class="got laterb">あとで見るに入れています</span>':""}</span></button>`}
 function bindCards(root){if(!root)return;root.querySelectorAll("[data-ch]").forEach(b=>b.onclick=()=>openCh(b.dataset.ch));root.querySelectorAll("[data-v]").forEach(b=>b.onclick=()=>openVid(b.dataset.v))}
 const myVotes=id=>S.votes[id]||0;
 const totalVotes=id=>SV&&BOARDS.votes?(BOARDS.votes[id]||0):(BASEVOTES[id]||0)+myVotes(id);
 function voteRanking(){return chW().sort((a,b)=>totalVotes(b.id)-totalVotes(a.id)||a.name.localeCompare(b.name,"ja"))}
 function voteRows(list,max,start){const top=Math.max(1,totalVotes(list[0]?list[0].id:""));return list.slice(0,max).map((c,i)=>`<div class="vote ${myVotes(c.id)?"mine":""}"><span class="n">${(start||0)+i+1}</span>${avatar(c)}<button class="mid" data-ch="${esc(c.id)}" style="background:none;border:0;padding:0;text-align:left"><b>${esc(c.name)}</b><div class="vbar"><i style="width:${totalVotes(c.id)/top*100}%"></i></div></button><span class="v">${totalVotes(c.id).toLocaleString()}票</span></div>`).join("")}
 const isLater=id=>(S.later||[]).some(x=>x.id===id);
-function toggleLater(id){if(isLater(id)){S.later=S.later.filter(x=>x.id!==id);toast("あとで見るから外しました")}else{if((S.later||[]).length>=lim("later")){toast(`あとで見るは${lim("later")}本までです（スカウトパスは上限なし）`,1);openPaywall("later");return}S.later.unshift({id,at:Date.now()});toast("あとで見るに入れました")}save();renderAll()}
+function toggleLater(id){if(isLater(id)){S.later=S.later.filter(x=>x.id!==id);toast("あとで見るから外しました")}else{if((S.later||[]).length>=lim("later")){toast(`あとで見るは${lim("later")}本までです（スカウトパスは上限なし）`,1);openPaywall("later");return}const v=VIDS.find(x=>x.id===id);S.later.unshift(Object.assign({id,at:Date.now()},v?{title:v.title,ch:v.ch,dur:v.dur,views:v.views,pub:v.pub,col:v.col,real:v.real}:{}));toast("あとで見るに入れました")}save();renderAll()}
 
 /* =====================================================================
    ヘッダー・タブ
@@ -2307,8 +2407,10 @@ function renderOshi(){$("#voteLeft").textContent=`今日の残り ${S.vLeft}票`
  const bells=Object.keys(S.bells).filter(k=>S.bells[k]).map(chById).filter(Boolean);
  $("#bellBox").innerHTML=`<div class="rowsb"><h2 class="h2">お知らせON</h2><span class="chip">${bells.length}人</span></div><p class="sub">ライブ・配信予定・新しい動画をお知らせに出します（本番はスマホに通知）。</p>${bells.map(c=>`<div class="bellrow">${avatar(c)}<button class="mid" data-ch="${esc(c.id)}">${esc(c.name)}<small>${c.live?"ライブ中":c.up?`今夜${esc(c.up.t)}から配信予定`:"—"}</small></button><button class="bell on" data-bell="${esc(c.id)}">ON</button></div>`).join("")||'<p class="sub" style="margin:4px 0 0">配信者のページの「お知らせ」から追加できます。</p>'}`;
  $("#bellBox").querySelectorAll("[data-bell]").forEach(b=>b.onclick=()=>toggleBell(b.dataset.bell));
- const later=(S.later||[]).map(x=>VIDS.find(v=>v.id===x.id)).filter(Boolean);
- $("#laterBox").innerHTML=`<div class="hrow"><h2 class="h2">あとで見る</h2>${SRC}<span class="chip">${later.length}本</span></div>${later.length?`<div class="vids" style="margin-top:8px">${later.map(vidCard).join("")}</div>`:'<p class="sub" style="margin:4px 0 0">動画の画面の「あとで見る」で、ここにためておけます。</p>'}`;
+ /* あとで見る：データの入れかえで一覧から消えた動画も、入れたときの控えで出す */
+ const later=(S.later||[]).map(x=>VIDS.find(v=>v.id===x.id)||(x.title?{id:x.id,real:1,ch:x.ch,title:x.title,dur:x.dur||"",views:x.views||0,ago:Math.max(0,Math.floor((Date.now()-(x.pub||x.at))/864e5)),col:x.col||"#FF5B45",snap:1}:null)).filter(Boolean);
+ $("#laterBox").innerHTML=`<div class="hrow"><h2 class="h2">あとで見る</h2>${SRC}<span class="chip">${later.length}本</span></div>${later.length?`<div class="laterlist">${later.map(v=>`<div class="lateritem">${v.snap?`<a class="vid" href="https://www.youtube.com/watch?v=${esc(v.id)}" target="_blank" rel="noopener">${thumb(v,`<span class="dur">${esc(v.dur)}</span>`)}<span class="info"><span>${esc(v.title)}</span><small>${esc((chById(v.ch)||{}).name||"")}</small></span></a>`:vidCard(v)}<button class="pbtn" data-unlater="${esc(v.id)}">見たので外す</button></div>`).join("")}</div>`:'<p class="sub" style="margin:4px 0 0">動画の画面の「あとで見る」を押すと、ここにたまります。</p>'}`;
+ $("#laterBox").querySelectorAll("[data-unlater]").forEach(b=>b.onclick=()=>toggleLater(b.dataset.unlater));
  $("#dotVote").hidden=!S.vLeft;bindCards($("#v-oshi"))}
 $("#adVote").onclick=()=>{if(S.adN>=3)return;watchAd("応援票 +5","votes",()=>adReward("votes",()=>{S.adN++;S.vLeft+=5;save();renderAll();toast("応援票を5票もらいました")}))};
 function voteFor(id,then){act("vote",{chId:id,n:1},()=>({ok:useVote(id)}),r=>{if(r&&r.ok!==false){mstat("votes",1,id);if(SV){S.votes[id]=(S.votes[id]||0)+1;S.voteTotal++;save()}renderAll();then&&then()}})}
@@ -3951,9 +4053,9 @@ function renderFeed(){if(!CM)cmLoad();const w=W(),tabs=TL_TABS[w];if(!tabs.some(
  else{list=consultList();empty=tlFilter==="wait"?"回答を待っている相談はありません":tlFilter==="open"?"いま募集中の対戦はありません。自分で募集してみよう":"まだ相談・募集がありません。困っていることを相談してみよう"}
  const hidN=list.filter(postHid).length;if(hidN)list=list.filter(p=>!postHid(p));
  const pre=[];
- if(hidN)pre.push(`<p class="tl-local">🙈 「あとで見る」の試合の投稿 ${hidN}件をかくしています（試合のページで「見終わった」を押すと表示）</p>`);
+ if(hidN)pre.push(`<p class="tl-local">結果をかくしている試合の投稿 ${hidN}件を、表示していません（試合のページの「表示する」で出ます）</p>`);
  if(tab==="team"&&!S.team)pre.push(`<div class="tl-pick"><b>応援球団をえらぶと、同じ球団のファンの投稿が並びます</b><div class="tl-teams">${TEAMS.map(x=>`<button data-pick="${x}" style="--tc:${TEAMC[x]||"#1E1B18"}">${x}</button>`).join("")}</div><small>変更は30日に1回。選ばなくても「おすすめ」で読めます</small></div>`);
- if(tab==="rec"&&w==="yakyu"&&!S.team)pre.push(`<button class="tl-hint" data-tl-go="team">⚾ 応援球団をえらぶと、同じ球団の投稿が上に出ます ›</button>`);
+ if(tab==="rec"&&w==="yakyu"&&!S.team)pre.push(`<button class="tl-hint" data-tl-go="team">${ICON.ball} 応援球団をえらぶと、同じ球団の投稿が上に出ます ›</button>`);
  if(tab==="consult")pre.push(`<div class="chiprow tl-filter" id="tlFilter" data-keepx="1">${[["all","すべて"],["wait","回答まち"],["open","募集中"],["soudan","相談"],["boshu","募集"]].map(([k,l])=>`<button class="${tlFilter===k?"on":""}" data-tf="${k}">${l}</button>`).join("")}</div>`);
  if(LOCAL_ONLY())pre.push(`<p class="tl-local">ウェブのお試し版：書いた内容はこの端末の中だけに保存され、ほかの人には見えません（みんなとつながるのはアプリ版）</p>`);
  const items=[];let ads=0;
@@ -3996,7 +4098,7 @@ function renderSub(){const k=tlSub;$("#subBar").innerHTML=`<button class="subbac
 function openGamePosts(gk){if(!parseGK(gk))return;if(W()!=="yakyu")setWorld("yakyu",true);tlSub="game";tlSubArg=gk;goTab("comm");renderComm();scrollTo(0,0);
  if(SV&&SV.gamePosts)SV.gamePosts(gk).then(l=>{GAMEFEED[gk]=keepPosts(l||[]);if(tlSub==="game"&&tlSubArg===gk)renderComm()}).catch(()=>{})}
 function renderGamePosts(){const gk=tlSubArg,gi=parseGK(gk),g=gameOfKey(gk);if(!gi){closeSub();return}
- if(ykHideK(gk)){$("#cGamePosts").innerHTML=`<div class="tl-empty">${ART.mascot(64)}<p>この試合は「あとで見る」で、結果と投稿をかくしています。</p><button class="btn tomato" id="gpShow">見終わった（表示する）</button></div>`;$("#gpShow").onclick=()=>{ykSpoil(gk,false);renderAll()};return}
+ if(ykHideK(gk)){$("#cGamePosts").innerHTML=`<div class="tl-empty">${ART.mascot(64)}<p>この試合は、結果と投稿をかくしています。</p><button class="btn tomato" id="gpShow">結果を表示する</button></div>`;$("#gpShow").onclick=()=>{ykSpoil(gk,false);renderAll()};return}
  const loc=postsOf("yakyu").filter(p=>p.game===gk),srv=(GAMEFEED[gk]||[]).filter(visible);const m=new Map([...srv,...loc].map(p=>[p.id,p]));const list=[...m.values()].sort((a,b)=>b.at-a.at);
  const gs=g&&g.day===today()?gameState(g):null;const mine=S.team&&(gi.home===S.team||gi.away===S.team)&&gi.day===today();
  const sc=g&&Array.isArray(g.score)?`${g.score[0]} - ${g.score[1]}`:"vs";
@@ -4057,7 +4159,7 @@ function npbLoad(force){const u=npbUrl();if(!u){NPB.err=NPB.ok?"":"nourl";return
 const POSN={投手:"投手",捕手:"捕手",内野手:"内野手",外野手:"外野手"};
 /* 選手：名簿＋試合に出た選手（名簿にいない選手も、成績に出てきたら入れる） */
 function ykPlayers(){if(YK_PL)return YK_PL;const m=new Map();
- NPB.players.forEach(p=>{if(p&&p.id&&TEAMS.includes(p.t))m.set("p_"+p.id,{id:"p_"+p.id,name:String(p.n||""),team:p.t,no:String(p.no||""),pos:POSN[p.pos]||"",pitcher:p.pos==="投手"})});
+ NPB.players.forEach(p=>{if(p&&p.id&&TEAMS.includes(p.t))m.set("p_"+p.id,{id:"p_"+p.id,name:String(p.n||"").replace(/[（(][^）)]*[）)]/g,"").replace(/\s+/g," ").trim(),team:p.t,no:String(p.no||""),pos:POSN[p.pos]||"",pitcher:p.pos==="投手",dev:!!p.dev||/^\d{3}$/.test(String(p.no||""))&&+p.no>=100,en:String(p.en||"")})});
  Object.values(NPB.boxes).forEach(b=>{["bat","pit"].forEach(kind=>Object.entries(b[kind]||{}).forEach(([t,rows])=>(rows||[]).forEach(r=>{const id="p_"+r[0];if(!m.has(id)&&TEAMS.includes(t))m.set(id,{id,name:String(r[1]||""),team:t,no:"",pos:kind==="pit"?"投手":"",pitcher:kind==="pit"})})))});
  /* 前に記録した選手（名簿から外れても名前は残す） */
  try{Object.values(YKS().pnames||{}).forEach(p=>{if(p&&p.id&&!m.has(p.id))m.set(p.id,Object.assign({},p,{gone:true}))})}catch(e){}
@@ -4102,6 +4204,32 @@ function lineText(l,p){if(!l)return"";if(l.st==="pre")return"試合前";if(l.st=
  return`${l.ab}打数${l.h}安打${l.hr?` ${l.hr}本塁打`:""}${l.rbi?` ${l.rbi}打点`:""}`}
 const ykResultFor=(b,team)=>{if(!b||b.status!=="end"||!team||b.hs==null||(b.g.home!==team&&b.g.away!==team))return"";const my=b.g.home===team?b.hs:b.as,op=b.g.home===team?b.as:b.hs;return my>op?"勝ち":my<op?"負け":"引き分け"};
 const YKSRC_NOTE="NPB公式サイトの公開情報";
+
+/* ---------- 選手さがし：漢字・カタカナ・ひらがな（ローマ字の名前と照らす）・背番号 ---------- */
+const YK_KANA=(()=>{const m={};const base="あa,いi,うu,えe,おo,かka,きki,くku,けke,こko,さsa,しshi,すsu,せse,そso,たta,ちchi,つtsu,てte,とto,なna,にni,ぬnu,ねne,のno,はha,ひhi,ふfu,へhe,ほho,まma,みmi,むmu,めme,もmo,やya,ゆyu,よyo,らra,りri,るru,れre,ろro,わwa,をo,んn,がga,ぎgi,ぐgu,げge,ごgo,ざza,じji,ずzu,ぜze,ぞzo,だda,ぢji,づzu,でde,どdo,ばba,びbi,ぶbu,べbe,ぼbo,ぱpa,ぴpi,ぷpu,ぺpe,ぽpo,ゔvu,ぁa,ぃi,ぅu,ぇe,ぉo,ゃya,ゅyu,ょyo";
+ base.split(",").forEach(x=>m[x[0]]=x.slice(1));
+ const y={"きゃ":"kya","きゅ":"kyu","きょ":"kyo","しゃ":"sha","しゅ":"shu","しょ":"sho","ちゃ":"cha","ちゅ":"chu","ちょ":"cho","にゃ":"nya","にゅ":"nyu","にょ":"nyo","ひゃ":"hya","ひゅ":"hyu","ひょ":"hyo","みゃ":"mya","みゅ":"myu","みょ":"myo","りゃ":"rya","りゅ":"ryu","りょ":"ryo","ぎゃ":"gya","ぎゅ":"gyu","ぎょ":"gyo","じゃ":"ja","じゅ":"ju","じょ":"jo","びゃ":"bya","びゅ":"byu","びょ":"byo","ぴゃ":"pya","ぴゅ":"pyu","ぴょ":"pyo","ふぁ":"fa","ふぃ":"fi","ふぇ":"fe","ふぉ":"fo","てぃ":"ti","でぃ":"di","しぇ":"she","じぇ":"je","ちぇ":"che","うぃ":"wi","うぇ":"we","うぉ":"wo","ゔぁ":"va","ゔぃ":"vi","ゔぇ":"ve","ゔぉ":"vo"};
+ return{m,y}})();
+const kata2hira=s=>String(s||"").replace(/[ァ-ヶ]/g,c=>String.fromCharCode(c.charCodeAt(0)-0x60));
+const hira2kata=s=>String(s||"").replace(/[ぁ-ゖ]/g,c=>String.fromCharCode(c.charCodeAt(0)+0x60));
+function kana2roma(s){s=kata2hira(s).replace(/ー/g,"");let o="";for(let i=0;i<s.length;i++){const two=s.slice(i,i+2);if(YK_KANA.y[two]){o+=YK_KANA.y[two];i++;continue}
+  if(s[i]==="っ"){const nx=YK_KANA.y[s.slice(i+1,i+3)]||YK_KANA.m[s[i+1]]||"";o+=nx?nx[0]:"";continue}const r=YK_KANA.m[s[i]];if(r===undefined)return null;o+=r}return o}
+/* ローマ字のゆれをそろえる（Mouri / Mori / Ohtani / Otani など） */
+const romaKey=s=>String(s||"").toLowerCase().replace(/[^a-z]/g,"").replace(/oh(?![aiueo])/g,"o").replace(/ou/g,"o").replace(/oo/g,"o").replace(/uu/g,"u").replace(/ei/g,"e").replace(/aa/g,"a").replace(/ii/g,"i").replace(/m(?=[bp])/g,"n").replace(/nn/g,"n").replace(/tch/g,"cch").replace(/shi/g,"si").replace(/chi/g,"ti").replace(/tsu/g,"tu").replace(/fu/g,"hu").replace(/ji/g,"zi").replace(/sh/g,"sy").replace(/ch/g,"ty").replace(/j/g,"zy");
+function ykMatchPlayer(p,q){q=String(q||"").normalize("NFKC").trim().replace(/\s+/g,"");if(!q)return true;
+ if(/^\d{1,3}$/.test(q))return p.no===q;
+ const name=p.name.normalize("NFKC").replace(/\s+/g,"");if(name.includes(q)||name.includes(hira2kata(q)))return true;
+ if(!p.en)return false;const r=/^[ぁ-ゖァ-ヶー]+$/.test(q)?kana2roma(q):/^[a-z]+$/i.test(q)?q:null;if(!r)return false;
+ const rk=romaKey(r);const [fam,giv]=p.en.split(" ");return[fam,giv,(fam||"")+(giv||""),(giv||"")+(fam||"")].some(x=>x&&romaKey(x).startsWith(rk))}
+/* 直近の調子（npb.json の10日分から） */
+function ykForm(pid){const p=playerById(pid);if(!p)return"";const rows=[];
+ Object.entries(NPB.boxes).sort((a,b)=>b[0].localeCompare(a[0])).forEach(([k,b])=>{const [day,home,away]=k.split("|");if(p.team!==home&&p.team!==away)return;const id=pid.slice(2);
+  const bt=((b.bat||{})[p.team]||[]).find(r=>String(r[0])===id),pt=((b.pit||{})[p.team]||[]).find(r=>String(r[0])===id);if(bt||pt)rows.push({day,bt,pt})});
+ if(!rows.length)return"";
+ const pit=rows.filter(r=>r.pt);if(p.pitcher&&pit.length){const r=pit[0].pt;return`最近 ${ykDayShort(pit[0].day)} ${ipTxt(r[2])} ${r[3]}失点${r[6]?` ${{勝:"勝",敗:"敗",S:"S",H:"H"}[r[6]]||""}`:""}${pit.length>1?`（10日で${pit.length}登板）`:""}`}
+ const bs=rows.filter(r=>r.bt).slice(0,5);if(!bs.length)return"";const ab=bs.reduce((a,r)=>a+r.bt[3],0),h=bs.reduce((a,r)=>a+r.bt[4],0),hr=bs.reduce((a,r)=>a+r.bt[5],0);
+ return`最近${bs.length}試合 ${ab}打数${h}安打${hr?` ${hr}本塁打`:""}`}
+const ykDayShort=d=>d?`${+d.slice(5,7)}/${+d.slice(8,10)}`:"";
 
 /* =====================================================================
    野球ノート：自分の記録（この端末に保存）
@@ -4205,7 +4333,7 @@ function ykMementos(){const Y=YKS(),out=[];const add=(key,o)=>{const m=Y.mem[key
   if(pk.gameId&&!pk.late&&!ykHidden(pk.gameId)){const l=ykLine(pk.pid,pk.gameId);if(l.st==="ok"&&l.hr)add(`ball_${d}_${pk.pid}`,{type:"ball",title:"ホームラン記念ボール",sub:`${p.name}・${d.replace(/-/g,"/")}`,day:d,pid:pk.pid,gameId:pk.gameId})}}));
  Y.watches.filter(w=>w.mode==="stadium"&&w.gameId&&!ykHidden(w.gameId)).forEach(w=>{const i=ykWInfo(w);if(i.walk&&i.g)add(`sayo_${w.gameId}`,{type:"sayonara",title:"現地で見たサヨナラの記念品",sub:`${i.g.home} vs ${i.g.away}・${w.day.replace(/-/g,"/")}`,day:w.day,gameId:w.gameId,watchId:w.id})});
  return out.sort((a,b)=>b.day.localeCompare(a.day))}
-const YK_MEM_ICON={card:"🃏",pennant:"🚩",ball:"⚾",sayonara:"🎉"};
+const YK_MEM_ICON={card:"card",pennant:"pennant",ball:"ball",sayonara:"burst"};
 
 /* ---------- 図鑑（観戦記録と試合のデータから計算） ---------- */
 const YK_ZUKAN=[
@@ -4253,6 +4381,22 @@ async function ykExport(){const Y=YKS();const images={};for(const p of Y.photos)
 async function ykImport(text){const j=JSON.parse(text);if(!j||j.app!=="yakyutomo"||j.kind!=="baseball-note"||!j.data||j.data.v!==2)throw new Error("ヤキュトモの記録のファイルではありません");
  for(const [id,du] of Object.entries(j.images||{})){if(!/^data:image\//.test(du))continue;const b=await (await fetch(du)).blob();await ykPutImg(id,b)}
  YKST=null;localStorage.setItem(YKKEY,JSON.stringify(j.data));YKS();YK_PL=null;return true}
+
+/* ---------- 推し点（自分だけの楽しみ。ポイントやランキングには使わない） ----------
+   野手：ヒット1・ホームラン+3・打点1　投手：1回ごとに1・三振2つで1・勝ち／セーブ3・ホールド2
+   試合が始まってからえらんだ選手（途中から）は数えない */
+const YK_PTS_RULE="野手はヒット1点・ホームランはさらに3点・打点1点。投手は1回ごとに1点・三振2つで1点・勝ちとセーブ3点・ホールド2点。";
+function ykLinePts(l){if(!l||l.st!=="ok")return null;let p=0;if(l.ab!==undefined)p+=(l.h||0)+(l.hr||0)*3+(l.rbi||0);if(l.outs!==undefined)p+=Math.floor(l.outs/3)+Math.floor((l.k||0)/2)+({勝:3,S:3,H:2}[l.dec]||0);return p}
+function ykDayPts(day){const o=ykOshi(day);if(!o)return null;let pts=0,got=0,wait=0;
+ (o.picks||[]).forEach(pk=>{if(pk.late||!pk.gameId)return;if(ykHidden(pk.gameId))return void wait++;const l=ykLine(pk.pid,pk.gameId);const v=ykLinePts(l);if(v!==null){pts+=v;got++}else if(l.st==="pre"||l.st==="live"||l.st==="missing")wait++});
+ return{pts,got,wait,done:wait===0}}
+function ykBestPts(){let best=null;Object.keys(YKS().oshi).forEach(d=>{const r=ykDayPts(d);if(r&&r.done&&r.got&&(!best||r.pts>best.pts))best={pts:r.pts,day:d}});return best}
+/* 球場で見た日の連勝・連敗（結果がわかっている試合だけ） */
+function ykStreak(){const ws=YKS().watches.filter(w=>w.mode==="stadium"&&w.gameId&&!ykHidden(w.gameId)).sort((a,b)=>b.day.localeCompare(a.day));let kind="",n=0;
+ for(const w of ws){const r=ykWInfo(w).res;if(!r)continue;if(r==="引き分け")break;if(!kind)kind=r;if(r!==kind)break;n++}return{kind,n}}
+/* 球場スタンプ（12球団の本拠地）：球場で観戦した日（自己申告）。地方の球場は数だけ */
+function ykStamps(){const first={};let other=new Set();YKS().watches.filter(w=>w.mode==="stadium"&&w.venueId).sort((a,b)=>a.day.localeCompare(b.day)).forEach(w=>{if(YK_VENUES.some(v=>v.id===w.venueId)){if(!first[w.venueId])first[w.venueId]=w}else other.add(w.venueId)});
+ return{list:YK_VENUES.map(v=>({v,w:first[v.id]||null})),n:Object.keys(first).length,other:other.size}}
 
 /* =====================================================================
    自分の球場：固定視点の2Dの球場（SVG）。決められた場所のパーツを入れかえて育てる
@@ -4390,30 +4534,54 @@ function ykStadiumSVG(L,o){o=o||{};L=Object.assign({},YK_INIT,L||{});L.show=Obje
  return`<svg class="yk-stadium" viewBox="0 0 ${W} ${Hh}" role="img" aria-label="${esc(L.name||"球場")}の絵">${p.join("")}</svg>`}
 
 /* =====================================================================
+   野球ノートの小さな絵（絵文字は使わない。アプリの線画と同じ太さ・色でそろえる）
+   ===================================================================== */
+const YKI_RAW={
+ stadium:`<path d="M2 17c3-5 7-7 10-7s7 2 10 7" fill="#4FB86A" stroke="#1E1B18" stroke-width="1.8"/><path d="M2 17h20v4H2z" fill="#4FB86A" stroke="#1E1B18" stroke-width="1.8"/><path d="M12 20l-3-3 3-3 3 3z" fill="#E2A96B" stroke="#1E1B18" stroke-width="1.4"/><path d="M5 12V5M19 12V5" stroke="#1E1B18" stroke-width="1.8"/><rect x="3" y="3" width="4" height="3" rx=".6" fill="#FFF6C8" stroke="#1E1B18" stroke-width="1.4"/><rect x="17" y="3" width="4" height="3" rx=".6" fill="#FFF6C8" stroke="#1E1B18" stroke-width="1.4"/>`,
+ home:`<path d="M3 11l9-7 9 7v9a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1z" fill="#FFC62E" stroke="#1E1B18" stroke-width="1.8" stroke-linejoin="round"/><rect x="7" y="12" width="10" height="7" rx="1" fill="#2A3B5E" stroke="#1E1B18" stroke-width="1.6"/><path d="M10 15l2 1.5-2 1.5z" fill="#fff"/>`,
+ camera:`<rect x="2.5" y="7" width="19" height="13" rx="2.5" fill="#fff" stroke="#1E1B18" stroke-width="1.8"/><path d="M8 7l1.5-3h5L16 7" fill="#FFC62E" stroke="#1E1B18" stroke-width="1.6" stroke-linejoin="round"/><circle cx="12" cy="13.5" r="4" fill="#7FC8F0" stroke="#1E1B18" stroke-width="1.8"/><circle cx="18.3" cy="9.6" r="1" fill="#D93A28"/>`,
+ ticket:`<path d="M3 6h18v4a2 2 0 0 0 0 4v4H3v-4a2 2 0 0 0 0-4z" fill="#FFE9A8" stroke="#1E1B18" stroke-width="1.8" stroke-linejoin="round"/><path d="M15 6v12" stroke="#1E1B18" stroke-width="1.4" stroke-dasharray="1.6 1.6"/><path d="M6 10h6M6 14h4" stroke="#1E1B18" stroke-width="1.6" stroke-linecap="round"/>`,
+ stamp:`<circle cx="12" cy="12" r="8.5" fill="#fff" stroke="#C8302A" stroke-width="2.2"/><circle cx="12" cy="12" r="6" fill="none" stroke="#C8302A" stroke-width="1"/><path d="M8.5 12.5l2.4 2.2L15.8 9.5" fill="none" stroke="#C8302A" stroke-width="2" stroke-linecap="round"/>`,
+ board:`<rect x="2.5" y="4" width="19" height="14" rx="2" fill="#12281F" stroke="#1E1B18" stroke-width="1.8"/><path d="M6 14v-3M10 14V8M14 14v-4M18 14V7" stroke="#FFB12E" stroke-width="2.2" stroke-linecap="round"/><path d="M9 21h6M12 18v3" stroke="#1E1B18" stroke-width="1.8"/>`,
+ card:`<rect x="5" y="2.5" width="14" height="19" rx="2" fill="#fff" stroke="#1E1B18" stroke-width="1.8"/><rect x="7.5" y="5" width="9" height="8" rx="1" fill="#7FC8F0" stroke="#1E1B18" stroke-width="1.3"/><path d="M8 16h8M8 18.5h5" stroke="#1E1B18" stroke-width="1.5" stroke-linecap="round"/>`,
+ pennant:`<path d="M5 3v19" stroke="#1E1B18" stroke-width="2" stroke-linecap="round"/><path d="M6 4l14 4.5L6 13z" fill="#D93A28" stroke="#1E1B18" stroke-width="1.8" stroke-linejoin="round"/><path d="M8.5 8.5h4" stroke="#fff" stroke-width="1.6" stroke-linecap="round"/>`,
+ ball:`<circle cx="12" cy="12" r="9" fill="#fff" stroke="#1E1B18" stroke-width="1.8"/><path d="M7 5.5c2 3 2 10 0 13M17 5.5c-2 3-2 10 0 13" fill="none" stroke="#D93A28" stroke-width="1.6" stroke-dasharray="2 1.6"/>`,
+ burst:`<path d="M12 2l2.2 5.3L20 6l-3.2 4.8L22 13l-5.6 1.6L18 20l-6-3-6 3 1.6-5.4L2 13l5.2-2.2L4 6l5.8 1.3z" fill="#FFC62E" stroke="#1E1B18" stroke-width="1.6" stroke-linejoin="round"/><circle cx="12" cy="12" r="3" fill="#D93A28"/>`,
+ eye:`<path d="M2 12s3.6-6 10-6 10 6 10 6-3.6 6-10 6S2 12 2 12z" fill="#fff" stroke="#1E1B18" stroke-width="1.8"/><circle cx="12" cy="12" r="3.4" fill="#2A3B5E" stroke="#1E1B18" stroke-width="1.4"/><circle cx="13" cy="11" r="1" fill="#fff"/>`,
+ hide:`<path d="M2 12s3.6-6 10-6 10 6 10 6-3.6 6-10 6S2 12 2 12z" fill="#EDE7F8" stroke="#4A2F8A" stroke-width="1.8"/><path d="M4 20L20 4" stroke="#4A2F8A" stroke-width="2" stroke-linecap="round"/>`,
+ lock:`<rect x="5" y="10.5" width="14" height="10" rx="2" fill="#FFC62E" stroke="#1E1B18" stroke-width="1.8"/><path d="M8 10.5V8a4 4 0 0 1 8 0v2.5" fill="none" stroke="#1E1B18" stroke-width="1.8"/><circle cx="12" cy="15.5" r="1.4" fill="#1E1B18"/>`,
+ cal:`<rect x="3" y="5" width="18" height="16" rx="2" fill="#fff" stroke="#1E1B18" stroke-width="1.8"/><path d="M3 9.5h18" stroke="#1E1B18" stroke-width="1.6"/><rect x="3" y="5" width="18" height="4.5" fill="#D93A28" stroke="#1E1B18" stroke-width="1.6"/><path d="M8 3v4M16 3v4" stroke="#1E1B18" stroke-width="1.8" stroke-linecap="round"/><circle cx="12" cy="15" r="2.4" fill="#FFC62E" stroke="#1E1B18" stroke-width="1.3"/>`,
+ check:`<path d="M5 12.5l4.2 4L19 7" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"/>`,
+ binoc:`<circle cx="7" cy="15" r="4.5" fill="#7FC8F0" stroke="#1E1B18" stroke-width="1.8"/><circle cx="17" cy="15" r="4.5" fill="#7FC8F0" stroke="#1E1B18" stroke-width="1.8"/><path d="M5 11l2-6h3l1 6M19 11l-2-6h-3l-1 6" fill="#2A3B5E" stroke="#1E1B18" stroke-width="1.6" stroke-linejoin="round"/><path d="M10.5 13h3" stroke="#1E1B18" stroke-width="1.8"/>`,
+ trophy:`<path d="M7 3h10v5a5 5 0 0 1-10 0z" fill="#FFC62E" stroke="#1E1B18" stroke-width="1.8"/><path d="M7 5H4v1.5A3.5 3.5 0 0 0 7.5 10M17 5h3v1.5A3.5 3.5 0 0 1 16.5 10" fill="none" stroke="#1E1B18" stroke-width="1.6"/><path d="M12 13v4M8 21h8l-1-4H9z" fill="#E2A96B" stroke="#1E1B18" stroke-width="1.6" stroke-linejoin="round"/>`};
+const YKI=new Proxy({},{get:(_,k)=>YKI_RAW[k]?`<svg class="yki" viewBox="0 0 24 24" aria-hidden="true">${YKI_RAW[k]}</svg>`:""});
+
+/* =====================================================================
    野球ノートの画面（プロ野球モード）
-   使い方はシンプルに：
-   ・ホームは「今日の試合」1枚が中心（見ている → 球場／家 の2択。推し3人はえらんでもえらばなくてもいい）
+   ・ホームは「今日の試合」1枚が中心（見てる → 球場／家 の2択。推し3人はえらんでもえらばなくてもいい）
    ・推しの更新は、新しいことがあるときだけ出す
-   ・記録・図鑑・写真・自分の球場は マイ →「ノート」にまとめる
+   ・マイ →「ノート」は観戦手帳：自分の球場・観戦の半券・球場スタンプ・スコアボード
    ・ページは上に重ねて開き、「もどる」で前へ（下のタブはいつでも使える）
    ===================================================================== */
-const ykDay=d=>d?d.slice(5).replace("-","/"):"";
-const ykDayFull=d=>{if(!d)return"";const x=new Date(Date.parse(d+"T12:00:00+09:00"));return`${x.getUTCFullYear()}/${x.getUTCMonth()+1}/${x.getUTCDate()}（${"日月火水木金土"[x.getUTCDay()]}）`};
+const ykDay=d=>d?`${+d.slice(5,7)}/${+d.slice(8,10)}`:"";
+const ykWd=d=>"日月火水木金土"[new Date(Date.parse(d+"T12:00:00+09:00")).getUTCDay()];
+const ykDayFull=d=>d?`${d.slice(0,4)}年${+d.slice(5,7)}月${+d.slice(8,10)}日（${ykWd(d)}）`:"";
 const ykL=(t,c)=>`<span class="yk-l ${c||""}">${t}</span>`;
 const ykSelf=()=>ykL("自己申告","self");
 const ykTime=ms=>{const d=new Date(ms+JST);return`${d.getUTCMonth()+1}/${d.getUTCDate()} ${d.getUTCHours()}:${String(d.getUTCMinutes()).padStart(2,"0")}`};
-const ykMatch=g=>g?`${esc(g.home)} <i>vs</i> ${esc(g.away)}`:"";
+const ykMatch=g=>g?`${esc(g.home)} <i>対</i> ${esc(g.away)}`:"";
 const ykEmpty=(t,btn)=>`<div class="yk-empty">${tomoImg(54,"tomo")}<p>${t}</p>${btn||""}</div>`;
 const ykTeamDot=t=>`<span class="yk-tdot" style="background:${TEAMC[t]||"#888"}"></span>`;
 const ykStarted=g=>Date.now()>=ykStartMs(g);
+const ykHideNow=g=>!!g&&ykHidden(g.id)&&ykStarted(g);
 /* 試合の状態の文字（結果をかくしているときは出さない） */
-function ykStateTxt(g){if(!g)return"";const b=ykBox(g.id);if(ykHidden(g.id)&&ykStarted(g))return"結果をかくし中";
- return b.status==="pre"?`${esc(g.time||"")} 開始`:b.status==="live"?`${esc(g.inning||"試合中")}${b.hs!=null?` ${b.hs}-${b.as}`:""}`:b.status==="end"?`試合終了 ${b.hs}-${b.as}${b.extra?`（延長${b.inn}回）`:""}`:b.status==="off"?"中止":b.status==="missing"?"結果まち":""}
-const ykStCls=g=>ykHidden(g.id)&&ykStarted(g)?"hide":ykBox(g.id).status;
-const ykScore=g=>{const b=ykBox(g.id);return!ykHidden(g.id)&&b.hs!=null&&(b.status==="end"||b.status==="live")?`${b.hs} - ${b.as}`:"vs"};
-/* 選手データの状態（読めないとき・まだ無いとき） */
-function npbNote(){if(NPB.err==="nourl"&&!NPB.ok)return"選手のデータは、Webサイト版・アプリ版で読み込まれます";if(NPB.err==="load")return NPB.ok?`選手のデータを更新できませんでした（${ykTime(NPB.at)}の時点のデータ）`:"選手のデータを読み込めませんでした。電波のよいところで開きなおしてください";
+function ykStateTxt(g){if(!g)return"";const b=ykBox(g.id);if(ykHideNow(g))return"結果をかくしています";
+ return b.status==="pre"?`${esc(g.time||"")} 開始`:b.status==="live"?`${esc(g.inning||"試合中")}`:b.status==="end"?`試合終了${b.extra?`・延長${b.inn}回`:""}`:b.status==="off"?"中止":b.status==="missing"?"結果まち":""}
+const ykStCls=g=>ykHideNow(g)?"hide":ykBox(g.id).status;
+const ykScore=g=>{const b=ykBox(g.id);return!ykHideNow(g)&&b.hs!=null&&(b.status==="end"||b.status==="live")?`${b.hs}<s>-</s>${b.as}`:"<s>対</s>"};
+function npbNote(){if(NPB.err==="nourl"&&!NPB.ok)return"選手のデータは、Webサイト版・アプリ版で読み込まれます";if(NPB.err==="load")return NPB.ok?`選手のデータを更新できませんでした（${ykTime(NPB.at)}の時点のデータで表示しています）`:"選手のデータを読み込めませんでした。電波のよいところで開きなおしてください";
  if(NPB.ok&&!NPB.players.length)return"選手の一覧はまだ届いていません（データの準備中）";return""}
+const spoilBtn=(g,big)=>ykStarted(g)&&ykBox(g.id).status!=="off"?`<button class="yk-spoil ${ykHidden(g.id)?"on":""} ${big?"big":""}" data-ykspoil="${g.id}">${ykHidden(g.id)?`${YKI.hide}結果をかくしています<b>表示する</b>`:`${YKI.eye}結果をかくす<small>録画で見る人に</small>`}</button>`:"";
 
 /* ---------- ページの重ね開き ---------- */
 const YKP={stack:[],pages:{}};
@@ -4423,7 +4591,7 @@ function ykCloseAll(){if(!YKP.stack.length)return;YKP.stack=[];ykShow(true)}
 function ykShow(top){const el=$("#ykPage");const cur=YKP.stack[YKP.stack.length-1];
  if(!cur){el.hidden=true;el.innerHTML="";document.body.classList.remove("yk-on");return}
  const keep=top?0:el.scrollTop;const [k,a]=cur;let r;try{r=YKP.pages[k](a)}catch(e){console.error(e);r={t:"",h:ykEmpty("この画面を表示できませんでした")}}
- el.innerHTML=`<header class="ykp-h"><button class="ykp-back" data-ykback aria-label="もどる">‹ もどる</button><b>${r.t}</b></header><div class="ykp-b">${r.h}</div>`;
+ el.innerHTML=`<header class="ykp-h"><button class="ykp-back" data-ykback aria-label="もどる">もどる</button><b>${r.t}</b></header><div class="ykp-b">${r.h}</div>`;
  el.hidden=false;document.body.classList.add("yk-on");el.scrollTop=keep;bindYk(el);r.ready&&r.ready(el)}
 function ykRefresh(){if(YKP.stack.length)ykShow(false);renderAll()}
 document.addEventListener("click",e=>{const t=e.target.closest("[data-ykback],[data-yko]");if(!t)return;
@@ -4435,36 +4603,35 @@ document.addEventListener("click",e=>{const t=e.target.closest("[data-ykback],[d
    ===================================================================== */
 function renderYkHome(){const box=$("#ykHome");if(!box)return;box.hidden=!isY();if(!isY()){box.innerHTML="";return}
  const Y=YKS(),t=S.team,day=today();const parts=[];
- if(!t)parts.push(`<div class="yk-card"><div class="yk-ch"><b>今日の試合</b></div><p class="yk-s">応援球団をえらぶと、ここに今日の試合が出ます。</p><button class="btn sm tomato" data-yka="team">球団をえらぶ</button></div>`);
+ if(!t)parts.push(`<div class="yk-card"><div class="yk-ch"><b>今日の試合</b></div><p class="yk-s">応援する球団をえらぶと、ここに今日の試合が出ます。</p><button class="btn sm tomato" data-yka="team">球団をえらぶ</button></div>`);
  else{const g=ykTeamGame(t,day);if(g)parts.push(todayCard(g));
   else{const nx=(typeof GAMES!=="undefined"?GAMES:[]).filter(x=>x.day>day&&(x.home===t||x.away===t)).sort((a,b)=>a.day.localeCompare(b.day))[0];
-   parts.push(`<div class="yk-card"><div class="yk-ch"><b>今日の試合</b></div><p class="yk-s">今日は${esc(t)}の試合はありません。${nx?`次は <b>${ykDay(nx.day)}（${esc(nx.home===t?nx.away:nx.home)}戦）</b>`:""}</p></div>`)}}
- /* 推しの更新：新しいことがあるときだけ */
+   parts.push(`<div class="yk-card yk-off"><div class="yk-ch"><b>今日の試合</b></div><p class="yk-s">今日は${esc(t)}の試合はありません。${nx?`次は<b>${ykDay(nx.day)}（${ykWd(nx.day)}）の${esc(nx.home===t?nx.away:nx.home)}戦</b>です。`:""}</p></div>`)}}
  const nw=ykEvents().filter(e=>e.at>Y.seen.home);
- if(nw.length)parts.push(`<div class="yk-card"><div class="yk-ch"><b>推しの更新</b><span class="yk-new">${nw.length}</span><button class="yk-more" data-yko="events">すべて ›</button></div>${nw.slice(0,2).map(evRow).join("")}</div>`);
- /* 自分の球場（タップでマイのノートへ） */
+ if(nw.length)parts.push(`<div class="yk-card"><div class="yk-ch"><b>推しの更新</b><span class="yk-new">${nw.length}</span><button class="yk-more" data-yko="events">すべて見る</button></div>${nw.slice(0,2).map(evRow).join("")}</div>`);
  const md=day.slice(5);const past=Y.watches.find(w=>w.day&&w.day<day&&w.day.slice(5)===md&&(w.mode==="stadium"||w.mode==="home"));
- parts.push(`<button class="yk-card yk-stmini" data-yka="note"><div class="yk-ch"><b>${esc(ykLayout().name)}</b><span class="yk-more">ノート ›</span></div>${ykStadiumSVG(ykLayout(),{id:"hm",mem:ykMementos(),small:true})}
-  ${past?`<span class="yk-memo">📅 ${past.day.slice(0,4)}年の今日、${past.mode==="stadium"?"球場":"家"}で観戦していました</span>`:""}</button>`);
+ parts.push(`<button class="yk-card yk-stmini" data-yka="note"><div class="yk-ch"><b>${esc(ykLayout().name)}</b><span class="yk-more">ノートを開く</span></div>${ykStadiumSVG(ykLayout(),{id:"hm",mem:ykMementos(),small:true})}
+  ${past?`<span class="yk-memo">${YKI.cal}${past.day.slice(0,4)}年の今日、${past.mode==="stadium"?"球場":"家"}で観戦していました</span>`:""}</button>`);
  box.innerHTML=parts.join("");bindYk(box)}
-function todayCard(g){const hid=ykHidden(g.id),w=ykWatchOf(g.id),pl=ykPlanOf(g.id),st=ykBox(g.id).status,v=venueOfGame(g);const o=ykOshi();
- const watch=w?`<div class="yk-done">✔ ${w.mode==="stadium"?"球場":"家"}で観戦${st==="end"?"":"中"} <button class="yk-more" data-yko="game|${g.id}">記録・写真 ›</button></div>`
-  :st==="pre"?`<div class="yk-btns"><button class="btn sm ${pl?"paper":"tomato"} grow" data-ykplan="${g.id}">${pl?"✔ 観戦予定（取り消す）":"見に行く・見る予定"}</button></div>`
-  :st==="off"?"":`<div class="yk-two"><button class="btn tomato" data-ykw="${g.id}|stadium">🏟 球場で見てる</button><button class="btn" data-ykw="${g.id}|home">🏠 家で見てる</button></div>`;
- const picks=o&&(o.picks||[]).length?`<button class="yk-oshirow" data-yko="oshires|${today()}"><b>推し</b>${o.picks.map(pk=>{const p=playerById(pk.pid);if(!p)return"";const l=pk.gameId?ykLine(pk.pid,pk.gameId):{st:"none"};
-   return`<span>${esc(p.name.split(" ")[0])}<small>${pk.gameId&&ykHidden(pk.gameId)&&ykStarted(g)?"―":esc(l.st==="ok"?(l.pitcher?ipTxt(l.outs):`${l.h}安打${l.hr?"・HR":""}`):lineText(l,p))}</small></span>`}).join("")}<i>›</i></button>`
-  :`<button class="yk-oshirow empty" data-yko="oshi"><b>推し</b><span class="yk-s0">今日応援する3人をえらぶ（任意）</span><i>›</i></button>`;
+function todayCard(g){const w=ykWatchOf(g.id),pl=ykPlanOf(g.id),st=ykBox(g.id).status,v=venueOfGame(g);const o=ykOshi();
+ const watch=w?`<button class="yk-done" data-yko="game|${g.id}">${YKI[w.mode==="stadium"?"stadium":"home"]}<span>${w.mode==="stadium"?"球場":"家"}で観戦${st==="end"?"しました":"中"}</span><em>記録・写真</em></button>`
+  :st==="pre"?`<button class="yk-plan ${pl?"on":""}" data-ykplan="${g.id}">${pl?`${YKI.check}観戦予定に入れました<small>取り消す</small>`:`${YKI.ticket}観戦予定に入れる`}</button>`
+  :st==="off"?"":`<div class="yk-two"><button class="yk-big st" data-ykw="${g.id}|stadium">${YKI.stadium}<b>球場で見てる</b></button><button class="yk-big hm" data-ykw="${g.id}|home">${YKI.home}<b>家で見てる</b></button></div>`;
+ let picks;
+ if(o&&(o.picks||[]).length){const pts=ykDayPts(today());
+  picks=`<button class="yk-oshirow" data-yko="oshires|${today()}"><b class="yk-tag">推し</b>${o.picks.map(pk=>{const p=playerById(pk.pid);if(!p)return"";const l=pk.gameId?ykLine(pk.pid,pk.gameId):{st:"none"};
+   return`<span>${esc(p.name.split(" ")[0])}<small>${ykHideNow(g)?"―":esc(l.st==="ok"?(l.pitcher?ipTxt(l.outs):`${l.h}安打${l.hr?` ${l.hr}本`:""}`):lineText(l,p))}</small></span>`}).join("")}${pts&&pts.got&&!ykHideNow(g)?`<em class="yk-pts">${pts.pts}<small>点</small></em>`:""}</button>`}
+ else picks=`<button class="yk-oshirow empty" data-yko="oshi"><b class="yk-tag">推し</b><span class="yk-s0">今日応援する3人をえらぶ（任意）</span></button>`;
  return`<div class="yk-card yk-game" style="--tc:${TEAMC[S.team]||"#22386B"}"><div class="yk-ch"><b>今日の試合</b><span class="yk-st ${ykStCls(g)}">${ykStateTxt(g)}</span></div>
   <button class="yk-gm" data-yko="game|${g.id}"><span>${ykTeamDot(g.home)}<b>${esc(g.home)}</b></span><i>${ykScore(g)}</i><span><b>${esc(g.away)}</b>${ykTeamDot(g.away)}</span></button>
-  <p class="yk-s">${esc(g.time||"")}・${esc(v?v.short:g.place||"")}</p>${watch}${picks}
-  ${ykStarted(g)&&st!=="off"?`<button class="yk-spoil" data-ykspoil="${g.id}">${hid?"🙈 結果をかくし中 → 見終わったら表示":"あとで見る（結果をかくす）"}</button>`:""}</div>`}
-function evRow(e){const p=playerById(e.pid),g=ykGame(e.gameId);if(!p||!g)return"";return`<button class="yk-ev ${e.hot?"hot":""}" data-yko="event|${e.id}"><span class="yk-evn">${ykTeamDot(p.team)}${esc(p.name)}<small>${ykDay(g.day)} ${ykMatch(g)}</small></span><span class="yk-evf">${e.facts.map(esc).join("・")}</span></button>`}
+  <p class="yk-s">${esc(g.time||"")}　${esc(v?v.short:g.place||"")}</p>${watch}${picks}${spoilBtn(g)}</div>`}
+function evRow(e){const p=playerById(e.pid),g=ykGame(e.gameId);if(!p||!g)return"";return`<button class="yk-ev ${e.hot?"hot":""}" data-yko="event|${e.id}"><span class="yk-evn">${ykTeamDot(p.team)}${esc(p.name)}<small>${ykDay(g.day)} ${ykMatch(g)}</small></span><span class="yk-evf">${e.facts.map(esc).join("　")}</span></button>`}
 
 /* ---------- まとめて受ける操作 ---------- */
 function bindYk(root){
  root.querySelectorAll("[data-ykw]").forEach(b=>b.onclick=()=>{const [gid,mode]=b.dataset.ykw.split("|");ykWatchNow(gid,mode)});
- root.querySelectorAll("[data-ykplan]").forEach(b=>b.onclick=()=>{const gid=b.dataset.ykplan;ykPlan(gid,!ykPlanOf(gid));toast(ykPlanOf(gid)?"観戦予定にしました（自分だけに見えます）":"予定を取り消しました");ykRefresh()});
- root.querySelectorAll("[data-ykspoil]").forEach(b=>b.onclick=()=>{const gid=b.dataset.ykspoil,on=!ykHidden(gid);ykSpoil(gid,on);toast(on?"結果・推しの成績・関係する投稿をかくしました":"結果を表示します");TEAMFEED={};ykRefresh()});
+ root.querySelectorAll("[data-ykplan]").forEach(b=>b.onclick=()=>{const gid=b.dataset.ykplan;ykPlan(gid,!ykPlanOf(gid));toast(ykPlanOf(gid)?"観戦予定に入れました（自分だけに見えます）":"観戦予定を取り消しました");ykRefresh()});
+ root.querySelectorAll("[data-ykspoil]").forEach(b=>b.onclick=()=>{const gid=b.dataset.ykspoil,on=!ykHidden(gid);ykSpoil(gid,on);toast(on?"結果・推しの成績・この試合の投稿をかくしました":"結果を表示しました");TEAMFEED={};ykRefresh()});
  root.querySelectorAll("[data-yka]").forEach(b=>b.onclick=()=>YKA[b.dataset.yka]&&YKA[b.dataset.yka](b))}
 const YKA={
  team:()=>{goTab("my");setMyGroup("oshi");setTimeout(()=>{const s=$("#pTeam");if(s){s.focus();s.scrollIntoView({block:"center"})}},80)},
@@ -4475,146 +4642,152 @@ function ykWatchNow(gid,mode){const w=ykStartWatch(gid,mode);if(!w)return;toast(
    試合のページ
    ===================================================================== */
 YKP.pages.game=gid=>{const g=ykGame(gid);if(!g)return{t:"試合",h:ykEmpty("この試合のデータがありません")};
- const b=ykBox(gid),hid=ykHidden(gid)&&ykStarted(g),w=ykWatchOf(gid),v=venueOfGame(g);const show=!hid&&(b.status==="end"||b.status==="live");
+ const b=ykBox(gid),hid=ykHideNow(g),w=ykWatchOf(gid),v=venueOfGame(g);const show=!hid&&(b.status==="end"||b.status==="live");
  const o=ykOshi(g.day);const mine=(o&&o.picks||[]).filter(pk=>pk.gameId===gid);const snap=YKS().gsnap[gid];
  if(SV&&SV.gamePosts&&!GAMEFEED[gid])SV.gamePosts(gid).then(l=>{GAMEFEED[gid]=keepPosts(l||[]);if(YKP.stack.length)ykShow(false)}).catch(()=>{});
  const h=[];
- h.push(`<div class="yk-ghead" style="--tc:${TEAMC[g.home]||"#22386B"}"><small>${ykDayFull(g.day)} ${esc(g.time||"")}・${esc(v?v.name:g.place||"")}</small>
+ h.push(`<div class="yk-ghead" style="--tc:${TEAMC[g.home]||"#22386B"};--tc2:${TEAMC[g.away]||"#22386B"}"><small>${ykDayFull(g.day)}　${esc(g.time||"")}</small>
   <div class="yk-gm big"><span>${ykTeamDot(g.home)}<b>${esc(g.home)}</b></span><i>${ykScore(g)}</i><span><b>${esc(g.away)}</b>${ykTeamDot(g.away)}</span></div>
-  <div class="yk-gst"><span class="yk-st ${ykStCls(g)}">${ykStateTxt(g)}</span>${show&&b.walkoff?ykL("サヨナラ","hot"):""}</div>
-  ${ykStarted(g)&&b.status!=="off"?`<button class="yk-spoil" data-ykspoil="${gid}">${hid?"見終わった（結果を表示）":"あとで見る（結果をかくす）"}</button>`:""}</div>`);
- /* 観戦の記録 */
- h.push(`<section class="yk-sec"><h3>観戦の記録</h3>${w?`<p class="yk-s"><b>${w.mode==="stadium"?"🏟 球場で観戦":"🏠 家で観戦"}</b> ${ykSelf()}</p>
+  <div class="yk-gst"><span class="yk-st ${ykStCls(g)}">${ykStateTxt(g)}</span>${show&&b.walkoff?ykL("サヨナラ","hot"):""}<span class="yk-place">${esc(v?v.name:g.place||"")}</span></div>${spoilBtn(g,true)}</div>`);
+ h.push(`<section class="yk-sec"><h3>観戦の記録</h3>${w?`<div class="yk-done static">${YKI[w.mode==="stadium"?"stadium":"home"]}<span>${w.mode==="stadium"?"球場で観戦":"家で観戦"}</span>${ykSelf()}</div>
    <textarea class="ta" id="ykNote" maxlength="400" placeholder="ひとことメモ（自分だけ）">${esc(w.note||"")}</textarea>
-   <div class="yk-btns"><button class="btn sm" id="ykNoteSave">メモを保存</button><button class="btn sm paper" data-yko="photoadd|${gid}">📷 写真を追加</button></div>
+   <div class="yk-btns"><button class="btn sm" id="ykNoteSave">メモを保存</button><button class="btn sm paper" data-yko="photoadd|${gid}">写真を追加</button></div>
    <div class="yk-btns sub"><button class="pbtn" data-ykw="${gid}|${w.mode==="stadium"?"home":"stadium"}">${w.mode==="stadium"?"家で見たに変える":"球場で見たに変える"}</button><button class="pbtn danger" id="ykDelW">記録を消す</button></div>`
-  :b.status==="pre"?`<div class="yk-btns"><button class="btn sm ${ykPlanOf(gid)?"paper":"tomato"}" data-ykplan="${gid}">${ykPlanOf(gid)?"✔ 観戦予定（取り消す）":"見に行く・見る予定"}</button></div>`
+  :b.status==="pre"?`<button class="yk-plan ${ykPlanOf(gid)?"on":""}" data-ykplan="${gid}">${ykPlanOf(gid)?`${YKI.check}観戦予定に入れました<small>取り消す</small>`:`${YKI.ticket}観戦予定に入れる`}</button>`
   :b.status==="off"?`<p class="yk-s">この試合は中止になりました。</p>`
-  :`<div class="yk-two"><button class="btn tomato" data-ykw="${gid}|stadium">🏟 球場で見た</button><button class="btn" data-ykw="${gid}|home">🏠 家で見た</button></div>`}</section>`);
- /* 推し */
+  :`<div class="yk-two"><button class="yk-big st" data-ykw="${gid}|stadium">${YKI.stadium}<b>球場で見た</b></button><button class="yk-big hm" data-ykw="${gid}|home">${YKI.home}<b>家で見た</b></button></div>`}</section>`);
  if(mine.length)h.push(`<section class="yk-sec"><h3>この試合の推し</h3>${mine.map(oshiRow).join("")}</section>`);
- /* 応援（今日の試合中だけ） */
  if(!hid&&b.status==="live"&&g.day===today())h.push(`<section class="yk-sec"><h3>応援する</h3>${padHTML(gid)}</section>`);
- /* 結果 */
- if(show&&b.status==="end"){h.push(`<section class="yk-sec"><h3>試合のふりかえり</h3>${b.noBox?`<p class="yk-s">${b.hs}-${b.as}で試合終了。選手ごとの成績はまだ届いていません（試合後しばらくすると出ます）。</p>`:recapHTML(b)}</section>`);
+ if(show&&b.status==="end"){h.push(`<section class="yk-sec"><h3>試合のふりかえり</h3>${b.noBox?`<p class="yk-s">${b.hs}対${b.as}で試合終了。選手ごとの成績は、試合後しばらくすると出ます。</p>`:recapHTML(b)}</section>`);
   if(!b.noBox&&!b.partial){const pl=t=>[...b.bat[t],...b.pit[t]].map(x=>{const p=playerById(x.pid)||{name:x.name,team:t};const l=ykLine(x.pid,gid);return`<button class="yk-pk" data-yko="player|${x.pid}">${ykTeamDot(t)}<b>${esc(p.name)}</b><small>${esc(x.pos||(x.outs!==undefined?"投手":""))}</small><span class="yk-pkl ok">${esc(lineText(l,p))}</span></button>`}).join("");
-   h.push(`<section class="yk-sec"><details><summary>選手の成績</summary><h4 class="yk-h4">${esc(g.home)}</h4>${pl(g.home)}<h4 class="yk-h4">${esc(g.away)}</h4>${pl(g.away)}</details></section>`)}}
+   h.push(`<section class="yk-sec"><details><summary>選手の成績をすべて見る</summary><h4 class="yk-h4">${esc(g.home)}</h4>${pl(g.home)}<h4 class="yk-h4">${esc(g.away)}</h4>${pl(g.away)}</details></section>`)}}
  else if(!hid&&b.status==="missing")h.push(`<section class="yk-sec"><h3>結果</h3><p class="yk-s">結果をまだ取得できていません。しばらくしてから見てください。</p></section>`);
- /* 写真 */
  h.push(`<section class="yk-sec"><h3>写真</h3>${albumHTML(gid)}</section>`);
- /* みんな */
- h.push(`<section class="yk-sec"><h3>みんなの話題</h3>${hid?`<p class="yk-s">結果をかくしている間は、この試合の投稿もかくしています。</p>`:`<div class="yk-btns"><button class="btn sm paper" id="ykGP">この試合の投稿</button>${S.team&&(g.home===S.team||g.away===S.team)&&g.day===today()?`<button class="btn sm paper" id="ykGL">試合実況に入る</button>`:""}${w&&!hid?`<button class="btn sm paper" data-yko="share|watch|${gid}">観戦カードをシェア</button>`:""}</div>`}</section>`);
+ h.push(`<section class="yk-sec"><h3>みんなの話題</h3>${hid?`<p class="yk-s">結果をかくしている間は、この試合の投稿もかくしています。</p>`:`<div class="yk-btns"><button class="btn sm paper" id="ykGP">この試合の投稿</button>${S.team&&(g.home===S.team||g.away===S.team)&&g.day===today()?`<button class="btn sm paper" id="ykGL">試合実況に入る</button>`:""}${w?`<button class="btn sm paper" data-yko="share|watch|${gid}">観戦の記録をシェア</button>`:""}</div>`}</section>`);
  h.push(`<p class="yk-src">日程・結果・成績：${YKSRC_NOTE}${snap&&snap.manual?"（この試合は手で入れた記録です）":""}</p>`);
- return{t:`${esc(g.home)} vs ${esc(g.away)}`,h:h.join(""),ready:el=>{bindPad(el);bindAlbum(el);
+ return{t:`${esc(g.home)} 対 ${esc(g.away)}`,h:h.join(""),ready:el=>{bindPad(el);bindAlbum(el);
   const ns=el.querySelector("#ykNoteSave");if(ns)ns.onclick=()=>{const ww=ykWatchOf(gid);if(!ww)return;const tx=el.querySelector("#ykNote").value.slice(0,400);const why=tx?NGW.text(tx):"";if(why){toast(why,1);return}ww.note=tx;ykSave();toast("メモを保存しました")};
   const dw=el.querySelector("#ykDelW");if(dw)dw.onclick=()=>ykConfirm("この観戦記録を消しますか？　図鑑・観戦データ・記念品からも消えます（写真は残ります）","消す",()=>{ykDelWatch(ykWatchOf(gid).id);toast("記録を消しました");ykRefresh()});
   const gp=el.querySelector("#ykGP");if(gp)gp.onclick=()=>{ykCloseAll();openGamePosts(gid)};
   const gl=el.querySelector("#ykGL");if(gl)gl.onclick=()=>{ykCloseAll();openGame(S.team)}}}};
 function recapHTML(b){const g=b.g,win=b.hs>b.as?g.home:g.away,lose=b.hs>b.as?g.away:g.home;const hi=Math.max(b.hs,b.as),lo=Math.min(b.hs,b.as);
  const nm=x=>(playerById(x.pid)||{name:x.name}).name;
- const dec=[g.home,g.away].flatMap(t=>b.pit[t].filter(x=>x.dec==="勝"||x.dec==="S"||x.dec==="敗").map(x=>`${{勝:"勝ち投手",S:"セーブ",敗:"負け投手"}[x.dec]}：${nm(x)}`));
+ const dec=[g.home,g.away].flatMap(t=>b.pit[t].filter(x=>x.dec==="勝"||x.dec==="S"||x.dec==="敗").map(x=>`${{勝:"勝ち投手",S:"セーブ",敗:"負け投手"}[x.dec]}　${nm(x)}`));
  const hrs=b.hrs.map(x=>`${nm(x)}（${x.team}）${x.n>1?` ${x.n}本`:""}`);
- const L=[b.hs===b.as?`${b.hs}-${b.as}で引き分け`:`${esc(win)}が${hi}-${lo}で${esc(lose)}に勝ち${b.walkoff?"（サヨナラ）":""}`+(b.extra?`・延長${b.inn}回`:""),hrs.length?`ホームラン：${hrs.map(esc).join("、")}`:"ホームランはなし",...dec.map(esc)];
+ const L=[b.hs===b.as?`${b.hs}対${b.as}で引き分け`:`${esc(win)}が${hi}対${lo}で${esc(lose)}に勝ち${b.walkoff?"（サヨナラ）":""}`+(b.extra?`・延長${b.inn}回`:""),hrs.length?`ホームラン　${hrs.map(esc).join("、")}`:"ホームランはなし",...dec.map(esc)];
  return`<ul class="yk-facts">${L.map(x=>`<li>${x}</li>`).join("")}</ul>`}
 function ykConfirm(msg,ok,fn){modal(`<p style="margin:0;font-weight:700">${msg}</p><button class="btn tomato wide" id="ykOk">${ok}</button><button class="btn paper wide" id="mc">やめる</button>`,x=>{x.querySelector("#mc").onclick=closeModal;x.querySelector("#ykOk").onclick=()=>{closeModal();fn()}})}
 
 /* =====================================================================
-   選手・推しの更新・出来事
+   選手：さがす（推し3人・追いかける選手で共通）
+   漢字・カタカナ・ひらがな（「うえだ」「に」でもOK）・背番号でさがせる。打っている途中で画面を作り直さない（日本語入力が切れない）
    ===================================================================== */
-YKP.pages.player=pid=>{const p=playerById(pid);if(!p)return{t:"選手",h:ykEmpty("選手が見つかりません")};const Y=YKS(),fol=Y.follow.includes(pid);
- const rows=[];for(let i=0;i<10;i++){const d=dayKeyOf(Date.now()-i*864e5);const g=ykTeamGame(p.team,d);if(!g)continue;const l=ykLine(pid,g.id);if(l.st==="pre"||l.st==="none")continue;
-  rows.push(`<button class="yk-row" data-yko="game|${g.id}"><b>${ykDay(d)}</b><span>${ykMatch(g)}</span><small>${ykHidden(g.id)?"結果をかくし中":esc(lineText(l,p))}</small></button>`)}
- const picked=Object.values(Y.oshi).filter(o=>(o.picks||[]).some(x=>x.pid===pid)).length;
- return{t:esc(p.name),h:`<div class="yk-phead">${ykTeamDot(p.team)}<div><b>${esc(p.name)}</b><small>${esc(p.team)}${p.no?`・背番号${esc(p.no)}`:""}・${esc(posN(p))}</small></div></div>
-  <button class="btn wide ${fol?"paper":"tomato"}" id="ykFol">${fol?"✔ 追いかけ中（やめる）":"この選手を追いかける"}</button>
-  <p class="yk-s">追いかけると、試合に出た日の成績がホームの「推しの更新」に出ます。</p>
-  <section class="yk-sec"><h3>最近の試合</h3>${rows.join("")||`<p class="yk-s">最近の出場はありません</p>`}</section>
-  <section class="yk-sec"><h3>自分の応援</h3><p class="yk-s">推し3人にえらんだ日：<b>${picked}日</b></p></section>
-  <p class="yk-src">成績：${YKSRC_NOTE}</p>`,
-  ready:el=>{el.querySelector("#ykFol").onclick=()=>{const Y=YKS();Y.follow=fol?Y.follow.filter(x=>x!==pid):[...Y.follow,pid].slice(0,30);if(!fol)ykKeepPlayer(pid);ykSave();toast(fol?"追いかけるのをやめました":"追いかけます");ykRefresh()}}}};
-/* 選手さがし（推し3人・追いかける選手で共通） */
-function pickList(st,sel,max){const q=(st.q||"").trim().replace(/\s/g,"");const list=ykPlayers().filter(p=>!p.gone&&(!st.team||p.team===st.team)&&(!q||p.name.replace(/\s/g,"").includes(q)));
- const note=npbNote();
- return`${note?`<p class="yk-warn">${note}</p>`:""}<input class="inp" id="ykQ" placeholder="名前でさがす" value="${esc(st.q||"")}" style="width:100%">
+const POS_ORDER=["投手","捕手","内野手","外野手"];
+function pickRows(st,sel){const q=(st.q||"").trim();const pool=ykPlayers().filter(p=>!p.gone&&(!st.team||p.team===st.team));
+ if(!st.team&&!q)return`<p class="yk-hint">名前か背番号を入れるか、球団をえらんでね</p>`;
+ const list=pool.filter(p=>ykMatchPlayer(p,q));if(!list.length)return ykPlayers().length?ykEmpty(q?`「${esc(q)}」に合う選手がいません`:"選手がいません"):"";
+ const row=p=>{const on=sel.includes(p.id);const f=ykForm(p.id);return`<button class="yk-pk ${on?"on":""}" data-sel="${p.id}">${ykTeamDot(p.team)}<b>${esc(p.name)}</b><small>${st.team?"":esc(p.team)+"　"}${p.no?`背番号${esc(p.no)}　`:""}${esc(posN(p))}${p.dev?"（育成）":""}</small><span class="yk-pkl">${on?YKI.check:""}</span>${f?`<em class="yk-form">${esc(f)}</em>`:""}</button>`};
+ const byNo=(a,b)=>(+a.no||999)-(+b.no||999);
+ if(q)return list.sort((a,b)=>TEAMS.indexOf(a.team)-TEAMS.indexOf(b.team)||byNo(a,b)).map(row).join("");
+ return[...POS_ORDER.map(ps=>[ps,list.filter(p=>!p.dev&&posN(p)===ps)]),["育成選手",list.filter(p=>p.dev)],["そのほか",list.filter(p=>!p.dev&&!POS_ORDER.includes(posN(p)))]]
+  .filter(([,l])=>l.length).map(([ps,l])=>`<h4 class="yk-grp">${ps}<small>${l.length}人</small></h4>${l.sort(byNo).map(row).join("")}`).join("")}
+function pickHTML(st,sel){const note=npbNote();
+ return`${note?`<p class="yk-warn">${note}</p>`:""}<div class="yk-search"><input class="inp" id="ykQ" type="search" enterkeyhint="search" autocomplete="off" placeholder="名前（ひらがなでもOK）・背番号" value="${esc(st.q||"")}"></div>
   <div class="yk-chips" data-keepx="1"><button class="${st.team?"":"on"}" data-ot="">全球団</button>${TEAMS.map(t=>`<button class="${st.team===t?"on":""}" data-ot="${t}">${t}</button>`).join("")}</div>
-  <div class="yk-plist">${list.slice(0,60).map(p=>`<button class="yk-pk ${sel.includes(p.id)?"on":""}" data-sel="${p.id}">${ykTeamDot(p.team)}<b>${esc(p.name)}</b><small>${esc(p.team)}${p.no?`・${esc(p.no)}`:""}・${esc(posN(p))}</small><span class="yk-pkl">${sel.includes(p.id)?"✔":""}</span></button>`).join("")||(ykPlayers().length?ykEmpty("見つかりません"):"")}</div>
-  ${list.length>60?`<p class="yk-s">ほか${list.length-60}人。名前か球団でしぼってね</p>`:""}`}
-function bindPick(el,st,onSel){const q=el.querySelector("#ykQ");q.oninput=()=>{st.q=q.value;clearTimeout(st.t);st.t=setTimeout(()=>{ykShow(false);const n=$("#ykQ");if(n){n.focus();n.setSelectionRange(n.value.length,n.value.length)}},250)};
- el.querySelectorAll("[data-ot]").forEach(b=>b.onclick=()=>{st.team=b.dataset.ot;ykShow(false)});el.querySelectorAll("[data-sel]").forEach(b=>b.onclick=()=>onSel(b.dataset.sel))}
+  <div id="ykPL">${pickRows(st,sel)}</div>`}
+function bindPick(el,st,sel,onSel){const q=el.querySelector("#ykQ"),pl=el.querySelector("#ykPL");
+ const draw=()=>{pl.innerHTML=pickRows(st,sel());pl.querySelectorAll("[data-sel]").forEach(b=>b.onclick=()=>onSel(b.dataset.sel))};
+ q.addEventListener("input",()=>{st.q=q.value;draw()});draw();
+ el.querySelectorAll("[data-ot]").forEach(b=>b.onclick=()=>{st.team=b.dataset.ot;ykShow(false)})}
 let YKF=null;
 YKP.pages.follow=()=>{const Y=YKS();if(!YKF)YKF={q:"",team:S.team||""};
- return{t:"追いかける選手",h:`<p class="yk-s">えらんだ選手が試合に出ると、ホームの「推しの更新」に成績が出ます。何人でもOK。</p>
-  ${Y.follow.length?`<div class="yk-sel">${Y.follow.map(id=>{const p=playerById(id);return p?`<button class="on" data-unf="${id}">${ykTeamDot(p.team)}${esc(p.name)} ×</button>`:""}).join("")}</div>`:""}${pickList(YKF,Y.follow)}`,
-  ready:el=>{bindPick(el,YKF,id=>{const Y=YKS();Y.follow=Y.follow.includes(id)?Y.follow.filter(x=>x!==id):[...Y.follow,id].slice(0,30);ykKeepPlayer(id);ykSave();ykShow(false);renderAll()});
+ return{t:"追いかける選手",h:`<p class="yk-s">えらんだ選手が試合に出ると、ホームの「推しの更新」に成績が出ます。何人でもえらべます。</p>
+  ${Y.follow.length?`<div class="yk-sel">${Y.follow.map(id=>{const p=playerById(id);return p?`<button class="on" data-unf="${id}">${ykTeamDot(p.team)}${esc(p.name)}<i>×</i></button>`:""}).join("")}</div>`:""}${pickHTML(YKF,Y.follow)}`,
+  ready:el=>{bindPick(el,YKF,()=>YKS().follow,id=>{const Y=YKS();Y.follow=Y.follow.includes(id)?Y.follow.filter(x=>x!==id):[...Y.follow,id].slice(0,30);ykKeepPlayer(id);ykSave();ykShow(false);renderAll()});
    el.querySelectorAll("[data-unf]").forEach(b=>b.onclick=()=>{const Y=YKS();Y.follow=Y.follow.filter(x=>x!==b.dataset.unf);ykSave();ykShow(false);renderAll()})}}};
+YKP.pages.player=pid=>{const p=playerById(pid);if(!p)return{t:"選手",h:ykEmpty("選手が見つかりません")};const Y=YKS(),fol=Y.follow.includes(pid);
+ const rows=[];for(let i=0;i<10;i++){const d=dayKeyOf(Date.now()-i*864e5);const g=ykTeamGame(p.team,d);if(!g)continue;const l=ykLine(pid,g.id);if(l.st==="pre"||l.st==="none")continue;
+  rows.push(`<button class="yk-row" data-yko="game|${g.id}"><b>${ykDay(d)}</b><span>${ykMatch(g)}</span><small>${ykHideNow(g)?"結果をかくしています":esc(lineText(l,p))}</small></button>`)}
+ const picked=Object.values(Y.oshi).filter(o=>(o.picks||[]).some(x=>x.pid===pid)).length;const f=ykForm(pid);
+ return{t:esc(p.name),h:`<div class="yk-phead" style="--tc:${TEAMC[p.team]||"#22386B"}"><span class="yk-no">${esc(p.no||"―")}</span><div><b>${esc(p.name)}</b><small>${esc(p.team)}　${esc(posN(p))}${p.dev?"（育成）":""}</small>${f?`<em>${esc(f)}</em>`:""}</div></div>
+  <button class="yk-plan ${fol?"on":""}" id="ykFol">${fol?`${YKI.check}追いかけています<small>やめる</small>`:`${YKI.binoc}この選手を追いかける`}</button>
+  <section class="yk-sec"><h3>最近の試合</h3>${rows.join("")||`<p class="yk-s">最近の出場はありません</p>`}</section>
+  <section class="yk-sec"><h3>自分の応援</h3><p class="yk-s">推し3人にえらんだ日　<b>${picked}日</b></p></section>
+  <p class="yk-src">成績：${YKSRC_NOTE}</p>`,
+  ready:el=>{el.querySelector("#ykFol").onclick=()=>{const Y=YKS();Y.follow=fol?Y.follow.filter(x=>x!==pid):[...Y.follow,pid].slice(0,30);if(!fol)ykKeepPlayer(pid);ykSave();toast(fol?"追いかけるのをやめました":"追いかけます。試合に出たらホームに出ます");ykRefresh()}}}};
 YKP.pages.events=()=>{const Y=YKS(),last=YKP.evLast!==undefined?YKP.evLast:(YKP.evLast=Y.seen.home);const evs=ykEvents();Y.seen.home=Date.now();ykSave();setTimeout(renderAll,0);
  return{t:"推しの更新",h:`${!Y.follow.length?ykEmpty("まだ選手をえらんでいません",`<button class="btn sm tomato" data-yko="follow">選手をえらぶ</button>`):evs.length?evs.map(e=>`<div class="${e.at>last?"yk-newrow":""}">${evRow(e)}</div>`).join(""):ykEmpty("この7日間、追いかけている選手の出場はありません")}
-  <p class="yk-src">試合の記録（${YKSRC_NOTE}）から自動で作っています。</p><button class="btn sm paper" data-yko="follow">追いかける選手を変える</button>`,ready:()=>{}}};
+  <p class="yk-src">試合の記録（${YKSRC_NOTE}）から作っています。</p><button class="btn sm paper" data-yko="follow">追いかける選手を変える</button>`,ready:()=>{}}};
 YKP.pages.event=id=>{const m=/^ev_(gm_.+)_(p_\d+)$/.exec(id||"");if(!m)return{t:"出来事",h:ykEmpty("見つかりません")};const [,gid,pid]=m;
- const g=ykGame(gid),p=playerById(pid);if(!g||!p)return{t:"出来事",h:ykEmpty("この出来事は見つかりません")};if(ykHidden(gid))return{t:esc(p.name),h:ykEmpty("この試合は結果をかくしています",`<button class="btn sm paper" data-ykspoil="${gid}">見終わった（表示する）</button>`)};
+ const g=ykGame(gid),p=playerById(pid);if(!g||!p)return{t:"出来事",h:ykEmpty("この出来事は見つかりません")};if(ykHidden(gid))return{t:esc(p.name),h:ykEmpty("この試合は結果をかくしています",`<button class="btn sm paper" data-ykspoil="${gid}">結果を表示する</button>`)};
  const l=ykLine(pid,gid);const posts=postsOf("yakyu").filter(x=>(x.game===gid||(x.meta&&x.meta.rec&&x.meta.rec.gid===gid))&&!postHid(x)).slice(0,3);const ph=ykPhotosOf({gameId:gid}).filter(x=>x.owner!=="me");const saved=YKS().savedEv[id];
- return{t:esc(p.name),h:`<section class="yk-sec"><h3>概要 ${ykL("事実","fact")}</h3><p><b>${esc(p.name)}</b>（${esc(p.team)}）<br>${ykDayFull(g.day)} ${ykMatch(g)}</p><ul class="yk-facts"><li>${esc(lineText(l,p))}</li>${l.hr?"<li>ホームラン</li>":""}</ul><p class="yk-src">出典：${YKSRC_NOTE}</p></section>
+ return{t:esc(p.name),h:`<section class="yk-sec"><h3>概要</h3><p class="yk-s"><b>${esc(p.name)}</b>（${esc(p.team)}）　${ykDayFull(g.day)}　${ykMatch(g)}</p><p class="yk-line">${esc(lineText(l,p))}</p><p class="yk-src">出典：${YKSRC_NOTE}</p></section>
   <section class="yk-sec"><h3>関連リンク</h3><div class="yk-btns"><button class="btn sm paper" data-yko="game|${gid}">試合のページ</button><button class="btn sm paper" data-yko="player|${pid}">選手のページ</button></div></section>
-  <section class="yk-sec"><h3>現地写真</h3>${ph.length?`<div class="yk-grid">${ph.map(photoTile).join("")}</div>`:`<p class="yk-s">まだありません</p>`}</section>
-  <section class="yk-sec"><h3>ファンの反応 ${ykL("意見","op")}</h3>${posts.length?posts.map(x=>tlCard(x)).join(""):`<p class="yk-s">まだ投稿はありません</p>`}</section>
-  <button class="btn ${saved?"paper":"tomato"} wide" id="ykSaveEv">${saved?"✔ 自分の記録に保存ずみ（外す）":"自分の記録へ保存"}</button>`,
-  ready:el=>{bindAlbum(el);el.querySelector("#ykSaveEv").onclick=()=>{const Y=YKS();if(Y.savedEv[id])delete Y.savedEv[id];else{Y.savedEv[id]=Date.now();ykSnap(gid,[pid]);ykKeepPlayer(pid)}ykSave();toast(Y.savedEv[id]?"保存しました（マイ → ノート → 観戦記録）":"外しました");ykShow(false)}}}};
+  <section class="yk-sec"><h3>現地の写真</h3>${ph.length?`<div class="yk-grid">${ph.map(photoTile).join("")}</div>`:`<p class="yk-s">まだありません</p>`}</section>
+  <section class="yk-sec"><h3>ファンの反応</h3>${posts.length?posts.map(x=>tlCard(x)).join(""):`<p class="yk-s">まだ投稿はありません</p>`}</section>
+  <button class="yk-plan ${saved?"on":""}" id="ykSaveEv">${saved?`${YKI.check}自分の記録に保存しました<small>外す</small>`:`${YKI.ticket}自分の記録に保存`}</button>`,
+  ready:el=>{bindAlbum(el);el.querySelector("#ykSaveEv").onclick=()=>{const Y=YKS();if(Y.savedEv[id])delete Y.savedEv[id];else{Y.savedEv[id]=Date.now();ykSnap(gid,[pid]);ykKeepPlayer(pid)}ykSave();toast(Y.savedEv[id]?"自分の記録に保存しました":"保存を外しました");ykShow(false)}}}};
 
 /* =====================================================================
    今日の推し3人
    ===================================================================== */
 let YKO=null;
 YKP.pages.oshi=()=>{const cur=ykOshi();if(!YKO)YKO={sel:(cur&&cur.picks||[]).map(p=>p.pid),q:"",team:S.team||""};const last=ykLastOshi();
- return{t:"今日の推し3人",h:`<p class="yk-s">今日応援する選手を3人まで。試合が始まってからえらんだ選手は「途中から応援」になります。</p>
-  <div class="yk-sel">${[0,1,2].map(i=>{const p=playerById(YKO.sel[i]);return p?`<button class="on" data-unsel="${p.id}">${ykTeamDot(p.team)}${esc(p.name)} ×</button>`:`<span>${i+1}人目</span>`}).join("")}</div>
-  ${last?`<button class="btn sm paper" id="ykSame">前回と同じ3人</button>`:""}${pickList(YKO,YKO.sel)}
-  <div class="yk-sticky"><button class="btn tomato wide" id="ykOk" ${YKO.sel.length?"":"disabled"}>${YKO.sel.length?`この${YKO.sel.length}人で決定`:"選手をえらんでね"}</button></div>`,
-  ready:el=>{bindPick(el,YKO,id=>{if(YKO.sel.includes(id))YKO.sel=YKO.sel.filter(x=>x!==id);else if(YKO.sel.length>=3){toast("3人までです。外してからえらんでね");return}else YKO.sel.push(id);ykShow(false)});
+ return{t:"今日の推し3人",h:`<p class="yk-s">今日応援する選手を3人まで。試合後に<b>推し点</b>がつきます（試合が始まってからえらんだ選手は「途中から」で、点はつきません）。</p>
+  <div class="yk-sel">${[0,1,2].map(i=>{const p=playerById(YKO.sel[i]);return p?`<button class="on" data-unsel="${p.id}">${ykTeamDot(p.team)}${esc(p.name)}<i>×</i></button>`:`<span>${i+1}人目</span>`}).join("")}</div>
+  ${last?`<button class="pbtn" id="ykSame">前回と同じ3人にする</button>`:""}${pickHTML(YKO,YKO.sel)}
+  <div class="yk-sticky"><button class="btn tomato wide" id="ykOk" ${YKO.sel.length?"":"disabled"}>${YKO.sel.length?`この${YKO.sel.length}人で決定`:"選手をえらんでください"}</button></div>`,
+  ready:el=>{bindPick(el,YKO,()=>YKO.sel,id=>{if(YKO.sel.includes(id))YKO.sel=YKO.sel.filter(x=>x!==id);else if(YKO.sel.length>=3){toast("3人までです。外してからえらんでください");return}else YKO.sel.push(id);ykShow(false)});
    el.querySelectorAll("[data-unsel]").forEach(b=>b.onclick=()=>{YKO.sel=YKO.sel.filter(x=>x!==b.dataset.unsel);ykShow(false)});
    const sm=el.querySelector("#ykSame");if(sm)sm.onclick=()=>{YKO.sel=ykLastOshi().picks.map(p=>p.pid).filter(id=>playerById(id)).slice(0,3);ykShow(false)};
-   el.querySelector("#ykOk").onclick=()=>{const o=ykSetOshi(YKO.sel,"pick");YKO=null;YKP.stack.pop();if(!o){ykRefresh();return}const late=o.picks.filter(p=>p.late).length;toast(late?`決定！${late}人は途中から応援です`:"今日の推し3人を決めました");YKP.stack.push(["oshires",today()]);ykRefresh()}}}};
-function oshiRow(pk){const p=playerById(pk.pid);if(!p)return"";const g=pk.gameId&&ykGame(pk.gameId);const hid=g&&ykHidden(pk.gameId)&&ykStarted(g);const l=pk.gameId?ykLine(pk.pid,pk.gameId):{st:"none"};
- return`<button class="yk-pk" data-yko="player|${p.id}">${ykTeamDot(p.team)}<b>${esc(p.name)}</b><small>${esc(p.team)}・${esc(posN(p))}</small><span class="yk-pkl ${l.st}">${hid?"結果をかくし中":esc(lineText(l,p))}</span>${pk.late?`<em class="yk-late">途中から応援・成績は試合全体</em>`:""}</button>`}
+   el.querySelector("#ykOk").onclick=()=>{const o=ykSetOshi(YKO.sel,"pick");YKO=null;YKP.stack.pop();if(!o){ykRefresh();return}const late=o.picks.filter(p=>p.late).length;toast(late?`決定しました。${late}人は途中から応援です`:"今日の推し3人を決めました");YKP.stack.push(["oshires",today()]);ykRefresh()}}}};
+function oshiRow(pk){const p=playerById(pk.pid);if(!p)return"";const g=pk.gameId&&ykGame(pk.gameId);const hid=ykHideNow(g);const l=pk.gameId?ykLine(pk.pid,pk.gameId):{st:"none"};
+ return`<button class="yk-pk" data-yko="player|${p.id}">${ykTeamDot(p.team)}<b>${esc(p.name)}</b><small>${esc(p.team)}　${esc(posN(p))}</small><span class="yk-pkl ${l.st}">${hid?"結果をかくしています":esc(lineText(l,p))}</span>${pk.late?`<em class="yk-late">途中から応援</em>`:""}</button>`}
 YKP.pages.oshires=day=>{const o=ykOshi(day);if(!o||!(o.picks||[]).length)return{t:"推し3人",h:ykEmpty("この日はえらんでいません",day===today()?`<button class="btn sm tomato" data-yko="oshi">えらぶ</button>`:"")};
- const cards=o.picks.map(pk=>{const p=playerById(pk.pid);if(!p)return"";const g=pk.gameId&&ykGame(pk.gameId);const hid=g&&ykHidden(pk.gameId)&&ykStarted(g);const l=pk.gameId?ykLine(pk.pid,pk.gameId):{st:"none"};
-  const big=hid?"結果をかくし中":l.st==="ok"?(l.pitcher?`${ipTxt(l.outs)} ${l.r}失点`:`${l.ab}打数 ${l.h}安打`):lineText(l,p);
-  const sub=hid?"":l.st==="ok"?(l.pitcher?`${l.k}奪三振${l.dec?"・"+({勝:"勝ち投手",敗:"負け投手",S:"セーブ",H:"ホールド"}[l.dec]||""):""}`:`${l.hr?l.hr+"本塁打・":""}${l.rbi||0}打点`):"";
-  return`<div class="yk-res ${l.st}" style="--tc:${TEAMC[p.team]||"#22386B"}"><div class="yk-resh">${ykTeamDot(p.team)}<b>${esc(p.name)}</b><small>${esc(posN(p))}</small></div>
+ const pts=ykDayPts(day),best=ykBestPts();
+ const cards=o.picks.map(pk=>{const p=playerById(pk.pid);if(!p)return"";const g=pk.gameId&&ykGame(pk.gameId);const hid=ykHideNow(g);const l=pk.gameId?ykLine(pk.pid,pk.gameId):{st:"none"};const v=hid?null:ykLinePts(l);
+  const big=hid?"結果をかくしています":l.st==="ok"?(l.pitcher?`${ipTxt(l.outs)} ${l.r}失点`:`${l.ab}打数 ${l.h}安打`):lineText(l,p);
+  const sub=hid?"":l.st==="ok"?(l.pitcher?`${l.k}奪三振${l.dec?"　"+({勝:"勝ち投手",敗:"負け投手",S:"セーブ",H:"ホールド"}[l.dec]||""):""}`:`${l.hr?l.hr+"本塁打　":""}${l.rbi||0}打点`):"";
+  return`<div class="yk-res ${l.st}" style="--tc:${TEAMC[p.team]||"#22386B"}"><div class="yk-resh"><span class="yk-no">${esc(p.no||"")}</span><b>${esc(p.name)}</b><small>${esc(posN(p))}</small>${v!==null&&!pk.late?`<em class="yk-pts">${v}<small>点</small></em>`:""}</div>
    <div class="yk-resb"><b>${esc(big)}</b>${sub?`<small>${esc(sub)}</small>`:""}</div>
-   <div class="yk-resf">${g?`<button class="pbtn" data-yko="game|${g.id}">${ykMatch(g)}</button>`:"<span>この日は試合なし</span>"}${pk.late?`<em class="yk-late">途中から応援・成績は試合全体</em>`:""}</div></div>`}).join("");
+   <div class="yk-resf">${g?`<button class="pbtn" data-yko="game|${g.id}">${ykMatch(g)}</button>`:"<span>この日は試合なし</span>"}${pk.late?`<em class="yk-late">途中から応援・成績は試合全体・点はなし</em>`:""}</div></div>`}).join("");
  const mems=ykMementos().filter(m=>m.day===day);const any=o.picks.some(pk=>pk.gameId&&ykLine(pk.pid,pk.gameId).st==="ok");
- return{t:`推し3人 ${ykDay(day)}`,h:`${cards}${mems.length?`<section class="yk-sec"><h3>この日の記念品</h3>${mems.map(memRow).join("")}</section>`:""}
+ const head=pts&&pts.got?`<div class="yk-ptsboard"><span>この日の推し点</span><b>${pts.pts}</b><small>${pts.done?(best&&best.day===day?"自己ベスト！":best?`自己ベスト ${best.pts}点`:""):"試合中・集計中"}</small></div>`:"";
+ return{t:`推し3人　${ykDay(day)}`,h:`${head}${cards}${mems.length?`<section class="yk-sec"><h3>この日の記念品</h3>${mems.map(memRow).join("")}</section>`:""}
   <div class="yk-btns">${any?`<button class="btn sm tomato" data-yko="share|oshi3|${day}">結果をシェア</button>`:""}${day===today()?`<button class="btn sm paper" data-yko="oshi">えらびなおす</button>`:""}</div>
-  <p class="yk-src">えらんだ時刻：${o.picks.map(pk=>ykTime(pk.selAt)).join("・")}　成績：${YKSRC_NOTE}</p>`,ready:el=>bindMem(el)}};
-function memRow(m){return`<div class="yk-mem"><span class="yk-memi">${YK_MEM_ICON[m.type]}</span><div><b>${esc(m.title)}</b><small>${esc(m.sub)}</small></div>${m.gameId?`<button class="pbtn" data-yko="game|${m.gameId}">元の試合</button>`:m.pid?`<button class="pbtn" data-yko="player|${m.pid}">選手</button>`:""}<button class="pbtn ${m.show?"on":""}" data-ykshow="${esc(m.key)}">${m.show?"球場に飾り中":"飾る"}</button></div>`}
-function bindMem(el){el.querySelectorAll("[data-ykshow]").forEach(b=>b.onclick=()=>{const Y=YKS(),k=b.dataset.ykshow;Y.mem[k]=Y.mem[k]||{at:Date.now()};Y.mem[k].show=Y.mem[k].show===false;ykSave();ykRefresh()})}
+  <details class="yk-rule"><summary>推し点のつけ方</summary><p>${YK_PTS_RULE}自分だけの記録で、ポイントやランキングには使いません。</p></details>
+  <p class="yk-src">えらんだ時刻　${o.picks.map(pk=>ykTime(pk.selAt)).join("、")}　成績：${YKSRC_NOTE}</p>`,ready:el=>bindMem(el)}};
+function memRow(m){return`<div class="yk-mem"><span class="yk-memi">${YKI[YK_MEM_ICON[m.type]]}</span><div><b>${esc(m.title)}</b><small>${esc(m.sub)}</small></div>${m.gameId?`<button class="pbtn" data-yko="game|${m.gameId}">元の試合</button>`:m.pid?`<button class="pbtn" data-yko="player|${m.pid}">選手</button>`:""}<button class="pbtn ${m.show?"on":""}" data-ykshow="${esc(m.key)}">${m.show?"球場に飾っています":"球場に飾る"}</button></div>`}
+function bindMem(el){el.querySelectorAll("[data-ykshow]").forEach(b=>b.onclick=()=>{const Y=YKS(),k=b.dataset.ykshow;Y.mem[k]=Y.mem[k]||{at:Date.now()};Y.mem[k].show=Y.mem[k].show===false;ykSave();toast(Y.mem[k].show?"球場に飾りました":"球場から外しました");ykRefresh()})}
 YKP.pages.history=()=>{const Y=YKS();const ys=ykYears();const yr=YKP.hyear&&ys.includes(YKP.hyear)?YKP.hyear:ys[0]||today().slice(0,4);
- const days=Object.keys(Y.oshi).filter(d=>d.startsWith(yr)&&(Y.oshi[d].picks||[]).length).sort().reverse();const mems=ykMementos().filter(m=>m.day.startsWith(yr));
- return{t:"推し3人・記念品",h:`${ys.length>1?`<div class="yk-chips">${ys.map(y=>`<button class="${y===yr?"on":""}" data-hy="${y}">${y}年</button>`).join("")}</div>`:""}
-  <section class="yk-sec"><h3>記念品 ${mems.length}</h3>${mems.length?mems.map(memRow).join(""):`<p class="yk-s">推し3人をえらぶと「初めて選んだ日のカード」、試合前からえらんだ推しがホームランを打つと「記念ボール」。球場の展示コーナーに飾れます。</p>`}</section>
-  <section class="yk-sec"><h3>推し3人の履歴 ${days.length}日</h3>${days.map(d=>`<button class="yk-row" data-yko="oshires|${d}"><b>${ykDay(d)}</b><span>${Y.oshi[d].picks.map(p=>esc((playerById(p.pid)||{}).name||"")).join("・")}</span></button>`).join("")||`<p class="yk-s">まだありません</p>`}</section>`,
+ const days=Object.keys(Y.oshi).filter(d=>d.startsWith(yr)&&(Y.oshi[d].picks||[]).length).sort().reverse();const mems=ykMementos().filter(m=>m.day.startsWith(yr));const best=ykBestPts();
+ const sum=days.reduce((a,d)=>{const r=ykDayPts(d);return a+(r&&r.done?r.pts:0)},0);
+ return{t:"推し3人と記念品",h:`${ys.length>1?`<div class="yk-chips">${ys.map(y=>`<button class="${y===yr?"on":""}" data-hy="${y}">${y}年</button>`).join("")}</div>`:""}
+  ${days.length?`<div class="yk-ptsboard"><span>${yr}年の推し点</span><b>${sum}</b><small>${days.length}日${best?`　自己ベスト ${best.pts}点（${ykDay(best.day)}）`:""}</small></div>`:""}
+  <section class="yk-sec"><h3>記念品</h3>${mems.length?mems.map(memRow).join(""):`<p class="yk-s">推し3人をえらぶと「初めてえらんだ日のカード」、試合前からえらんだ推しがホームランを打つと「記念ボール」がもらえます。自分の球場に飾れます。</p>`}</section>
+  <section class="yk-sec"><h3>推し3人の記録</h3>${days.map(d=>{const r=ykDayPts(d);return`<button class="yk-row" data-yko="oshires|${d}"><b>${ykDay(d)}</b><span>${Y.oshi[d].picks.map(p=>esc(((playerById(p.pid)||{}).name||"").split(" ")[0])).join("・")}</span><em>${r&&r.got&&r.done?r.pts+"点":""}</em></button>`}).join("")||`<p class="yk-s">まだありません</p>`}</section>`,
   ready:el=>{bindMem(el);el.querySelectorAll("[data-hy]").forEach(b=>b.onclick=()=>{YKP.hyear=b.dataset.hy;ykShow(false)})}}};
 
 /* =====================================================================
-   写真：自分の写真はこの端末だけ。「みんなに公開」すると、投稿（試合・ピースつき）になり、試合のアルバムにも出る
-   5つのピース（グラウンド・応援席・グルメ・試合前・外観）がそろうと、その試合の「球場カード」が完成
+   写真：自分の写真はこの端末だけ。「みんなに公開」すると投稿（試合・何の写真かつき）になり、試合のアルバムにも出る
+   5つ（グラウンド・応援席・グルメ・試合前・外観）がそろうと、その試合の「球場カード」が完成
    ===================================================================== */
 function photoTile(p){return`<button class="yk-ph ${p.owner==="me"?"me":""}" data-ykph="${esc(p.id)}">${imgTag(p.src,pieceName(p.kind))}<span>${esc(pieceName(p.kind))}</span><small>${p.owner==="me"||p.owner==="me-post"?"あなた":esc(p.ownerName)}</small></button>`}
 function piecesOf(gid,mineOnly){const have={};ykPhotosOf({gameId:gid}).filter(p=>!mineOnly||p.owner==="me").forEach(p=>{if(!have[p.kind])have[p.kind]=p});return have}
 function albumHTML(gid){const all=ykPhotosOf({gameId:gid});const mine=all.filter(p=>p.owner==="me"),pub=all.filter(p=>p.owner!=="me");
  const have=piecesOf(gid),n=Object.keys(have).length;
- return`<div class="yk-pieces">${YK_PIECES.map(([k,l])=>`<span class="${have[k]?"on":""}">${l}</span>`).join("")}<b>${n}/5</b></div>
-  ${n?`<button class="btn sm paper" data-yko="card|${gid}">球場カード${n>=5?"（完成！）":""}</button>`:`<p class="yk-s">写真を入れると球場カードができます</p>`}
+ return`<div class="yk-pieces">${YK_PIECES.map(([k,l])=>`<span class="${have[k]?"on":""}">${have[k]?YKI.check:""}${l}</span>`).join("")}</div>
+  ${n?`<button class="btn sm paper" data-yko="card|${gid}">球場カードを見る（${n}/5）</button>`:`<p class="yk-s">5種類の写真がそろうと、この試合の「球場カード」ができます。</p>`}
   ${mine.length?`<h4 class="yk-h4">あなたの写真（自分だけ）</h4><div class="yk-grid">${mine.map(photoTile).join("")}</div>`:""}
   ${pub.length?`<h4 class="yk-h4">みんなの写真</h4><div class="yk-grid">${pub.map(photoTile).join("")}</div>`:""}
-  <button class="btn sm tomato" data-yko="photoadd|${gid}">📷 写真を追加</button>`}
+  <button class="btn sm tomato" data-yko="photoadd|${gid}">写真を追加</button>`}
 function bindAlbum(el){el.querySelectorAll("[data-ykph]").forEach(b=>b.onclick=()=>openPhoto(b.dataset.ykph))}
 function photoFind(id){const m=YKS().photos.find(p=>p.id===id);if(m)return Object.assign({},m,{owner:"me",ownerName:S.name||"あなた",src:"yki:"+m.id});return ykPhotosOf({}).find(p=>p.id===id)||null}
 function openPhoto(id){const p=photoFind(id);if(!p)return;const g=ykGame(p.gameId);const mine=p.owner==="me";
  modal(`<div class="imgview">${imgTag(p.src,pieceName(p.kind))}</div><div class="yk-phinfo"><b>${esc(pieceName(p.kind))}</b>
-  <small>${g?`${esc(g.home)} vs ${esc(g.away)}（${ykDay(g.day)}）・`:""}${mine?"撮った日":"投稿"} ${ykTime(p.takenAt||p.postedAt)}</small>
-  <small>${mine?(p.postId?"あなたの写真・みんなに公開ずみ":"あなたの写真・自分だけ"):`${esc(p.ownerName)}さんの投稿の写真`}</small>
-  <small class="yk-old">${ykTime(p.takenAt||p.postedAt)}ごろのようすです。いまの混み具合ではありません</small></div>
+  <small>${g?`${esc(g.home)} 対 ${esc(g.away)}（${ykDay(g.day)}）　`:""}${mine?"追加":"投稿"} ${ykTime(p.takenAt||p.postedAt)}</small>
+  <small>${mine?(p.postId?"あなたの写真（みんなに公開しています）":"あなたの写真（自分だけ）"):`${esc(p.ownerName)}さんの投稿の写真`}</small>
+  <small class="yk-old">${ykTime(p.takenAt||p.postedAt)}ごろのようすです。いまの混み具合ではありません。</small></div>
   <div class="yk-btns">${mine?`${p.postId?"":`<button class="btn sm tomato" id="phPub">みんなに公開</button>`}<button class="btn sm paper danger" id="phDel">写真を消す</button>`:`<button class="btn sm paper" id="phPost">元の投稿を見る</button>`}</div>
   <button class="btn paper wide" id="mc">とじる</button>`,x=>{x.querySelector("#mc").onclick=closeModal;
   const pb=x.querySelector("#phPub");if(pb)pb.onclick=()=>{closeModal();ykOpen("share","photo|"+id)};
@@ -4623,26 +4796,26 @@ function openPhoto(id){const p=photoFind(id);if(!p)return;const g=ykGame(p.gameI
    if(p.postId)await act("deletePost",{kind:"post",id:p.postId},()=>{const o=CM.posts.find(z=>z.id===p.postId);if(o)o.hidden=true;cmSave();return{ok:true}});
    YKS().photos=YKS().photos.filter(q=>q.id!==id);YKS().watches.forEach(w=>{w.photoIds=(w.photoIds||[]).filter(q=>q!==id)});ykSave();await ykDelImg(id);toast("写真を消しました");ykRefresh()})}})}
 YKP.pages.photoadd=gid=>{const g=ykGame(gid);if(!g)return{t:"写真",h:ykEmpty("試合が見つかりません")};const st=YKP.pa&&YKP.pa.gid===gid?YKP.pa:(YKP.pa={gid,kind:"",blob:null,url:""});
- return{t:"写真を追加",h:`<p class="yk-s">${ykMatch(g)}（${ykDay(g.day)}）。写真はこの端末の中だけに保存されます。</p>
-  <label class="yk-file">${st.url?`<img src="${st.url}" alt="えらんだ写真">`:"＋ 写真をえらぶ"}<input type="file" id="paF" accept="image/*" hidden></label>
-  <p class="yk-s">何の写真？</p><div class="yk-seg">${YK_PIECES.map(([k,l])=>`<button class="${st.kind===k?"on":""}" data-pk="${k}">${l}</button>`).join("")}</div>
-  <button class="btn tomato wide" id="paOk" ${st.blob&&st.kind?"":"disabled"}>追加する</button>`,
+ return{t:"写真を追加",h:`<p class="yk-s">${ykMatch(g)}（${ykDay(g.day)}）の写真。この端末の中だけに保存されます。</p>
+  <label class="yk-file">${st.url?`<img src="${st.url}" alt="えらんだ写真">`:`${YKI.camera}<span>写真をえらぶ</span>`}<input type="file" id="paF" accept="image/*" hidden></label>
+  <p class="yk-s">何の写真ですか？</p><div class="yk-seg">${YK_PIECES.map(([k,l])=>`<button class="${st.kind===k?"on":""}" data-pk="${k}">${l}</button>`).join("")}</div>
+  <button class="btn tomato wide" id="paOk" ${st.blob&&st.kind?"":"disabled"}>${!st.blob?"写真をえらんでください":!st.kind?"何の写真かえらんでください":"追加する"}</button>`,
   ready:el=>{el.querySelectorAll("[data-pk]").forEach(b=>b.onclick=()=>{st.kind=b.dataset.pk;ykShow(false)});
    el.querySelector("#paF").onchange=e=>{const f=e.target.files&&e.target.files[0];if(!f)return;shrinkImage(f,1280,.82).then(r=>{st.blob=r.blob;st.url=r.dataUrl;ykShow(false)}).catch(()=>toast("この画像は使えません。JPEG・PNG の写真をえらんでください",1))};
    el.querySelector("#paOk").onclick=async()=>{const id=ykId("ph");await ykPutImg(id,st.blob);const v=venueOfGame(g);
     YKS().photos.push({id,gameId:gid,venueId:v?v.id:"",kind:st.kind,takenAt:Date.now(),postedAt:Date.now()});const w=ykWatchOf(gid);if(w)w.photoIds=[...(w.photoIds||[]),id];
     if(!ykSave()){YKS().photos.pop();await ykDelImg(id);return}YKP.pa=null;toast("写真を追加しました");ykBack();renderAll()}}}};
 YKP.pages.card=gid=>{const g=ykGame(gid);if(!g)return{t:"球場カード",h:ykEmpty("試合が見つかりません")};const have=piecesOf(gid);const v=venueOfGame(g);const n=Object.keys(have).length;const others=Object.values(have).some(p=>p.owner!=="me");
- return{t:"球場カード",h:`<div class="yk-scard"><div class="yk-scg">${YK_PIECES.map(([k,l])=>`<div class="yk-scp ${k}">${have[k]?imgTag(have[k].src,l):`<span>${l}</span>`}</div>`).join("")}</div>
-  <div class="yk-scf"><b>${esc(v?v.name:g.place||"")}</b><span>${ykDayFull(g.day)}</span><span>${esc(g.home)} vs ${esc(g.away)}</span><em>${n>=5?"COMPLETE":`${n}/5`}</em></div></div>
-  ${others?`<p class="yk-s">みんなの写真も使っています。写真はそれぞれの投稿者のものです（あなたの写真としては出しません）。</p>`:""}
-  <div class="yk-btns"><button class="btn sm paper" data-yko="photoadd|${gid}">📷 写真を追加</button>${n?`<button class="btn sm paper" data-yko="share|card|${gid}">カードをシェア</button>`:""}</div>`}};
+ return{t:"球場カード",h:`<div class="yk-scard ${n>=5?"done":""}" style="--tc:${TEAMC[g.home]||"#22386B"}"><div class="yk-scg">${YK_PIECES.map(([k,l])=>`<div class="yk-scp ${k}">${have[k]?imgTag(have[k].src,l):`<span>${l}</span>`}</div>`).join("")}</div>
+  <div class="yk-scf"><b>${esc(v?v.name:g.place||"")}</b><span>${ykDayFull(g.day)}</span><span>${esc(g.home)} 対 ${esc(g.away)}</span><em>${n>=5?"完成":`${n}/5`}</em></div></div>
+  ${others?`<p class="yk-s">みんなの写真も使っています。写真はそれぞれの投稿者のものです。</p>`:""}
+  <div class="yk-btns"><button class="btn sm paper" data-yko="photoadd|${gid}">写真を追加</button>${n?`<button class="btn sm paper" data-yko="share|card|${gid}">カードをシェア</button>`:""}</div>`}};
 YKP.pages.album=()=>{const ps=YKS().photos.map(p=>photoFind(p.id)).filter(Boolean);const groups={};ps.forEach(p=>{(groups[p.gameId]=groups[p.gameId]||[]).push(p)});
- return{t:"写真",h:ps.length?Object.entries(groups).sort((a,b)=>b[0].localeCompare(a[0])).map(([k,l])=>{const g=ykGame(k);return`<section class="yk-sec"><h3>${g?`${ykDay(g.day)} ${esc(g.home)} vs ${esc(g.away)}`:"試合"}<button class="pbtn" data-yko="card|${k}">球場カード</button></h3><div class="yk-grid">${l.map(photoTile).join("")}</div></section>`}).join("")
+ return{t:"写真",h:ps.length?Object.entries(groups).sort((a,b)=>b[0].localeCompare(a[0])).map(([k,l])=>{const g=ykGame(k);return`<section class="yk-sec"><h3>${g?`${ykDay(g.day)}　${esc(g.home)} 対 ${esc(g.away)}`:"試合"}<button class="pbtn" data-yko="card|${k}">球場カード</button></h3><div class="yk-grid">${l.map(photoTile).join("")}</div></section>`}).join("")
   :ykEmpty("まだ写真がありません。試合のページの「写真を追加」から入れられます"),ready:el=>bindAlbum(el)}};
 
 /* =====================================================================
-   自分の球場：模様替え（場所をタップ → 候補 → プレビュー → 確定／キャンセル）
+   自分の球場：模様替え（場所をえらぶ → 候補 → 絵で確かめる → 決定／やめる）
    ===================================================================== */
 let YKE=null;
 function ykEd(){if(!YKE)YKE={lay:JSON.parse(JSON.stringify(ykLayout())),slot:"bg",prev:null};return YKE}
@@ -4650,13 +4823,13 @@ function ykEdView(){const e=ykEd();const L=JSON.parse(JSON.stringify(e.lay));if(
 YKP.pages.stadium=()=>{const e=ykEd(),prog=ykProgress(),P=YK_PARTS[e.slot],L=ykEdView();
  const optBtn=([v,l,need])=>{const lock=!ykUnlocked(need,prog);const cur=e.slot==="show"?L.show[v]:L[e.slot]===v;
   return P.color?`<button class="yk-sw ${cur?"on":""}" data-opt="${v}" style="background:${v}" aria-label="色"></button>`
-  :`<button class="yk-opt ${cur?"on":""} ${lock?"lock":""}" data-opt="${v}" ${lock?"disabled":""}><b>${l}</b>${e.slot==="show"?`<small>${cur?"表示中":"かくし中"}</small>`:lock?`<small>🔒 ${ykNeedText(need,prog)}</small>`:""}</button>`};
+  :`<button class="yk-opt ${cur?"on":""} ${lock?"lock":""}" data-opt="${v}" ${lock?"disabled":""}><b>${l}</b>${e.slot==="show"?`<small>${cur?"出しています":"しまっています"}</small>`:lock?`<small>${YKI.lock}${ykNeedText(need,prog)}</small>`:""}</button>`};
  return{t:"模様替え",h:`<div class="yk-edsvg">${ykStadiumSVG(L,{id:"ed",mem:ykMementos(),edit:true,anim:true})}</div>
-  ${e.prev?`<div class="yk-prev"><span>これでいい？</span><button class="btn sm tomato" id="edOk">決定</button><button class="btn sm paper" id="edNo">やめる</button></div>`:`<p class="yk-s">変えたい場所を、絵か下のボタンでえらんでね。</p>`}
+  ${e.prev?`<div class="yk-prev"><span>この形にしますか？</span><button class="btn sm tomato" id="edOk">決定</button><button class="btn sm paper" id="edNo">やめる</button></div>`:`<p class="yk-s">変えたい場所を、絵か下のボタンでえらんでください。</p>`}
   <div class="yk-chips" data-keepx="1">${YK_SLOT_ORDER.map(k=>`<button class="${e.slot===k?"on":""}" data-slot2="${k}">${YK_PARTS[k].n}</button>`).join("")}</div>
   <div class="yk-opts ${P.color?"col":""}">${P.opts.map(optBtn).join("")}</div>
   <div class="frow"><label>名前</label><input class="inp" id="edName" maxlength="12" value="${esc(e.lay.name)}" style="flex:1"><button class="btn sm" id="edNameOk">決める</button></div>
-  <p class="yk-src">🔒のパーツは、観戦の記録や推し3人で使えるようになります。しばらく開かなくても、球場が古くなったり減ったりはしません。</p>`,
+  <p class="yk-src">鍵のついたパーツは、観戦の記録や推し3人で使えるようになります。しばらく開かなくても、球場が古くなったり減ったりはしません。</p>`,
   ready:el=>{const re=()=>ykShow(false);const saveLay=()=>{YKS().stadium=JSON.parse(JSON.stringify(e.lay));ykSave();renderAll()};
    el.querySelectorAll("[data-slot]").forEach(r=>r.addEventListener("click",()=>{e.slot=r.dataset.slot;e.prev=null;re()}));
    el.querySelectorAll("[data-slot2]").forEach(b=>b.onclick=()=>{e.slot=b.dataset.slot2;e.prev=null;re()});
@@ -4664,7 +4837,6 @@ YKP.pages.stadium=()=>{const e=ykEd(),prog=ykProgress(),P=YK_PARTS[e.slot],L=ykE
    const ok=el.querySelector("#edOk");if(ok)ok.onclick=()=>{e.lay[e.prev[0]]=e.prev[1];e.prev=null;saveLay();toast("模様替えしました");re()};
    const no=el.querySelector("#edNo");if(no)no.onclick=()=>{e.prev=null;re()};
    el.querySelector("#edNameOk").onclick=()=>{const nm=cleanName(el.querySelector("#edName").value)||"わたしの球場";const why=NGW.text(nm);if(why){toast(why,1);return}e.lay.name=nm.slice(0,12);saveLay();toast("名前を決めました");re()}}}};
-/* 画像として保存（SVG → PNG）。アプリでは共有シート、ブラウザでは長押しで保存 */
 async function ykSvgPng(svg,w,h){const s=svg.replace("<svg ",`<svg xmlns="http://www.w3.org/2000/svg" width="${w}" height="${h}" `);const url=URL.createObjectURL(new Blob([s],{type:"image/svg+xml"}));
  try{const im=new Image();await new Promise((r,j)=>{im.onload=r;im.onerror=j;im.src=url});const c=document.createElement("canvas");c.width=w;c.height=h;const x=c.getContext("2d");x.fillStyle="#fff";x.fillRect(0,0,w,h);x.drawImage(im,0,0,w,h);
   return await new Promise(r=>c.toBlob(r,"image/png"))}finally{URL.revokeObjectURL(url)}}
@@ -4688,85 +4860,95 @@ YKP.pages.gallery=()=>{if(!ykGalOn())return{t:"球場ギャラリー",h:ykEmpty(
  return{t:"球場ギャラリー",h:`<div class="yk-chips" data-keepx="1">${[["pop","今週の人気"],["new","新着"],["small","小さな名球場"],["theme","テーマ別"],["saved","保存した"]].map(([k,l])=>`<button class="${tab===k?"on":""}" data-gt="${k}">${l}</button>`).join("")}</div>
   ${tab==="theme"?`<div class="yk-chips">${YK_THEMES.map(t=>`<button class="${th===t?"on":""}" data-gth="${t}">${t}</button>`).join("")}</div>`:""}
   ${tab==="small"?`<p class="yk-s">はじめから使えるパーツだけで作った球場の部門です。</p>`:""}
-  ${L===null?`<p class="yk-s">読み込み中…</p>`:YKG.err?ykEmpty("読み込めませんでした",`<button class="btn sm paper" id="gRe">もう一度</button>`):L.length?`<div class="yk-sgrid">${L.map((x,i)=>`<div class="yk-sitem">${ykStadiumSVG(Object.assign({},YK_INIT,x.lay,{name:x.name,show:{ball:false,flag:false,card:false}}),{id:"gl"+i,small:true})}<b>${esc(x.name)}</b><small>${esc(x.owner)}${x.mine?"（あなた）":""}・${esc(x.theme)}</small>${x.comment?`<small>${esc(x.comment)}</small>`:""}
-   <div class="yk-grx">${x.mine?`<span>いいね ${x.counts.like}・行ってみたい ${x.counts.go}・保存 ${x.counts.saves}<br><small>あなたにだけ表示</small></span>`:`<button class="pbtn ${x.my.like?"on":""}" data-grx="${esc(x.id)}|like" ${x.my.like?"disabled":""}>いいね</button><button class="pbtn ${x.my.go?"on":""}" data-grx="${esc(x.id)}|go" ${x.my.go?"disabled":""}>行ってみたい</button><button class="pbtn ${x.saved?"on":""}" data-gsv="${esc(x.id)}">${x.saved?"保存ずみ":"保存"}</button><button class="pbtn" data-grep="${esc(x.id)}">通報</button>`}</div></div>`).join("")}</div>`
-  :ykEmpty(tab==="saved"?"保存した球場はまだありません":tab==="pop"?"今週はまだ反応がありません。「新着」を見てみよう":"まだありません")}
-  <p class="yk-src">順位は今週の反応の数だけで決めています。球場の大きさ・課金・使った期間は関係ありません。</p>`,
+  ${L===null?`<p class="yk-s">読み込んでいます</p>`:YKG.err?ykEmpty("読み込めませんでした",`<button class="btn sm paper" id="gRe">もう一度読み込む</button>`):L.length?`<div class="yk-sgrid">${L.map((x,i)=>`<div class="yk-sitem">${ykStadiumSVG(Object.assign({},YK_INIT,x.lay,{name:x.name,show:{ball:false,flag:false,card:false}}),{id:"gl"+i,small:true})}<b>${esc(x.name)}</b><small>${esc(x.owner)}${x.mine?"（あなた）":""}　${esc(x.theme)}</small>${x.comment?`<small>${esc(x.comment)}</small>`:""}
+   <div class="yk-grx">${x.mine?`<span>いいね ${x.counts.like}　行ってみたい ${x.counts.go}　保存 ${x.counts.saves}<br><small>あなたにだけ見えています</small></span>`:`<button class="pbtn ${x.my.like?"on":""}" data-grx="${esc(x.id)}|like" ${x.my.like?"disabled":""}>いいね</button><button class="pbtn ${x.my.go?"on":""}" data-grx="${esc(x.id)}|go" ${x.my.go?"disabled":""}>行ってみたい</button><button class="pbtn ${x.saved?"on":""}" data-gsv="${esc(x.id)}">${x.saved?"保存しました":"保存"}</button><button class="pbtn" data-grep="${esc(x.id)}">通報</button>`}</div></div>`).join("")}</div>`
+  :ykEmpty(tab==="saved"?"保存した球場はまだありません":tab==="pop"?"今週はまだ反応がありません。「新着」を見てください":"まだありません")}
+  <p class="yk-src">「今週の人気」は今週の反応の数だけで並べています。球場の大きさ・課金・使った期間は関係ありません。</p>`,
   ready:el=>{el.querySelectorAll("[data-gt]").forEach(b=>b.onclick=()=>{YKP.gtab=b.dataset.gt;ykShow(false)});el.querySelectorAll("[data-gth]").forEach(b=>b.onclick=()=>{YKP.gth=b.dataset.gth;ykShow(false)});
    const re=el.querySelector("#gRe");if(re)re.onclick=()=>{YKG.key="";ykShow(false)};
    el.querySelectorAll("[data-grx]").forEach(b=>b.onclick=()=>{const [id,k]=b.dataset.grx.split("|");act("reactStadium",{target:id,k},()=>({ok:false}),r=>{if(r&&r.ok){const x=YKG.list.find(s=>s.id===id);if(x)x.my[k]=true;ykShow(false)}})});
    el.querySelectorAll("[data-gsv]").forEach(b=>b.onclick=()=>{const id=b.dataset.gsv;const x=YKG.list.find(s=>s.id===id);act("saveStadium",{target:id,on:!x.saved},()=>({ok:false}),r=>{if(r&&r.ok){x.saved=!x.saved;ykShow(false)}})});
    el.querySelectorAll("[data-grep]").forEach(b=>b.onclick=()=>{const x=YKG.list.find(s=>s.id===b.dataset.grep);moreMenu("stadium",x.id,x.id,x.owner,()=>{closeModal();YKG.key="";ykShow(false)})})}}};
-function ykPublish(){const L=ykLayout();modal(`<div class="h2">ギャラリーに公開</div>${ykStadiumSVG(L,{id:"pb",small:true})}<p class="sub" style="margin:0">「${esc(L.name)}」を、みんなが見られるギャラリーに公開します。名前（${esc(S.name||"")}）が表示されます。いつでもやめられます。</p>
+function ykPublish(){const L=ykLayout();modal(`<div class="h2">ギャラリーに公開</div>${ykStadiumSVG(L,{id:"pb",small:true})}<p class="sub" style="margin:0">「${esc(L.name)}」を、みんなが見られるギャラリーに公開します。あなたの名前（${esc(S.name||"")}）が出ます。いつでもやめられます。</p>
  <input class="inp" id="pbC" maxlength="60" placeholder="ひとこと（なくてもOK）"><button class="btn tomato wide" id="pbOk">公開する</button><button class="btn paper wide" id="mc">やめる</button>`,x=>{x.querySelector("#mc").onclick=closeModal;
- x.querySelector("#pbOk").onclick=()=>{const c=x.querySelector("#pbC").value.trim();const why=c?NGW.text(c):"";if(why){toast(why,1);return}const lay=ykLayLite(L);
-  act("publishStadium",{lay,comment:c},()=>({ok:false}),r=>{if(r&&r.ok){YKS().gal.pub={at:Date.now()};ykSave();closeModal();toast("ギャラリーに公開しました");YKG.key="";renderAll()}})}})}
+ x.querySelector("#pbOk").onclick=()=>{const c=x.querySelector("#pbC").value.trim();const why=c?NGW.text(c):"";if(why){toast(why,1);return}
+  act("publishStadium",{lay:ykLayLite(L),comment:c},()=>({ok:false}),r=>{if(r&&r.ok){YKS().gal.pub={at:Date.now()};ykSave();closeModal();toast("ギャラリーに公開しました");YKG.key="";renderAll()}})}})}
 const ykLayLite=L=>{const o={};YK_SLOT_ORDER.forEach(k=>{if(k!=="show")o[k]=L[k]});o.name=L.name;return o};
 
 /* =====================================================================
-   観戦記録・図鑑・観戦データ
+   観戦手帳：半券（観戦記録）・球場スタンプ・スコアボード（観戦データ）
    ===================================================================== */
+const YK_STAMPN={v_marine:"マリン",v_fukuoka:"PayPay",v_escon:"エスコン",v_miyagi:"宮城",v_belluna:"ベルーナ",v_kyocera:"京セラ",v_tokyodome:"東京ドーム",v_koshien:"甲子園",v_yokohama:"横浜",v_mazda:"マツダ",v_jingu:"神宮",v_vantelin:"バンテリン"};
+function ticketHTML(w){const g=ykGame(w.gameId);if(!g)return"";const i=ykWInfo(w);const hid=ykHideNow(g);const v=venueById(w.venueId)||venueOfGame(g);const plan=w.mode==="plan";
+ const res=plan||hid?"":i.res==="勝ち"?"勝":i.res==="負け"?"負":i.res==="引き分け"?"分":"";const b=i.b;
+ const sc=!plan&&!hid&&b&&b.hs!=null&&b.status==="end"?`${b.hs}-${b.as}`:"対";
+ return`<button class="tk ${w.mode}" data-yko="game|${w.gameId}" style="--tc:${TEAMC[w.team||g.home]||"#22386B"}"><span class="tk-main"><small>${w.day.replace(/-/g,".")}（${ykWd(w.day)}）${g.time?`　${esc(g.time)}`:""}</small><b>${esc(g.home)}<i>${sc}</i>${esc(g.away)}</b><span>${esc(v?v.name:g.place||"")}</span></span>
+  <span class="tk-stub">${plan?`<span class="tk-mode">${YKI.ticket}予定</span>`:`<span class="tk-mode">${YKI[w.mode==="stadium"?"stadium":"home"]}${w.mode==="stadium"?"球場":"家"}</span>`}${res?`<span class="tk-hanko ${res==="勝"?"w":res==="負"?"l":"d"}">${res}</span>`:hid?`<span class="tk-q">？</span>`:""}</span></button>`}
+function stampBook(small){const s=ykStamps();
+ return`<div class="yk-stamps ${small?"sm":""}">${s.list.map(({v,w},i)=>`<span class="stp ${w?"on":""}" style="--r:${[-8,5,-3,9,-6,2,7,-9,4,-2,8,-5][i]}deg">${w?`<b>${YK_STAMPN[v.id]}</b><small>${ykDay(w.day)}</small>`:`<b>${YK_STAMPN[v.id]}</b>`}</span>`).join("")}</div>`}
+function ledBoard(){const s=ykStats(""),k=ykStreak();const tot=s.wld.勝ち+s.wld.負け;
+ return`<button class="yk-led" data-yko="stats"><span><small>観戦</small><b>${s.n}</b><small>試合</small></span><span><small>球場で</small><b>${s.wld.勝ち}<s>勝</s>${s.wld.負け}<s>敗</s></b></span><span><small>勝率</small><b>${tot?(s.wld.勝ち/tot).toFixed(3).replace(/^0/,""):"―"}</b></span>
+  ${k.n>=2?`<em>球場で${k.n}${k.kind==="勝ち"?"連勝":"連敗"}中</em>`:""}</button>`}
 YKP.pages.watches=()=>{const Y=YKS();const ws=Y.watches.filter(w=>w.mode!=="memory").sort((a,b)=>(b.day||"").localeCompare(a.day||""));const mems=Y.watches.filter(w=>w.mode==="memory");const sv=Object.keys(Y.savedEv);
- return{t:"観戦記録",h:`<div class="yk-btns"><button class="btn sm tomato" data-yko="past">＋ 前に見た試合を記録</button><button class="btn sm paper" data-yko="memory">＋ 日付のない思い出</button></div>
-  <section class="yk-sec"><h3>試合 ${ws.filter(w=>w.mode!=="plan").length}</h3>${ws.length?ws.map(w=>{const g=ykGame(w.gameId);return`<button class="yk-row" data-yko="game|${w.gameId}"><b>${ykDay(w.day)}</b><span>${g?ykMatch(g):"試合"}</span><small>${w.mode==="plan"?"観戦予定（自分だけ）":w.mode==="stadium"?"🏟 球場":"🏠 家"}${w.manual?"・手で入れた記録":""}</small></button>`}).join(""):`<p class="yk-s">まだありません。ホームの「今日の試合」で「見てる」を押すと記録されます。</p>`}</section>
-  ${mems.length?`<section class="yk-sec"><h3>日付のない思い出 ${mems.length}</h3><p class="yk-s">観戦データの数字には入れていません。</p>${mems.map(w=>`<div class="yk-row"><b>${esc(w.year||"いつか")}</b><span>${esc(w.title)}</span><small>${esc(w.note||"")}</small><button class="pbtn danger" data-delm="${w.id}">消す</button></div>`).join("")}</section>`:""}
-  ${sv.length?`<section class="yk-sec"><h3>保存した出来事 ${sv.length}</h3>${sv.map(id=>{const m=/^ev_(gm_.+)_(p_\d+)$/.exec(id);const p=m&&playerById(m[2]),g=m&&ykGame(m[1]);return p&&g?`<button class="yk-row" data-yko="event|${id}"><b>${ykDay(g.day)}</b><span>${esc(p.name)}</span><small>${ykMatch(g)}</small></button>`:""}).join("")}</section>`:""}`,
+ return{t:"観戦の記録",h:`<div class="yk-btns"><button class="btn sm tomato" data-yko="past">前に見た試合を記録</button><button class="btn sm paper" data-yko="memory">日付のない思い出を残す</button></div>
+  ${ws.length?`<div class="tk-list">${ws.map(ticketHTML).join("")}</div>`:ykEmpty("まだ記録がありません。ホームの「今日の試合」で「見てる」を押すと、ここに半券がたまります")}
+  ${mems.length?`<section class="yk-sec"><h3>日付のない思い出</h3><p class="yk-s">観戦データの数字には入れていません。</p>${mems.map(w=>`<div class="yk-row"><b>${esc(w.year||"いつか")}</b><span>${esc(w.title)}</span><small>${esc(w.note||"")}</small><button class="pbtn danger" data-delm="${w.id}">消す</button></div>`).join("")}</section>`:""}
+  ${sv.length?`<section class="yk-sec"><h3>保存した出来事</h3>${sv.map(id=>{const m=/^ev_(gm_.+)_(p_\d+)$/.exec(id);const p=m&&playerById(m[2]),g=m&&ykGame(m[1]);return p&&g?`<button class="yk-row" data-yko="event|${id}"><b>${ykDay(g.day)}</b><span>${esc(p.name)}</span><small>${ykMatch(g)}</small></button>`:""}).join("")}</section>`:""}`,
   ready:el=>el.querySelectorAll("[data-delm]").forEach(b=>b.onclick=()=>ykConfirm("この思い出を消しますか？","消す",()=>{ykDelWatch(b.dataset.delm);ykRefresh()}))}};
-/* 前に見た試合：日程のデータがある日はそこから選ぶ。ない日は、相手・球場・結果を手で入れる（自己申告） */
-YKP.pages.past=()=>{const st=YKP.pst||(YKP.pst={day:dayKeyOf(Date.now()-864e5),mode:"stadium",opp:"",home:true,place:"",res:""});const gs=ykGamesOn(st.day);const t=S.team;
- const vOpts=[...YK_VENUES.map(v=>v.name),"その他の球場"];
+YKP.pages.past=()=>{const st=YKP.pst||(YKP.pst={day:dayKeyOf(Date.now()-864e5),mode:"stadium",opp:"",place:"",res:""});const gs=ykGamesOn(st.day);const t=S.team;
  return{t:"前に見た試合",h:`<div class="frow"><label>日付</label><input class="inp" type="date" id="pdD" value="${st.day}" max="${today()}" min="1950-01-01"></div>
-  <div class="yk-seg"><button class="${st.mode==="stadium"?"on":""}" data-pm="stadium">🏟 球場で</button><button class="${st.mode==="home"?"on":""}" data-pm="home">🏠 家で</button></div>
-  ${gs.length?gs.map(g=>{const w=ykWatchOf(g.id);return`<div class="yk-row"><b>${esc(g.time||"")}</b><span>${ykMatch(g)}</span><small>${esc(g.place||"")}</small>${w?`<span class="yk-l ok">記録ずみ</span>`:`<button class="pbtn" data-ykw="${g.id}|${st.mode}">この試合</button>`}</div>`}).join("")
-  :`<p class="yk-s">この日の日程データはありません。わかる範囲で入れてね（自己申告）。</p>
-   ${t?"":`<p class="yk-warn">先に応援球団をえらんでください（マイ → 推し活）</p>`}
+  <div class="yk-seg"><button class="${st.mode==="stadium"?"on":""}" data-pm="stadium">球場で見た</button><button class="${st.mode==="home"?"on":""}" data-pm="home">家で見た</button></div>
+  ${gs.length?gs.map(g=>{const w=ykWatchOf(g.id);return`<div class="yk-row"><b>${esc(g.time||"")}</b><span>${ykMatch(g)}</span><small>${esc(g.place||"")}</small>${w?`<span class="yk-l ok">記録ずみ</span>`:`<button class="pbtn" data-ykw="${g.id}|${st.mode}">この試合を記録</button>`}</div>`}).join("")
+  :`<p class="yk-s">この日の日程データはありません。わかる範囲で入れてください（自己申告）。</p>
+   ${t?"":`<p class="yk-warn">先に応援する球団をえらんでください（マイ → 推し活）</p>`}
    <div class="frow"><label>相手</label><select class="inp" id="pdO" style="flex:1"><option value="">えらぶ</option>${TEAMS.filter(x=>x!==t).map(x=>`<option ${st.opp===x?"selected":""}>${x}</option>`).join("")}</select></div>
-   <div class="frow"><label>球場</label><select class="inp" id="pdP" style="flex:1"><option value="">えらぶ</option>${vOpts.map(x=>`<option ${st.place===x?"selected":""}>${x}</option>`).join("")}</select></div>
+   <div class="frow"><label>球場</label><select class="inp" id="pdP" style="flex:1"><option value="">えらぶ</option>${[...YK_VENUES.map(v=>v.name),"そのほかの球場"].map(x=>`<option ${st.place===x?"selected":""}>${x}</option>`).join("")}</select></div>
    <div class="yk-seg">${["勝ち","負け","引き分け","おぼえていない"].map(r=>`<button class="${st.res===r?"on":""}" data-pr="${r}">${r}</button>`).join("")}</div>
-   <button class="btn tomato wide" id="pdOk" ${t&&st.opp&&st.res?"":"disabled"}>記録する</button>`}`,
+   <button class="btn tomato wide" id="pdOk" ${t&&st.opp&&st.res?"":"disabled"}>${!t?"球団をえらんでください":!st.opp?"相手をえらんでください":!st.res?"結果をえらんでください":"記録する"}</button>`}`,
   ready:el=>{const sync=()=>{const o=el.querySelector("#pdO"),p=el.querySelector("#pdP");if(o)st.opp=o.value;if(p)st.place=p.value};
    el.querySelector("#pdD").onchange=e=>{if(e.target.value&&e.target.value<=today()){st.day=e.target.value;ykShow(false)}};
    el.querySelectorAll("[data-pm]").forEach(b=>b.onclick=()=>{sync();st.mode=b.dataset.pm;ykShow(false)});
    el.querySelectorAll("[data-pr]").forEach(b=>b.onclick=()=>{sync();st.res=b.dataset.pr;ykShow(false)});
    ["#pdO","#pdP"].forEach(s=>{const x=el.querySelector(s);if(x)x.onchange=()=>{sync();ykShow(false)}});
-   const ok=el.querySelector("#pdOk");if(ok)ok.onclick=()=>{sync();const v=YK_VENUES.find(x=>x.name===st.place);const home=v?v.home===t||v.home!==st.opp?(v.home===st.opp?st.opp:t):t:t;
-    const w=ykAddPast({day:st.day,home,away:home===t?st.opp:t,place:st.place==="その他の球場"?"":st.place,mode:st.mode,res:st.res==="おぼえていない"?"":st.res});
+   const ok=el.querySelector("#pdOk");if(ok)ok.onclick=()=>{sync();const v=YK_VENUES.find(x=>x.name===st.place);const home=v&&v.home===st.opp?st.opp:t;
+    const w=ykAddPast({day:st.day,home,away:home===t?st.opp:t,place:st.place==="そのほかの球場"?"":st.place,mode:st.mode,res:st.res==="おぼえていない"?"":st.res});
     if(!w){toast("この試合はもう記録しています",1);return}YKP.pst=null;toast("記録しました");ykBack();renderAll()}}}};
 YKP.pages.memory=()=>({t:"日付のない思い出",h:`<p class="yk-s">いつだったか思い出せない観戦も、思い出として残せます（観戦データの数字には入れません）。</p>
  <div class="frow"><label>タイトル</label><input class="inp" id="mmT" maxlength="40" placeholder="はじめて行った球場" style="flex:1"></div><div class="frow"><label>だいたいの年</label><input class="inp" id="mmY" maxlength="8" placeholder="2010年ごろ" style="flex:1"></div>
  <textarea class="ta" id="mmN" maxlength="400" placeholder="覚えていること（自分だけ）"></textarea><button class="btn tomato wide" id="mmOk">残す</button>`,
  ready:el=>el.querySelector("#mmOk").onclick=()=>{const t=el.querySelector("#mmT").value.trim(),n=el.querySelector("#mmN").value.trim(),y=el.querySelector("#mmY").value.trim();if(!t){toast("タイトルを入れてください",1);return}const why=NGW.text(t+" "+n+" "+y);if(why){toast(why,1);return}ykAddMemory(t,n,y);toast("思い出を残しました");ykBack();renderAll()}});
-YKP.pages.zukan=()=>{const Z=ykZukan(),n=Z.filter(z=>z.got).length;
- return{t:`図鑑 ${n}/${Z.length}`,h:`<p class="yk-s">観戦の記録からそろう図鑑です。🏠 は家で見た試合でもそろいます。</p>
-  <div class="yk-zk">${Z.map(z=>`<button class="yk-zi ${z.got?"got":""}" data-yko="zitem|${z.id}"><b>${esc(z.n)}</b><small>${esc(z.d)}</small><span>${z.got?`✔ ${z.hits.length}`:"まだ"}${z.home?" 🏠":""}</span></button>`).join("")}</div>
-  <p class="yk-src">球場で見たかどうかは自己申告です。試合の結果・成績：${YKSRC_NOTE}</p>`}};
-YKP.pages.zitem=id=>{const z=ykZukan().find(x=>x.id===id);if(!z)return{t:"図鑑",h:ykEmpty("見つかりません")};
- return{t:esc(z.n),h:`<p class="yk-s">${esc(z.d)}${z.home?"（家で見た試合でもOK）":""}</p>${z.got?z.hits.map(w=>{const g=ykGame(w.gameId);return g?`<button class="yk-row" data-yko="game|${g.id}"><b>${ykDay(g.day)}</b><span>${ykMatch(g)}</span><small>${w.mode==="stadium"?"🏟 球場":"🏠 家"}</small></button>`:""}).join(""):ykEmpty("まだありません")}`}};
-YKP.pages.stats=()=>{const ys=ykYears();const yr=YKP.syear&&ys.includes(YKP.syear)?YKP.syear:"";const s=ykStats(yr);const mx=Math.max(1,...Object.values(s.month));const tot=s.wld.勝ち+s.wld.負け;
+YKP.pages.zukan=()=>{const Z=ykZukan(),n=Z.filter(z=>z.got).length;const s=ykStamps();
+ return{t:"図鑑",h:`<section class="yk-sec"><h3>球場スタンプ<small>${s.n}/12</small></h3>${stampBook()}<p class="yk-s">球場で観戦すると押されます（自己申告）。${s.other?`ほかの球場 ${s.other}か所でも観戦しています。`:""}</p></section>
+  <section class="yk-sec"><h3>観戦の図鑑<small>${n}/${Z.length}</small></h3><div class="yk-zk">${Z.map(z=>`<button class="yk-zi ${z.got?"got":""}" data-yko="zitem|${z.id}"><span class="zi-seal">${z.got?YKI.stamp:""}</span><b>${esc(z.n)}</b><small>${esc(z.d)}</small>${z.home?`<em>家でもOK</em>`:""}</button>`).join("")}</div></section>
+  <p class="yk-src">試合の結果・成績：${YKSRC_NOTE}</p>`}};
+YKP.pages.zitem=id=>{const z=ykZukan().find(x=>x.id===id);if(!z)return{t:"図鑑",h:ykEmpty("見つかりません")};const ws=z.hits.filter(w=>w.gameId);
+ return{t:esc(z.n),h:`<p class="yk-s">${esc(z.d)}${z.home?"（家で見た試合でもOK）":""}</p>${z.got?`<div class="tk-list">${ws.map(ticketHTML).join("")}</div>`:ykEmpty("まだありません")}`}};
+YKP.pages.stats=()=>{const ys=ykYears();const yr=YKP.syear&&ys.includes(YKP.syear)?YKP.syear:"";const s=ykStats(yr);const mx=Math.max(1,...Object.values(s.month));const tot=s.wld.勝ち+s.wld.負け;const k=ykStreak();
  return{t:"観戦データ",h:`${ys.length?`<div class="yk-chips"><button class="${yr?"":"on"}" data-sy="">ぜんぶ</button>${ys.map(y=>`<button class="${y===yr?"on":""}" data-sy="${y}">${y}年</button>`).join("")}</div>`:""}
   ${!s.n?ykEmpty("まだ観戦の記録がありません。記録すると、ここに数字が出ます",`<button class="btn sm tomato" data-yko="past">前に見た試合を記録</button>`):`
-  <div class="yk-nums"><div><b>${s.n}</b><small>観戦した試合</small></div><div><b>${s.stadium}</b><small>🏟 球場</small></div><div><b>${s.home}</b><small>🏠 家</small></div></div>
-  <section class="yk-sec"><h3>球場での勝ち負け</h3>${s.wld.勝ち+s.wld.負け+s.wld.引き分け?`<p class="yk-big">${s.wld.勝ち}勝 ${s.wld.負け}敗${s.wld.引き分け?` ${s.wld.引き分け}分`:""}</p>${tot?`<p class="yk-s">勝率 ${(s.wld.勝ち/tot).toFixed(3).replace(/^0/,"")}</p>`:""}`:`<p class="yk-s">結果がわかっている試合はまだありません</p>`}${s.unknown?`<p class="yk-s">結果がわからない試合 ${s.unknown}件は入れていません</p>`:""}</section>
-  <section class="yk-sec"><h3>見た試合で</h3><div class="yk-nums"><div><b>${s.hrN?s.hr:"―"}</b><small>応援球団の本塁打</small></div><div><b>${s.extra}</b><small>延長戦</small></div><div><b>${s.walk}</b><small>サヨナラ勝ち</small></div></div>${s.hrN<s.n?`<p class="yk-s">本塁打は、選手の成績がある試合（${s.hrN}試合）だけで数えています</p>`:""}</section>
-  ${s.venues.length?`<section class="yk-sec"><h3>よく行く球場</h3>${s.venues.map(([v,n])=>`<div class="yk-row"><span>${esc((venueById(v)||{}).name||"")}</span><b>${n}回</b></div>`).join("")}</section>`:""}
-  ${s.picks.length?`<section class="yk-sec"><h3>よくえらぶ推し</h3>${s.picks.map(([p,n])=>`<button class="yk-row" data-yko="player|${p}"><span>${esc((playerById(p)||{}).name||"")}</span><b>${n}日</b></button>`).join("")}</section>`:""}
-  <section class="yk-sec"><h3>月ごと</h3><div class="yk-bars">${Object.entries(s.month).sort().map(([m,n])=>`<div><i style="height:${Math.round(n/mx*100)}%"></i><b>${n}</b><small>${+m.slice(5)}月</small></div>`).join("")}</div></section>`}`,
+  <div class="yk-board"><div class="bd-row"><span>観戦</span><b>${s.n}</b><span>球場</span><b>${s.stadium}</b><span>家</span><b>${s.home}</b></div>
+   <div class="bd-big"><span>球場での成績</span><b>${s.wld.勝ち}勝${s.wld.負け}敗${s.wld.引き分け?`${s.wld.引き分け}分`:""}</b><em>${tot?"勝率 "+(s.wld.勝ち/tot).toFixed(3).replace(/^0/,""):""}</em></div>
+   ${k.n>=2&&!yr?`<div class="bd-streak">いま球場で ${k.n}${k.kind==="勝ち"?"連勝":"連敗"}中</div>`:""}</div>
+  ${s.unknown?`<p class="yk-s">結果がわからない試合 ${s.unknown}件は、勝ち負けに入れていません。</p>`:""}
+  <section class="yk-sec"><h3>見た試合で</h3><div class="yk-nums"><div><b>${s.hrN?s.hr:"―"}</b><small>応援球団の本塁打</small></div><div><b>${s.extra}</b><small>延長戦</small></div><div><b>${s.walk}</b><small>サヨナラ勝ち</small></div></div>${s.hrN&&s.hrN<s.n?`<p class="yk-s">本塁打は、選手の成績がある${s.hrN}試合だけで数えています。</p>`:""}</section>
+  ${s.venues.length?`<section class="yk-sec"><h3>よく行く球場</h3>${s.venues.map(([v,n])=>`<div class="yk-row"><span>${esc((venueById(v)||{}).name||"")}</span><em>${n}回</em></div>`).join("")}</section>`:""}
+  ${s.picks.length?`<section class="yk-sec"><h3>よくえらぶ推し</h3>${s.picks.map(([p,n])=>`<button class="yk-row" data-yko="player|${p}"><span>${esc((playerById(p)||{}).name||"")}</span><em>${n}日</em></button>`).join("")}</section>`:""}
+  <section class="yk-sec"><h3>月ごとの観戦</h3><div class="yk-bars">${Object.entries(s.month).sort().map(([m,n])=>`<div><b>${n}</b><i style="height:${Math.round(n/mx*100)}%"></i><small>${+m.slice(5)}月</small></div>`).join("")}</div></section>`}`,
   ready:el=>el.querySelectorAll("[data-sy]").forEach(b=>b.onclick=()=>{YKP.syear=b.dataset.sy;ykShow(false)})}};
 
 /* =====================================================================
    シェア：投稿する前に、かならず見た目を確かめる（自動で投稿しない。ポイントはつかない）
-   kind: oshi3（推し3人の結果）/ watch（観戦カード）/ card（球場カード）/ photo（写真）
    ===================================================================== */
 function shareData(kind,arg){
- if(kind==="oshi3"){const o=ykOshi(arg);if(!o)return null;const ls=o.picks.map(pk=>{const p=playerById(pk.pid);const g=pk.gameId&&ykGame(pk.gameId);const hid=g&&ykHidden(pk.gameId)&&ykStarted(g);const l=pk.gameId?ykLine(pk.pid,pk.gameId):{st:"none"};return p?`${p.name}：${hid?"結果をかくし中":lineText(l,p)}${pk.late?"（途中から）":""}`:""}).filter(Boolean);
-  const g=o.picks.map(p=>p.gameId).find(Boolean);return{title:`${ykDay(arg)}の推し3人`,lines:ls,gid:g||"",text:"今日の推し3人"}}
+ if(kind==="oshi3"){const o=ykOshi(arg);if(!o)return null;const pts=ykDayPts(arg);const ls=o.picks.map(pk=>{const p=playerById(pk.pid);const g=pk.gameId&&ykGame(pk.gameId);const hid=ykHideNow(g);const l=pk.gameId?ykLine(pk.pid,pk.gameId):{st:"none"};return p?`${p.name}　${hid?"結果をかくしています":lineText(l,p)}${pk.late?"（途中から）":""}`:""}).filter(Boolean);
+  if(pts&&pts.got&&pts.done)ls.push(`推し点 ${pts.pts}点`);const g=o.picks.map(p=>p.gameId).find(Boolean);return{title:`${ykDay(arg)}の推し3人`,lines:ls,gid:g||"",text:"今日の推し3人"}}
  if(kind==="watch"){const g=ykGame(arg);const w=ykWatchOf(arg);if(!g||!w)return null;const b=ykBox(arg);const hid=ykHidden(arg);
-  return{title:`${ykDay(g.day)} ${g.home} vs ${g.away}`,lines:[w.mode==="stadium"?"球場で観戦":"家で観戦",hid?"":b.status==="end"?`${b.hs}-${b.as}${b.walkoff?"・サヨナラ":""}`:"",(venueOfGame(g)||{}).name||""].filter(Boolean),gid:arg,text:"観戦の記録"}}
- if(kind==="card"){const g=ykGame(arg);if(!g)return null;const n=Object.keys(piecesOf(arg,true)).length;return{title:`球場カード ${(venueOfGame(g)||{}).short||""}`,lines:[`${ykDay(g.day)} ${g.home} vs ${g.away}`,`自分の写真 ${n}/5`],gid:arg,text:"球場カード"}}
- if(kind==="photo"){const p=YKS().photos.find(x=>x.id===arg);if(!p)return null;const g=ykGame(p.gameId);return{title:pieceName(p.kind),lines:g?[`${ykDay(g.day)} ${g.home} vs ${g.away}`]:[],gid:p.gameId,piece:p.kind,photo:p,text:""}}
+  return{title:`${ykDay(g.day)}　${g.home} 対 ${g.away}`,lines:[w.mode==="stadium"?"球場で観戦":"家で観戦",hid?"":b.status==="end"?`${b.hs}対${b.as}${b.walkoff?"（サヨナラ）":""}`:"",(venueOfGame(g)||{}).name||""].filter(Boolean),gid:arg,text:"観戦の記録"}}
+ if(kind==="card"){const g=ykGame(arg);if(!g)return null;const n=Object.keys(piecesOf(arg,true)).length;return{title:`球場カード　${(venueOfGame(g)||{}).short||""}`,lines:[`${ykDay(g.day)}　${g.home} 対 ${g.away}`,`自分の写真 ${n}/5`],gid:arg,text:"球場カード"}}
+ if(kind==="photo"){const p=YKS().photos.find(x=>x.id===arg);if(!p)return null;const g=ykGame(p.gameId);return{title:pieceName(p.kind),lines:g?[`${ykDay(g.day)}　${g.home} 対 ${g.away}`]:[],gid:p.gameId,piece:p.kind,photo:p,text:""}}
  return null}
 YKP.pages.share=a=>{const [kind,arg]=String(a).split("|");const r=shareData(kind,arg);if(!r)return{t:"シェア",h:ykEmpty("シェアできる内容がありません")};
- return{t:"シェアの確認",h:`<p class="yk-s">「みんな」にこの内容で投稿します（ポイントはつきません）。</p>
+ return{t:"シェアの確認",h:`<p class="yk-s">「みんな」にこの内容で投稿します。ポイントはつきません。</p>
   <div class="yk-prevbox">${r.photo?`<div class="imgview">${imgTag("yki:"+r.photo.id,r.title)}</div>`:""}<div class="yk-rc"><span class="yk-rch">${esc(r.title)}</span>${r.lines.map(l=>`<span class="yk-rcl">${esc(l)}</span>`).join("")}</div></div>
   <textarea class="ta" id="shT" maxlength="200" placeholder="ひとこと（なくてもOK）"></textarea>
   <p class="yk-s">だれでも読めます。名前と投稿時刻がつきます。あとから消せます。</p>
@@ -4776,12 +4958,11 @@ YKP.pages.share=a=>{const [kind,arg]=String(a).split("|");const r=shareData(kind
    const rec={kind,title:r.title.slice(0,40),lines:r.lines.slice(0,4).map(x=>String(x).slice(0,40)),gid:r.gid||""};if(r.piece)rec.piece=r.piece;
    const post={world:"yakyu",cat:"観戦記録",text,ch:"",meta:{rec},team:S.team||"",game:near?r.gid:"",img:""};
    if(r.photo){const blob=await ykGetBlob(r.photo.id);if(!blob){toast("写真を読めませんでした",1);return}
-    if(SV){if(!SV.uploadImage){toast("写真の投稿は、いまは使えません",1);return}btn.disabled=true;btn.textContent="写真を送っています…";try{post.img=await SV.uploadImage(blob)}catch(e){btn.disabled=false;btn.textContent="投稿する";toast("写真を送れませんでした",1);return}}
+    if(SV){if(!SV.uploadImage){toast("写真の投稿は、いまは使えません",1);return}btn.disabled=true;btn.textContent="写真を送っています";try{post.img=await SV.uploadImage(blob)}catch(e){btn.disabled=false;btn.textContent="投稿する";toast("写真を送れませんでした",1);return}}
     else post.img=await new Promise(res=>{const fr=new FileReader();fr.onload=()=>res(fr.result);fr.readAsDataURL(blob)})}
-   submitPost(post,()=>{if(r.photo){const p=YKS().photos.find(x=>x.id===r.photo.id);const np=SV?null:CM.posts[CM.posts.length-1];if(p){p.postId=np?np.id:(LAST_POST_ID||"");ykSave()}}ykCloseAll();afterPost(post)},()=>{btn.disabled=false;btn.textContent="投稿する"})}}}};
-/* 「みんな」の記録カード（観戦記録の投稿の中身） */
+   submitPost(post,()=>{if(r.photo){const p=YKS().photos.find(x=>x.id===r.photo.id);if(p){p.postId=LAST_POST_ID||"";ykSave()}}ykCloseAll();afterPost(post)},()=>{btn.disabled=false;btn.textContent="投稿する"})}}}};
 function recMetaHTML(p){const r=p.meta&&p.meta.rec;if(!r)return"";
- return`<span class="yk-rc in"><span class="yk-rck">${{oshi3:"推し3人の結果",watch:"観戦カード",card:"球場カード",photo:"写真："+pieceName(r.piece),zukan:"図鑑",stadium:"自分の球場"}[r.kind]||"記録"}</span><span class="yk-rch">${esc(r.title||"")}</span>${(r.lines||[]).map(l=>`<span class="yk-rcl">${esc(l)}</span>`).join("")}${r.gid&&ykGame(r.gid)?`<span class="yk-rcgo" data-ykgo="${esc(r.gid)}">試合のページ ›</span>`:""}</span>`}
+ return`<span class="yk-rc in"><span class="yk-rck">${{oshi3:"推し3人の結果",watch:"観戦の記録",card:"球場カード",photo:"写真　"+pieceName(r.piece),zukan:"図鑑",stadium:"自分の球場"}[r.kind]||"記録"}</span><span class="yk-rch">${esc(r.title||"")}</span>${(r.lines||[]).map(l=>`<span class="yk-rcl">${esc(l)}</span>`).join("")}${r.gid&&ykGame(r.gid)?`<span class="yk-rcgo" data-ykgo="${esc(r.gid)}">試合のページ</span>`:""}</span>`}
 document.addEventListener("click",e=>{const t=e.target.closest("[data-ykgo]");if(!t)return;e.stopPropagation();e.preventDefault();if(!$("#modal").hidden)closeModal();ykOpen("game",t.dataset.ykgo)},true);
 
 /* =====================================================================
@@ -4795,37 +4976,40 @@ function bindPad(root){root.querySelectorAll("[data-pad]").forEach(pd=>pd.queryS
  if(YKS().settings.vib&&navigator.vibrate)navigator.vibrate(12)}))}
 
 /* =====================================================================
-   勝利のお祭り（勝った日に1回。スキップできる。見たら記録に残せる）
+   勝利の画面（勝った日に1回。とじられる。見たら記録に残せる）
    ===================================================================== */
 function ykMaybeFest(){const t=S.team;if(!t||!YKS().settings.fest)return;const g=ykTeamGame(t,today());if(!g||ykHidden(g.id))return;const b=ykBox(g.id);if(b.status!=="end"||ykResultFor(b,t)!=="勝ち")return;
  const k="fest_"+g.id;if(YKS().seen[k])return;YKS().seen[k]=1;ykSave();
- modal(`<div class="yk-fest ${ykMotion()?"anim":""}"><img src="${(typeof TOMO_POSE!=="undefined"&&TOMO_POSE.win)||TOMO_IMG}" alt=""><b>${esc(t)} 勝利！</b><span>${b.hs}-${b.as}${b.walkoff?"・サヨナラ":""}</span></div>
-  ${ykWatchOf(g.id)?"":`<div class="yk-two"><button class="btn tomato" id="fsS">🏟 球場で見た</button><button class="btn" id="fsH">🏠 家で見た</button></div>`}<button class="btn paper wide" id="mc">とじる</button>`,x=>{
+ modal(`<div class="yk-fest ${ykMotion()?"anim":""}"><img src="${(typeof TOMO_POSE!=="undefined"&&TOMO_POSE.win)||TOMO_IMG}" alt=""><b>${esc(t)} 勝利</b><span>${b.hs}対${b.as}${b.walkoff?"・サヨナラ":""}</span></div>
+  ${ykWatchOf(g.id)?"":`<p class="sub" style="margin:0;text-align:center">この試合、どこで見ましたか？</p><div class="yk-two"><button class="yk-big st" id="fsS">${YKI.stadium}<b>球場で見た</b></button><button class="yk-big hm" id="fsH">${YKI.home}<b>家で見た</b></button></div>`}<button class="btn paper wide" id="mc">とじる</button>`,x=>{
   x.querySelector("#mc").onclick=closeModal;const s=x.querySelector("#fsS"),h=x.querySelector("#fsH");if(s)s.onclick=()=>{closeModal();ykWatchNow(g.id,"stadium")};if(h)h.onclick=()=>{closeModal();ykWatchNow(g.id,"home")}})}
 
 /* =====================================================================
-   マイ →「ノート」：自分の球場と、記録の入り口
+   マイ →「ノート」（観戦手帳）
    ===================================================================== */
 function renderYkMy(){const y=isY();document.querySelectorAll("#myTabs [data-yk]").forEach(b=>b.hidden=!y);$("#myTabs").classList.toggle("n4",y);
  if(!y&&myGroup==="note")setMyGroup("oshi");
- const sb=$("#ykNote");if(sb&&y){const L=ykLayout(),Y=YKS();const mem=ykMementos(),Z=ykZukan(),s=ykStats("");const pub=!!Y.gal.pub;
-  const row=(k,ic,t,v)=>`<button class="yk-nrow" data-yko="${k}"><span>${ic}</span><b>${t}</b><em>${v}</em><i>›</i></button>`;
-  sb.innerHTML=`<div class="yk-card"><div class="yk-mysvg">${ykStadiumSVG(L,{id:"my",mem,anim:true})}</div>
-   <div class="yk-btns"><button class="btn sm tomato" id="myEd">模様替え</button><button class="btn sm paper" id="mySave">画像を保存</button>${ykGalOn()?`<button class="btn sm paper" id="myPub">${pub?"公開を更新":"ギャラリーに公開"}</button>`:""}</div></div>
-   <div class="yk-nlist">${row("watches","📒","観戦記録",`${s.n}試合`)}${row("zukan","📖","図鑑",`${Z.filter(z=>z.got).length}/${Z.length}`)}${row("stats","📊","観戦データ",s.n?`${s.wld.勝ち}勝${s.wld.負け}敗`:"")}
-    ${row("album","📷","写真",`${Y.photos.length}枚`)}${row("history","🃏","推し3人・記念品",`${mem.length}個`)}${row("follow","👀","追いかける選手",`${Y.follow.length}人`)}${ykGalOn()?row("gallery","🏟","球場ギャラリー",""):""}</div>
-   <p class="yk-src">記録はこの端末に保存されています。機種変更のときは「設定」→「記録を書き出す」。</p>`;
-  sb.querySelector("#myEd").onclick=()=>{YKE=null;ykOpen("stadium")};sb.querySelector("#mySave").onclick=()=>ykSaveImage(ykStadiumSVG(L,{id:"sv",mem}),L.name);
+ const sb=$("#ykNote");if(sb&&y){const L=ykLayout(),Y=YKS();const mem=ykMementos(),Z=ykZukan(),st=ykStamps();const pub=!!Y.gal.pub;
+  const ws=Y.watches.filter(w=>w.gameId&&w.mode!=="memory").sort((a,b)=>b.day.localeCompare(a.day));
+  const row=(k,ic,t,v)=>`<button class="yk-nrow" data-yko="${k}">${YKI[ic]}<b>${t}</b><em>${v}</em></button>`;
+  sb.innerHTML=`<div class="yk-card yk-mycard"><div class="yk-mysvg">${ykStadiumSVG(L,{id:"my",mem,anim:true})}</div>
+   <div class="yk-btns"><button class="btn sm tomato" id="myEd">模様替え</button><button class="btn sm paper" id="mySave">画像を保存</button>${ykGalOn()?`<button class="btn sm paper" id="myPub">${pub?"公開した形を新しくする":"ギャラリーに公開"}</button>`:""}</div></div>
+   <section class="yk-nb"><h3 class="nb-h">観戦の半券<button class="yk-more" data-yko="watches">すべて見る</button></h3>${ws.length?`<div class="tk-list">${ws.slice(0,2).map(ticketHTML).join("")}</div>`:`<p class="yk-s">試合を見たら「今日の試合」の「見てる」を押してください。ここに半券がたまります。</p><button class="pbtn" data-yko="past">前に見た試合を記録する</button>`}</section>
+   <section class="yk-nb"><h3 class="nb-h">球場スタンプ<small>${st.n}/12</small><button class="yk-more" data-yko="zukan">図鑑</button></h3>${stampBook(true)}</section>
+   ${ledBoard()}
+   <div class="yk-nlist">${row("zukan","stamp","観戦の図鑑",`${Z.filter(z=>z.got).length}/${Z.length}`)}${row("history","card","推し3人と記念品",mem.length?`記念品 ${mem.length}`:"")}${row("album","camera","写真",Y.photos.length?`${Y.photos.length}枚`:"")}${row("follow","binoc","追いかける選手",Y.follow.length?`${Y.follow.length}人`:"")}${ykGalOn()?row("gallery","trophy","球場ギャラリー",""):""}</div>
+   <p class="yk-src">記録はこの端末に保存しています。機種を変えるときは「設定」の「記録を書き出す」を使ってください。</p>`;
+  bindYk(sb);sb.querySelector("#myEd").onclick=()=>{YKE=null;ykOpen("stadium")};sb.querySelector("#mySave").onclick=()=>ykSaveImage(ykStadiumSVG(L,{id:"sv",mem}),L.name);
   const pb=sb.querySelector("#myPub");if(pb)pb.onclick=ykPublish}
  const st=$("#ykSetBox");if(st){st.hidden=!y;if(y)renderYkSet(st)}}
 function renderYkSet(box){const s=YKS().settings;
  box.innerHTML=`<h2 class="h2">野球ノート</h2>
  <label class="yk-chk"><input type="checkbox" id="ysMo" ${s.motion==="off"?"checked":""}>動きをへらす</label>
- <label class="yk-chk"><input type="checkbox" id="ysFest" ${s.fest?"checked":""}>勝った日に「勝利！」の画面を出す</label>
+ <label class="yk-chk"><input type="checkbox" id="ysFest" ${s.fest?"checked":""}>勝った日に「勝利」の画面を出す</label>
  <div class="yk-btns"><button class="btn sm" id="ysExp">記録を書き出す</button><label class="btn sm paper">記録を読み込む<input type="file" id="ysImp" accept=".json,application/json" hidden></label></div>
  <p class="yk-src">記録と写真はこの端末の中に保存しています。書き出したファイルで、別の端末に移せます。</p>`;
- box.querySelector("#ysMo").onchange=e=>{s.motion=e.target.checked?"off":"auto";ykSave();renderAll()};
- box.querySelector("#ysFest").onchange=e=>{s.fest=e.target.checked;ykSave()};
+ box.querySelector("#ysMo").onchange=e=>{s.motion=e.target.checked?"off":"auto";ykSave();toast(e.target.checked?"動きをへらしました":"動きをもとにもどしました");renderAll()};
+ box.querySelector("#ysFest").onchange=e=>{s.fest=e.target.checked;ykSave();toast(e.target.checked?"勝った日に画面を出します":"勝った日の画面を出しません")};
  box.querySelector("#ysExp").onclick=async()=>{const txt=await ykExport();const blob=new Blob([txt],{type:"application/json"});const f=new File([blob],`yakyutomo-note-${today()}.json`,{type:"application/json"});
   if(navigator.canShare&&navigator.canShare({files:[f]})){try{await navigator.share({files:[f]});return}catch(e){if(e&&e.name==="AbortError")return}}
   const u=URL.createObjectURL(blob);modal(`<div class="h2">記録を書き出す</div><p class="sub" style="margin:0">記録と写真を1つのファイルにまとめました（${Math.ceil(txt.length/1024)}KB）。</p><a class="btn wide" href="${u}" download="yakyutomo-note-${today()}.json">ファイルを保存</a><button class="btn paper wide" id="mc">とじる</button>`,x=>{x.querySelector("#mc").onclick=closeModal})};
@@ -4837,9 +5021,8 @@ function renderYkSet(box){const s=YKS().settings;
 function renderYkLive(){const box=$("#gameBox");if(!box)return;let el=$("#ykLive");const g=isY()&&S.team?ykTeamGame(S.team,today()):null;
  const show=g&&ykBox(g.id).status==="live"&&!ykHidden(g.id);if(!show){if(el)el.remove();return}
  if(!el){el=document.createElement("div");el.id="ykLive";el.className="yk-live";box.appendChild(el)}
- el.innerHTML=`${padHTML(g.id)}${ykWatchOf(g.id)?"":`<div class="yk-two"><button class="btn sm tomato" data-ykw="${g.id}|stadium">🏟 球場で見てる</button><button class="btn sm" data-ykw="${g.id}|home">🏠 家で見てる</button></div>`}`;bindYk(el);bindPad(el)}
+ el.innerHTML=`${padHTML(g.id)}${ykWatchOf(g.id)?"":`<div class="yk-two"><button class="yk-big st" data-ykw="${g.id}|stadium">${YKI.stadium}<b>球場で見てる</b></button><button class="yk-big hm" data-ykw="${g.id}|home">${YKI.home}<b>家で見てる</b></button></div>`}`;bindYk(el);bindPad(el)}
 
-/* ---------- アプリ全体の描き直しのときに呼ぶ ---------- */
 function renderYk(){try{if(isY())npbLoad();renderYkHome();renderYkMy();renderYkLive();if(YKP.stack.length&&!isY())ykCloseAll()}catch(e){console.error(e)}}
 document.addEventListener("visibilitychange",()=>{if(!document.hidden&&isY())npbLoad()});
 

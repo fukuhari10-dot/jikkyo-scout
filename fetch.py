@@ -712,10 +712,30 @@ def parse_roster(html, team):
         if not mm:
             continue
         no, name = (mm.group(1) or "").translate(_ZEN), re.sub(r"\s+", " ", mm.group(2)).strip()
+        dev = bool(re.search(r"育成", name)) or bool(re.search(r"育成", txt))
+        name = re.sub(r"[（(][^）)]*[）)]", " ", name)  # 「(育成選手)」などの注記は名前に入れない
+        name = re.sub(r"\s+", " ", name).strip()
         if not name or len(name) > 20 or re.fullmatch(r"[\d\s]+", name):
             continue
         seen.add(pid)
-        out.append({"id": pid, "n": name, "t": team, "no": no, "pos": pos})
+        row = {"id": pid, "n": name, "t": team, "no": no, "pos": pos}
+        if dev or (no.isdigit() and len(no) == 3 and int(no) >= 100):
+            row["dev"] = 1  # 育成選手
+        out.append(row)
+    return out
+
+
+NPB_ROSTER_EN = "https://npb.jp/bis/eng/players/active/rst_{code}.html"
+
+
+def parse_roster_en(html):
+    """NPB の英語版の選手一覧 → {選手番号: "ueda kiyuto"}（ひらがなで名前をさがすときに使う。名字が先）"""
+    out = {}
+    for m in re.finditer(r'<a[^>]+href="[^"]*?/bis/eng/players/(\d{6,10})\.html"[^>]*>(.*?)</a>', html or "", re.S | re.I):
+        txt = re.sub(r"\s+", " ", re.sub(r"<[^>]+>", " ", m.group(2)).replace("&nbsp;", " "))
+        mm = re.search(r"([A-Za-z][A-Za-z'\-\. ]*?)\s*,\s*([A-Za-z][A-Za-z'\-\. ]*)", txt)
+        if mm:
+            out[m.group(1)] = (mm.group(1).strip() + " " + mm.group(2).strip()).lower()
     return out
 
 
@@ -810,7 +830,8 @@ def mode_roster(now=None, sleep=time.sleep, force=False):
     path = os.path.join(DATA, "players_npb.json")
     cur = load(path, {})
     last = parse_time(cur.get("at")) if cur.get("at") else None
-    if not force and last is not None and last.tzinfo is not None and now - last < ROSTER_EVERY:
+    fresh_fmt = any(p.get("en") for p in cur.get("players", []))  # 前の版で作った一覧（ローマ字なし）は作り直す
+    if not force and fresh_fmt and last is not None and last.tzinfo is not None and now - last < ROSTER_EVERY:
         return False
     old = {p["id"]: p for p in cur.get("players", [])}
     by_team = {}
@@ -820,6 +841,14 @@ def mode_roster(now=None, sleep=time.sleep, force=False):
     for team, code in TEAM_CODE.items():
         try:
             rows = parse_roster(get(NPB_ROSTER.format(code=code), as_json=False).decode("utf-8", "replace"), team)
+            try:  # ローマ字の名前（ひらがな検索用）。読めなくても名簿は使う
+                sleep(1)
+                en = parse_roster_en(get(NPB_ROSTER_EN.format(code=code), as_json=False).decode("utf-8", "replace"))
+                for r in rows:
+                    if r["id"] in en:
+                        r["en"] = en[r["id"]]
+            except Exception as e:
+                print("英語の選手一覧を読めませんでした", team, e, file=sys.stderr)
             if len(rows) >= 10:  # 少なすぎるときは読み方が合っていないので、前のままにする
                 by_team[team] = rows; got += 1
         except Exception as e:
@@ -2024,6 +2053,10 @@ def selftest_npb():
     roster = """<h3>投手</h3><ul><li><a href="/bis/players/91234567.html"><span>11</span><span>投手</span><span>Ｊ．カスティーヨ</span><span>千葉ロッテマリーンズ</span></a></li>
     <li><a href="/bis/players/51155136.html">2 捕手松川 虎生千葉ロッテマリーンズ</a></li></ul><h3>内野手</h3><a href="/bis/players/11111111.html">友杉 篤輝</a>
     <h3>監督</h3><a href="/bis/players/99999999.html">吉井 理人</a>"""
+    rs2 = parse_roster('<a href="/bis/players/12312312.html">121 投手(育成選手)木村 優人千葉ロッテマリーンズ</a>', "ロッテ")
+    assert rs2 == [{"id": "12312312", "n": "木村 優人", "t": "ロッテ", "no": "121", "pos": "投手", "dev": 1}], rs2
+    en = parse_roster_en('<a href="/bis/eng/players/51155136.html"><span>2</span><span>Matsukawa, Kou</span></a><a href="/bis/eng/players/91234567.html">11 Castillo, Jose</a>')
+    assert en == {"51155136": "matsukawa kou", "91234567": "castillo jose"}, en
     rs = parse_roster(roster, "ロッテ")
     assert [(r["id"], r["n"], r["no"], r["pos"]) for r in rs] == [("91234567", "Ｊ．カスティーヨ", "11", "投手"), ("51155136", "松川 虎生", "2", "捕手"), ("11111111", "友杉 篤輝", "", "内野手")], rs
     box = """<table><tr><th></th><th>1</th><th>2</th><th>9</th><th>10</th><th>計</th><th>H</th><th>E</th></tr>
@@ -2070,10 +2103,13 @@ def selftest_npb():
         assert load(os.path.join(DATA, "npb.json"), {})["boxes"] == {}
         calls.clear()
         get = lambda url, params=None, as_json=True: (calls.append(url), roster.encode("utf-8") if "rst_m" in url else b"")[1]
-        assert mode_roster(now, lambda s: None) is True and len(calls) == 12
+        assert mode_roster(now, lambda s: None) is True and len(calls) == 24
         pj = load(os.path.join(DATA, "players_npb.json"), {})
         assert pj["players"] == [], "10人より少ない球団は入れない（読み方が合っていない）"
-        assert mode_roster(now + dt.timedelta(days=1), lambda s: None) is False and len(calls) == 12, "6日以内は読まない"
+        pj["players"] = [{"id": "1", "n": "あ", "t": "ロッテ", "en": "a b"}]; dump(os.path.join(DATA, "players_npb.json"), pj)
+        assert mode_roster(now + dt.timedelta(days=1), lambda s: None) is False and len(calls) == 24, "6日以内は読まない"
+        pj["players"] = [{"id": "1", "n": "あ", "t": "ロッテ"}]; dump(os.path.join(DATA, "players_npb.json"), pj)
+        assert mode_roster(now + dt.timedelta(days=1), lambda s: None) is True, "ローマ字のない古い一覧は作り直す"
         assert mode_roster(now + dt.timedelta(days=1), lambda s: None, force=True) is True
     finally:
         DATA, get = old, old_get
