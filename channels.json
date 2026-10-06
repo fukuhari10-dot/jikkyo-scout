@@ -3563,5 +3563,32 @@
   "all": false,
   "auto": true,
   "added": "2026-10-06"
+ },
+ {
+  "id": "UC2UN1WRmT88dY_JFhBSQmJw",
+  "name": "Japan News",
+  "genre": "fan",
+  "tags": [
+   "応援",
+   "ニュース・考察"
+  ],
+  "team": "",
+  "streamer": false,
+  "all": false,
+  "auto": true,
+  "added": "2026-10-07"
+ },
+ {
+  "id": "UCFCb1YtAlAip_ujlT1MO0Ow",
+  "name": "Kizuna News 絆ニュース",
+  "genre": "fan",
+  "tags": [
+   "応援"
+  ],
+  "team": "阪神",
+  "streamer": false,
+  "all": false,
+  "auto": true,
+  "added": "2026-10-07"
  }
 ]
