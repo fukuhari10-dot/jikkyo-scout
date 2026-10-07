@@ -3047,17 +3047,6 @@
   "added": "2026-09-28"
  },
  {
-  "id": "UCDEZYFjX0vv8aSx_apddkuQ",
-  "name": "やっほっすぅーチャンネル",
-  "genre": "game",
-  "tags": [],
-  "team": "",
-  "streamer": false,
-  "all": false,
-  "auto": true,
-  "added": "2026-09-28"
- },
- {
   "id": "UCTihKr0q6N9o8dkWWU9HNgA",
   "name": "すぃチーズ",
   "genre": "game",
@@ -3541,18 +3530,5 @@
   "all": false,
   "auto": true,
   "added": "2026-10-06"
- },
- {
-  "id": "UCFCb1YtAlAip_ujlT1MO0Ow",
-  "name": "Kizuna News 絆ニュース",
-  "genre": "fan",
-  "tags": [
-   "応援"
-  ],
-  "team": "阪神",
-  "streamer": false,
-  "all": false,
-  "auto": true,
-  "added": "2026-10-07"
  }
 ]
