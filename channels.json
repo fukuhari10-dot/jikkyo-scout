@@ -981,15 +981,6 @@
   "all": false
  },
  {
-  "id": "UCOIKbbIC7Sty5zpEzv1Y3Bg",
-  "name": "放課後プロスピA",
-  "genre": "game",
-  "tags": [],
-  "team": "",
-  "streamer": false,
-  "all": false
- },
- {
   "id": "UCXEUpKg1fpkKVGr3illIbYw",
   "name": "暇部~先輩と後輩~",
   "genre": "game",
@@ -3465,19 +3456,6 @@
   "genre": "game",
   "tags": [],
   "team": "",
-  "streamer": false,
-  "all": false,
-  "auto": true,
-  "added": "2026-09-30"
- },
- {
-  "id": "UCP576o5rysDG7l7XHzbaaGg",
-  "name": "プロ野球巨人解説ch",
-  "genre": "fan",
-  "tags": [
-   "応援"
-  ],
-  "team": "巨人",
   "streamer": false,
   "all": false,
   "auto": true,
