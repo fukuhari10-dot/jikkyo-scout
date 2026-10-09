@@ -3516,5 +3516,19 @@
   "all": false,
   "auto": true,
   "added": "2026-10-09"
+ },
+ {
+  "id": "UCOjLfKftdY5U-nT48SKkQFA",
+  "name": "プロ野球ダイジェスト【なんJ・2chまとめ】",
+  "genre": "fan",
+  "tags": [
+   "応援",
+   "試合振り返り"
+  ],
+  "team": "",
+  "streamer": false,
+  "all": false,
+  "auto": true,
+  "added": "2026-10-10"
  }
 ]
