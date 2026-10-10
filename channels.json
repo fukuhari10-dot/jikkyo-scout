@@ -3521,5 +3521,29 @@
   "all": false,
   "auto": true,
   "added": "2026-10-10"
+ },
+ {
+  "id": "UCqxa7NCOoX6v8YIau1mkSrg",
+  "name": "ゆたぽん",
+  "genre": "game",
+  "tags": [],
+  "team": "",
+  "streamer": false,
+  "all": false,
+  "auto": true,
+  "added": "2026-10-11"
+ },
+ {
+  "id": "UCk45LuqjaK-MyMj5pKLih8Q",
+  "name": "kt【広島カープ】",
+  "genre": "fan",
+  "tags": [
+   "試合振り返り"
+  ],
+  "team": "広島",
+  "streamer": false,
+  "all": false,
+  "auto": true,
+  "added": "2026-10-11"
  }
 ]
