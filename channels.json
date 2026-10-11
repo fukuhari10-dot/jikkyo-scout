@@ -3532,5 +3532,44 @@
   "all": false,
   "auto": true,
   "added": "2026-10-11"
+ },
+ {
+  "id": "UCglPMOkmGriw0qJ_fBoz07A",
+  "name": "HARU | プロスピAまとめ",
+  "genre": "game",
+  "tags": [],
+  "team": "",
+  "streamer": false,
+  "all": true,
+  "auto": true,
+  "added": "2026-10-12"
+ },
+ {
+  "id": "UCWqQ_05T75m9NcAcGry5MAA",
+  "name": "きたへふ おおの かわくち つた゛  [ 広島東洋カープ応援ブログ YouTube版 ]",
+  "genre": "fan",
+  "tags": [
+   "ニュース・考察",
+   "応援",
+   "試合振り返り"
+  ],
+  "team": "広島",
+  "streamer": false,
+  "all": false,
+  "auto": true,
+  "added": "2026-10-12"
+ },
+ {
+  "id": "UCdxLpG41sZohyf0-mCAWK2g",
+  "name": "カープ・ホークス乃木坂46ファン",
+  "genre": "fan",
+  "tags": [
+   "試合振り返り"
+  ],
+  "team": "",
+  "streamer": false,
+  "all": false,
+  "auto": true,
+  "added": "2026-10-12"
  }
 ]
