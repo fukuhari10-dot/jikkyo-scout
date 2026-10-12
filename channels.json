@@ -3562,5 +3562,43 @@
   "all": false,
   "auto": true,
   "added": "2026-10-12"
+ },
+ {
+  "id": "UCyClvWKKZxSq4v8Vf_YQ8iw",
+  "name": "わたちゃん",
+  "genre": "game",
+  "tags": [],
+  "team": "",
+  "streamer": false,
+  "all": false,
+  "auto": true,
+  "added": "2026-10-13"
+ },
+ {
+  "id": "UCjYcr607lPCjIbQjJThWRSg",
+  "name": "⚾ボールパーク通信",
+  "genre": "fan",
+  "tags": [
+   "応援"
+  ],
+  "team": "",
+  "streamer": false,
+  "all": false,
+  "auto": true,
+  "added": "2026-10-13"
+ },
+ {
+  "id": "UCCFb8gDh9D8VqGsksZT_0eg",
+  "name": "鯉男子⚾ベースボールアナリスト3級⚾",
+  "genre": "fan",
+  "tags": [
+   "現地観戦",
+   "応援"
+  ],
+  "team": "広島",
+  "streamer": true,
+  "all": false,
+  "auto": true,
+  "added": "2026-10-13"
  }
 ]
