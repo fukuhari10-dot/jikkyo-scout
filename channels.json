@@ -3547,19 +3547,6 @@
   "added": "2026-10-16"
  },
  {
-  "id": "UCI5iwn_lcx1DGVhVIEllnEA",
-  "name": "Japan News",
-  "genre": "fan",
-  "tags": [
-   "試合振り返り"
-  ],
-  "team": "",
-  "streamer": false,
-  "all": false,
-  "auto": true,
-  "added": "2026-10-16"
- },
- {
   "id": "UCibVhyCRcU2Lvhfo3tJpRZQ",
   "name": "SERUM(セラム)",
   "genre": "fan",
