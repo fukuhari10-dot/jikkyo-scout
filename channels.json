@@ -3556,5 +3556,30 @@
   "all": false,
   "auto": true,
   "added": "2026-10-16"
+ },
+ {
+  "id": "UCkpfbN9ak6gisBkz0aED2Aw",
+  "name": "Tokyo Facts News ",
+  "genre": "fan",
+  "tags": [],
+  "team": "",
+  "streamer": false,
+  "all": false,
+  "auto": true,
+  "added": "2026-10-17"
+ },
+ {
+  "id": "UCjzDgv_EHw60IgzGLNrL3DA",
+  "name": "Narthal Yr",
+  "genre": "fan",
+  "tags": [
+   "ニュース・考察",
+   "応援"
+  ],
+  "team": "",
+  "streamer": false,
+  "all": false,
+  "auto": true,
+  "added": "2026-10-17"
  }
 ]
