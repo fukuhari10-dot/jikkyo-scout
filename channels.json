@@ -3561,5 +3561,18 @@
   "all": false,
   "auto": true,
   "added": "2026-10-17"
+ },
+ {
+  "id": "UCzkIvP2R2LjoHM7JLK2qRBQ",
+  "name": "いわしの横浜DeNAベイスターズ応援チャンネル",
+  "genre": "fan",
+  "tags": [
+   "試合振り返り"
+  ],
+  "team": "DeNA",
+  "streamer": false,
+  "all": false,
+  "auto": true,
+  "added": "2026-10-18"
  }
 ]
