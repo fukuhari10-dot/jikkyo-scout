@@ -3545,5 +3545,16 @@
   "all": false,
   "auto": true,
   "added": "2026-10-18"
+ },
+ {
+  "id": "UCPGRekU540b43zkq_TY1mHg",
+  "name": "そうちゃんとカープ",
+  "genre": "game",
+  "tags": [],
+  "team": "",
+  "streamer": false,
+  "all": true,
+  "auto": true,
+  "added": "2026-10-20"
  }
 ]
