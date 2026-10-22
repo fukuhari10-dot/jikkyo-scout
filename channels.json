@@ -18,15 +18,6 @@
   "all": false
  },
  {
-  "id": "UC5wr1qJKJOrHHK-haeZkfbg",
-  "name": "アカgames",
-  "genre": "game",
-  "tags": [],
-  "team": "",
-  "streamer": false,
-  "all": false
- },
- {
   "id": "UCYRWJTfOwwu3uY9A2yjOjaw",
   "name": "ZEE GAMES",
   "genre": "game",
@@ -896,15 +887,6 @@
   "genre": "game",
   "tags": [],
   "team": "阪神",
-  "streamer": false,
-  "all": false
- },
- {
-  "id": "UCizgcfvH3EdOt9f_EPhqLrg",
-  "name": "ユウチッチ",
-  "genre": "game",
-  "tags": [],
-  "team": "楽天",
   "streamer": false,
   "all": false
  },
