@@ -3429,5 +3429,18 @@
   "all": true,
   "auto": true,
   "added": "2026-10-25"
+ },
+ {
+  "id": "UCsAXW2ZApNbq7KPsm0cZ5eA",
+  "name": "野球談義",
+  "genre": "fan",
+  "tags": [
+   "応援"
+  ],
+  "team": "",
+  "streamer": false,
+  "all": false,
+  "auto": true,
+  "added": "2026-10-31"
  }
 ]
