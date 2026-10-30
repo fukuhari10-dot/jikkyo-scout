@@ -1809,15 +1809,6 @@
   "all": false
  },
  {
-  "id": "UCmJJGpVi2Q-zNWeWsVSrxtQ",
-  "name": "AIAI BASE",
-  "genre": "fan",
-  "tags": [],
-  "team": "",
-  "streamer": false,
-  "all": false
- },
- {
   "id": "UCgnloLkWC77jLi4019CIYxg",
   "name": "DeNAベイスターズファンの雑談部屋",
   "genre": "fan",
@@ -2153,15 +2144,6 @@
  {
   "id": "UCXgTyQ9OB8NLhCJR7-ieODQ",
   "name": "野球場へ行こう〜孤独のB級グルメ",
-  "genre": "fan",
-  "tags": [],
-  "team": "",
-  "streamer": false,
-  "all": false
- },
- {
-  "id": "UCpj_nD9850tykDqIrjtIXdg",
-  "name": "DRAMATIC BASEBALL 2026",
   "genre": "fan",
   "tags": [],
   "team": "",
@@ -2912,17 +2894,6 @@
   "team": "",
   "streamer": false,
   "all": true,
-  "auto": true,
-  "added": "2026-09-28"
- },
- {
-  "id": "UCM318t9RwtZgT6CQAyJNUeA",
-  "name": "IDEALたっか",
-  "genre": "game",
-  "tags": [],
-  "team": "",
-  "streamer": false,
-  "all": false,
   "auto": true,
   "added": "2026-09-28"
  },
