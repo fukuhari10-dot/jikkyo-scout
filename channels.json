@@ -882,15 +882,6 @@
   "all": false
  },
  {
-  "id": "UCkHT_YPVGOY5ZwmckFOekXA",
-  "name": "ニコの実況",
-  "genre": "game",
-  "tags": [],
-  "team": "",
-  "streamer": false,
-  "all": false
- },
- {
   "id": "UCQcuHYafZAxW7JrCfAZGIgw",
   "name": "シナノ日常",
   "genre": "game",
@@ -1676,15 +1667,6 @@
  {
   "id": "UCwtuI9jS-PgrFvdrx-4jIrQ",
   "name": "野球応援し隊",
-  "genre": "fan",
-  "tags": [],
-  "team": "",
-  "streamer": false,
-  "all": false
- },
- {
-  "id": "UC7F1sdRzNz42P2q63hxVc5g",
-  "name": "壇ノ浦野球トーク",
   "genre": "fan",
   "tags": [],
   "team": "",
