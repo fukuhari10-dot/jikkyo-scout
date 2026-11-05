@@ -3418,5 +3418,27 @@
   "all": false,
   "auto": true,
   "added": "2026-11-02"
+ },
+ {
+  "id": "UCzP0Tz_c6WpWvIjWVMaTeyg",
+  "name": "株式会社まんだげーむ",
+  "genre": "game",
+  "tags": [],
+  "team": "",
+  "streamer": false,
+  "all": true,
+  "auto": true,
+  "added": "2026-11-06"
+ },
+ {
+  "id": "UCV3adgjiV66OWm5JAFdSogw",
+  "name": "たなぼた丸【カープ純正】",
+  "genre": "game",
+  "tags": [],
+  "team": "",
+  "streamer": false,
+  "all": true,
+  "auto": true,
+  "added": "2026-11-06"
  }
 ]
