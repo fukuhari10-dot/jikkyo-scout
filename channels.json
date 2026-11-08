@@ -2205,15 +2205,6 @@
   "all": false
  },
  {
-  "id": "UCzIQITNWoNKyEk45J2LpIwQ",
-  "name": "れっちんちゃんねる",
-  "genre": "fan",
-  "tags": [],
-  "team": "",
-  "streamer": false,
-  "all": false
- },
- {
   "id": "UCE_kCj_4cLLXybUae5a0JbQ",
   "name": "DAI channel【千葉ロッテマリーンズ応援チャンネル】",
   "genre": "fan",
@@ -3431,19 +3422,6 @@
   "team": "",
   "streamer": false,
   "all": true,
-  "auto": true,
-  "added": "2026-11-08"
- },
- {
-  "id": "UCGaLfDcJESuhddxHg9YclxQ",
-  "name": "tui jaat",
-  "genre": "fan",
-  "tags": [
-   "ニュース・考察"
-  ],
-  "team": "",
-  "streamer": false,
-  "all": false,
   "auto": true,
   "added": "2026-11-08"
  },
