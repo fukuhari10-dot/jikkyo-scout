@@ -3402,5 +3402,19 @@
   "all": false,
   "auto": true,
   "added": "2026-11-08"
+ },
+ {
+  "id": "UCnESet76M16xq7XQMKRz6YA",
+  "name": "Daily News ",
+  "genre": "fan",
+  "tags": [
+   "ニュース・考察",
+   "ドラフト・二軍"
+  ],
+  "team": "",
+  "streamer": false,
+  "all": false,
+  "auto": true,
+  "added": "2026-11-11"
  }
 ]
