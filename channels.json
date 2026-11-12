@@ -3403,5 +3403,27 @@
   "all": false,
   "auto": true,
   "added": "2026-11-11"
+ },
+ {
+  "id": "UC6t0ska4Jlub6Ytv7TATcJw",
+  "name": "IZUMI ^_^ イズミ",
+  "genre": "game",
+  "tags": [],
+  "team": "",
+  "streamer": false,
+  "all": true,
+  "auto": true,
+  "added": "2026-11-12"
+ },
+ {
+  "id": "UCcXZwUk45taOhSYp-ujQptA",
+  "name": "STちゃんねる",
+  "genre": "game",
+  "tags": [],
+  "team": "",
+  "streamer": false,
+  "all": false,
+  "auto": true,
+  "added": "2026-11-12"
  }
 ]
