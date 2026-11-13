@@ -1287,15 +1287,6 @@
   "all": false
  },
  {
-  "id": "UCuLlRi9yALpljvQDu_gBOqg",
-  "name": "ただの応援好き。",
-  "genre": "fan",
-  "tags": [],
-  "team": "",
-  "streamer": false,
-  "all": false
- },
- {
   "id": "UCG_TkYta-O2VtskB3wwhUIA",
   "name": "限界中日ファンの優勝道",
   "genre": "fan",
@@ -3403,17 +3394,6 @@
   "team": "",
   "streamer": false,
   "all": true,
-  "auto": true,
-  "added": "2026-11-12"
- },
- {
-  "id": "UCcXZwUk45taOhSYp-ujQptA",
-  "name": "STちゃんねる",
-  "genre": "game",
-  "tags": [],
-  "team": "",
-  "streamer": false,
-  "all": false,
   "auto": true,
   "added": "2026-11-12"
  }
