@@ -855,15 +855,6 @@
   "all": false
  },
  {
-  "id": "UCOmBFwBtQjkFZ5LtWjHqhmA",
-  "name": "さくっとふーど",
-  "genre": "game",
-  "tags": [],
-  "team": "楽天",
-  "streamer": false,
-  "all": false
- },
- {
   "id": "UCDRyTZm2vj8EnPxPXS3jpkQ",
   "name": "コーミエの部屋",
   "genre": "game",
@@ -947,15 +938,6 @@
  {
   "id": "UCSDobaWqvIttZUa1xXi4sRQ",
   "name": "ハムショーのスポーツ実況ch",
-  "genre": "fan",
-  "tags": [],
-  "team": "",
-  "streamer": false,
-  "all": false
- },
- {
-  "id": "UCwPaG8zQJvsCwiTstXcx8ng",
-  "name": "B-モレル B桑",
   "genre": "fan",
   "tags": [],
   "team": "",
