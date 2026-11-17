@@ -3351,5 +3351,19 @@
   "all": true,
   "auto": true,
   "added": "2026-11-16"
+ },
+ {
+  "id": "UC4sX0Ym-UZgNbLry29k-P_A",
+  "name": "スポーツタイム JP 🇯🇵",
+  "genre": "fan",
+  "tags": [
+   "ニュース・考察",
+   "応援"
+  ],
+  "team": "阪神",
+  "streamer": false,
+  "all": false,
+  "auto": true,
+  "added": "2026-11-17"
  }
 ]
