@@ -873,15 +873,6 @@
   "all": false
  },
  {
-  "id": "UCQcuHYafZAxW7JrCfAZGIgw",
-  "name": "シナノ日常",
-  "genre": "game",
-  "tags": [],
-  "team": "",
-  "streamer": false,
-  "all": false
- },
- {
   "id": "UCTzK4CLcsIvDvx0rVJSU9cA",
   "name": "はむっちょ",
   "genre": "game",
@@ -2169,15 +2160,6 @@
   "all": false
  },
  {
-  "id": "UC1mQCbUwNtGFYcDEd1VBb-g",
-  "name": "兎月 カルテ / Uzuki Karte【カープ女子】",
-  "genre": "fan",
-  "tags": [],
-  "team": "",
-  "streamer": false,
-  "all": false
- },
- {
   "id": "UC6_znju6hXJHEshRZCJB6Uw",
   "name": "あまてち野球ch",
   "genre": "fan",
@@ -3297,20 +3279,6 @@
   "all": false,
   "auto": true,
   "added": "2026-11-08"
- },
- {
-  "id": "UCnESet76M16xq7XQMKRz6YA",
-  "name": "Daily News ",
-  "genre": "fan",
-  "tags": [
-   "ニュース・考察",
-   "ドラフト・二軍"
-  ],
-  "team": "",
-  "streamer": false,
-  "all": false,
-  "auto": true,
-  "added": "2026-11-11"
  },
  {
   "id": "UC6t0ska4Jlub6Ytv7TATcJw",
